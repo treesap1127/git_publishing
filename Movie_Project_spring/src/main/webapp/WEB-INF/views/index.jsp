@@ -185,11 +185,7 @@
       </ul>
   </div>
 
-<<<<<<< HEAD
    <div class="event_box">
-=======
-<div class="event_box">
->>>>>>> branch 'JJH_MERGE' of https://github.com/treesap1127/movie_project.git
     <!-- 박스 모양 ↑ -->
    
  

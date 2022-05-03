@@ -36,7 +36,7 @@ public class MovieController {
    @PostMapping("/koficmovie")
    public Object kobisMovie(@RequestBody Kofic item) throws OpenAPIFault, Exception{
       String key="52ed877329884c9bcff27fca7daf01d0";
-      
+      //영화페이지
       Calendar cal = Calendar.getInstance();
       SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
       cal.add(Calendar.DATE, -1);
