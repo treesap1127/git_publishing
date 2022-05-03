@@ -90,6 +90,7 @@ public class MovieController {
       List<NaverData> datalist= (List<NaverData>) data.get("items");
       
         System.out.println("TWO데이터"+datalist.get(0));
+        System.out.println("영화 데이터 끝");
         return datalist.get(0);
         
    }
@@ -168,3 +169,4 @@ public class MovieController {
           return boxOfficeResult;
        }
 }
+//test
