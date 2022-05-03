@@ -92,7 +92,7 @@
                 <section class="Easy-sgin-in-wrap">
                     <div class="sign-a-list">
                         <div id ="kakao_id_login" class="ka"><a href="#"><img src="img/login/kakao.png" alt="카카오" style="height: 45px; width: 45px;" /><i class="fas fa-kakaocorp"></i><span>카카오톡 계정으로 로그인</span></a></div>
-                        <div id ="naver_id_login" class="na">네이버 계정으로 로그인</div>                  
+                        <div id ="naver_id_login" class="na">네이버 계정으로 로그인.</div>                  
                     </div>   
                     <!-- //네이버 로그인 버튼 노출 영역 -->
 						  <script type="text/javascript">
