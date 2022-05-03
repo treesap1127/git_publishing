@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
                                 	
     
+=======
+                            	
+>>>>>>> refs/heads/hong_tack-backend
     
     
     
@@ -8,8 +12,12 @@
     
     
     <wb-module deploy-name="kopo-1.0.0-BUILD-SNAPSHOT">
+<<<<<<< HEAD
                                                                         
         
+=======
+                                                                
+>>>>>>> refs/heads/hong_tack-backend
         
         
         
@@ -17,8 +25,12 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+<<<<<<< HEAD
                                                                 		
         
+=======
+                                                        		
+>>>>>>> refs/heads/hong_tack-backend
         
         
         
@@ -26,8 +38,12 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< HEAD
                                                                 		
         
+=======
+                                                        		
+>>>>>>> refs/heads/hong_tack-backend
         
         
         
@@ -35,8 +51,12 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+<<<<<<< HEAD
                                                                 		
         
+=======
+                                                        		
+>>>>>>> refs/heads/hong_tack-backend
         
         
         
@@ -44,8 +64,13 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
                                                                 		
         
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+                                                        		
+>>>>>>> refs/heads/hong_tack-backend
         
         
         
@@ -53,8 +78,12 @@
         
         
         <property name="java-output-path" value="target/classes"/>
+<<<<<<< HEAD
                                                                         
         
+=======
+                                                                
+>>>>>>> refs/heads/hong_tack-backend
         
         
         
@@ -62,8 +91,12 @@
         
         
         <property name="context-root" value="kopo"/>
+<<<<<<< HEAD
                                                                 	
     
+=======
+                                                        	
+>>>>>>> refs/heads/hong_tack-backend
     
     
     
@@ -71,8 +104,12 @@
     
     
     </wb-module>
+<<<<<<< HEAD
                                 
 
+=======
+                            
+>>>>>>> refs/heads/hong_tack-backend
 
 
 

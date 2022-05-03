@@ -87,8 +87,7 @@ var a = $('#summernote');
           <input type="text" name="writer" class="form-control" placeholder="작성자">		
        		</div>
           <br>   
-          <div class="file-upload" style="text-align: right;">
-            <label for="ex_file">업로드</label>
+          <div class="file-upload" style="text-align: right;">           
             <input class="ex_file" type="file" id="ex_file" > 
             <input type="date" name="ragdate">
         </div>        
@@ -102,7 +101,7 @@ var a = $('#summernote');
         
         <div>        	
           <div class="add_setbutton">
-          <input class="update_addbutton" type="submit" class="btn btn-outline-primary" value="등록하기" style="background-color:transparent;">
+          <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
           <a href="NoticeView" class="btn btn-outline-primary">목록가기</a></div>						
         </div>     
       </form>

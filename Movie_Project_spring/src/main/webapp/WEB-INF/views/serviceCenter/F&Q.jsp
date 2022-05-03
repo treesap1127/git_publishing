@@ -58,8 +58,8 @@
     </div>
 <div class="title_right">
 	                <a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
-	                <div class="login_link"><a href="serviceCenter/CenterService" >고객센터</a></div>
-	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="login">로그인</a></div></c:if>
+	                <div class="login_link"><a href="../serviceCenter/CenterService" >고객센터</a></div>
+	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="../login">로그인</a></div></c:if>
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
@@ -124,7 +124,7 @@
                 <tr>           
                     <td><details>
                       <summary>Q 네이버 페이로 결제할수 있나용?</summary>
-                      택현아 정신차리자
+                      결제창 정보에 따라서 진행 하거나 진행이 어려울 경우 질문게시판에 올리시면 됩니다.
                     </details></td>   
                 </tr>              
                 <tr>           
@@ -136,7 +136,12 @@
                 <td><details>
                   <summary>Q 예매후 극장 예매표는 어떻게 받나요?</summary>
                 </details></td>   
-            </tr>              
+            </tr> 
+               <tr>           
+                <td><details>
+                  <summary>Q 예매하는법?</summary>
+                </details></td>   
+            </tr>             
               </thead>
                                   
           </table>
@@ -290,27 +295,7 @@
 
 </div>
 
-<!-- 페이징디자인 -->
-<div class="pager ">
-  <div class="page_wrap">
-    <div class="page_nation">
-       <a class="arrow pprev" href="#"></a>
-       <a class="arrow prev" href="#"></a>
-       <a href="#" class="active">1</a>
-       <a href="#">2</a>
-       <a href="#">3</a>
-       <a href="#">4</a>
-       <a href="#">5</a>
-       <a href="#">6</a>
-       <a href="#">7</a>
-       <a href="#">8</a>
-       <a href="#">9</a>
-       <a href="#">10</a>
-       <a class="arrow next" href="#"></a>
-       <a class="arrow nnext" href="#"></a>
-    </div>
- </div>
-</div>
+
  </div>
 
 

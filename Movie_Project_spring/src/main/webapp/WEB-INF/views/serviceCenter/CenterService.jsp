@@ -70,16 +70,16 @@
                                           <td><a href="#">Q 네이버 페이로 결제할수 있나용?</a></td>
                                        </tr>
                                        <tr>
-                                        <td><a href="#">Q 네이버 페이로 결제할수 있나용?</a></td>
+                                        <td><a href="#">Q 한번에 몇 매까지 예매가 가능한가요?</a></td>
                                      </tr>
                                      <tr>
                                       <td><a href="#">Q 네이버 페이로 결제할수 있나용?</a></td>
                                    </tr>
                                    <tr>
-                                    <td><a href="#">Q 네이버 페이로 결제할수 있나용?</a></td>
+                                    <td><a href="#">Q 예매후 극장 예매표는 어떻게 받나요?</a></td>
                                  </tr>
                                  <tr>
-                                  <td><a href="#">Q 네이버 페이로 결제할수 있나용?</a></td>
+                                  <td><a href="#">Q 예매 취소내역은 어디서 확인하나요?</a></td>
                                </tr>
                               
                                       </thead>
@@ -143,9 +143,8 @@
 
     </div>
     <div class="sub_box_menu">
-      <div class="sub_box"><a href="notice.html"></a></div> 
-       <div class="sub_box1"><a href="faq.html"></a></div> 
-      <div class="sub_box2"> <a href=""></a></div>      
+      <a href="NoticeView" class="service_img"><img alt="고객센터" src="/img/center_service/plannings.png" class="sub_box" style="display:block;">공지사항</a>
+      <a href="F&Q" class="faq_img"><img alt="자주묻는질문" src="/img/center_service/faq.png" class="sub_box1" style="display:block;">자주묻는질문</a>      
    </div>
     </div>
   

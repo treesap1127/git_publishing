@@ -150,7 +150,7 @@ padding: 2em 12em;
 
 .faqs_box{
     width: 1000px;
-    height: 900px; 
+    height: 1200px; 
     position: relative;
     left: 52%;
     transform: translateX(-50%);
@@ -309,63 +309,6 @@ details[open] summary {
   margin-bottom: .5em;
 }
 
-.pager{
-  position: relative;
-  width: 1000px;
-  /* top: -15px; */
-  height: 283px;
-}
-.page_wrap {
-   text-align: center;
-    font-size: 0;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
- }
-.page_nation {
-   display:inline-block;
-}
-.page_nation .none {
-   display:none;
-}
-.page_nation a {
-   display:block;
-   margin:0 3px;
-   float:left;
-   border:1px solid #e6e6e6;
-   width:28px;
-   height:28px;
-   line-height:28px;
-   text-align:center;
-   background-color:#fff;
-   font-size:13px;
-   color:#999999;
-   text-decoration:none;
-}
-.page_nation .arrow {
-   border:1px solid #ccc;
-}
-.page_nation .pprev {
-   background:#f8f8f8 url(/img/pager/page_pprev.png) no-repeat center center;
-   margin-left:0;
-}
-.page_nation .prev {
-   background:#f8f8f8 url(/img/pager/page_prev.png) no-repeat center center;
-   margin-right:7px;
-}
-.page_nation .next {
-   background:#f8f8f8 url(/img/pager/page_next.png) no-repeat center center;
-   margin-left:7px;
-}
-.page_nation .nnext {
-   background:#f8f8f8 url(/img/pager/page_nnext.png) no-repeat center center;
-   margin-right:0;
-}
-.page_nation a.active {
-   background-color:#42454c;
-   color:#fff;
-   border:1px solid #42454c;
-}
 
 
 

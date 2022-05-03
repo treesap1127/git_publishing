@@ -20,8 +20,8 @@
     </div>
 <div class="title_right">
 	                <a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
-	                <div class="login_link"><a href="serviceCenter/CenterService" >고객센터</a></div>
-	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="login">로그인</a></div></c:if>
+	                <div class="login_link"><a href="../serviceCenter/CenterService" >고객센터</a></div>
+	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="../login">로그인</a></div></c:if>
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
@@ -99,7 +99,7 @@
                     <td>관리자</td>
                     <td>2022-04-21</td>
                     <td></td>
-                    <td><a href="NoticeUpdate">수정</a> <a href="delete/">삭제</a></td>
+                    <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -107,7 +107,7 @@
                   <td>관리자</td>
                   <td>2022-02-02</td>
                   <td></td>
-                  <td><a href="NoticeUpdate">수정</a> <a href="delete/">삭제</a></td>
+                  <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
               </tr>
               <tr>
                 <td>3</td>
@@ -115,15 +115,15 @@
                 <td>관리자</td>
                 <td>2022-01-25</td>
                 <td></td>
-                <td><a href="NoticeUpdate">수정</a> <a href="delete/">삭제</a></td>
+                <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
             </tr>
             <tr>
               <td>4</td>
-              <td><a href="NoticeList">새해를 맞이하는 인사</a></td>
+              <td><a href="NoticeList">[알림]관리자 입니다.</a></td>
               <td>관리자</td>
               <td>2022-01-01</td>
               <td></td>
-              <td><a href="NoticeUpdate">수정</a> <a href="delete/">삭제</a></td>
+              <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
           </tr>
           <tr>
             <td>5</td>
@@ -131,7 +131,7 @@
             <td>관리자</td>
             <td>2021-12-01</td>
             <td></td>
-            <td><a href="update/">수정</a> <a href="delete/">삭제</a></td>
+            <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
         </tr>
               </tbody>                          
           </table>

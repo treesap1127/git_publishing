@@ -4,11 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <link href="../css/login/login.css" rel="stylesheet" type="text/css">
- <jsp:include page="../include/header.jsp"></jsp:include>
- 
- 	<link rel="stylesheet" href="../css/style/style.css">
+<jsp:include page="../include/header.jsp"></jsp:include> 
+<link rel="stylesheet" href="../css/style/style.css">
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
 </head>
 <body>
   <div class="box_case">
@@ -86,16 +88,23 @@
       
 
         <div class="center2">       
-            <h1>소셜로그인</h1>	
-              <form id="login_form" method="post">
+            <h1>소셜로그인</h1>	              
                 <section class="Easy-sgin-in-wrap">
-                    <ul class="sign-a-list">
-                        <li class="ka"><a href="#"><img src="img/login/kakao.png" alt="카카오" style="height: 45px; width: 45px;" /><i class="fas fa-kakaocorp"></i><span>카카오톡 계정으로 로그인</span></a></li>
-                        <li class="na"><a href="#"><img src="img/login/naver.png" class="naver_img"alt="네이버" style="height: 45px; width: 45px;"><i class="fab fa-facebook-square"></i><span>네이버 계정으로 로그인</span></a></li>                        
-                    </ul>
-                    
-                </section>
-                </form>
+                    <div class="sign-a-list">
+                        <div id ="kakao_id_login" class="ka"><a href="#"><img src="img/login/kakao.png" alt="카카오" style="height: 45px; width: 45px;" /><i class="fas fa-kakaocorp"></i><span>카카오톡 계정으로 로그인</span></a></div>
+                        <div id ="naver_id_login" class="na">네이버 계정으로 로그인</div>                  
+                    </div>   
+                    <!-- //네이버 로그인 버튼 노출 영역 -->
+						  <script type="text/javascript">
+						  	var naver_id_login = new naver_id_login("pWs7zT5cUybuWleJFuHa", "http://localhost:9090/naver/callback");
+						  	var state = naver_id_login.getUniqState();
+						  	naver_id_login.setButton("white", 2,40);
+						  	naver_id_login.setDomain("http://localhost:9090/naverLogin");
+						  	naver_id_login.setState(state);
+						  	naver_id_login.setPopup();
+						  	naver_id_login.init_naver_id_login();
+						  </script>					  
+                </section>             
               </div>
 		  
     </div>
