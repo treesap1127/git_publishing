@@ -308,6 +308,12 @@ details[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: .5em;
 }
+.down_img {
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin-right: 35px
+}
 
 
 
