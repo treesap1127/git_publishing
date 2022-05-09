@@ -9,6 +9,9 @@
   padding: 0px;
   color: #000;
 }
+body{
+	background-color: #f5f5f5;
+}
 #main-menu{
     list-style: none;
     padding-left: 0px;
@@ -251,204 +254,90 @@ a{
 .mypage{
   background-color: #f5f5f5;
   width: 100%;
-  height: 3040px;
+
 }
 .mypage_inline{
   width: 1080px;
-  height: 100%;
   position:relative;
   left: 50%;
   transform: translateX(-50%);
 }
-.my_page{
-  width: 100%;
-  height: 430px;
-  justify-content: space-between;
+.theater{
+width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 50px;
 }
-.my_top{
-  width: 49%;
-  height: 100%;
+.theater_add_btn{
+    width: 22%;
+    border: 1px solid black;
+    height: 89px;
+    margin: 10px;
 }
-.my_bank_name{
-  width: 100%;
-  height: 20%;
+.theater_add_link{
+    text-align: center;
+    position: relative;
+    color: black;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%,-50%);
 }
-.my_bank_title{
- color: black;
- position: relative;
- top: 50px;
+.theater_add_link:hover{
+	color:black;
+}
+table{
+	text-align: center;
+}
+.theater_table{
+margin-bottom: 60px;
+    margin-top: 47px;
+}
+.theater_top{
+    left: 50%;
+    transform: tranlateX(-50%);
+    margin: 41px;
+    text-align: center;
+    font-size: 20px;
+}
+.addblock {
+box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid red;
+    border-radius: 0.6em;
+    color: red;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 2em 2em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+ .addblock:hover,
+ .btn:focus {
+    color: #fff;
+    outline: 0;
+  }
+.ab {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 
 }
-.my_back_box{
-  width: 100%;
-  height: 56%;
-  background-color: white;
-  display: flex;
-}
-.my_back_box_{
-  width: 50%;
-  padding: 55px;
-  font-size: 18px;
-  text-align: center;
-  line-height: 58px;
-}
-.ticket_check_cancle{
-  width: 100%;
-  height: 1300px;
+  .ab:hover {
+    box-shadow: 0 0 40px 40px red inset;
+  }
 
-}
-.ticket_cancle{
-  width: 100%;
-  height: 1300px;
-}
-.ticket_sale{
-  width: 100%;
-  height: 1300px;
-}
-.ticket_sale_{
-  width: 100%;
-  height: 1300px;
-}
-.menu{
-  width: 100%;
-  height: 100px;  
-}
-.menu>div{
-  width: 50%;
-  text-align: center;
-  padding: 40px;
-  border-bottom: 1px solid lightgray;
-}
-.menu>div.menu1{
-  font-weight: 700;
-  border-bottom: 2px solid black;
-}
-.Cbutton{
-  width: 100%;
-  height: 100px;
-  justify-content: space-evenly;
-}
-.Cbutton>button{
-  outline: 0;
-  border: 0;
-  background-color: #f5f5f5;
 
-  height: 63px;
-  width: 120px;
-  position: relative;
-  top: 36px;
-}
 
-.fail_info{
-  position: relative;
-  background-color: white;
-  display: flex;
-  width: 100%;
-  height: 400px;
-  /* top: 178px; */
-  left: 50%;
-  transform: translateX(-50%);
-  border: 1px solid #dddddd;
-  margin-bottom: 50px;
-}
-.complete_img{
-  width: 284px;
-}
-.complete_text{
-  padding: 30px;
-  width: 59%;
-  line-height: 40px;
-}
-.com_tic_name{
-  padding-bottom: 50px;
-  padding-top: 50px;
-}
-#check_menu{
-  font-weight: 700;
-  border-bottom: 1px solid black;
-}
-.lhr6{
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 100%;
-}
-.c_info{
-  width: 100%;
-  height: 270px;
-}
-.c_info_name{
-  font-size: 21px;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-.c_info_text{
-  line-height: 30px;
-  opacity: 0.7;
-}
-.c_info_text2{
-  line-height: 25px;
-  margin-top: 29px;
-  font-size: 15px;
-}
-.c_info_b{
-  font-weight: 600;
-}
-.red_txt_box{
-  width: 100%;
-  height: 100px;
-  background-color: #ec6159;
-  margin-bottom: 40px;
-}
-.red_txt{
-  width: 87%;
-  height: 96px;
-  margin: 2px;
-  text-align: center;
-}
-.red_button{
- margin: 2px;
- list-style: 0;
- border: 0;
-  text-align: center;
-  width: 12%;
-  height: 96px;
-  color: white;
-  font-size: 17px;
-  background-color: #ec6159;
 
-}
-.flex{
-  display: flex;
-}
-.such_text{
-  line-height: 20px;
-  font-size: 14px;
-}
-.sale_box{
-  width: 100%;
-  height: 800px;
-  margin-top: 80px;
-}
 
-.sale_box_double{
-  height: 47%;
-}
-.sale_box_double_bottom{
-  height: 50%;
-  position: relative;
-  top: 3%;
-}
 
-.table_name{
-  font-size: 20px;
-  position: relative;
-  bottom: 10px;
-}
-.such_text_box{
-  position: relative;
-  top: 25px;
-}
-.c_info_box{
-  width: 100%;
-  height: 1100px;
-}
+
+
