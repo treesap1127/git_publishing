@@ -41,5 +41,18 @@ public class MypageController {
 		model.addAttribute("list", list);
 		return path+"myCinema";
 	}
+	@GetMapping("/update/{cinemaCode}")
+	public String update() {
+		//상영관명 //상영관코드 //좌석 상영관 명이랑 상영관 코드 있는 버튼 만들어서 상영관 좌석 띄우기! 
+		//아래에 좌석 페이지 띄우고 추가 할 수 있도록 ㅇㅇ 위 테이블 클릭 하면 포커스 아래로 맞춰지고 좌석 페이지 수정, 등록으로 돌아가기로 변경
+		//상영관 수 10개로 한정
+		return path+"sitpage";
+		
+	}
+	@GetMapping("/cinemaMovie/{cinemaCode}")
+	public String cinemaMovie() {
+		return path;
+		
+	}
 	
 }
