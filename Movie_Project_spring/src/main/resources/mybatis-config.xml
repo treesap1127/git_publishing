@@ -7,10 +7,13 @@
 	</settings>
    <typeAliases>
 		<package name="kr.ac.kopo.movie_project.model"/>
+		
    </typeAliases>
    
    <mappers>
 		<mapper resource="mybatis/member.xml"/>
+		<mapper resource="mybatis/event.xml"/>
+
    </mappers>
 
 </configuration>
