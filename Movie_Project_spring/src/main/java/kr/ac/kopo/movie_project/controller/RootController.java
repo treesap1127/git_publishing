@@ -43,7 +43,7 @@ public class RootController {
 			String target=(String) session.getAttribute("target");
 			return "redirect:"+(target==null?"/":target);
 		}
-		System.out.println("로그인이 완료 되었습니다");
+		
 		return "redirect:login";
 	}
 

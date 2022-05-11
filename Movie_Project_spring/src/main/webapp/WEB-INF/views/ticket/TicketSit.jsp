@@ -7,6 +7,10 @@
  <jsp:include page="../include/header.jsp"></jsp:include>
   <link href="../css/ticket/ticket_sit.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/style/style.css">
+
+  <script>
+  	
+  </script>
 </head>
 
 <body>

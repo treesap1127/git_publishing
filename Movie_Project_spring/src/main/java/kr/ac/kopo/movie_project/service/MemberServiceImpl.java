@@ -19,9 +19,6 @@ public class MemberServiceImpl implements MemberService {
 			member.setTel(item.getTel());
 			member.setEmail(item.getEmail());
 			member.setGrade(item.getGrade());
-			if(item.getCinemaCode()!=null) {
-				member.setCinemaCode(item.getCinemaCode());
-			}
 			return true;
 		}
 		return false;

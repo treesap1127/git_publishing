@@ -1,0 +1,386 @@
+
+.gray_box{
+  width: 100%;
+  height: 1350px;
+  background-color: whitesmoke;
+}
+.ticketing_box{
+  width: 1080px;
+  height: 850px;
+  position: relative;
+
+  background-color: white;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #dddddd;
+}
+/* 티켓통 */
+.ticket_check_box{
+  position: relative;
+  height: 186px;
+  width: 1080px;
+  background-color: white;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  border: 1px solid #dddddd;
+}
+.movie_poster{
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+.check_com{
+  position: relative;
+  top: 30px;
+  left: 80px;
+  height: 150px;
+  width: 300px;
+}
+.ticketing_name{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+/*티켓통 하단*/
+.tic_top{
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+  height: 27%;
+  display: flex;
+}
+.movie_checking{
+  border-right: 1px solid #dddddd;
+  width: 100%;
+  height: 27%;
+}
+.person_check{
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid #dddddd;
+
+}
+.movie_checking{
+  width: 360px;
+  height: 100%;
+}
+.sit_check{
+  width: 50%;
+  height: 100%;
+}
+
+.sit_img{
+  width: 100%;
+  height: 175px;
+  display: flex;
+}
+.sit_screen{
+  background-image: url(../../img/ticket_sit/screen.png);
+  width: 600px;
+  height: 100px;
+  object-fit: contain;
+  position: relative;
+  top: 25%;
+  left: 22%;
+}
+.sit_return{
+  background-image: url(../../img/ticket_sit/spin_arrow.png);
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  position: relative;
+  top: 15%;
+  left: 38%;
+}
+.mod_center{
+  height: 63%;
+  width: 100%;
+  background-color: black;
+  opacity: 9%;
+}
+.sit_checkbox{
+    width: 99%;
+    height: 300px;
+    padding: 0px 34px;
+  
+}
+.sit_list_garo{
+  display: flex;
+  justify-content: center;
+}
+.sit_{
+  width: 20px;
+  height: 17px;
+  background: #848484;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 10px;
+  padding-left: 2px;
+  padding-top: 1px;
+}
+.sit_a:hover{
+  background: red;
+}
+.sit_b{
+  width: 17px;
+  height: 17px;
+  background: red;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 10px;
+  padding-left: 3.5px;
+  padding-top: 1px;
+}
+.sit_c{
+  width: 17px;
+  height: 17px;
+  background: #848484 url("../../img/ticket_sit/sit_stop.png");
+  border-radius: 5px 5px 0 0;
+  color: #848484;
+  text-indent: -9999px;
+  font-size: 10px;
+  padding-left: 3.5px;
+  padding-top: 1px;
+}
+.sit_bottom{
+  display: flex;
+  border-top: 1px solid #dddddd;
+  position: relative;
+}
+.category{
+  display: flex;
+  width: 600px;
+  position: relative;
+  top: 29px;
+  left: 27px;
+}
+.sit_bottom_category{
+  position: relative;
+  bottom: 2px;
+  padding: 0px 7px;
+  font-weight: 300;
+  font-size: 14px;
+}
+.sit_info{
+  font-weight: 300;
+}
+.adult{
+  display: flex;
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+  left: 10%;
+
+}
+.adult_text{
+  width: 50px;
+  text-align: center;
+}
+.adult_button{
+  position: relative;
+  left: 10%;
+}
+.teenager{
+  display: flex;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+  left: 10%;
+}
+.teenager_text{
+  width: 50px;
+  text-align: center;
+}
+.teenager_button{
+  position: relative;
+  left: 10%;
+}
+.aud_but{
+  border: 0;
+  outline: 0;
+  background-color: white;
+  border: 1px solid #dddddd;
+  padding: 1px 6px;
+  opacity: 50%;
+}
+.aud_but:hover{
+  background-color: red;
+  opacity: 100%;
+}
+.ten_but{
+  border: 0;
+  outline: 0;
+  background-color: white;
+  border: 1px solid border;
+  padding: 1px 6px;
+  opacity: 50%;
+}
+.ten_but:hover{
+  background-color: red;
+  opacity: 100%;
+}
+.movie_info{
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+  left: 10%;
+  font-weight: 600;
+}
+.movie_name{
+  position: relative;
+  top: 44%;
+  transform: translateY(-50%);
+  left: 10%;
+  opacity: 60%;
+}
+.movie_time{
+  position: relative;
+  top: 44%;
+  transform: translateY(-50%);
+  left: 10%;
+  opacity: 60%;
+}
+.sit_text{
+	position: relative;
+    top: 33%;
+    transform: translateY(-50%);
+    left: 10%;
+    font-weight: 600;
+    width: 200px;
+}
+.sit_info{
+  position: relative;
+  top: 44%;
+  transform: translateY(-50%);
+  left: 10%;
+  opacity: 60%;
+  width: 200px;
+}
+.sit_infomation{
+  position: relative;
+  transform: translate(48px, 17px);
+  font-weight: 300;
+  font-size: 14px;
+}
+.sit_aph{
+    position: absolute;
+    font-size: 10.7px;
+    text-align: center;
+    font-weight: 600;
+    left: 20px;
+    width: 10px;
+    height: 260px;
+}
+.sit_aph>div{
+  border-top: 1px solid #dddddd;
+}
+.sit_aph_num{
+    display: flex;
+    position: absolute;
+    top: 700px;
+    left: 36px;
+    font-size: 12px;
+    width: 999px;
+    justify-content: center;
+}
+.sit_aph_num>div{
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+        width: 20px;
+        text-align: center;
+}
+.sit_price{
+  display: flex;
+  width: 100%;
+  height: 68%;
+  padding-top: 8%;
+  padding-left: 11%;
+  border-bottom: 1px solid #dddddd;
+}
+.sit_total{
+  display: flex;
+  padding-top: 6%;
+  padding-left: 11%;
+}
+.sit_price_total{
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  width: 25%;
+}
+.sit_price_num{
+  position: relative;
+  left: 50px;
+  text-align: right;
+}
+.sit_total_num{
+  position: relative;
+  left: 50px;
+  text-align: right;
+}
+.sitting{
+  width: 35%;
+}
+.sitting_check{
+  position: relative;
+  top: 38%;
+  left: 28%;
+}
+.sitbottom{
+ height: 85px;
+}
+.mod_shadow{
+  height: 63%;
+  width: 100%;
+}
+.absol_center{
+  position: absolute;
+    top: 54%;
+    width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    font-weight: 700;
+}
+.form_st{
+    width: 1080px;
+    height: 850px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.create_button{
+	position: relative;
+    top: 40%;
+    left: 30%;
+}
+.nametext{
+    width: 70%;
+    position: relative;
+    top: 37%;
+    left: 5%;
+}
+.backbutton{
+	position: relative;
+    top: 25%;
+    left: 87%;
+}
+.addbutton{
+	position: relative;
+    top: 25%;
+    left: 64%;
+}
+.row_info{
+	position: absolute;
+    top: 12px;
+	left: 4%;
+    font-weight: 400;
+    color: gray;
+}

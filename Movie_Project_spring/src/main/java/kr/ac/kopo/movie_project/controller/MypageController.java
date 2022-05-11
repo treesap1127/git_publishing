@@ -8,10 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.kopo.movie_project.model.Member;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.Theater;
 import kr.ac.kopo.movie_project.service.MypageService;
 
 @Controller
@@ -42,17 +47,24 @@ public class MypageController {
 		return path+"myCinema";
 	}
 	@GetMapping("/update/{cinemaCode}")
-	public String update() {
-		//상영관명 //상영관코드 //좌석 상영관 명이랑 상영관 코드 있는 버튼 만들어서 상영관 좌석 띄우기! 
-		//아래에 좌석 페이지 띄우고 추가 할 수 있도록 ㅇㅇ 위 테이블 클릭 하면 포커스 아래로 맞춰지고 좌석 페이지 수정, 등록으로 돌아가기로 변경
-		//상영관 수 10개로 한정
+	public String update(@PathVariable String cinemaCode,Model model) {
+		MovieAdmin item =new MovieAdmin();
+		item.setCinemaCode(cinemaCode);
+		model.addAttribute("item",item);
 		return path+"sitpage";
-		
 	}
+	
 	@GetMapping("/cinemaMovie/{cinemaCode}")
 	public String cinemaMovie() {
 		return path;
-		
 	}
-	
+	@ResponseBody
+	@PostMapping("/update/sit_add")
+	public Object sit_add(@RequestBody Theater item) {
+		System.out.println("좌석"+item.getSit());
+		System.out.println("코드"+item.getCinemaCode());
+		return item;
+	}
+
 }
+
