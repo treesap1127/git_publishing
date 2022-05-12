@@ -7,7 +7,6 @@ public class Member {
 	private String tel;
 	private String email;
 	private int grade;
-	private String cinemaCode;
 	
 	public String getId() {
 		return id;
@@ -32,12 +31,6 @@ public class Member {
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
-	}
-	public String getCinemaCode() {
-		return cinemaCode;
-	}
-	public void setCinemaCode(String cinemaCode) {
-		this.cinemaCode = cinemaCode;
 	}
 	public String getEmail() {
 		return email;

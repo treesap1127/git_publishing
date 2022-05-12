@@ -5,8 +5,11 @@ public class Ticketing {
 	private String id;
 	private String movieName;
 	private String cinemaCode;
+	private String theaterName;
 	private String sitCode;
 	private String movieTime;
+	
+	
 	public String getTicketCode() {
 		return ticketCode;
 	}
@@ -42,6 +45,12 @@ public class Ticketing {
 	}
 	public void setMovieTime(String movieTime) {
 		this.movieTime = movieTime;
+	}
+	public String getTheaterName() {
+		return theaterName;
+	}
+	public void setTheaterName(String theaterName) {
+		this.theaterName = theaterName;
 	}
 	
 

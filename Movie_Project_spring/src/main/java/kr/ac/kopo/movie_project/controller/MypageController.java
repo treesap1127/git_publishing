@@ -1,24 +1,72 @@
 package kr.ac.kopo.movie_project.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.ac.kopo.movie_project.model.Member;
+import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.service.MypageService;
 
 @Controller
+@RequestMapping("myPage")
 public class MypageController {
+	@Autowired
+	MypageService service;
 	final String path="myPage/";
 	
-	@RequestMapping("/myPage")
+	@GetMapping("/myPage")//마이페이지메인
 	public String mypage() {
 		return path+"myPage";
 	}
-	@GetMapping("/mymovie")
+	@GetMapping("/mymovie")//나의 영화목록
 	public String mymovie() {
 		return path+"myMovie";
 	}
-	@GetMapping("/mygrade")
+	@GetMapping("/mygrade")//나의 평점
 	public String mygrade() {
 		return path+"myGrade";
 	}
-	
+	@GetMapping("/myCinema")//마이페이지(고객)
+	public String myCinema(Model model,HttpSession session,Member member) {
+		member=(Member) session.getAttribute("member");
+		String id=member.getId();
+		List<MovieAdmin> list=service.list(id);
+		model.addAttribute("list", list);
+		return path+"myCinema";
+	}
+	@GetMapping("/theater/{cinemaCode}")//마이페이지(영화관)
+	public String theater(@PathVariable String cinemaCode,Model model,MovieAdmin item) {
+		item.setCinemaCode(cinemaCode);
+		model.addAttribute("data",item);
+		List<Theater> list =service.theaterlist(cinemaCode);
+		model.addAttribute("list",list);
+		return path+"sitpage";
+	}
+	@GetMapping("/theater/add/{cinemaCode}")//마이페이지 등록(영화관)
+	public String theateradd(@PathVariable String cinemaCode,Model model,MovieAdmin item) {
+		item.setCinemaCode(cinemaCode);
+		model.addAttribute("data",item);
+		return path+"theaterPage";
+	}
+	@ResponseBody
+	@PostMapping("/theater/add/sit_add")//상영관 등록 ajax
+	public Object sit_add(@RequestBody Theater item) {
+		System.out.println(item.getTheaterName()+"영화 상영관명");
+		service.sit_add(item);
+		return item;
+	}
+
 }
+

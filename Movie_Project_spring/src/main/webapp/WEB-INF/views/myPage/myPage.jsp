@@ -41,7 +41,7 @@
     <!--좌우크기조절-->
     <div class="title">
       <a href="../../../../" class="main_back">
-        <img src="img/root/메인아이콘.jpg" alt="메인아이콘" />
+        <img src="../img/root/메인아이콘.jpg" alt="메인아이콘" />
         <div class="title_name">Miner Cinema</div>
       </a>
     </div>
@@ -109,11 +109,11 @@
         <div class="my_bank_name"><span class="my_bank_title">MY영화</span></div>
         <div class="my_back_box">
          <div class="my_back_box_"style="border-right:1px solid lightgray">
-          <a href="mygrade"><img src="img/mypage/평점.png" alt="">
+          <a href="mygrade"><img src="../img/mypage/평점.png" alt="">
             <div style="color: black;">나의 평점 모아보기</div></a>
           </div>
           <div class="my_back_box_">
-            <a href="mymovie"><img src="img/mypage/본 영화.png" alt="">
+            <a href="mymovie"><img src="../img/mypage/본 영화.png" alt="">
             <div style="color: black;">내가 본 영화</div></a>
           </div>
         </div>
@@ -142,7 +142,7 @@
             <div class="complete_text">
               <div>예매번호: <span style="color: red;">00A00000000000</span></div>
               <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-              <div>영화: <img src="img/ticketing/19세.png" alt="연령제한" />영화명</div>
+              <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한" />영화명</div>
               <div>극장: 극장명</div>
               <div>일시: 2022-03-29 (목) 17:20~19:27</div>
               <div>인원: 어린이1명</div>
@@ -155,7 +155,7 @@
             <div class="complete_text">
               <div>예매번호: <span style="color: red;">00A00000000000</span></div>
               <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-              <div>영화: <img src="img/ticketing/19세.png" alt="연령제한" />영화명</div>
+              <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한" />영화명</div>
               <div>극장: 극장명</div>
               <div>일시: 2022-03-29 (목) 17:20~19:27</div>
               <div>인원: 어린이1명</div>
@@ -214,7 +214,7 @@
             <div class="complete_text">
               <div>예매번호: <span id="not_check" style="text-decoration: line-through;">00A00000000000</span></div>
               <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-              <div>영화: <img src="img/ticketing/19세.png" alt="연령제한"/>영화명</div>
+              <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한"/>영화명</div>
               <div>극장: 극장명</div>
               <div>일시: 2022-03-29 (목) 17:20~19:27</div>
               <div>인원: 어린이1명</div>
@@ -227,7 +227,7 @@
             <div class="complete_text">
               <div>예매번호: <span style="text-decoration: line-through;">00A00000000000</span></div>
               <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-              <div>영화: <img src="img/ticketing/19세.png" alt="연령제한"/>영화명</div>
+              <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한"/>영화명</div>
               <div>극장: 극장명</div>
               <div>일시: 2022-03-29 (목) 17:20~19:27</div>
               <div>인원: 어린이1명</div>

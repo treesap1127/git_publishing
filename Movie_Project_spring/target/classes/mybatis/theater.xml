@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="theater">
+
+	<select id="list" resultType="MovieAdmin">
+      SELECT * FROM movie_admin
+      WHERE id=#{id}
+   </select>
+   <insert id="sit_add">
+   	insert into theater 
+   	values (#{cinemaCode},#{theaterName},#{sit_str},#{row},#{line})
+   </insert>
+   <select id="theaterlist" resultType="Theater">
+      SELECT * FROM theater
+      WHERE cinema_code=#{cinemaCode}
+   </select>
+   
+   
+</mapper>
