@@ -120,7 +120,7 @@
 							<th>${item.littleCity}</th>
 							<th>${item.tel}</th>
 							<th><a href="delete/${item.cinemaCode}"><button class="btn btn-outline-danger" style="margin-right: 10px;">영화관 삭제</button></a><a href="cinemaMovie/${item.cinemaCode}"><button class="btn btn-outline-primary">상영 영화설정</button></a></th>
-							<th><a href="update/${item.cinemaCode}"><button class="btn btn-outline-dark">상영관 편집</button></a></th>
+							<th><a href="theater/${item.cinemaCode}"><button class="btn btn-outline-dark">상영관 편집</button></a></th>
 						</tr>
 				</c:forEach>
 			</tbody>

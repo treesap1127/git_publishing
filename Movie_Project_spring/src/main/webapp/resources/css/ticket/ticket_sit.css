@@ -336,37 +336,37 @@ padding: 2em 12em;
   display: flex;
 }
 .sit_a{
-  width: 17px;
+  width: 20px;
   height: 17px;
   background: #848484;
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 10px;
-  padding-left: 3.5px;
+  padding-left: 2px;
   padding-top: 1px;
 }
 .sit_a:hover{
   background: red;
 }
 .sit_b{
-  width: 17px;
+  width: 20px;
   height: 17px;
   background: red;
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 10px;
-  padding-left: 3.5px;
+  padding-left: 2px;
   padding-top: 1px;
 }
 .sit_c{
-  width: 17px;
+  width: 20px;
   height: 17px;
   background: #848484 url("../img/ticket_sit/sit_stop.png");
   border-radius: 5px 5px 0 0;
   color: #848484;
   text-indent: -9999px;
   font-size: 10px;
-  padding-left: 3.5px;
+  padding-left: 2px;
   padding-top: 1px;
 }
 .sit_bottom{

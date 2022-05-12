@@ -26,19 +26,19 @@ public class MypageController {
 	MypageService service;
 	final String path="myPage/";
 	
-	@GetMapping("/myPage")
+	@GetMapping("/myPage")//마이페이지메인
 	public String mypage() {
 		return path+"myPage";
 	}
-	@GetMapping("/mymovie")
+	@GetMapping("/mymovie")//나의 영화목록
 	public String mymovie() {
 		return path+"myMovie";
 	}
-	@GetMapping("/mygrade")
+	@GetMapping("/mygrade")//나의 평점
 	public String mygrade() {
 		return path+"myGrade";
 	}
-	@GetMapping("/myCinema")
+	@GetMapping("/myCinema")//마이페이지(고객)
 	public String myCinema(Model model,HttpSession session,Member member) {
 		member=(Member) session.getAttribute("member");
 		String id=member.getId();
@@ -46,23 +46,25 @@ public class MypageController {
 		model.addAttribute("list", list);
 		return path+"myCinema";
 	}
-	@GetMapping("/update/{cinemaCode}")
-	public String update(@PathVariable String cinemaCode,Model model) {
-		MovieAdmin item =new MovieAdmin();
+	@GetMapping("/theater/{cinemaCode}")//마이페이지(영화관)
+	public String theater(@PathVariable String cinemaCode,Model model,MovieAdmin item) {
 		item.setCinemaCode(cinemaCode);
-		model.addAttribute("item",item);
+		model.addAttribute("data",item);
+		List<Theater> list =service.theaterlist(cinemaCode);
+		model.addAttribute("list",list);
 		return path+"sitpage";
 	}
-	
-	@GetMapping("/cinemaMovie/{cinemaCode}")
-	public String cinemaMovie() {
-		return path;
+	@GetMapping("/theater/add/{cinemaCode}")//마이페이지 등록(영화관)
+	public String theateradd(@PathVariable String cinemaCode,Model model,MovieAdmin item) {
+		item.setCinemaCode(cinemaCode);
+		model.addAttribute("data",item);
+		return path+"theaterPage";
 	}
 	@ResponseBody
-	@PostMapping("/update/sit_add")
+	@PostMapping("/theater/add/sit_add")//상영관 등록 ajax
 	public Object sit_add(@RequestBody Theater item) {
-		System.out.println("좌석"+item.getSit());
-		System.out.println("코드"+item.getCinemaCode());
+		System.out.println(item.getTheaterName()+"영화 상영관명");
+		service.sit_add(item);
 		return item;
 	}
 

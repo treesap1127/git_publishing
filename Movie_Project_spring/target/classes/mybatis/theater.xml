@@ -7,5 +7,14 @@
       SELECT * FROM movie_admin
       WHERE id=#{id}
    </select>
+   <insert id="sit_add">
+   	insert into theater 
+   	values (#{cinemaCode},#{theaterName},#{sit_str},#{row},#{line})
+   </insert>
+   <select id="theaterlist" resultType="Theater">
+      SELECT * FROM theater
+      WHERE cinema_code=#{cinemaCode}
+   </select>
+   
    
 </mapper>

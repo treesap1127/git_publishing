@@ -92,60 +92,47 @@
     </div>
 <div class="mypage">
   <div class="mypage_inline">
-  	<div class="ticketing_name">${item.cinemaCode}상영관 등록</div>
-     <div class="ticketing_box">
-      <div class="tic_top">
-        <div class="person_check">
-          <div class="adult">
-            <div class="adult_text">열:</div>
-            <div class="adult_button">
-              <input type="text" name="row" value="10" class="form-control">
-            </div>
-          </div>
-          <div class="teenager">
-            <div class="teenager_text">행:</div>
-            <div class="teenager_button">
-             <input type="text" name="line" value="10" class="form-control">
-            </div>
-            
-          </div>
-          <button class="btn btn-dark create_button" type="button"onclick="sit_creat()">좌석 만들기</button>
-          <div class="row_info">비어 있는 열과 행을 포함하여 설정해주세요(최대열:17 최대행:49)</div>
-        </div>
 
-
-      <div class="sit_check">
-        	<div class="sit_text">제목 작성</div>
-        	
-          	<div class="nametext"><input type="text" name="theaterName" value="제목" class="form-control nametext"></div>
-        </div>
-      </div>
-      
-        
-        <div class="sit_img">
-          <div class="sit_screen"></div><!-- 스크린사진 -->
-        </div>
-        <div class="sit_aph">        </div>
-        <!-- 위에서 알파벳 정렬로 스크린이 나옴 -->
-        
-        <div class="sit_checkbox">
-       
-         </div>
-         <!-- 체크박스 생성 -->
-          
-          <div style="display:flex; width:100%;height:17%">
-			<div class="backbutton"><a href="../"><button class="btn btn-danger">뒤로 가기</button></a></div>
-			<div class="addbutton"><button onclick="theater_add()" class="btn btn-dark">상영관 등록하기</button></div>
+    <!-- 아래부터 테이블 -->
+    <div class="theater_top">${data.cinemaCode}상영관 관리</div>
+	<div class="theater_table">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>영화관 코드</th>
+					<th>상영관이름</th>
+					<th>열 갯수</th>
+					<th>행 갯수</th>
+					<th>관리</th>
+				</tr>
+			</thead>
 			
-		<div class="sit_aph_num"></div>
-        <!-- 숫자 생성 -->
-			
-          </div>
-          
-        </div>
+			<tbody>
+				<c:if test="${list.size() < 1}">
+						<tr>
+							<th colspan="5">등록 된 상영관이 없습니다</th>
+						</tr>
+					</c:if>
+				<c:forEach items="${list}" var="item">
+						<tr>
+							<th>${item.cinemaCode}</th>
+							<th>${item.theaterName}</th>
+							<th>${item.row}</th>
+							<th>${item.line}</th>
+							<th><a href="update/${item.cinemaCode}"><button class="btn btn-warning">상영관 수정</button></a>
+								<a href="delete/${item.cinemaCode}"><button class="btn btn-danger" style="margin-right: 10px;">상영관 삭제</button></a>
+							</th>
+						</tr>
+				</c:forEach>
+				
+			</tbody>
+		</table>
+	</div>   
+		<div style="display:flex">
+			<a href="add/${data.cinemaCode}"><button class="btn btn-primary thebtn">상영관 등록</button></a> 
+			<a href="../myCinema"><button class="btn btn-danger thebtn">상영관 뒤로가기</button></a> 
+		</div>
 	</div>
-    
-	<div>상영관 관리</div>
 </div>
       
     <!-- 제일 최하단 -->
@@ -165,7 +152,6 @@
     </div>
 
 </div>
-
     <jsp:include page="../include/body.jsp"></jsp:include>
 </body>
 </html>

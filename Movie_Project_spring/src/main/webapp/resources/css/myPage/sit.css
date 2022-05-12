@@ -129,24 +129,27 @@
   background: red;
 }
 .sit_b{
-  width: 17px;
+  width: 20px;
   height: 17px;
   background: red;
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 10px;
-  padding-left: 3.5px;
+  padding-left: 2px;
   padding-top: 1px;
 }
+.sit_b:hover{
+  background: #848484;
+}
 .sit_c{
-  width: 17px;
+  width: 20px;
   height: 17px;
   background: #848484 url("../../img/ticket_sit/sit_stop.png");
   border-radius: 5px 5px 0 0;
   color: #848484;
   text-indent: -9999px;
   font-size: 10px;
-  padding-left: 3.5px;
+  padding-left: 2px;
   padding-top: 1px;
 }
 .sit_bottom{
@@ -280,6 +283,7 @@
 }
 .sit_aph>div{
   border-top: 1px solid #dddddd;
+  height: 17px;
 }
 .sit_aph_num{
     display: flex;
@@ -383,4 +387,14 @@
 	left: 4%;
     font-weight: 400;
     color: gray;
+}
+.theater_table{
+margin-bottom: 120px;
+    margin-top: 47px;
+}
+.thebtn{
+	    margin-bottom: 20px;
+    position: relative;
+    left: 700px;
+    margin-right: 10px;
 }
