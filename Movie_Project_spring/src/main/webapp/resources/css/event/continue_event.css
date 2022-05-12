@@ -206,7 +206,7 @@ ul,li{list-style:none;}
   height: 400px;
   background-position: center;
 }
-.slide li:nth-child(4){background:url(../../img/eventphoto/이벤트사진/이벤트사진4.jpg);
+.slide li:nth-child(4){background:url(../../img/eventphoto/이벤트\ 사진3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 1000px;
@@ -327,9 +327,13 @@ ul,li{list-style:none;}
     top: 10px;
     left: 125px;
 }
-
-
-
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+    position: relative;
+    left: 920px;
+    top: 20px;
+}
 
 
 
@@ -349,7 +353,7 @@ ul,li{list-style:none;}
 	text-align: center;
     font-size: 0;
     position: relative;
-    top: 50%;
+    top: 35%;
     transform: translateY(-50%);
  }
 .page_nation {

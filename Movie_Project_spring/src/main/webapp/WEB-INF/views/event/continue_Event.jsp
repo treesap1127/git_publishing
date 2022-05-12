@@ -181,10 +181,12 @@
           </div>
         </div>
       </div>
+      
       <!-- 현재 징행중인 이벤트 -->
 
 
       <div class="pager ">
+      <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>
         <div class="page_wrap">
           <div class="page_nation">
              <a class="arrow pprev" href="#"></a>
