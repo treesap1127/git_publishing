@@ -41,14 +41,7 @@ public class ServiceCenterController {
 			
 			return path+"NoticeList";
 		}
-		
-		@GetMapping("/NoticeView")
-		public String noticelist(Model model) {
-			List<BoardMaster> noticeview = service.noticeView();
-			model.addAttribute("noticeview",noticeview);
-			return path+"NoticeView";
-		}
-		
+			
 		@GetMapping("/NoticeAdd")
 		public String noticeadd() {
 			
