@@ -1,12 +1,12 @@
 package kr.ac.kopo.movie_project.model;
 
 public class BoardMaster {
-	private int boardId;
-	private String subject;
-	private char reply;
-	private char attach;
-	private char secret;
-	private char permission;
+	private int boardId; //게시판번호
+	private String subject; //게시판명
+	private char reply; //댓글
+	private char attach; //첨부파일
+	private char secret; //회원전용
+	private char permission; //권환
 	public int getBoardId() {
 		return boardId;
 	}

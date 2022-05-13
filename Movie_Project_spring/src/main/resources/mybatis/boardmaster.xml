@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardmaster">
+	<select id="NoticeView" resultType="boardmaster">
+		select * from board_master 
+	</select>
+
+	<insert id="Noticeadd">	
+	  INSERT INTO board_master
+      VALUES (BOARD_MASTER_SEQ.nextval, #{subject}, #{reply}, #{attach}, #{secret}, #{permission})
+	</insert>
+	
+	<update id="NoticeUpdate">
+		 UPDATE board_master
+      	 SET subject=#{subject}, reply=#{reply}, attach=#{attach}, secret=#{secret}, permission=#{permission}
+     	 WHERE board_id=#{boardId}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM board_master
+		WHERE boardId=#{boardId}	
+	</delete>
+
+	<select id="item" resultType="boardmaster">
+		select boardId,subject,reply,attach,secret,permission
+		from board_master where board_master.boardId=#{boardId}
+	</select>
+</mapper>

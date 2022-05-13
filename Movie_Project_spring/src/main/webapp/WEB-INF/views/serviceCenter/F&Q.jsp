@@ -123,23 +123,23 @@
               <thead>  
                 <tr>           
                     <td><details>
-                      <summary>Q 네이버 페이로 결제할수 있나용?</summary>
+                      <summary>Q 네이버 페이로 결제할수 있나용?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
                       결제창 정보에 따라서 진행 하거나 진행이 어려울 경우 질문게시판에 올리시면 됩니다.
                     </details></td>   
                 </tr>              
                 <tr>           
                   <td><details>
-                    <summary>Q 예매는 어떻게 하냐요?</summary>
+                    <summary>Q 예매는 어떻게 하냐요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
                   </details></td>   
               </tr>              
               <tr>           
                 <td><details>
-                  <summary>Q 예매후 극장 예매표는 어떻게 받나요?</summary>
+                  <summary>Q 예매후 극장 예매표는 어떻게 받나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
                 </details></td>   
             </tr> 
                <tr>           
                 <td><details>
-                  <summary>Q 예매하는법?</summary>
+                  <summary>Q 예매하는법?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
                 </details></td>   
             </tr>             
               </thead>
@@ -177,17 +177,17 @@
         <thead>
           <tr>           
             <td><details>
-              <summary>Q 한번에 몇 매까지 예매가 가능한가요?</summary>
+              <summary>Q 한번에 몇 매까지 예매가 가능한가요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
             </details></td>   
         </tr>              
         <tr>           
           <td><details>
-            <summary>Q 예매는 어떻게 하냐요?</summary>
+            <summary>Q 예매는 어떻게 하냐요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
           </details></td>   
       </tr>              
       <tr>           
         <td><details>
-          <summary>Q 예매 취소내역은 어디서 확인하나요?</summary>
+          <summary>Q 예매 취소내역은 어디서 확인하나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
         </details></td>   
     </tr>              
         </thead>
@@ -228,12 +228,12 @@
         <thead>
           <tr>           
             <td><details>
-              <summary>Q 당첨여부는 어디서 확인하나요?</summary>
+              <summary>Q 당첨여부는 어디서 확인하나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
             </details></td>   
         </tr>              
         <tr>           
           <td><details>
-            <summary>Q 경품수령은 어디서 하나요?</summary>
+            <summary>Q 경품수령은 어디서 하나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
           </details></td>   
       </tr>              
            
@@ -274,17 +274,17 @@
         <thead>
           <tr>           
             <td><details>
-              <summary>Q 취소는 어떻게 하나요?</summary>
+              <summary>Q 취소는 어떻게 하나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
             </details></td>   
         </tr>              
         <tr>           
           <td><details>
-            <summary>Q 예매내역 중 일부만 취소가 가능한가요?</summary>
+            <summary>Q 예매내역 중 일부만 취소가 가능한가요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
           </details></td>   
       </tr>              
       <tr>           
         <td><details>
-          <summary>Q 언제까지 영화예매 취소가 가능한가요?</summary>
+          <summary>Q 언제까지 영화예매 취소가 가능한가요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
         </details></td>   
     </tr>              
         </thead>
