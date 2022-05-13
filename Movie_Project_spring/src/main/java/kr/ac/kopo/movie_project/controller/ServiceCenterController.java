@@ -55,7 +55,7 @@ public class ServiceCenterController {
 			return "redirect:noticelist";			
 		}
 		
-		@GetMapping("/NoticeUpdate/")
+		@GetMapping("/NoticeUpdate/{boardId}")
 		public String noticeupdate(@PathVariable int boardId, Model model) {
 			List<BoardMaster> noticeupdate = service.noticeView();
 			

@@ -112,7 +112,7 @@
       </div>
       <div class="faq_notice_area">
           <div class="notice_board">
-            <p class="p_title2"><a href="NoticeView" class="btn_more">공지사항(바로 가기)</a></p>
+            <p class="p_title2"><a href="NoticeList" class="btn_more">공지사항(바로 가기)</a></p>
             <div class="faq_box">
                             <div class="">
                               <table class="faq_table">
