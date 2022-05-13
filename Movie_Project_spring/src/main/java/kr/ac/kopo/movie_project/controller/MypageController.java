@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.ac.kopo.movie_project.model.Member;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.TheaterList;
 import kr.ac.kopo.movie_project.service.MypageService;
 
 @Controller
@@ -63,10 +64,16 @@ public class MypageController {
 	@ResponseBody
 	@PostMapping("/theater/add/sit_add")//상영관 등록 ajax
 	public Object sit_add(@RequestBody Theater item) {
-		System.out.println(item.getTheaterName()+"영화 상영관명");
 		service.sit_add(item);
 		return item;
 	}
-//test
+	@GetMapping("/theater/update/{cinemaCode}/{theaterName}")//마이페이지 수정(영화관)
+	public String theaterupdate(@PathVariable String cinemaCode,@PathVariable String theaterName,Model model,MovieAdmin item) {
+		item.setCinemaCode(cinemaCode);
+		model.addAttribute("data",item);
+		List<TheaterList> list=service.theaterlist(cinemaCode,theaterName);
+		model.addAttribute("list",list);
+		return path+"situpdate";
+	}
 }
 

@@ -15,6 +15,9 @@
       SELECT * FROM theater
       WHERE cinema_code=#{cinemaCode}
    </select>
-   
+   <select id="theaterlistmap" resultType="TheaterList">
+      SELECT * FROM theater
+      WHERE cinema_code=#{cinemaCode} and theater_name=#{theaterName}
+   </select>
    
 </mapper>

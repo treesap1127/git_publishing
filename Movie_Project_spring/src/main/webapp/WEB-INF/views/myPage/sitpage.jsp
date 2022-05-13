@@ -119,7 +119,7 @@
 							<th>${item.theaterName}</th>
 							<th>${item.row}</th>
 							<th>${item.line}</th>
-							<th><a href="update/${item.cinemaCode}"><button class="btn btn-warning">상영관 수정</button></a>
+							<th><a href="update/${item.cinemaCode}/${item.theaterName}"><button class="btn btn-warning">상영관 수정</button></a>
 								<a href="delete/${item.cinemaCode}"><button class="btn btn-danger" style="margin-right: 10px;">상영관 삭제</button></a>
 							</th>
 						</tr>
@@ -134,7 +134,6 @@
 		</div>
 	</div>
 </div>
-      
     <!-- 제일 최하단 -->
 <div class="bottom">
     <!--고객센터-->
