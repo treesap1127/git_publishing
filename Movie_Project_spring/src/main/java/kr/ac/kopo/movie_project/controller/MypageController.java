@@ -67,6 +67,6 @@ public class MypageController {
 		service.sit_add(item);
 		return item;
 	}
-
+//test
 }
 
