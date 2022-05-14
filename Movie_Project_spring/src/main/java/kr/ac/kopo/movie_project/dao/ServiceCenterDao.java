@@ -6,8 +6,6 @@ import kr.ac.kopo.movie_project.model.BoardMaster;
 
 public interface ServiceCenterDao {
 
-	List<BoardMaster> noticeView();
-
 	void noticeadd(BoardMaster boardmaster);
 
 	void noticeupdate(BoardMaster boardmaster);
@@ -15,5 +13,7 @@ public interface ServiceCenterDao {
 	void delete(int boardId);
 
 	BoardMaster item(int boardId);
+
+	List<BoardMaster> list();
 
 }

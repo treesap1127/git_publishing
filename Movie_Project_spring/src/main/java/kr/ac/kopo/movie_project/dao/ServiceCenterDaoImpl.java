@@ -14,21 +14,16 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	@Autowired
 	SqlSession sql;
 	
-	@Override
-	public List<BoardMaster> noticeView() {
-	
-		return sql.selectList("serviceCenter.NoticeView");
-	}
 
 	@Override
-	public void noticeadd(BoardMaster boardmaster) {
-		sql.insert("serviceCenter.Noticeadd",boardmaster);
+	public void noticeadd(BoardMaster item) {
+		sql.insert("serviceCenter.Noticeadd",item);
 
 	}
 
 	@Override
-	public void noticeupdate(BoardMaster boardmaster) {
-		sql.update("serviceCenter.NoticeUpdate",boardmaster);
+	public void noticeupdate(BoardMaster item) {
+		sql.update("serviceCenter.NoticeUpdate",item);
 
 	}
 
@@ -42,6 +37,12 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	public BoardMaster item(int boardId) {
 		
 		return sql.selectOne("boardmaster.item",boardId);
+	}
+
+	@Override
+	public List<BoardMaster> list() {
+	
+		return sql.selectList("serviceCenter.list");
 	}
 
 }

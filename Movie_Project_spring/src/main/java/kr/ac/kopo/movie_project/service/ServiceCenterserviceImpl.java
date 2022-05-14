@@ -14,21 +14,16 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	@Autowired
 	ServiceCenterDao dao;
 	
+	
 	@Override
-	public List<BoardMaster> noticeView() {
-		
-		return dao.noticeView();
-	}
-
-	@Override
-	public void noticeadd(BoardMaster boardmaster) {
-		dao.noticeadd(boardmaster);
+	public void noticeadd(BoardMaster item) {
+		dao.noticeadd(item);
 
 	}
 
 	@Override
-	public void noticeupdate(BoardMaster boardmaster) {
-		dao.noticeupdate(boardmaster);
+	public void noticeupdate(BoardMaster item) {
+		dao.noticeupdate(item);
 
 	}
 
@@ -42,6 +37,12 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	public BoardMaster item(int boardId) {
 	
 		return dao.item(boardId);
+	}
+
+	@Override
+	public List<BoardMaster> list() {
+		
+		return dao.list();
 	}
 
 }

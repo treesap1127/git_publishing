@@ -34,10 +34,10 @@ public class ServiceCenterController {
 		}
 		
 		@GetMapping("/NoticeList")
-		public String noticeList(@PathVariable int boardId, Model model) {
-			BoardMaster item = service.item(boardId);
+		public String list(@PathVariable int boardId, Model model) {
+			List<BoardMaster> list = service.list();
 			
-			model.addAttribute("item", item);			
+			model.addAttribute("list", list);			
 			
 			return path+"NoticeList";
 		}
@@ -45,30 +45,32 @@ public class ServiceCenterController {
 		@GetMapping("/NoticeAdd")
 		public String noticeadd() {
 			
-			return path+"BoardMasterNoticeAdd";
+			return path+"NoticeAdd";
 		}
 		
 		@PostMapping("/NoticeAdd")
-		public String noticeadd(BoardMaster boardmaster) {
-			service.noticeadd(boardmaster);
+		public String noticeadd(BoardMaster item) {
+			service.noticeadd(item);
 			
 			return "redirect:noticelist";			
 		}
 		
 		@GetMapping("/NoticeUpdate/{boardId}")
 		public String noticeupdate(@PathVariable int boardId, Model model) {
-			List<BoardMaster> noticeupdate = service.noticeView();
+			BoardMaster item = service.item(boardId);
 			
-			model.addAttribute("noticeupdate",noticeupdate);
+			model.addAttribute("item",item);
 			
 			return path+"NoticeUpdate";
 		}
 		
 		@PostMapping("/NoticeUpdate/{boardId}")
-		public String noticeupdate(@PathVariable int boardId, BoardMaster boardmaster) {
-			service.noticeupdate(boardmaster);
+		public String noticeupdate(@PathVariable int boardId, BoardMaster item) {
+			item.setBoardId(boardId);
+			
+			service.noticeupdate(item);
 		
-		return "redirect:../noticelist";
+			return "redirect:../noticelist";
 			
 		}
 		

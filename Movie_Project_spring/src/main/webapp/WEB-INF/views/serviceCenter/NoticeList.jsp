@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
  <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/notice.view.css" rel="stylesheet" type="text/css">
+<link href="../css/serviceCenter/notice.list.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
 </head>
 <body>
