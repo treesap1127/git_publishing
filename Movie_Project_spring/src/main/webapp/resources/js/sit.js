@@ -107,6 +107,7 @@ function theater_add(){
 			sit_inner.push(item)
 		}
 	}
+	sit_inner=sit_inner.toString();
 	var objectItem={
 		cinemaCode:$(".codename").text(),
 		theaterName:$(".nametext_val").val(),

@@ -1,14 +1,11 @@
 package kr.ac.kopo.movie_project.model;
 
-import java.util.ArrayList;
-
 public class Theater {
 	private String cinemaCode;
 	private String theaterName;
 	private int row;
 	private int line;
-	private ArrayList<String> sit;
-	private String sit_str;
+	private String sit;
 	
 	public String getCinemaCode() {
 		return cinemaCode;
@@ -34,17 +31,11 @@ public class Theater {
 	public void setLine(int line) {
 		this.line = line;
 	}
-	public ArrayList<String> getSit() {
+	public String getSit() {
 		return sit;
 	}
-	public void setSit(ArrayList<String> sit) {
+	public void setSit(String sit) {
 		this.sit = sit;
-	}
-	public String getSit_str() {
-		return sit_str;
-	}
-	public void setSit_str(String sit_str) {
-		this.sit_str = sit_str;
 	}
 
 	

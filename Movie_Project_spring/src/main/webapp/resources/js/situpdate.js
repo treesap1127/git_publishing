@@ -15,6 +15,8 @@ $(function(){
 	}
 	var k=0;
 	//리스트 split으로 분할 해서 넣어주기
+	const sitcode=$(".sitcode").text();
+	var sititem =sitcode.split(",");
 	for(i=0;i<row;i++){//이거 row 선택자로 끌어오기
 		
 		row_item=String.fromCharCode(65+i);
@@ -28,23 +30,30 @@ $(function(){
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_${row_item}`);//행삭제를 위한 숫자
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_${l}`);//열삭제를 위한 숫자
 //			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_b`);//좌석 색상 정하기
- 	//리스트 split으로 분할한거 [k]해서 넣고
-	//색상을 if=text=''이면 sit_c로 해버리고 있으면 b하기
 //			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text(`${row_item}${l}`);//좌석명
+ 			//리스트 split으로 분할한거 [k]해서 넣고
+			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text(sititem[k]);
+			//색상을 if=text=''이면 sit_c로 해버리고 있으면 b하기
+			if($(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text()==''){
+				$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_c`);
+			}
+			else{
+				$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_b`);
+			}
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).attr("id",`${row_item}${l}`);//좌석 재생성을 위한 아이디
 			++k;
 			//아래 코드는 좌석 클릭시 사라지거나 재생성
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).click(function(){
-				if($(this).text()){
-					$(this).text('');
-					$(this).removeClass('sit_b');
-					$(this).addClass("sit_c");
-				}
-				else{
+				if($(this).text()==' '){
 					id=$(this).attr('id')
 					$(this).text(id);
 					$(this).addClass('sit_b');
 					$(this).removeClass("sit_c");
+				}
+				else{
+					$(this).text('');
+					$(this).removeClass('sit_b');
+					$(this).addClass("sit_c");
 				}
 			
 			});
@@ -160,6 +169,8 @@ function theater_add(){
 			sit_inner.push(item)
 		}
 	}
+	sit_inner=sit_inner.toString();
+	console.log(sit_inner);
 	var objectItem={
 		cinemaCode:$(".codename").text(),
 		theaterName:$(".nametext_val").val(),
@@ -168,13 +179,13 @@ function theater_add(){
 		sit:sit_inner
 	};
 	$.ajax({
-		  url:"sit_update",
+		  url:"../sit_update",
           method: "POST",
           contentType: "application/json",
           dataType: "json",
           data: JSON.stringify(objectItem),
           success: result => { 
-				alert('상영관이 등록 되었습니다');
+				alert('상영관이 수정 되었습니다');
 				location.reload(true);
 			},
            error: (xhr, result) => console.log(`[실패] print`)

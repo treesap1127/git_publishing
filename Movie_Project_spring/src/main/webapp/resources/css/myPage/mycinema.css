@@ -254,7 +254,7 @@ a{
 .mypage{
   background-color: #f5f5f5;
   width: 100%;
-
+margin-bottom: 50px;
 }
 .mypage_inline{
   width: 1080px;

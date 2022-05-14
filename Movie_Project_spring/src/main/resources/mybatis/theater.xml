@@ -9,15 +9,23 @@
    </select>
    <insert id="sit_add">
    	insert into theater 
-   	values (#{cinemaCode},#{theaterName},#{sit_str},#{row},#{line})
+   	values (#{cinemaCode},#{theaterName},#{sit},#{row},#{line})
    </insert>
    <select id="theaterlist" resultType="Theater">
       SELECT * FROM theater
       WHERE cinema_code=#{cinemaCode}
    </select>
-   <select id="theaterlistmap" resultType="TheaterList">
+   <select id="theaterlistmap" resultType="Theater">
       SELECT * FROM theater
       WHERE cinema_code=#{cinemaCode} and theater_name=#{theaterName}
    </select>
-   
+   <update id="sit_update">
+	   update theater
+	   set theater_name=#{theaterName}, sit=#{sit},row=#{row},line=#{line}
+	   where cinema_code=#{cinemaCode} and theater_name=#{theaterName}
+   </update>
+   <delete id="theaterdelete">
+   		DELETE FROM theater
+   		where cinema_code=#{cinemaCode} and theater_name=#{theaterName}
+   </delete>
 </mapper>

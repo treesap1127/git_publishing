@@ -31,7 +31,7 @@
         
       });
     </script>
-    <script src="../../../../../js/sit.js"></script>
+    <script src="../../../../../js/situpdate.js"></script>
     <style>
     	.title_plus_text{
     	color:white}
@@ -93,7 +93,7 @@
     <c:forEach items="${list}" var="item">
 <div class="mypage">
   <div class="mypage_inline">
-  	<div class="ticketing_name">${data.cinemaCode}상영관 등록</div>
+  	<div class="ticketing_name">${data.cinemaCode}상영관 수정</div>
      <div class="ticketing_box">
       <div class="tic_top">
         <div class="person_check">
@@ -135,7 +135,7 @@
          </div>
          <!-- 체크박스 생성 -->
           <div style="display:flex; width:100%;height:17%">
-			<div class="backbutton"><a href="../${data.cinemaCode}"><button class="btn btn-danger">뒤로 가기</button></a></div>
+			<div class="backbutton"><a href="../../${data.cinemaCode}"><button class="btn btn-danger">뒤로 가기</button></a></div>
 			<div class="addbutton"><button onclick="theater_add()" class="btn btn-dark">상영관 수정하기</button></div>
 			
 		<div class="sit_aph_num"></div>

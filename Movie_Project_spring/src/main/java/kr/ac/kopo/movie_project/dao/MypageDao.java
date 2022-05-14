@@ -4,7 +4,6 @@ import java.util.List;
 
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
-import kr.ac.kopo.movie_project.model.TheaterList;
 
 public interface MypageDao {
 
@@ -14,6 +13,10 @@ public interface MypageDao {
 
 	List<Theater> theaterlist(String cinemaCode);
 
-	List<TheaterList> theaterlist(String cinemaCode, String theaterName);
+	List<Theater> theaterlist(String cinemaCode, String theaterName);
+
+	void sitUpdate(Theater item);
+
+	void theater_delete(String cinemaCode, String theaterName);
 
 }
