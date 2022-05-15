@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,11 +31,15 @@ public class RootController {
 	}
 	
 	@GetMapping("/login")
-	public String login() {
-		return path+"login"; 
+	public String login(Model model, HttpSession session) {
+		String msg = (String) session.getAttribute("msg");		
+		if(msg != null) {
+			session.removeAttribute("msg");
+			
+			model.addAttribute("msg", msg);
 		}
-	
-	
+		return path+"login"; 	
+	}
 	
 	@PostMapping("/login")
 	public String login(Member member,HttpSession session) {
@@ -43,6 +48,8 @@ public class RootController {
 			String target=(String) session.getAttribute("target");
 			return "redirect:"+(target==null?"/":target);
 		}
+		
+		session.setAttribute("msg", "로그인 실패 하였습니다.");
 		
 		return "redirect:login";
 	}

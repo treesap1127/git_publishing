@@ -63,38 +63,21 @@
                     
               <thead class="notice_first">
                   <tr>
-                      <th>번호 :</th>
-                      <th>조회수 :</th>
-                      <th>등록일 :</th>
+                      <th>번호 :${item.articleId}</th>
+                      <th>조회수 :${item.viewCount}</th> 
+                      <th>등록일 :${item.reg_date}</th>              
                   </tr>
               </thead>              
           </table>
           <div class="tb_content">
-            <p style="margin: 0cm;">어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">ㆍ2D 일반 관람권은 2D 일반 영화에 한하여 적용 가능</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="margin: 0cm;">어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>   
+            <div>
+			  <label>제목</label>
+			  <div>${item.subject}</div>	
+		 	</div>		
+			<div>
+			  <label>내용</label>
+			  <div>${item.contents}</div>	
+			</div>
 
           </div>
          </div>

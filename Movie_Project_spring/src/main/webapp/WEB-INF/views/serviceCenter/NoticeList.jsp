@@ -93,46 +93,21 @@
                   </tr>
               </thead>
               <tbody id="notice_midle">
-                <tr>
-                    <td>1</td>
-                    <td><a href="NoticeList">영화예매 취소환불에 대해</a></td>
-                    <td>관리자</td>
-                    <td>2022-04-21</td>
-                    <td></td>
-                    <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><a href="NoticeList">영화예매 확인서</a></td>
-                  <td>관리자</td>
-                  <td>2022-02-02</td>
-                  <td></td>
-                  <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><a href="NoticeList">영화좌석 오류상황</a></td>
-                <td>관리자</td>
-                <td>2022-01-25</td>
-                <td></td>
-                <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td><a href="NoticeList">[알림]관리자 입니다.</a></td>
-              <td>관리자</td>
-              <td>2022-01-01</td>
-              <td></td>
-              <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td><a href="NoticeList">영화관 등록 추가</a></td>
-            <td>관리자</td>
-            <td>2021-12-01</td>
-            <td></td>
-            <td><a href="NoticeUpdate"><button class="btn btn-outline-success">수정</button></a> <a href="delete/"><button class="btn btn-outline-danger">삭제</button></a></td>
-        </tr>
+            	 <c:if test="${list.size() < 1}">
+						<tr>
+							<td colspan="5">등록 된 게시물이 없습니다</td>
+						</tr>
+					</c:if>
+					
+					<c:forEach var="item" items="${list}">
+						<tr class="dragItem">
+							<td>${item.articleId}</td>
+							<td><a href="view/${item.articleId}">${item.subject}</a></td>
+							<td>${item.memberId}</td>
+							<td>${item.viewCount}</td>							
+							<td><a href="update/${item.articleId}"><button class="btn btn-outline-success">수정</button></a> <a href="delete/${item.articleId}"><button class="btn btn-outline-danger">삭제</button></a></td>
+						</tr>
+					</c:forEach> 
               </tbody>                          
           </table>
          </div>
@@ -143,20 +118,15 @@
          <div class="pager ">
           <div class="page_wrap">
             <div class="page_nation">
-               <a class="arrow pprev" href="#"></a>
-               <a class="arrow prev" href="#"></a>
-               <a href="#" class="active">1</a>
-               <a href="#">2</a>
-               <a href="#">3</a>
-               <a href="#">4</a>
-               <a href="#">5</a>
-               <a href="#">6</a>
-               <a href="#">7</a>
-               <a href="#">8</a>
-               <a href="#">9</a>
-               <a href="#">10</a>
-               <a class="arrow next" href="#"></a>
-               <a class="arrow nnext" href="#"></a>
+               <a class="arrow pprev" href="?page=1"></a>
+               <a class="arrow prev" href="?page=${pager.prev}"></a>
+             		
+             		<c:forEach var="page" items="${pager.list}">
+						<div><a href="?page=${page}">${page}</a></div>
+					</c:forEach>
+					
+               <a class="arrow next" href="?page=${pager.next}"></a>
+               <a class="arrow nnext" href="?page=${pager.last}"></a>
             </div>
          </div>
         </div>

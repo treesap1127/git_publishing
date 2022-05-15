@@ -164,17 +164,18 @@
          <div class="txt_field">								
            <input type="text" name="id" required>							
            <label>아이디:</label>		
-           <span><button type="button" onclick="check_id_Async()">중복확인</button></span>			
+           <span><button type="button" class="btn btn-light" onclick="check_id_Async()">중복확인</button></span>			
          </div>
          <div class="txt_field">
            <input type="password" name="passwd" required>
-           <p>*(특수문자, 문자, 숫자 포함 형태의 8~15자리 이내)</p>							
+           <p>*(특수문자, 문자, 숫자 포함 형태의 8~15자리 이내)</p>
+           <span></span>							
            <label>비밀번호:</label>
          </div>						
          
          <div class="txt_field">				
            <input type="password" name="passwd_confirm" required>
-           <span></span>
+           <span class="fore"></span>
            <label>비밀번호 확인:</label>
          </div>
          <div class="txt_field">				

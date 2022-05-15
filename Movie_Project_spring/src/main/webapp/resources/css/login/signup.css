@@ -188,7 +188,7 @@ form .txt_field{
   margin: 30px 0;
 }
 .txt_field input{
-  width: 85%;
+  width: 80%;
   padding: 0 5px;
   height: 40px;
   font-size: 16px;
@@ -215,6 +215,16 @@ form .txt_field{
   height: 2px;
   background: #2691d9;
   transition: .5s;
+}
+.txt_field span.fore::before{
+	content: '';
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
 }
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label{
