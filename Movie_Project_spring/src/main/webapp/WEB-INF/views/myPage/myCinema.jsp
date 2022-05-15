@@ -7,6 +7,7 @@
  <jsp:include page="../include/header.jsp"></jsp:include>
     <link rel="stylesheet" href="../css/myPage/mycinema.css">
     <link rel="stylesheet" href="../css/style/style.css">
+    <script src="../../../../../js/myCinema.js"></script>
     <script>
       $(function(){
         $(".check").click(function(){
@@ -29,6 +30,7 @@
         });
         
       });
+      
     </script>
     <style>
     	.title_plus_text{
@@ -119,15 +121,15 @@
 							<th>${item.bigCity}</th>
 							<th>${item.littleCity}</th>
 							<th>${item.tel}</th>
-							<th><a href="delete/${item.cinemaCode}"><button class="btn btn-outline-danger" style="margin-right: 10px;">영화관 삭제</button></a><a href="cinemaMovie/${item.cinemaCode}"><button class="btn btn-outline-primary">상영 영화설정</button></a></th>
+							<th><button class="btn btn-outline-danger deleteBtn" style="margin-right: 10px;">영화관 삭제</button>
+							<a href="cinemaMovie/${item.cinemaCode}"><button class="btn btn-outline-primary">상영 영화설정</button></a></th>
 							<th><a href="theater/${item.cinemaCode}"><button class="btn btn-outline-dark">상영관 편집</button></a></th>
 						</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>    
-        <div class="theater">
-    	<div class="theater_add_btn addblock ab"><a class="theater_add_link">영화관 추가요청</a></div>
+        <div class="theater"><div class="theater_add_btn addblock ab"><a class="theater_add_link">영화관 추가요청</a></div>
     </div>
   </div>
 </div>

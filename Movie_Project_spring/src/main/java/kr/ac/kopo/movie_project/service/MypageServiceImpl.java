@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.ac.kopo.movie_project.dao.MypageDao;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
@@ -37,6 +38,12 @@ public class MypageServiceImpl implements MypageService {
 	public void theater_delete(String cinemaCode, String theaterName) {
 		dao.theater_delete(cinemaCode,theaterName);
 		
+	}
+	@Transactional
+	@Override
+	public void delete(String cinemaCode) {
+		dao.deleteTheater(cinemaCode);
+		dao.deleteCinema(cinemaCode);
 	}
 
 }

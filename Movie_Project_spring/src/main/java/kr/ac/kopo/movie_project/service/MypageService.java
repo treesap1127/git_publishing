@@ -19,4 +19,6 @@ public interface MypageService {
 
 	void theater_delete(String cinemaCode, String theaterName);
 
+	void delete(String cinemaCode);
+
 }

@@ -43,5 +43,13 @@ public class MypageDaoImpl implements MypageDao {
 		map.put("theaterName", theaterName);
 		sql.delete("theater.theaterdelete", map);
 	}
+	@Override
+	public void deleteTheater(String cinemaCode) {
+		sql.delete("theater.deleteTheater",cinemaCode);
+	}
+	@Override
+	public void deleteCinema(String cinemaCode) {
+		sql.delete("theater.deleteCinema",cinemaCode);
+	}
 
 }

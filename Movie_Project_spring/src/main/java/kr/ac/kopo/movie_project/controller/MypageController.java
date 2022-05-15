@@ -60,7 +60,7 @@ public class MypageController {
 		model.addAttribute("data",item);
 		return path+"theaterPage";
 	}
-	@ResponseBody
+	@ResponseBody					//마이페이지 등록(영화관)
 	@PostMapping("theater/add/sit_add")//상영관 등록 ajax
 	public Object sit_add(@RequestBody Theater item) {
 		service.sit_add(item);
@@ -74,17 +74,23 @@ public class MypageController {
 		model.addAttribute("list",list);
 		return path+"situpdate";
 	}
-	@ResponseBody
-	@PostMapping("theater/update/sit_update")//상영관 등록 ajax
+	@ResponseBody							//마이페이지 수정(영화관)
+	@PostMapping("theater/update/sit_update")//상영관 수정 ajax
 	public Object sit_update(@RequestBody Theater item) {
 		System.out.println("성공");
 		service.sitUpdate(item);
 		return item;
 	}
-	@GetMapping("theater/delete/{cinemaCode}/{theaterName}")
+	@GetMapping("theater/delete/{cinemaCode}/{theaterName}")//상영관 삭제
 	public String theaterdelete(@PathVariable String cinemaCode,@PathVariable String theaterName) {
 		service.theater_delete(cinemaCode,theaterName);
 		return "redirect:../../{cinemaCode}";
+	}
+	@GetMapping("delete/{cinemaCode}")
+	public String delete(@PathVariable String cinemaCode) {
+		service.delete(cinemaCode);
+		return "redirect:../myCinema";
+		
 	}
 }
 

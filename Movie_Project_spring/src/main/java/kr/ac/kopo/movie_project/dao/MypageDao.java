@@ -19,4 +19,8 @@ public interface MypageDao {
 
 	void theater_delete(String cinemaCode, String theaterName);
 
+	void deleteTheater(String cinemaCode);
+
+	void deleteCinema(String cinemaCode);
+
 }

@@ -71,7 +71,7 @@
           <div>좌석: A열 13번</div>
         </div>
       </div>
-      <div class="a_tag"><a href="../myPage" class="fail_link"><div class="fail_button"><br>예매 내역 확인</div></a></div>
+      <div class="a_tag"><a href="../myPage/myPage" class="fail_link"><div class="fail_button"><br>예매 내역 확인</div></a></div>
      </div>
 
 

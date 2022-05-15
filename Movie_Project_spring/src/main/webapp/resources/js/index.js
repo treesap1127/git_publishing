@@ -18,7 +18,6 @@ $(function(){
             $(`#movie_data_${result.rank}>div>div>div>p`).text(`${result.rank}`);
             
             //result.movieNm , result.rank , result.movieCd
-            console.log("결과값"+result);
             
                $.ajax({
                      url : "/navermovie",
@@ -27,7 +26,6 @@ $(function(){
                      dataType:"json",
                      data:JSON.stringify(result),
                      success: result2=>{
-                        console.log(`이게 되나?${result2.link}`)
                         $(`#movie_data_${result.rank}>div>div>img`).attr("src",`${result2.image}`);
                         $(`#movie_data_${result.rank}>div>div>img`).attr("alt",`${result.movieNm}`);
                         
