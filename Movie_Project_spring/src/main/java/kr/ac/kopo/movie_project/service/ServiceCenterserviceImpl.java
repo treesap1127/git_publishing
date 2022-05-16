@@ -6,42 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.movie_project.dao.ServiceCenterDao;
-import kr.ac.kopo.movie_project.model.BoardMaster;
-
+import kr.ac.kopo.movie_project.model.Board;
 @Service
 public class ServiceCenterserviceImpl implements ServiceCenterservice {
-
 	@Autowired
 	ServiceCenterDao dao;
-	
 	@Override
-	public List<BoardMaster> noticeView() {
+	public List<Board> list() {
 		
-		return dao.noticeView();
+		return dao.list();
 	}
-
 	@Override
-	public void noticeadd(BoardMaster boardmaster) {
-		dao.noticeadd(boardmaster);
-
-	}
-
-	@Override
-	public void noticeupdate(BoardMaster boardmaster) {
-		dao.noticeupdate(boardmaster);
-
-	}
-
-	@Override
-	public void delete(int boardId) {
-		dao.delete(boardId);
+	public void add(Board item) {
+		dao.add(item);
 		
 	}
-
 	@Override
-	public BoardMaster item(int boardId) {
-	
-		return dao.item(boardId);
+	public Board item(int articleId) {
+		
+		return dao.item(articleId);
+	}
+	@Override
+	public void update(Board item) {
+		dao.update(item);
+		
+	}
+	@Override
+	public void delete(int articleId) {
+		dao.delete(articleId);
+		
 	}
 
 }

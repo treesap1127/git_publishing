@@ -2,18 +2,18 @@ package kr.ac.kopo.movie_project.dao;
 
 import java.util.List;
 
-import kr.ac.kopo.movie_project.model.BoardMaster;
+import kr.ac.kopo.movie_project.model.Board;
 
 public interface ServiceCenterDao {
 
-	List<BoardMaster> noticeView();
+	List<Board> list();
 
-	void noticeadd(BoardMaster boardmaster);
+	void add(Board item);
 
-	void noticeupdate(BoardMaster boardmaster);
+	Board item(int articleId);
 
-	void delete(int boardId);
+	void update(Board item);
 
-	BoardMaster item(int boardId);
+	void delete(int articleId);
 
 }

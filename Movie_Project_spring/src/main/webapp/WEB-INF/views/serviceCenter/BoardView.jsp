@@ -5,26 +5,8 @@
 <html>
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/notice_update.css" rel="stylesheet" type="text/css">
+<link href="../../../../../css/serviceCenter/notice_list.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
-
-<!-- 서머노트를 위해 추가해야할 부분 -->
-<script src="js/summernote-lite.js"></script>
-<script src="js/summernote-ko-KR.js"></script>
-<link rel="stylesheet" href="js/summernote-lite.css">
-<!--  -->
-</head>
-<script>
-$(document).ready(function () {
-  console.log($.summernote.options);
-  // 실행시 언어 설정을 한글로 설정 
-  $.summernote.options.lang = 'ko-KR';
-  $.summernote.options.airMode = false;
-});
-
-var a = $('#summernote');
-
-</script>
 </head>
 <body>
   <div class="box_case">
@@ -74,42 +56,27 @@ var a = $('#summernote');
             </ul>
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
-     <div class="center_box">
-      <div class="update_box">공지사항 변경내역</div>
-      <form method="post" class="mt-4">
-        <div class="form-floating mt-2">
-          <label>제목</label>	
-          <div >				
-          <input type="text" name="title" class="form-control" placeholder="제목">
-          </div>      
-          <label>작성자</label>		
-          <div >					
-          <input type="text" name="writer" class="form-control" placeholder="작성자">		
-       		</div>
-          <br>   
-          <div class="file-upload" style="text-align: right;">
-            <label for="ex_file">업로드</label>
-            <input type="file" id="ex_file"> 
-            <input type="date" name="ragdate">
-        </div>        
-        
-        </div>	
-        	
-        <label>내용</label>			
-        <div class="mt-2">
-          <textarea class="summernote" name="editordata" rows="25" cols="123"></textarea>    
-        </div>
-        
-        <div>        	
-          <div class="update_setbutton">
-          <input type="submit" class="btn btn-outline-primary" value="변경하기" style="margin-right:40px;">
-          <a href="NoticeView" class="btn btn-outline-primary">목록가기</a></div>						
-        </div>
-        
-        
-      
-      </form>
-    </div>
+     <div class="notice_box">
+        <div class="notice_seq">${item.subject}</div>          
+          <div class="notice_area">          
+             <table class="tb">
+                    
+              <thead class="notice_first">
+                  <tr>
+                      <th>번호 : ${item.articleId}</th>
+                      <th>조회수: </th>
+                      <th>${item.regDate}</th>
+                  </tr>
+              </thead>              
+          </table>
+          <div class="tb_content">
+   				${item.contents}
+
+          </div>
+         </div>
+         <!-- 페이징디자인 -->
+
+         </div>
 
 
 
@@ -137,6 +104,5 @@ var a = $('#summernote');
         <div class="bottom_text_4">© ProjectCinema Co., Ltd All rights reservedv.</div>
     </div></div>
     <jsp:include page="../include/body.jsp"></jsp:include>
-    
 </body>
 </html>

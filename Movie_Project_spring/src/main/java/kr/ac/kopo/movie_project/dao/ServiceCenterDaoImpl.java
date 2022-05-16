@@ -6,42 +6,35 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.ac.kopo.movie_project.model.BoardMaster;
-
+import kr.ac.kopo.movie_project.model.Board;
 @Repository
 public class ServiceCenterDaoImpl implements ServiceCenterDao {
-
-	@Autowired
-	SqlSession sql;
+@Autowired
+SqlSession sql;
+	@Override
+	public List<Board> list() {
 	
-	@Override
-	public List<BoardMaster> noticeView() {
-	
-		return sql.selectList("serviceCenter.NoticeView");
+		return sql.selectList("Board.list");
 	}
-
 	@Override
-	public void noticeadd(BoardMaster boardmaster) {
-		sql.insert("serviceCenter.Noticeadd",boardmaster);
-
-	}
-
-	@Override
-	public void noticeupdate(BoardMaster boardmaster) {
-		sql.update("serviceCenter.NoticeUpdate",boardmaster);
-
-	}
-
-	@Override
-	public void delete(int boardId) {
-		sql.delete("serviceCenter.delete",boardId);
-
-	}
-
-	@Override
-	public BoardMaster item(int boardId) {
+	public void add(Board item) {
+		sql.insert("Board.add", item);
 		
-		return sql.selectOne("boardmaster.item",boardId);
+	}
+	@Override
+	public Board item(int articleId) {
+	
+		return sql.selectOne("Board.item", articleId);
+	}
+	@Override
+	public void update(Board item) {
+		sql.update("Board.update",item);
+		
+	}
+	@Override
+	public void delete(int articleId) {
+		sql.delete("Board.delete",articleId);
+		
 	}
 
 }

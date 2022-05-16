@@ -5,9 +5,34 @@
 <html>
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/notice.list.css" rel="stylesheet" type="text/css">
+<link href="../css/serviceCenter/notice_add.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
+
+<!-- 서머노트를 위해 추가해야할 부분 -->
+<script src="js/summernote-lite.js"></script>
+<script src="js/summernote-ko-KR.js"></script>
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script>
+$(document).ready(function() {
+	//여기 아래 부분
+	$('#summernote').summernote({
+		  height: 300,                 // 에디터 높이
+		  minHeight: null,             // 최소 높이
+		  maxHeight: null,             // 최대 높이
+		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+		  lang: "ko-KR",					// 한글 설정
+		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
+          
+	});
+});
+</script>
+<!--  -->
 </head>
+
 <body>
   <div class="box_case">
     <!--좌우크기조절-->
@@ -56,70 +81,43 @@
             </ul>
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
-     <div class="notice_box">
-        <div class="notice_seq">영화예매 취소좀</div>          
-          <div class="notice_area">          
-             <table class="tb">
-                    
-              <thead class="notice_first">
-                  <tr>
-                      <th>번호 :</th>
-                      <th>조회수 :</th>
-                      <th>등록일 :</th>
-                  </tr>
-              </thead>              
-          </table>
-          <div class="tb_content">
-            <p style="margin: 0cm;">어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">ㆍ2D 일반 관람권은 2D 일반 영화에 한하여 적용 가능</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="margin: 0cm;">어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>   
-
-          </div>
-         </div>
-         <!-- 페이징디자인 -->
-<div class="pager ">
-    <div class="page_wrap">
-      <div class="page_nation">
-         <a class="arrow pprev" href="#"></a>
-         <a class="arrow prev" href="#"></a>
-         <a href="#" class="active">1</a>
-         <a href="#">2</a>
-         <a href="#">3</a>
-         <a href="#">4</a>
-         <a href="#">5</a>
-         <a href="#">6</a>
-         <a href="#">7</a>
-         <a href="#">8</a>
-         <a href="#">9</a>
-         <a href="#">10</a>
-         <a class="arrow next" href="#"></a>
-         <a class="arrow nnext" href="#"></a>
-      </div>
-   </div>
-  </div>
-         </div>
+     <div class="center_box">
+      <div class="add_box">공지사항 등록</div>
+      <form method="post" class="mt-4">
+        <div class="form-floating mt-2">
+          <label>제목</label>	
+          <div >				
+          <input type="text" name="subject" class="form-control" placeholder="제목">
+          </div>      
+          <div style="display: none">					
+          <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자">		
+       		</div>
+          <br>   
+          <div class="file-upload" style="text-align: right;">           
+            <input class="ex_file" type="file" id="ex_file" > 
+            <input type="date" name="ragdate">
+        </div>        
+        
+        </div>	
+        	
+        	
+        	
+        <label>내용</label>			
+        <div class="mt-2">
+          <textarea id="summernote" name="contents" rows="25" cols="123"></textarea>    
+            
+        </div>
+        
+        
+        
+        
+        <div>        	
+          <div class="add_setbutton">
+          <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
+          <a href="NoticeView" class="btn btn-outline-primary">목록가기</a></div>						
+        </div>     
+      </form>
+    </div>
 
 
 
@@ -145,7 +143,8 @@
             <br><br>사업자 등록번호 : 123-45-6789<br>TEL : 02-1234-5678 Email : customer@projectCinema.co.kr
         </div>
         <div class="bottom_text_4">© ProjectCinema Co., Ltd All rights reservedv.</div>
-    </div></div>
+    </div>
+    </div>
     <jsp:include page="../include/body.jsp"></jsp:include>
 </body>
 </html>

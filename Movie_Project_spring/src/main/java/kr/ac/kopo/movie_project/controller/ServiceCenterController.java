@@ -1,6 +1,10 @@
 package kr.ac.kopo.movie_project.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +14,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.ac.kopo.movie_project.model.BoardMaster;
+import kr.ac.kopo.movie_project.model.Board;
 import kr.ac.kopo.movie_project.service.ServiceCenterservice;
 
 @Controller
 @RequestMapping("/serviceCenter")
 public class ServiceCenterController {
+	String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 	final String path = "serviceCenter/";
 	
 		@Autowired
@@ -33,50 +38,48 @@ public class ServiceCenterController {
 			return path+"F&Q";
 		}
 		
-		@GetMapping("/NoticeList")
-		public String noticeList(@PathVariable int boardId, Model model) {
-			BoardMaster item = service.item(boardId);
+		@GetMapping("/BoardList")
+		public String BoardList(Model model) {
+			List<Board> list = service.list();
+			model.addAttribute("list",list);
 			
-			model.addAttribute("item", item);			
-			
-			return path+"NoticeList";
-		}
-			
-		@GetMapping("/NoticeAdd")
-		public String noticeadd() {
-			
-			return path+"BoardMasterNoticeAdd";
+			return path+"BoardList";
 		}
 		
-		@PostMapping("/NoticeAdd")
-		public String noticeadd(BoardMaster boardmaster) {
-			service.noticeadd(boardmaster);
-			
-			return "redirect:noticelist";			
+		@GetMapping("/BoardAdd")
+		public String BoardAdd() {
+			return path +"BoardAdd";
+		}
+		@PostMapping("/BoardAdd")
+		public String add(Board item,HttpSession session) {
+			service.add(item);
+			return "redirect:BoardList";
 		}
 		
-		@GetMapping("/NoticeUpdate/")
-		public String noticeupdate(@PathVariable int boardId, Model model) {
-			List<BoardMaster> noticeupdate = service.noticeView();
+		@GetMapping("/BoardView/{articleId}")
+		public String BoardView(@PathVariable int articleId,Model model) {
+			Board item = service.item(articleId);
+			model.addAttribute("item",item);
+			return path+"BoardView";
+		}
+		@GetMapping("/BoardUpdate/{articleId}")
+		public String BoardUpdate(@PathVariable int articleId,Model model) {
+			Board item = service.item(articleId);
+			model.addAttribute("item",item);
+			return path+"BoardUpdate";
+		}
+		@PostMapping("/BoardUpdate/{articleId}")
+		public String BoardUpdate(@PathVariable int articleId,Board item) {
+			item.setArticleId(articleId);
+			service.update(item);
 			
-			model.addAttribute("noticeupdate",noticeupdate);
-			
-			return path+"NoticeUpdate";
+			return "redirect:../BoardList";
 		}
 		
-		@PostMapping("/NoticeUpdate/{boardId}")
-		public String noticeupdate(@PathVariable int boardId, BoardMaster boardmaster) {
-			service.noticeupdate(boardmaster);
-		
-		return "redirect:../noticelist";
-			
-		}
-		
-		@GetMapping("/delete/{boardId}")
-		public String delete(@PathVariable int boardId) {
-			service.delete(boardId);
-			
-			return "redirect:..";
+		@GetMapping("/delete/{articleId}")
+		public String delete(@PathVariable int articleId) {
+			service.delete(articleId);
+			return "redirect:../BoardList";
 		}
 		
 		
