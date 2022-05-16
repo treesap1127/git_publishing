@@ -5,7 +5,7 @@ public class Event {
 	private String eventName;
 	private String eventDate;
 	private String eventInfo;
-	private String id;
+	private String id;	
 	public int getEventId() {
 		return eventId;
 	}

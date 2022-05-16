@@ -41,7 +41,6 @@ a {
   font-weight: 600;
   position: absolute;
   display: flex;
-  color: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);

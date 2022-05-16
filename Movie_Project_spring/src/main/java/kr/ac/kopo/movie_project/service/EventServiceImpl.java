@@ -19,6 +19,25 @@ public class EventServiceImpl implements EventService {
 		return dao.continue_Event();
 	}
 
+	@Override
+	public List<Event> end_Event() {
+		
+		return dao.end_Event();
+	}
+
+	@Override
+	public void NoticeEventAdd(Event item) {
+		
+		dao.NoticeEventAdd(item);
+		
+	}
+
+	@Override
+	public void delete(int eventId) {
+		dao.delete(eventId);
+		
+	}
+
 	
 
 }

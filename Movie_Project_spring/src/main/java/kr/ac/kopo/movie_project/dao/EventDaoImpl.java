@@ -9,14 +9,31 @@ import org.springframework.stereotype.Repository;
 import kr.ac.kopo.movie_project.model.Event;
 @Repository
 public class EventDaoImpl implements EventDao {
+	
 	@Autowired
 	SqlSession sql;
+	
 	@Override
 	public List<Event> continue_Event() {
 		
 		return sql.selectList("Event.list");
 	}
-
+	@Override
+	public List<Event> end_Event() {
+		
+		return sql.selectList("Event.list");
+	}
+	
+	@Override
+	public void NoticeEventAdd(Event item) {
+		sql.insert("Event.add", item);
+		
+	}
+	@Override
+	public void delete(int eventId) {
+		sql.delete("Event.delete", eventId);
+		
+	}
 
 	
 

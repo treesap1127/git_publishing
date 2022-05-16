@@ -240,54 +240,35 @@ ul,li{list-style:none;}
   font-weight: 500;
   color: white;
 }
+.slide-size {
+	padding-right: 0rem;
+}
 
 
 .event_list_box{
   position: relative;
-  height: 1700px;
+  height: 300px;
   width: 1000px;
   /* background-color: #333333; */
-  top: 90px;
+  top: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-between;
 }
-.evnet_list_text_box{
-  position: relative;
-    width: 450px;
-    height: 300px;
-    border: 1px solid #dddddd;
+.event_list{
+	text-align: center;
 }
-.event_list_img{
-  position: relative;
-  width: 450px;
-  height: 225px;
-  /* 이미지 강제로 사이즈에 맞춤 */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  /* 이미지 강제로 사이즈에 맞춤 */
+.event_tbody_list{
+	text-align: center;
 }
-.event_list_text{
-  position: relative;
-  width: 450px;
-  height: 75px;
+.event-title{
+	text-align: left;
+	font-size: 25px;
+	font-weight: 600;
+	margin-top: 50px;
+	margin-left: 60px;
 }
-.event_list_title{
-  position: relative;
-  top: 20px;
-  font-size: 25px;
-  left: 25px;
-  font-weight: 550;
-}
-.event_list_date{
-  position: relative;
-    top: -6px;
-    left: 140px;
-    font-size: 13px;
-}
-
 
 
 .ing_end_event_box{
@@ -334,6 +315,16 @@ ul,li{list-style:none;}
     left: 920px;
     top: 20px;
 }
+.add_keyword{ 
+  border: none;
+  color: white;
+  padding: 20px 30px;
+  text-align: right;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; 
+}
 
 
 
@@ -346,8 +337,7 @@ ul,li{list-style:none;}
   position: relative;
   width: 1000px;
   /* top: -15px; */
-  height: 190px;
-  top: 85px
+  height: 600px; 
 }
 .page_wrap {
 	text-align: center;
@@ -433,48 +423,12 @@ ul,li{list-style:none;}
 .scriptbox{
   position: relative;
   width: 1000px;
-  height: 1975px;
+  height: 800px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.btn-outline-primary{
+	left:82%;
+	top:232px;
+}
 
 
 

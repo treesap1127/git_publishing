@@ -32,7 +32,18 @@ $(document).ready(function() {
    });
 });
 </script>
+</head>
+<script>
+$(document).ready(function () {
+  console.log($.summernote.options);
+  // 실행시 언어 설정을 한글로 설정 
+  $.summernote.options.lang = 'ko-KR';
+  $.summernote.options.airMode = false;
+});
 
+var a = $('#summernote');
+
+</script>
 </head>
 <body>
   <div class="box_case">
@@ -97,7 +108,8 @@ $(document).ready(function() {
           <br>   
           <div class="file-upload" style="text-align: right;">
             <label for="ex_file">업로드</label>
-            <input type="file" id="ex_file">           
+            <input type="file" id="ex_file"> 
+            <input type="date" name="ragdate">
         </div>        
         
         </div>	

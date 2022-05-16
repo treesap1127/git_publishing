@@ -8,5 +8,11 @@ public interface EventService {
 
 	List<Event> continue_Event();
 
+	List<Event> end_Event();
+
+	void NoticeEventAdd(Event item);
+
+	void delete(int eventId);
+
 	
 }
