@@ -119,10 +119,9 @@
 							<th>${item.movieName}</th>
 							<th>${item.cinemaCode}</th>
 							<th>${item.theaterName}</th>
-							<th><fmt:formatDate pattern="yyyy-MM-dd" value="${item.movieDate}" /></th>
-							<th><fmt:formatDate pattern="HH:mm" value="${item.movieTime}" /></th>
-							<th><a href="update/${item.cinemaCode}/${item.theaterName}/${item.movieName}"><button class="btn btn-warning">상영영화 수정</button></a>
-								<a href="delete/${item.cinemaCode}/${item.theaterName}/${item.movieName}"><button class="btn btn-danger" >상영영화 삭제</button></a>
+							<th>${item.movieDate}</th>
+							<th>${item.movieTime}</th>
+							<th><a href="delete/${item.cinemaCode}/${item.theaterName}/${item.movieName}"><button class="btn btn-danger" >상영영화 삭제</button></a>
 							</th>
 						</tr>
 				</c:forEach>

@@ -32,6 +32,7 @@
         
       });
     </script>
+    <script src="../../../../../../js/movie_add.js"></script>
     <style>
     	.title_plus_text{
     	color:white}
@@ -94,52 +95,39 @@
   <div class="mypage_inline">
 
     <!-- 아래부터 입력 폼 -->
-    <form method="post">
 	   <div class="add_box">
-		    <label>영화명:</label>
-			<input type="text" name="movieNm" value="test">
+	   		<input name="theaterName" value="${item.theaterName}"style="display:none;">
+	   		<input name="cinemaCode" value="${item.cinemaCode}"style="display:none;">
+		    <label>영화명:</label> 
+			<div class="movieNm namebox"></div>
 		  	<label>날짜:</label>
-			<input type="date" name="movieDate">		  	
+			<input type="date" name="movieDate">
 		  	<label>시간:</label>
-			<input type="date" name="movieTime">		  	
+			<input type="time" name="movieTime">
 		</div>
 	  	<div style="display:flex; margin-left: 22px;">
-	  		<button class="btn btn-primary btnadd">등록하기</button>
-			<a href="../${item.theaterName}" class="btn btn-danger btnadd">상영관 뒤로가기</a>
+	  		<button class="btn btn-primary btnadd buttonadd">등록하기</button>
+			<a href="../../${item.cinemaCode}/${item.theaterName}" class="btn btn-danger btnadd">뒤로가기</a>
 		</div>
-	</form>
+
    <!-- 아래부터 테이블 -->
     <div class="theater_top">${item.theaterName} 영화 관리</div>
 	<div class="theater_table">
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>상영관 순위</th>
-					<th>이미지</th>
+					<th>영화 포스터</th>
 					<th>영화관 이름</th>
 					<th>영화 선택</th>
 				</tr>
 			</thead>
-			
 			<tbody>
-<!-- 				<c:if test="${list.size() < 1}">
+
 						<tr>
-							<th colspan="6">등록 된 영화가 없습니다</th>
+							<th><img class="posterimg"></th>
+							<th></th>
+							<th></th>
 						</tr>
-					</c:if>
-				<c:forEach items="${list}" var="item">
-						<tr>
-							<th>${item.movieName}</th>
-							<th>${item.cinemaCode}</th>
-							<th>${item.theaterName}</th>
-							<th><fmt:formatDate pattern="yyyy-MM-dd" value="${item.movieDate}" /></th>
-							<th><fmt:formatDate pattern="HH:mm" value="${item.movieTime}" /></th>
-							<th><a href="update/${item.cinemaCode}/${item.theaterName}/${item.movieName}"><button class="btn btn-warning">상영영화 수정</button></a>
-								<a href="delete/${item.cinemaCode}/${item.theaterName}/${item.movieName}"><button class="btn btn-danger" >상영영화 삭제</button></a>
-							</th>
-						</tr>
-				</c:forEach>
--->				
 			</tbody>
 		</table>
 	</div>   

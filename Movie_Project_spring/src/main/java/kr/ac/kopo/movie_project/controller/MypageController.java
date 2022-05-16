@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.kopo.movie_project.model.Member;
@@ -112,17 +113,11 @@ public class MypageController {
 		model.addAttribute("item", item);
 		return path+"theaterMovieAdd";
 	}
-	@PostMapping("theater/cinemaMovie/{cinemaCode}/add/{theaterName}")
-	public String movieadd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item) {
-		System.out.println("item="+item.getMovieName());
-		System.out.println("item="+item.getMovieDate());
-		System.out.println("item="+item.getMovieTime());
-		item.setCinemaCode(cinemaCode);
-		item.setTheaterName(theaterName);
+	@ResponseBody
+	@PostMapping("theater/cinemaMovie/movieadd")
+	public Object movieadd(@RequestBody Movie item) {
 		service.movieadd(item);
-		return "redirect:../../";
-		
+		return item;
 	}
-	
 }
 

@@ -1,13 +1,12 @@
 package kr.ac.kopo.movie_project.model;
 
-import java.util.Date;
 
 public class Movie {
 	private String movieName;
 	private String cinemaCode;
 	private String theaterName;
-	private Date movieDate;
-	private Date movieTime;
+	private String movieDate;
+	private String movieTime;
 	
 	public String getMovieName() {
 		return movieName;
@@ -27,18 +26,19 @@ public class Movie {
 	public void setTheaterName(String theaterName) {
 		this.theaterName = theaterName;
 	}
-	public Date getMovieDate() {
+	public String getMovieDate() {
 		return movieDate;
 	}
-	public void setMovieDate(Date movieDate) {
+	public void setMovieDate(String movieDate) {
 		this.movieDate = movieDate;
 	}
-	public Date getMovieTime() {
+	public String getMovieTime() {
 		return movieTime;
 	}
-	public void setMovieTime(Date movieTime) {
+	public void setMovieTime(String movieTime) {
 		this.movieTime = movieTime;
 	}
+
 	
 
 }
