@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.kopo.movie_project.model.Board;
 import kr.ac.kopo.movie_project.service.ServiceCenterservice;
+import kr.ac.kopo.movie_project.util.Pager;
 
 @Controller
 @RequestMapping("/serviceCenter")
@@ -39,8 +40,8 @@ public class ServiceCenterController {
 		}
 		
 		@GetMapping("/BoardList")
-		public String BoardList(Model model) {
-			List<Board> list = service.list();
+		public String BoardList(Model model,Pager pager) {
+			List<Board> list = service.list(pager);
 			model.addAttribute("list",list);
 			
 			return path+"BoardList";

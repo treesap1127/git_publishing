@@ -80,17 +80,19 @@
 
 	<div class="notice_box">
 		<div class="notice_seq">공지사항</div>
+		
 		<div class="notice_keyword">
-
+		<form>
 			<select name="search" class="option_select">
 				<option value="0">전체</option>
 				<option value="1">제목</option>
-				<option value="2">작성자</option>
-				<option value="3">등록일</option>
+				<option value="2">내용</option>
+				<option value="3">작성자</option>
 			</select> <input type="text" name="keyoword">
 			<button class="btn btn-dark btn-sm">검색</button>
 		</div>
-
+		</form>
+		
 		<div class="notice_area">
 
 			<table class="tb">
@@ -144,11 +146,15 @@
 		<div class="pager ">
 			<div class="page_wrap">
 				<div class="page_nation">
-					<a class="arrow pprev" href="#"></a> <a class="arrow prev" href="#"></a>
-					<a href="#" class="active">1</a> <a href="#">2</a> <a href="#">3</a>
-					<a href="#">4</a> <a href="#">5</a> <a href="#">6</a> <a href="#">7</a>
-					<a href="#">8</a> <a href="#">9</a> <a href="#">10</a> <a
-						class="arrow next" href="#"></a> <a class="arrow nnext" href="#"></a>
+					<a class="arrow pprev" href="?page=1"></a>
+					 <a class="arrow prev" href="?page=${pager.prev}"></a>
+					 
+					 <c:forEach var="page" items="${pager.list}">
+					 <a href="?page=${page}" class="active">${page}</a> 
+					 </c:forEach>
+					 
+					 <a class="arrow next" href="?page=${pager.next} "></a> 
+					 <a class="arrow nnext" href="?page=${pager.last}"></a>
 				</div>
 			</div>
 		</div>

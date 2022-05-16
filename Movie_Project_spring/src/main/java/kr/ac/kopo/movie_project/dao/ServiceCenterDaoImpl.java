@@ -7,15 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Board;
+import kr.ac.kopo.movie_project.util.Pager;
 @Repository
 public class ServiceCenterDaoImpl implements ServiceCenterDao {
 @Autowired
 SqlSession sql;
-	@Override
-	public List<Board> list() {
 	
-		return sql.selectList("Board.list");
-	}
 	@Override
 	public void add(Board item) {
 		sql.insert("Board.add", item);
@@ -35,6 +32,16 @@ SqlSession sql;
 	public void delete(int articleId) {
 		sql.delete("Board.delete",articleId);
 		
+	}
+	@Override
+	public List<Board> list(Pager pager) {
+		// TODO Auto-generated method stub
+		return sql.selectList("Board.list",pager);
+	}
+	@Override
+	public int total(Pager pager) {
+		// TODO Auto-generated method stub
+		return sql.selectOne("Board.total",pager);
 	}
 
 }

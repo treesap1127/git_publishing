@@ -7,15 +7,20 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.movie_project.dao.ServiceCenterDao;
 import kr.ac.kopo.movie_project.model.Board;
+import kr.ac.kopo.movie_project.util.Pager;
 @Service
 public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	@Autowired
 	ServiceCenterDao dao;
+	
 	@Override
-	public List<Board> list() {
-		
-		return dao.list();
+	public List<Board> list(Pager pager) {
+		int total = dao.total(pager);
+		pager.setTotal(total);
+		return dao.list(pager);
 	}
+
+
 	@Override
 	public void add(Board item) {
 		dao.add(item);

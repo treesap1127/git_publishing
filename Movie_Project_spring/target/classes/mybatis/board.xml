@@ -5,6 +5,7 @@
 <mapper namespace="Board">
 	<select id="list" resultType="Board">
 		SELECT * FROM board
+		
 	</select>
 	
 	<insert id="add">
@@ -27,5 +28,24 @@
 		DELETE FROM board
 		WHERE article_id=#{articleId}
 	</delete>
-		
+	
+	
+	
+<sql id="search">
+		<where>
+			<if test="search==1">
+				board.subject=#{keyword}
+			</if>
+			<if test="search==2">
+				board.contents LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>
+			<if test="search==3">
+				board.member.id LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>
+		</where>
+	</sql>
+<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM board
+		<include refid="search"></include>
+	</select>
 </mapper>
