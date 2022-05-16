@@ -1,5 +1,6 @@
 package kr.ac.kopo.movie_project.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.kopo.movie_project.model.Member;
+import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
 import kr.ac.kopo.movie_project.service.MypageService;
@@ -90,7 +92,37 @@ public class MypageController {
 	public String delete(@PathVariable String cinemaCode) {
 		service.delete(cinemaCode);
 		return "redirect:../myCinema";
+	}
+	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}")
+	public String movieList(@PathVariable String cinemaCode,@PathVariable String theaterName,Model model,Movie item) {
+		item.setCinemaCode(cinemaCode);
+		item.setTheaterName(theaterName);
+		model.addAttribute("data",item);
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("cinemaCode", cinemaCode);
+		map.put("theaterName", theaterName);
+		List<Movie> list =service.movielist(map);
+		model.addAttribute("list",list);
+		return path+"theaterMovie";
+	}
+	@GetMapping("theater/cinemaMovie/{cinemaCode}/add/{theaterName}")
+	public String movieadd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item,Model model) {
+		item.setCinemaCode(cinemaCode);
+		item.setTheaterName(theaterName);
+		model.addAttribute("item", item);
+		return path+"theaterMovieAdd";
+	}
+	@PostMapping("theater/cinemaMovie/{cinemaCode}/add/{theaterName}")
+	public String movieadd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item) {
+		System.out.println("item="+item.getMovieName());
+		System.out.println("item="+item.getMovieDate());
+		System.out.println("item="+item.getMovieTime());
+		item.setCinemaCode(cinemaCode);
+		item.setTheaterName(theaterName);
+		service.movieadd(item);
+		return "redirect:../../";
 		
 	}
+	
 }
 

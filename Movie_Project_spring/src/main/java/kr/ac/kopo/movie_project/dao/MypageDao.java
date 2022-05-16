@@ -1,7 +1,9 @@
 package kr.ac.kopo.movie_project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
+import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
 
@@ -22,5 +24,9 @@ public interface MypageDao {
 	void deleteTheater(String cinemaCode);
 
 	void deleteCinema(String cinemaCode);
+
+	List<Movie> movielist(HashMap<String, Object> map);
+
+	void movieadd(Movie item);
 
 }

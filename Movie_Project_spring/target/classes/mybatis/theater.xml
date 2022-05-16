@@ -17,6 +17,15 @@
       SELECT * FROM theater
       WHERE cinema_code=#{cinemaCode}
    </select>
+   <insert id="movieadd">
+   		insert into movie
+   		values (#{movieName},#{cinemaCode},#{theaterName},#{movieDate},#{movieTime})
+   </insert>
+   
+   <select id="movieList" resultType="Movie">
+      SELECT * FROM movie
+      WHERE cinema_code=#{cinemaCode} and theater_name=#{theaterName}
+   </select>
    
    <select id="theaterlistmap" resultType="Theater">
       SELECT * FROM theater

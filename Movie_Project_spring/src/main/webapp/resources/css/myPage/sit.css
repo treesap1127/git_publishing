@@ -398,3 +398,15 @@ margin-bottom: 120px;
     left: 700px;
     margin-right: 10px;
 }
+.btnadd{
+	margin-left: 10px;
+    margin-top: 15px;
+}
+.add_box{
+	display: flex;
+	margin-top:10px;
+}
+.add_box>label{
+	margin-right: 15px;
+    margin-left: 22px;
+}

@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-    <link rel="stylesheet" href="../../../css/myPage/mycinema.css">
-    <link rel="stylesheet" href="../../../css/myPage/sit.css">
-    <link rel="stylesheet" href="../../../css/style/style.css">
+    <link rel="stylesheet" href="../../../../../css/myPage/mycinema.css">
+    <link rel="stylesheet" href="../../../../../css/myPage/sit.css">
+    <link rel="stylesheet" href="../../../../../css/style/style.css">
     <script>
       $(function(){
         $(".check").click(function(){
@@ -31,7 +32,6 @@
         
       });
     </script>
-    <script src="../../../../js/sit.js"></script>
     <style>
     	.title_plus_text{
     	color:white}
@@ -42,19 +42,19 @@
   <div class="box_case">
     <!--좌우크기조절-->
     <div class="title">
-      <a href="../../../../" class="main_back">
-        <img src="../../../img/root/메인아이콘.jpg" alt="메인아이콘" />
+      <a href="../../../../../" class="main_back">
+        <img src="../../../../../img/root/메인아이콘.jpg" alt="메인아이콘" />
         <div class="title_name">Miner Cinema</div>
       </a>
     </div>
 <div class="title_right">
-	                <a href="../../../such"><img src="../../../img/root/돋보기블랙.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
-	                <div class="login_link"><a href="../../../serviceCenter/CenterService" >고객센터</a></div>
-	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="../../../login">로그인</a></div></c:if>
-	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="../../../logout">로그아웃</a></div></c:if>
+	                <a href="../../../../../such"><img src="../../../../../img/root/돋보기블랙.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
+	                <div class="login_link"><a href="../../../../serviceCenter/CenterService" >고객센터</a></div>
+	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="../../../../../login">로그인</a></div></c:if>
+	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="../../../../../logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage">마이페이지</a></div>
+	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="../../../myPage">마이페이지</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade==2}">
 	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
@@ -94,16 +94,16 @@
   <div class="mypage_inline">
 
     <!-- 아래부터 테이블 -->
-    <div class="theater_top">${data.cinemaCode}상영관 관리</div>
+    <div class="theater_top">${data.theaterName} 상영관 영화 관리</div>
 	<div class="theater_table">
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<th>영화이름</th>
 					<th>영화관 코드</th>
-					<th>상영관이름</th>
-					<th>열 갯수</th>
-					<th>행 갯수</th>
-					<th>상영관 관리</th>
+					<th>상영관 이름</th>
+					<th>상영 날짜</th>
+					<th>상영 시간</th>
 					<th>영화 관리</th>
 				</tr>
 			</thead>
@@ -111,19 +111,18 @@
 			<tbody>
 				<c:if test="${list.size() < 1}">
 						<tr>
-							<th colspan="6">등록 된 상영관이 없습니다</th>
+							<th colspan="6">등록 된 영화가 없습니다</th>
 						</tr>
 					</c:if>
 				<c:forEach items="${list}" var="item">
 						<tr>
+							<th>${item.movieName}</th>
 							<th>${item.cinemaCode}</th>
 							<th>${item.theaterName}</th>
-							<th>${item.row}</th>
-							<th>${item.line}</th>
-							<th><a href="update/${item.cinemaCode}/${item.theaterName}"><button class="btn btn-warning">상영관 수정</button></a>
-								<a href="delete/${item.cinemaCode}/${item.theaterName}"><button class="btn btn-danger" >상영관 삭제</button></a>
-							</th>
-							<th>	<a href="cinemaMovie/${item.cinemaCode}/${item.theaterName}"><button class="btn btn-primary"style="margin-right: 10px;">상영 영화설정</button></a>
+							<th><fmt:formatDate pattern="yyyy-MM-dd" value="${item.movieDate}" /></th>
+							<th><fmt:formatDate pattern="HH:mm" value="${item.movieTime}" /></th>
+							<th><a href="update/${item.cinemaCode}/${item.theaterName}/${item.movieName}"><button class="btn btn-warning">상영영화 수정</button></a>
+								<a href="delete/${item.cinemaCode}/${item.theaterName}/${item.movieName}"><button class="btn btn-danger" >상영영화 삭제</button></a>
 							</th>
 						</tr>
 				</c:forEach>
@@ -132,8 +131,8 @@
 		</table>
 	</div>   
 		<div style="display:flex">
-			<a href="add/${data.cinemaCode}"><button class="btn btn-primary thebtn">상영관 등록</button></a> 
-			<a href="../myCinema"><button class="btn btn-danger thebtn">상영관 뒤로가기</button></a> 
+			<a href="add/${data.theaterName}"><button class="btn btn-primary thebtn">영화 등록</button></a> 
+			<a href="../../${data.cinemaCode}"><button class="btn btn-danger thebtn">뒤로가기</button></a> 
 		</div>
 	</div>
 </div>

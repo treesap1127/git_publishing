@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
 @Repository
@@ -50,6 +51,15 @@ public class MypageDaoImpl implements MypageDao {
 	@Override
 	public void deleteCinema(String cinemaCode) {
 		sql.delete("theater.deleteCinema",cinemaCode);
+	}
+	@Override
+	public List<Movie> movielist(HashMap<String, Object> map) {
+		return sql.selectList("theater.movieList", map);
+	}
+	@Override
+	public void movieadd(Movie item) {
+		sql.insert("theater.movieadd", item);
+		
 	}
 
 }
