@@ -15,8 +15,13 @@
 	
 	<select id="item" resultType="Event">
 		SELECT * FROM event
-		WHERE eventId=#{eventId}
+		WHERE event_id=#{eventId}
 	</select>
+	
+	<update id="update">
+		UPDATE event
+		SET eventName=#{eventName}, eventInfo=#{eventInfo} WHERE event_id=#{eventId}
+	</update>
 	
 	<delete id="delete">
 		DELETE FROM event

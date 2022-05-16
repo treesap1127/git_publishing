@@ -44,7 +44,11 @@ public class EventController {
 	}
 	
 	@GetMapping("/EventInfo/{eventId}")
-	public String EventInfo(@PathVariable int eventId) {
+	public String EventInfo(@PathVariable int eventId, Model model) {
+		Event item = service.item(eventId);
+		
+		model.addAttribute("item", item);
+		
 		return path+"EventInfo";
 		
 	}
@@ -63,6 +67,24 @@ public class EventController {
 		return "redirect:continue_Event";		
 	}	
 	
+	@GetMapping("/NoticeEventUpdate/{eventId}")
+	public String NoticeEventUpdate(@PathVariable int eventId, Model model) {
+		Event item =  service.item(eventId);
+		
+		model.addAttribute("item", item);
+		
+		return path + "NoticeEventUpdate";
+	}
+	
+	@PostMapping("/NoticeEventUpdate/{eventId}")
+	public String NoticeEventUpdate(@PathVariable int eventId, Event item) {
+		item.setEventId(eventId);
+		
+		service.NoticeEventUpdate(item);
+		
+		return "redirect:continue_Event";
+		
+	}
 	
 	@GetMapping("/delete/{eventId}")
 	public String delete(@PathVariable int eventId) {

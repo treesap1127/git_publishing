@@ -89,10 +89,9 @@ $(document).ready(function() {
           <label>제목</label>	
           <div >				
           <input type="text" name="eventName" class="form-control" placeholder="제목">
-          </div>      
-          <label style="display: none;">작성자</label>		
+          </div>        		
           <div style="display: none;">					
-          <input type="text" name="writer" class="form-control" placeholder="작성자" style="display: none;">		
+          <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자" >		
        		</div>
           <br>   
           <div class="file-upload" style="text-align: right;">

@@ -34,6 +34,15 @@ public class EventDaoImpl implements EventDao {
 		sql.delete("Event.delete", eventId);
 		
 	}
+	@Override
+	public void NoticeEventUpdate(Event item) {
+		sql.insert("Event.update", item);
+		
+	}
+	@Override
+	public Event item(int eventId) {		
+		return sql.selectOne("Event.item", eventId);
+	}
 
 	
 

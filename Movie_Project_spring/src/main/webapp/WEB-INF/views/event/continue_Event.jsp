@@ -31,7 +31,7 @@
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="../logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage">마이페이지</a></div>
+	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="../myPage/myPage">마이페이지</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade==2}">
 	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
@@ -71,7 +71,7 @@
 
       <!-- 아래가 슬라이드 부분입니다 건들지마세요 -->
       <div class="slide">
-        <ul class="slide-size">
+        <ul style="padding-left: 0rem;">
           <li>
             <div class="swipetextbox">
             <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 수학자</span>
@@ -128,11 +128,12 @@
 					<c:forEach var="item" items="${list}">
 						<tr>
 							<td>${item.eventId}</td>
-							<td><a href="view/${item.eventId}">${item.eventName}</a></td>
+							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>
 							<td><c:set var="ymd" value="<%=new java.util.Date()%>"/> <fmt:formatDate value="${ymd}" pattern="yyyy-MM-dd" /></td>							
-							<td>${item.id}</td>							
-							<td><a href="update/${item.eventId}"><button class="btn btn-outline-success">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger">삭제</button></a></td>
-						</tr>						 
+							<td>${sessionScope.member.id}</td>							
+							<td><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger">삭제</button></a></td>
+						</tr>	
+										 
 					</c:forEach> 					    					
               </tbody>                                                   
           </table>                    
@@ -144,7 +145,7 @@
 
 
       <div class="pager ">  
-       <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>                  
+                     <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>	    
         <div class="page_wrap">
           <div class="page_nation">
              <a class="arrow pprev" href="#"></a>

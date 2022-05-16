@@ -12,7 +12,11 @@ public interface EventService {
 
 	void NoticeEventAdd(Event item);
 
-	void delete(int eventId);
+	void delete(int eventId);	
+
+	Event item(int eventId);
+
+	void NoticeEventUpdate(Event item);	
 
 	
 }

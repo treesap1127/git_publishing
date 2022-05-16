@@ -14,6 +14,10 @@ public interface EventDao {
 
 	void delete(int eventId);
 
+	void NoticeEventUpdate(Event item);
+
+	Event item(int eventId);
+
 
 
 }

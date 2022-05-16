@@ -65,7 +65,7 @@
       </div>
       <div class="event_info_title_box">
         <div class="event_info_title">
-          <span class="event_info_title_text">제목을입력하세요</span>
+          <span class="event_info_title_text">${item.eventName}</span>
           <p class="event_info_title_date">2022년4월11일 &nbsp; 오후08:27 &nbsp; | &nbsp; 추천:0 &nbsp; |&nbsp; 조회수:1</p>
         </div>
         <hr class="event_border2" style="border: solid 1px #dddddd;" width="1000px">
@@ -74,18 +74,11 @@
       <div class="whitebox2">
         <div class="whitebox2_photo">사진을 넣어주세요</div>
         <div class="whitebox2_info">
-          <p>이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요
-            이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요
-            이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요
-            이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요
-            이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요
-            이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요
-            이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요이벤트 내용을 써주세요
-          </p>
+          <div>${item.eventInfo}</div>
 
         </div>
         <div class="back_button_box">
-          <a href="../event/continue_Event"><button class="btn btn-outline-primary">목록으로가기</button></a>
+          <a href="../../event/continue_Event"><button class="btn btn-outline-primary">목록으로가기</button></a>
         </div>
       </div>
     </div>

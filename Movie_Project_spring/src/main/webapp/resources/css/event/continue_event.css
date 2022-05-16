@@ -247,7 +247,7 @@ ul,li{list-style:none;}
 
 .event_list_box{
   position: relative;
-  height: 300px;
+  height: 600px;
   width: 1000px;
   /* background-color: #333333; */
   top: 30px;
@@ -337,7 +337,7 @@ ul,li{list-style:none;}
   position: relative;
   width: 1000px;
   /* top: -15px; */
-  height: 600px; 
+  height: 300px;
 }
 .page_wrap {
 	text-align: center;
@@ -423,11 +423,11 @@ ul,li{list-style:none;}
 .scriptbox{
   position: relative;
   width: 1000px;
-  height: 800px;
+  height: 900px;
 }
 .btn-outline-primary{
-	left:82%;
-	top:232px;
+	left:85%;
+	top:126px;
 }
 
 

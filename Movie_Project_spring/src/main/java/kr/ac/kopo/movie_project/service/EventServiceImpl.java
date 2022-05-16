@@ -38,6 +38,18 @@ public class EventServiceImpl implements EventService {
 		
 	}
 
+	@Override
+	public void NoticeEventUpdate(Event item) {
+		dao.NoticeEventUpdate(item);
+		
+	}
+
+	@Override
+	public Event item(int eventId) {
+		
+		return dao.item(eventId);
+	}
+
 	
 
 }
