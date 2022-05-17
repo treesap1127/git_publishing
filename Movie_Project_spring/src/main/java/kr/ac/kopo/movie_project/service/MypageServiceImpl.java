@@ -36,14 +36,16 @@ public class MypageServiceImpl implements MypageService {
 		dao.sitUpdate(item);
 		
 	}
+	@Transactional
 	@Override
 	public void theater_delete(String cinemaCode, String theaterName) {
+		dao.movie_delete(cinemaCode,theaterName);
 		dao.theater_delete(cinemaCode,theaterName);
-		
 	}
 	@Transactional
 	@Override
 	public void delete(String cinemaCode) {
+		dao.movie_all_delete(cinemaCode);
 		dao.deleteTheater(cinemaCode);
 		dao.deleteCinema(cinemaCode);
 	}
@@ -53,7 +55,17 @@ public class MypageServiceImpl implements MypageService {
 	}
 	@Override
 	public void movieadd(Movie item) {
+		String rating=item.getMovieRating();
+		String rating_num;
+		rating_num=rating.substring(0,2);
+		System.out.println(rating_num);
+		item.setMovieRating(rating_num);
 		dao.movieadd(item);
+		
+	}
+	@Override
+	public void moviedelete(Movie item) {
+		dao.moviedelete(item);
 		
 	}
 

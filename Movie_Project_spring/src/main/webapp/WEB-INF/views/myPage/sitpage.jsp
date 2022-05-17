@@ -123,7 +123,7 @@
 							<th><a href="update/${item.cinemaCode}/${item.theaterName}"><button class="btn btn-warning">상영관 수정</button></a>
 								<a href="delete/${item.cinemaCode}/${item.theaterName}"><button class="btn btn-danger" >상영관 삭제</button></a>
 							</th>
-							<th>	<a href="cinemaMovie/${item.cinemaCode}/${item.theaterName}"><button class="btn btn-primary"style="margin-right: 10px;">상영 영화설정</button></a>
+							<th><a href="cinemaMovie/${item.cinemaCode}/${item.theaterName}/movie"><button class="btn btn-primary"style="margin-right: 10px;">상영 영화설정</button></a>
 							</th>
 						</tr>
 				</c:forEach>

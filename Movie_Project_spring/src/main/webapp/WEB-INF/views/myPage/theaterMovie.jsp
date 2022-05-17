@@ -121,7 +121,7 @@
 							<th>${item.theaterName}</th>
 							<th>${item.movieDate}</th>
 							<th>${item.movieTime}</th>
-							<th><a href="delete/${item.cinemaCode}/${item.theaterName}/${item.movieName}"><button class="btn btn-danger" >상영영화 삭제</button></a>
+							<th><a href="delete/${item.movieName}/${item.movieDate}/${item.movieTime}"><button class="btn btn-danger" >상영영화 삭제</button></a>
 							</th>
 						</tr>
 				</c:forEach>
@@ -130,8 +130,8 @@
 		</table>
 	</div>   
 		<div style="display:flex">
-			<a href="add/${data.theaterName}"><button class="btn btn-primary thebtn">영화 등록</button></a> 
-			<a href="../../${data.cinemaCode}"><button class="btn btn-danger thebtn">뒤로가기</button></a> 
+			<a href="add"><button class="btn btn-primary thebtn">영화 등록</button></a> 
+			<a href="../../../${data.cinemaCode}"><button class="btn btn-danger thebtn">뒤로가기</button></a> 
 		</div>
 	</div>
 </div>

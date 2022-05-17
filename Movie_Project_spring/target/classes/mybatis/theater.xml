@@ -42,15 +42,27 @@
    		DELETE FROM theater
    		where cinema_code=#{cinemaCode} and theater_name=#{theaterName}
    </delete>
+     <delete id="movie_delete"> 
+   		DELETE FROM movie
+   		where cinema_code=#{cinemaCode} and theater_name=#{theaterName}
+   </delete>
    
    <delete id="deleteTheater">
    	DELETE FROM theater
    		where cinema_code=#{cinemaCode}
    </delete>
-   
    <delete id="deleteCinema">
    		DELETE FROM movie_admin
    		where cinema_code=#{cinemaCode}
    </delete>
-   
+      <delete id="movie_all_delete"> 
+   		DELETE FROM movie
+   		where cinema_code=#{cinemaCode}
+   </delete>
+   <delete id="moviedelete"> 
+   		DELETE FROM movie
+   		where cinema_code=#{cinemaCode} and movie_date=#{movieDate} and movie_name=#{movieName} and movie_time=#{movieTime} and theater_name=#{theaterName}
+   </delete>
+ 
+
 </mapper>

@@ -61,5 +61,21 @@ public class MypageDaoImpl implements MypageDao {
 		sql.insert("theater.movieadd", item);
 		
 	}
+	@Override
+	public void moviedelete(Movie item) {
+		sql.delete("theater.moviedelete", item);
+		
+	}
+	@Override
+	public void movie_delete(String cinemaCode, String theaterName) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("cinemaCode", cinemaCode);
+		map.put("theaterName", theaterName);
+		sql.delete("theater.movie_delete", map);
+	}
+	@Override
+	public void movie_all_delete(String cinemaCode) {
+		sql.delete("theater.movie_all_delete", cinemaCode);
+	}
 
 }

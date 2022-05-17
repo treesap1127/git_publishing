@@ -9,6 +9,7 @@
   <link href="../../css/ticket/Ticketing.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../../css/style/style.css">
   <script src="../../js/ticket.js"></script>
+
 </head>
 
 <body>
@@ -76,19 +77,23 @@
         </div>
         <div class="place">
           <div class="place_box"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시/도</div>
-          <div class="place_box"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상세지역</div>
+          <div class="place_box"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;영화관명</div>
         </div>
         <div class="movie_place_sub">
           <div class="movie_place_sub1">
-			<c:forEach var="item" items="area">
-				
-			</c:forEach>          
+			<button id="seoul" class="movie_place_">서울</button>
+            <button id="gyeonggi" class="movie_place_">경기/인천</button>
+            <button id="chungcheong" class="movie_place_">충청/대전</button>
+            <button id="jeonla" class="movie_place_">전라/광주</button>
+            <button id="gyeongbug" class="movie_place_">경북/대구</button>
+            <button id="gangwon" class="movie_place_">강원</button>
+            <button id="jeju" class="movie_place_">제주</button>
           </div>
-          <div class="movie_place_sub2" >
-        	<c:forEach var="item" items="movie">
-        		
-        	</c:forEach>          
-          </div>
+          <div class="movie_place_sub2">
+ <!--      	<c:forEach var="item" items="${theater}">
+        		<button id="${item.movieAreaName}" class="movieAreaName">${item.movieAreaName}</button>
+        	</c:forEach>
+-->          </div>
         </div>
       </div>
 
@@ -98,14 +103,13 @@
         </div>
        
         <div class="movie_audits">
+          <c:forEach var="item" items="${movie}">
           <div class="movie_">
-            <img src="../../img/ticketing/12세.png" alt="심의등급" class="movie_audits_photo">
-            <div class="movie_name">&nbsp;&nbsp;&nbsp;영화명</div>
+            <img src="../../img/ticketing/${item.movieRating}.png" alt="심의등급" class="movie_audits_photo">
+            <div class="movie_name" id="${item.movieName}">${item.movieName}</div>
           </div>
-          <div class="movie_">
-            <img src="../../img/ticketing/15세.png" alt="심의등급" class="movie_audits_photo">
-            <div class="movie_name">&nbsp;&nbsp;&nbsp;영화명</div>
-          </div>
+        </c:forEach>
+          
         </div>
       </div>
 
@@ -119,7 +123,7 @@
 
           <div class="movie_contact">
             <div class="movie_contact_sub1">
-              <img src="../img/ticketing/15세.png" alt="심의등급" class="movie_audits_photo">
+              <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
               <div class="movie_name contact_name">영화명</div>
             </div>
             <div class="movie_contact_sub2">
@@ -128,7 +132,7 @@
           </div>
           <div class="movie_contact">
             <div class="movie_contact_sub1">
-              <img src="../img/ticketing/15세.png" alt="심의등급" class="movie_audits_photo">
+              <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
               <div class="movie_name contact_name">영화명</div>
             </div>
             <div class="movie_contact_sub2">
@@ -138,7 +142,7 @@
 
           <div class="movie_contact">
             <div class="movie_contact_sub1">
-              <img src="../img/ticketing/15세.png" alt="심의등급" class="movie_audits_photo">
+              <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
               <div class="movie_name contact_name">영화명</div>
             </div>
             <div class="movie_contact_sub2">
@@ -151,7 +155,7 @@
 
           <div class="movie_contact">
             <div class="movie_contact_sub1">
-              <img src="../img/ticketing/15세.png" alt="심의등급" class="movie_audits_photo">
+              <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
               <div class="movie_name contact_name">영화명</div>
             </div>
             <div class="movie_contact_sub2">

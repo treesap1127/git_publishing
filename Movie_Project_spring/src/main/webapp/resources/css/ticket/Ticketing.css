@@ -351,32 +351,34 @@ padding: 2em 12em;
   margin-left: 4%;
 }
 .movie_{
-  display: flex;
-  top: 15px;
-  position: relative;
-  height: 50px;
-  width: 100%;
-  background-color: gainsboro;
+    display: flex;
+    top: 15px;
+    position: relative;
+    height: 55px;
+    width: 100%;
+    background-color: gainsboro;
 }
 .movie_:hover{
   background-color: white;
 }
 .movie_name{
-  position: relative;
-  top: 22%;
-  left: 10px;
+    position: relative;
+    top: 19%;
+    left: 5px;
 }
 .movie_audits{
   border-right: 1px solid #dddddd;
-  height: 640px;
+    height: 720px;
   overflow-y: scroll;
 }
 .movie_audits{ -ms-overflow-style: none; } 
 .movie_audits::-webkit-scrollbar{ display:none; }
 .movie_audits_photo{
-  position: relative;
-  left: 10px;
-  object-fit: contain;
+    position: relative;
+    left: 5px;
+    object-fit: contain;
+    height: 40px;
+    top: 6px;
 }
 .contact_button{
   box-shadow:inset 0px 1px 0px 0px #ffffff;

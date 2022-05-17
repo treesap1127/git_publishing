@@ -109,7 +109,7 @@
 		</div>
 	  	<div style="display:flex; margin-left: 22px;">
 	  		<button class="btn btn-primary btnadd buttonadd">등록하기</button>
-			<a href="../../${item.cinemaCode}/${item.theaterName}" class="btn btn-danger btnadd">뒤로가기</a>
+			<a href="../${item.theaterName}/movie" class="btn btn-danger btnadd">뒤로가기</a>
 		</div>
 
    <!-- 아래부터 테이블 -->

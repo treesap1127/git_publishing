@@ -29,4 +29,10 @@ public interface MypageDao {
 
 	void movieadd(Movie item);
 
+	void moviedelete(Movie item);
+
+	void movie_delete(String cinemaCode, String theaterName);
+
+	void movie_all_delete(String cinemaCode);
+
 }

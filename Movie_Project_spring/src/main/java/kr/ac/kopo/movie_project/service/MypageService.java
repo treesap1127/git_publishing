@@ -27,4 +27,6 @@ public interface MypageService {
 
 	void movieadd(Movie item);
 
+	void moviedelete(Movie item);
+
 }

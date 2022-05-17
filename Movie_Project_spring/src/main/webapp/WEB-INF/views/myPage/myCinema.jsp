@@ -101,7 +101,6 @@
 					<th>영화관 코드</th>
 					<th>영화관이름</th>
 					<th>주소</th>
-					<th>상세주소</th>
 					<th>전화번호</th>
 					<th>관리</th>
 					<th>상영관</th>
@@ -119,7 +118,6 @@
 							<th>${item.cinemaCode}</th>
 							<th>${item.movieAreaName}</th>
 							<th>${item.bigCity}</th>
-							<th>${item.littleCity}</th>
 							<th>${item.tel}</th>
 							<th><button class="btn btn-outline-danger deleteBtn" style="margin-right: 10px;">영화관 삭제</button>
 							</th>

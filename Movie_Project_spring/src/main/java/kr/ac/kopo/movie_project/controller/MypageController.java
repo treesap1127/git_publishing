@@ -94,7 +94,7 @@ public class MypageController {
 		service.delete(cinemaCode);
 		return "redirect:../myCinema";
 	}
-	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}")
+	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/movie")
 	public String movieList(@PathVariable String cinemaCode,@PathVariable String theaterName,Model model,Movie item) {
 		item.setCinemaCode(cinemaCode);
 		item.setTheaterName(theaterName);
@@ -106,12 +106,23 @@ public class MypageController {
 		model.addAttribute("list",list);
 		return path+"theaterMovie";
 	}
-	@GetMapping("theater/cinemaMovie/{cinemaCode}/add/{theaterName}")
+	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/add")
 	public String movieadd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item,Model model) {
 		item.setCinemaCode(cinemaCode);
 		item.setTheaterName(theaterName);
 		model.addAttribute("item", item);
 		return path+"theaterMovieAdd";
+	}
+	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/delete/{movieName}/{movieDate}/{movieTime}")
+	public String moviedelete(@PathVariable String cinemaCode,@PathVariable String theaterName,@PathVariable String movieName,@PathVariable String movieDate,@PathVariable String movieTime) {
+		Movie item =new Movie();
+		item.setCinemaCode(cinemaCode);
+		item.setMovieDate(movieDate);
+		item.setMovieName(movieName);
+		item.setMovieTime(movieTime);
+		item.setTheaterName(theaterName);
+		service.moviedelete(item);
+		return "redirect:../../../movie";
 	}
 	@ResponseBody
 	@PostMapping("theater/cinemaMovie/movieadd")

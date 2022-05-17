@@ -4,7 +4,6 @@ public class MovieAdmin {
 	private String cinemaCode;
 	private String id;
 	private String bigCity;
-	private String littleCity;
 	private String tel;
 	private String movieAreaName;
 	public String getCinemaCode() {
@@ -24,12 +23,6 @@ public class MovieAdmin {
 	}
 	public void setBigCity(String bigCity) {
 		this.bigCity = bigCity;
-	}
-	public String getLittleCity() {
-		return littleCity;
-	}
-	public void setLittleCity(String littleCity) {
-		this.littleCity = littleCity;
 	}
 	public String getTel() {
 		return tel;
