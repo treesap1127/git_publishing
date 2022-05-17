@@ -65,8 +65,10 @@
      <!--여기까지 기본 위 배너 입니다!-->
      <div class="whitebox">
       <div class="eventbox">
-        <div class="eventboxtext">종료된 이벤트</div>
+        <div class="eventboxtext">종료된 이벤트</div>        
       </div>
+      <div>* 총 ${pager.total} 건 날짜가 지난이벤트 입니다.</div>
+     
 
       <!-- 아래가 슬라이드 부분입니다 건들지마세요 -->
    
@@ -74,110 +76,56 @@
       <!-- 슬라이드 아래부분 목록입니다 -->
  <!-- 현재 진행중인 이벤트 -->
 <div class="whitebox2">
-      <div class="scriptbox">
-     
+      <div class="scriptbox">     
       <div class="event_list_box">
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
+      
+      	 <table class="table table-striped table-bordered table-hover">         
+              <colgroup>
+                <col width="130">
+                <col>
+                <col width="170">
+            </colgroup>              
+              <thead>
+                  <tr class="event_list">
+                      <th>이벤트번호</th>
+                      <th>이벤트제목</th>                                         
+                      <th>작성자</th>
+                      <th>관리</th>
+                      
+                  </tr>
+              </thead>
+              <tbody class="event_tbody_list">
+            	 <c:if test="${list.size() < 1}">
+						<tr>
+							<td colspan="5">등록 된 게시물이 없습니다</td>
+						</tr>
+					</c:if>
+					
+					<c:forEach var="item" items="${list}">
+						<tr>
+							<td>${item.eventId}</td>
+							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>														
+							<td>${item.id}</td>							
+							<td> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger">삭제</button></a></td>
+						</tr>	
+										 
+					</c:forEach> 					    					
+              </tbody>                                                   
+          </table>                     
       </div>
       <!-- 현재 징행중인 이벤트 -->
 
 
-      <div class="pager ">
+    <div class="pager ">              
         <div class="page_wrap">
           <div class="page_nation">
-             <a class="arrow pprev" href="#"></a>
-             <a class="arrow prev" href="#"></a>
-             <a href="#" class="active">1</a>
-             <a href="#">2</a>
-             <a href="#">3</a>
-             <a href="#">4</a>
-             <a href="#">5</a>
-             <a href="#">6</a>
-             <a href="#">7</a>
-             <a href="#">8</a>
-             <a href="#">9</a>
-             <a href="#">10</a>
-             <a class="arrow next" href="#"></a>
-             <a class="arrow nnext" href="#"></a>
+             <a class="arrow pprev" href="?page=${pager.prev}"></a>
+             <a class="arrow prev" href="?page=${pager.next} "></a>
+             	<c:forEach var="page" items="${pager.list}">
+					<div><a href="?page=${page}">${page}</a></div>
+				</c:forEach>             
+             <a class="arrow next" href="?page=${pager.next} "></a>
+             <a class="arrow nnext" href="?page=${pager.last} "></a>
           </div>
         </div>
        </div>

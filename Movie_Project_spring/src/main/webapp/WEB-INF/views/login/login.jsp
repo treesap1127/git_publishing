@@ -9,8 +9,13 @@
 <link rel="stylesheet" href="../css/style/style.css">
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-
+<c:if test="${msg!=null}">
+<script>
+	window.onload = function(){
+		alert("${msg}");
+	}
+</script>
+</c:if>
 </head>
 <body>
   <div class="box_case">
@@ -62,7 +67,7 @@
      <!--여기까지 기본 위 배너 입니다!-->
 <div class="login_box">
    <div class="center">       
-    <h1>통합로그인</h1>	
+    <h1>통합로그인</h1> 		
 		<form id="login_form" method="post">
 		   <div class="txt_field">
           	<input type="text" name="id" required>

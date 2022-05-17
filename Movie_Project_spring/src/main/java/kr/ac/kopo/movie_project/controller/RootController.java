@@ -45,7 +45,7 @@ public class RootController {
 	public String login(Member member,HttpSession session) {
 		if(memberservice.login(member)) {
 			session.setAttribute("member", member);
-			String target=(String) session.getAttribute("target");
+			String target=(String) session.getAttribute("target");			
 			return "redirect:"+(target==null?"/":target);
 		}
 		

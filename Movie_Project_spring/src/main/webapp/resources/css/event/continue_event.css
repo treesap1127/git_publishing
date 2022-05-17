@@ -246,15 +246,15 @@ ul,li{list-style:none;}
 
 
 .event_list_box{
-  position: relative;
+ 
   height: 600px;
   width: 1000px;
   /* background-color: #333333; */
-  top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-between;
+ top: 110px;
+  display: flex;	
+    flex-wrap:wrap; 
+    align-content: flex-start;
+    flex-direction: row-reverse;
 }
 .event_list{
 	text-align: center;
@@ -430,7 +430,11 @@ ul,li{list-style:none;}
 	left:85%;
 	top:95px;
 }
-
+.col-auto {
+	flex: 0 0 auto;
+    width: auto;
+    padding-left: inherit;
+}
 
 
 

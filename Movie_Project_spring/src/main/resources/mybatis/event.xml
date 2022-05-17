@@ -31,19 +31,25 @@
 	<sql id="search">
 		<where>
 			<if test="search==1">
-				event.eventName=#{keyword}
+				event.eventId=#{keyword}
 			</if>
 			<if test="search==2">
-				event.eventInfo LIKE CONCAT(CONCAT('%',#{keyword}),'%')
-			</if>
+				event.eventName LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>			
 			<if test="search==3">
-				event.member.id LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+				memberId=${keyword}
 			</if>
 		</where>
 	</sql>
-<select id="total" resultType="Integer">
+	
+	<select id="total" resultType="Integer">
 		SELECT COUNT(*) FROM event
 		<include refid="search"></include>
 	</select>
 	
+	
+	<!-- 조회수 올리기 -->
+	<update id="viewCount">
+		update event set view_count = view_count + 1 where event_id = #{eventId}
+	</update>
 </mapper>

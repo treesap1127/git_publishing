@@ -101,7 +101,18 @@
       <div class="scriptbox">
      	<p class="event-title">이벤트 목록</p>
       <div class="event_list_box">
-     
+      <div>
+		<form>		
+			<select name="search">
+				<option value="0">전체</option>
+				<option value="1">이벤트번호</option>
+				<option value="2">이벤트제목</option>
+				<option value="3">작성자</option>
+			</select>								
+				<input type="text" name="keyword">				
+				<button class="btn btn-dark">검색</button>			
+			</form>
+		</div>
          <table class="table table-striped table-bordered table-hover">         
               <colgroup>
                 <col width="130">
@@ -118,6 +129,7 @@
                       
                   </tr>
               </thead>
+              <form>
               <tbody class="event_tbody_list">
             	 <c:if test="${list.size() < 1}">
 						<tr>
@@ -135,7 +147,8 @@
 						</tr>	
 										 
 					</c:forEach> 					    					
-              </tbody>                                                   
+              </tbody> 
+              </form>                                                  
           </table>                    
       </div>
       
