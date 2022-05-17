@@ -79,46 +79,53 @@
 	<div class="notice_box">
 	<div>
 		<div>
-			<h3>게시판 목록</h3>
+			<h3>게시판 등록</h3>
 		</div>
-		<div>
-			<table border="1">
-				<thead>
-					<tr>
-						<th>게시판 번호</th>
-						<th>게시판명</th>
-						<th>댓글</th>
-						<th>첨부파일</th>
-						<th>공개</th>
-						<th>권한</th>	
-						<th>관리</th>					
-					</tr>
-				</thead>
-				
-				<tbody>
-					<c:if test="${list.size() < 1}">
-						<tr>
-							<th colspan="7">등록 된 게시판이 없습니다</th>
-						</tr>
-					</c:if>
-					
-					<c:forEach var="item" items="${list}">
-						<tr>
-							<td>${item.boardId}</td>
-							<td>${item.subject}</td>
-							<td>${item.reply}</td>
-							<td>${item.attach}</td>
-							<td>${item.secret}</td>
-							<td>${item.permission}</td>					
-							<td><a href="BoardTableUpdate/${item.boardId}">변경</a> <a href="delete/${item.boardId}">삭제</a> <a href="${item.boardId}/article/list">게시글</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-		<div>
-			<a href="BoardTableAdd">추가</a>
-		</div>
+		<form method="post">
+		<input type="text" name="boardId" style="display:none" value="${item}" readonly>
+			<div>
+				<label>게시판명</label>
+				<input type="text" name="subject">
+			</div>
+			
+			<div>
+				<label>댓글 허용</label>
+				<select name="reply">
+					<option value="0">댓글 불가</option>
+					<option value="1">댓글 허용</option>
+				</select>
+			</div>
+			
+			<div>
+				<label>첨부파일 허용</label>
+				<select name="attach">
+					<option value="0">첨부파일 불가</option>
+					<option value="1">단일파일 허용</option>
+					<option value="2">다중파일 허용</option>
+				</select>
+			</div>
+			
+			<div>
+				<label>공개여부</label>
+				<select name="secret">
+					<option value="0">비공개</option>
+					<option value="1">공개</option>
+				</select>
+			</div>
+			
+			<div>
+				<label>권한</label>
+				<select name="permission">
+					<option value="0">쓰기 불가</option>
+					<option value="1">쓰기 허용</option>
+				</select>
+			</div>
+			
+			<div>
+				<button>등록</button>
+				<button type="button">취소</button>
+			</div>
+		</form>
 	</div>
 
 	</div>

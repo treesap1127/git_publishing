@@ -21,22 +21,25 @@ public class BoardController {
 	BoardService service;
 	
 	@GetMapping("/BoardTableList")
-	public String BoardTableAdd(Model model) {
+	public String BoardTableList(Model model) {
 		List<BoardMaster> list = service.list();
 		model.addAttribute("list",list);
 		return path +"BoardTableList";
 	}
-	@GetMapping("/BoardTableadd")
-	public String add() {
-		return path+"BoardTableadd";
+	@GetMapping("/BoardTableAdd")
+	public String BoardTableAdd(Model model) {
+		int boardid=service.boardid();
+		++boardid;
+		model.addAttribute("item", boardid);
+		return path+"BoardTableAdd";
 	}
-	@PostMapping("/BoardTableadd")
+	@PostMapping("/BoardTableAdd")
 	public String add(BoardMaster item) {
-		service.add(item);
+		service.BoardTableadd(item);
 		return "redirect:BoardTableList";
 	}
 	@GetMapping("/BoardTableUpdate/{boardId}")
-	public String update(@PathVariable int boardId,Model model) {
+	public String BoardTableUpdate(@PathVariable int boardId,Model model) {
 		BoardMaster item = service.item(boardId);
 		model.addAttribute("item",item);
 		
@@ -44,13 +47,13 @@ public class BoardController {
 		
 	}
 	@PostMapping("/BoardTableUpdate/{boardId}")
-	public String update(@PathVariable int boardId,BoardMaster item) {
+	public String BoardTableUpdate(@PathVariable int boardId,BoardMaster item) {
 		item.setBoardId(boardId);
 		service.update(item);
 		
 		return "redirect:../BoardTableList";
 	}
-	@GetMapping("/delete/{boardId}")
+	@GetMapping("/BoardTabledelete/{boardId}")
 	public String delete(@PathVariable int boardId) {
 		service.delete(boardId);
 		

@@ -8,14 +8,19 @@ public interface BoardService {
 
 	List<BoardMaster> list();
 
-	void add(BoardMaster item);
-
-	
-
-	void update(BoardMaster item);
-
 	BoardMaster item(int boardId);
 
 	void delete(int boardId);
+
+	void update(BoardMaster item);
+
+	void BoardTableadd(BoardMaster item);
+
+	int boardid();
+
+
+
+
+	
 
 }

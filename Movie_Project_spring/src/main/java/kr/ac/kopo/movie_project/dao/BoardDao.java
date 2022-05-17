@@ -20,4 +20,6 @@ public interface BoardDao {
 
 	void deleteTable(int boardId);
 
+	int boardid();
+
 }
