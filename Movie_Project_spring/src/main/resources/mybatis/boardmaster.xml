@@ -6,58 +6,63 @@
 	<select id="list" resultType="BoardMaster">
 		SELECT * FROM board_master
 	</select>
-	
+
 	<insert id="add">
 		INSERT INTO board_master
-		VALUES (null, #{subject}, #{reply}, #{attach}, #{secret}, #{permission})
-		
-		
+		VALUES (null, #{subject},
+		#{reply}, #{attach}, #{secret}, #{permission})
+
+
 	</insert>
-	
+
 	<select id="item" resultType="Board">
 		SELECT * FROM board_master
-		WHERE boardId=#{boardId}
+		WHERE
+		boardId=#{boardId}
 	</select>
-	
+
 	<update id="update">
 		UPDATE board_master
-		SET subject=#{subject}, reply=#{reply}, attach=#{attach}, secret=#{secret}, permission=#{permission}
-		WHERE  boardId=#{boardId}
+		SET subject=#{subject},
+		reply=#{reply}, attach=#{attach}, secret=#{secret},
+		permission=#{permission}
+		WHERE boardId=#{boardId}
 	</update>
-	
+
 	<delete id="delete">
 		DELETE FROM board_master
-		WHERE  boardId=#{boardId}
+		WHERE boardId=#{boardId}
 	</delete>
-	
+
 	<update id="create_board">
-	CREATE TABLE 'board_${boardId}' (
-		'article_id' INT NOT NULL, 
-		'subject' VARCHAR(128) NOT NULL, 
-		'contents' LONGTEXT NULL, 
-		'reg_date' DATE NOT NULL, 
-		'view_count' INT NULL DEFAULT 0, 
-		'member_id' NULL VARCHAR(32),
-		
-		CONSTRAINT 'PK_board_${boardId}'	PRIMARY KEY ('article_id'),
-		CONSTRAINT 'FK_member_TO_board_${boardId}'	FOREIGN KEY ('member_id')
-		REFERENCES 'member' ('id')
-	)
+		CREATE TABLE 'board_${boardId}' (
+		`article_id` INT PRIMARY KEY NOT NULL 
+		`subject` VARCHAR(64) NULL     
+		`id` VARCHAR(32) NOT NULL
+		`reg_date` VARCHAR(30) NOT NULL 
+		`contents` LONGTEXT NULL     
+		`view_count` INT NULL     
+		)
+		ALTER TABLE 'board_${boardId}'
+			ADD CONSTRAINT `FK_member_TO_board` 
+		FOREIGN KEY (`id`)
+		REFERENCES `member` (`id`)
 	</update>
-	
+
 	<update id="delete_board">
 		DROP TABLE board_${boardId}
 	</update>
-	
+
 	<update id="create_board_seq">
 		CREATE SEQUENCE BOARD_${boardId}_SEQ
 	</update>
-	
+
 	<update id="delete_board_seq">
 		DROP SEQUENCE BOARD_${boardId}_SEQ
 	</update>
 	<select id="boardid" resultType="Integer">
 		select max(board_id)
-		from board_master
+		from
+		board_master
 	</select>
 </mapper>
