@@ -81,7 +81,7 @@
 
           <li>
             <div class="swipetextbox">
-              <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 수학자</span>
+              <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 엘리스</span>
              </div>
           </li>
           <li>
@@ -129,7 +129,7 @@
 						<tr>
 							<td>${item.eventId}</td>
 							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>
-							<td><c:set var="ymd" value="<%=new java.util.Date()%>"/> <fmt:formatDate value="${ymd}" pattern="yyyy-MM-dd" /></td>							
+							<td>${item.eventDate}</td>							
 							<td>${item.id}</td>							
 							<td><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger">삭제</button></a></td>
 						</tr>	

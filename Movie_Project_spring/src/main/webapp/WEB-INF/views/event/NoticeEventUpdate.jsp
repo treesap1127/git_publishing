@@ -61,13 +61,13 @@ var a = $('#summernote');
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage">마이페이지</a></div>
+	             <div class="title_plus_text" style="color: black;position: relative; left: 75%; top: 16%; width: 265px; font-size: 13px; font-weight: 600; text-align: right;">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage/myPage">마이페이지</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade==2}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
+	             <div class="title_plus_text" style="color: black;position: relative; left: 75%; top: 16%; width: 265px; font-size: 13px; font-weight: 600; text-align: right;">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade>=10}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">웹 관리</a></div>
+	             <div class="title_plus_text" style="color: black;position: relative; left: 75%; top: 16%; width: 265px; font-size: 13px; font-weight: 600; text-align: right;">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">웹 관리</a></div>
 	             </c:if>
         </div>
   <div class="black_box">

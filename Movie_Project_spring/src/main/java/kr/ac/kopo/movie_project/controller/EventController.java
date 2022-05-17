@@ -1,5 +1,8 @@
 package kr.ac.kopo.movie_project.controller;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +21,7 @@ import kr.ac.kopo.movie_project.service.EventService;
 @Controller
 @RequestMapping("/event")
 public class EventController {
+	String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 	final String path = "event/";
 	
 	@Autowired
@@ -60,8 +64,7 @@ public class EventController {
 	
 	@PostMapping("/NoticeEventAdd")
 	public String NoticeEventAdd(Event item,HttpSession session) {
-		String id=(String) session.getAttribute("id");
-		item.setId(id);
+		
 		service.NoticeEventAdd(item);
 		
 		return "redirect:continue_Event";		
