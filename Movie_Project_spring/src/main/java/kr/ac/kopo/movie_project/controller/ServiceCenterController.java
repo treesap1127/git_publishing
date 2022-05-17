@@ -83,6 +83,8 @@ public class ServiceCenterController {
 			return "redirect:../BoardList";
 		}
 		
+	
+		
 		
 	}
 

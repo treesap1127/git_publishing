@@ -4,10 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/notice_view.css" rel="stylesheet"
-	type="text/css">
+<link href="../../../../../css/serviceCenter/BoardTableList.css"
+	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
 </head>
 <body>
@@ -15,19 +14,19 @@
 		<!--좌우크기조절-->
 		<div class="title">
 			<a href="../../../../" class="main_back"> <img
-				src="../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
+				src="../../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
 				<div class="title_name">Miner Cinema</div>
 			</a>
 		</div>
 		<div class="title_right">
-			<a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘"
+			<a href="such"><img src="../../img/root/돋보기화이트.jpg" alt="돋보기아이콘"
 				style="height: 22px; width: 25px;" /></a>
 			<div class="login_link">
-				<a href="../serviceCenter/CenterService">고객센터</a>
+				<a href="serviceCenter/CenterService">고객센터</a>
 			</div>
 			<c:if test="${sessionScope.member.grade==0}">
 				<div class="login_link">
-					<a href="../login">로그인</a>
+					<a href="login">로그인</a>
 				</div>
 			</c:if>
 			<c:if test="${sessionScope.member.grade>0}">
@@ -77,94 +76,61 @@
 		</ul>
 	</div>
 	<!--여기까지 기본 위 배너 입니다!-->
-
 	<div class="notice_box">
-		<div class="notice_seq">공지사항</div>
-		
-		<div class="notice_keyword">
-		<form>
-			<select name="search" class="option_select">
-				<option value="0">전체</option>
-				<option value="1">제목</option>
-				<option value="2">내용</option>
-				<option value="3">작성자</option>
-			</select> <input type="text" name="keyoword">
-			<button class="btn btn-dark btn-sm">검색</button>
-		</div>
-		</form>
-		
-		<div class="notice_area">
-
-			<table class="tb">
-				<colgroup>
-					<col width="130">
-					<col>
-					<col width="170">
-				</colgroup>
+		<div>
+			<table border="1">
 				<thead>
 					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>등록일</th>
-						<th>조회수</th>
+						<th>게시판 번호</th>
+						<th>게시판명</th>
+						<th>댓글</th>
+						<th>첨부파일</th>
+						<th>공개</th>
+						<th>권한</th>
 						<th>관리</th>
-
 					</tr>
 				</thead>
-				<tbody id="notice_midle">
-					<c:forEach var="item" items="${list}">
+
+				<tbody>
+					<c:if test="${list.size() < 1}">
 						<tr>
-							<td>${item.articleId}</td>
-							<td><a href="BoardView/${item.articleId}">${item.subject}</a></td>
-							<td>${item.id}</td>
-							<td>${item.regDate}</td>
-							<td>${item.viewCount}</td>
-							<td><a href="BoardUpdate/${item.articleId}"><button
-										class="btn btn-outline-success">수정</button></a> <a href="delete/${item.articleId}"><button
-										class="btn btn-outline-danger">삭제</button></a></td>
-						</tr>
-					</c:forEach>
-					<c:if test="${list.size()<1}">
-						<tr>
-							<td>등록된 글이 없습니다</td>
+							<th colspan="7">등록 된 게시판이 없습니다</th>
 						</tr>
 					</c:if>
 
+					<c:forEach var="item" items="${list}">
+						<tr>
+							<td>${item.boardId}</td>
+							<td>${item.subject}</td>
+							<td>${item.reply}</td>
+							<td>${item.attach}</td>
+							<td>${item.secret}</td>
+							<td>${item.permission}</td>
+							<td><a href="update/${item.boardId}">변경</a> <a
+								href="delete/${item.boardId}">삭제</a> <a
+								href="${item.boardId}/article/list">게시글</a></td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div class="add_keyword">
-			<a href="BoardTableAdd"><button class="btn btn-outline-primary">게시판생성</button></a>
-			<a href="BoardAdd"><button class="btn btn-outline-primary">등록</button></a>
-		</div>
-		<!-- 페이징디자인 -->
-		<div class="pager ">
-			<div class="page_wrap">
-				<div class="page_nation">
-					<a class="arrow pprev" href="?page=1"></a>
-					 <a class="arrow prev" href="?page=${pager.prev}"></a>
-					 
-					 <c:forEach var="page" items="${pager.list}">
-					 <a href="?page=${page}" class="active">${page}</a> 
-					 </c:forEach>
-					 
-					 <a class="arrow next" href="?page=${pager.next} "></a> 
-					 <a class="arrow nnext" href="?page=${pager.last}"></a>
-				</div>
-			</div>
-		</div>
+
 	</div>
+
+
+
+
+
+
 
 
 
 
 	<!-- 제일 최하단 -->
 
-	<hr class="lhr5" />
 	<div class="bottom">
 		<!--고객센터-->
-
+		<hr class="lhr5" />
 		<div class="inner_case_bottom">
 			<div class="bottom_text_1">고객센터</div>
 			<div class="bottom_text_2">평일 08:00 ~ 19:30, 토요일,공휴일
@@ -180,6 +146,5 @@
 		</div>
 	</div>
 	<jsp:include page="../include/body.jsp"></jsp:include>
-
 </body>
 </html>
