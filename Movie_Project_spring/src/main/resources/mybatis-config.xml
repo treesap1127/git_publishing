@@ -15,6 +15,7 @@
 		<mapper resource="mybatis/theater.xml"/>
 		<mapper resource="mybatis/event.xml"/>
 		<mapper resource="mybatis/board.xml"/>
+		<mapper resource="mybatis/boardmaster.xml"/>
    </mappers>
 
 </configuration>

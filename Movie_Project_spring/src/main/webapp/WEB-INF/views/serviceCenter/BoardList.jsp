@@ -135,7 +135,7 @@
 			</table>
 		</div>
 		<div class="add_keyword">
-			<a href="BoardTableAdd"><button class="btn btn-outline-primary">게시판생성</button></a>
+			<a href="BoardTableList"><button class="btn btn-outline-primary">게시판생성</button></a>
 			<a href="BoardAdd"><button class="btn btn-outline-primary">등록</button></a>
 		</div>
 		<!-- 페이징디자인 -->

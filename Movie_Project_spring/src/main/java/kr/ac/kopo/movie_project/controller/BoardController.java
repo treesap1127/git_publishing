@@ -31,7 +31,7 @@ public class BoardController {
 		return path+"BoardTableadd";
 	}
 	@PostMapping("/BoardTableadd")
-	public String add(Board item) {
+	public String add(BoardMaster item) {
 		service.add(item);
 		return "redirect:BoardTableList";
 	}
@@ -40,5 +40,22 @@ public class BoardController {
 		BoardMaster item = service.item(boardId);
 		model.addAttribute("item",item);
 		
+		return path+"BoardTableList";
+		
 	}
+	@PostMapping("/BoardTableUpdate/{boardId}")
+	public String update(@PathVariable int boardId,BoardMaster item) {
+		item.setBoardId(boardId);
+		service.update(item);
+		
+		return "redirect:../BoardTableList";
+	}
+	@GetMapping("/delete/{boardId}")
+	public String delete(@PathVariable int boardId) {
+		service.delete(boardId);
+		
+		return "redirect:../BoardTableList";
+	}
+	
+
 }
