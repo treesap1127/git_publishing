@@ -145,23 +145,16 @@
 
 
       <div class="pager ">  
-                     <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>	    
+        <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>	    
         <div class="page_wrap">
           <div class="page_nation">
-             <a class="arrow pprev" href="#"></a>
-             <a class="arrow prev" href="#"></a>
-             <a href="#" class="active">1</a>
-             <a href="#">2</a>
-             <a href="#">3</a>
-             <a href="#">4</a>
-             <a href="#">5</a>
-             <a href="#">6</a>
-             <a href="#">7</a>
-             <a href="#">8</a>
-             <a href="#">9</a>
-             <a href="#">10</a>
-             <a class="arrow next" href="#"></a>
-             <a class="arrow nnext" href="#"></a>
+             <a class="arrow pprev" href="?page=${pager.prev}"></a>
+             <a class="arrow prev" href="?page=${pager.next} "></a>
+             	<c:forEach var="page" items="${pager.list}">
+					<div><a href="?page=${page}">${page}</a></div>
+				</c:forEach>             
+             <a class="arrow next" href="?page=${pager.next} "></a>
+             <a class="arrow nnext" href="?page=${pager.last} "></a>
           </div>
         </div>
        </div>

@@ -74,8 +74,9 @@
       <div class="whitebox2">
         <div class="whitebox2_photo">사진을 넣어주세요</div>
         <div class="whitebox2_info">
+         <div><내용 및 유의사항>
           <div>${item.eventInfo}</div>
-
+		</div>
         </div>
         <div class="back_button_box">
           <a href="../../event/continue_Event"><button class="btn btn-outline-primary">목록으로가기</button></a>

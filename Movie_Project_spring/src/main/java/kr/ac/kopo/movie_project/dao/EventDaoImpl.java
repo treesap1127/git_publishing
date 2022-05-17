@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Event;
+import kr.ac.kopo.movie_project.util.Pager;
 @Repository
 public class EventDaoImpl implements EventDao {
 	
@@ -14,9 +15,9 @@ public class EventDaoImpl implements EventDao {
 	SqlSession sql;
 	
 	@Override
-	public List<Event> continue_Event() {
+	public List<Event> continue_Event(Pager pager) {
 		
-		return sql.selectList("Event.list");
+		return sql.selectList("Event.list",pager);
 	}
 	@Override
 	public List<Event> end_Event() {
@@ -42,6 +43,12 @@ public class EventDaoImpl implements EventDao {
 	@Override
 	public Event item(int eventId) {		
 		return sql.selectOne("Event.item", eventId);
+	}
+
+	@Override
+	public int total(Pager pager) {
+		
+		return sql.selectOne("Event.total",pager);
 	}
 
 	

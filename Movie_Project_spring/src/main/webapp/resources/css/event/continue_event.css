@@ -337,18 +337,19 @@ ul,li{list-style:none;}
   position: relative;
   width: 1000px;
   /* top: -15px; */
-  height: 300px;
+  height: 200px;
 }
 .page_wrap {
 	text-align: center;
     font-size: 0;
     position: relative;
-    top: 35%;
+    top: 31%;
     transform: translateY(-50%);
+    left: 38%;
  }
-.page_nation {
+/*.page_nation {
 	display:inline-block;
-}
+}*/
 .page_nation .none {
 	display:none;
 }
@@ -427,7 +428,7 @@ ul,li{list-style:none;}
 }
 .btn-outline-primary{
 	left:85%;
-	top:126px;
+	top:95px;
 }
 
 

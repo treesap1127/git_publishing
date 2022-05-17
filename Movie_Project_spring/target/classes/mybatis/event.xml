@@ -20,12 +20,30 @@
 	
 	<update id="update">
 		UPDATE event
-		SET eventName=#{eventName}, eventInfo=#{eventInfo} WHERE event_id=#{eventId}
+		SET event_name=#{eventName}, event_info=#{eventInfo} WHERE event_id=#{eventId}
 	</update>
 	
 	<delete id="delete">
 		DELETE FROM event
 		WHERE event_id=#{eventId}
 	</delete>
+	
+	<sql id="search">
+		<where>
+			<if test="search==1">
+				event.eventName=#{keyword}
+			</if>
+			<if test="search==2">
+				event.eventInfo LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>
+			<if test="search==3">
+				event.member.id LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>
+		</where>
+	</sql>
+<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM event
+		<include refid="search"></include>
+	</select>
 	
 </mapper>

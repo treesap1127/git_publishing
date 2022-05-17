@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.kopo.movie_project.model.Event;
 import kr.ac.kopo.movie_project.service.EventService;
+import kr.ac.kopo.movie_project.util.Pager;
 
 @Controller
 @RequestMapping("/event")
@@ -29,8 +30,8 @@ public class EventController {
 	
 	
 	@GetMapping("/continue_Event")
-	public String continue_Event(Model model){
-		List<Event> list = service.continue_Event();
+	public String continue_Event(Model model,Pager pager){
+		List<Event> list = service.continue_Event(pager);
 		
 		model.addAttribute("list",list);
 		
@@ -85,7 +86,7 @@ public class EventController {
 		
 		service.NoticeEventUpdate(item);
 		
-		return "redirect:continue_Event";
+		return "redirect:../continue_Event";
 		
 	}
 	
