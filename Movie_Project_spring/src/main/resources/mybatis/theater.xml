@@ -19,7 +19,7 @@
    </select>
    <insert id="movieadd">
    		insert into movie
-   		values (#{movieName},#{cinemaCode},#{theaterName},#{movieDate},#{movieTime})
+   		values (#{movieName},#{cinemaCode},#{theaterName},#{movieDate},#{movieTime},#{image},Null,#{movieRating})
    </insert>
    
    <select id="movieList" resultType="Movie">

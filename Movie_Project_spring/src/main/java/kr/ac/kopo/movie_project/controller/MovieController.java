@@ -35,35 +35,52 @@ public class MovieController {
    @ResponseBody
    @PostMapping("/koficmovie")
    public Object kobisMovie(@RequestBody Kofic item) throws OpenAPIFault, Exception{
-      String key="52ed877329884c9bcff27fca7daf01d0";
-      //영화페이지
-      Calendar cal = Calendar.getInstance();
-      SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-      cal.add(Calendar.DATE, -1);
-      String date = sdf.format(cal.getTime());
-      
-      
-      String itemPerPage=item.getRank();
-      
-      KobisOpenAPIRestService service = new KobisOpenAPIRestService(key);
-      String daliydata=service.getDailyBoxOffice(true,date,itemPerPage,"","","");
+	      String key="52ed877329884c9bcff27fca7daf01d0";
+	      //영화페이지
+	      Calendar cal = Calendar.getInstance();
+	      SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+	      cal.add(Calendar.DATE, -1);
+	      String date = sdf.format(cal.getTime());
+	      
+	      
+	      String itemPerPage=item.getRank();
+	      
+	      KobisOpenAPIRestService service = new KobisOpenAPIRestService(key);
+	      String daliydata=service.getDailyBoxOffice(true,date,itemPerPage,"","","");
 
-      ObjectMapper mapper = new ObjectMapper();
-      HashMap<String,Object> data =mapper.readValue(daliydata,HashMap.class);
-      System.out.println("데이터"+data);
-      HashMap<String,Object> boxOfficeResult=(HashMap<String, Object>) data.get("boxOfficeResult");
-      List<NaverData> listdata=(List<NaverData>) boxOfficeResult.get("dailyBoxOfficeList");
-      while(listdata.isEmpty()) {
-         boxOfficeResult=listdata(item);
-         listdata=(List<NaverData>) boxOfficeResult.get("dailyBoxOfficeList");
-      }
-      List<Kofic> dailyBoxOfficeList=(List<Kofic>) boxOfficeResult.get("dailyBoxOfficeList");
-      int resultnum=Integer.parseInt(item.getRnum())-1;
+	      ObjectMapper mapper = new ObjectMapper();
+	      HashMap<String,Object> data =mapper.readValue(daliydata,HashMap.class);
+	      System.out.println("데이터"+data);
+	      HashMap<String,Object> boxOfficeResult=(HashMap<String, Object>) data.get("boxOfficeResult");
+	      List<NaverData> listdata=(List<NaverData>) boxOfficeResult.get("dailyBoxOfficeList");
+	      while(listdata.isEmpty()) {
+	         boxOfficeResult=listdata(item);
+	         listdata=(List<NaverData>) boxOfficeResult.get("dailyBoxOfficeList");
+	      }
+	      List<Kofic> dailyBoxOfficeList=(List<Kofic>) boxOfficeResult.get("dailyBoxOfficeList");
+	      int resultnum=Integer.parseInt(item.getRnum())-1;
 
-      //      System.out.println(dailyBoxOfficeList.get(resultnum)+"범위 안벗어남..");
-      return dailyBoxOfficeList.get(resultnum);
+	      //      System.out.println(dailyBoxOfficeList.get(resultnum)+"범위 안벗어남..");
+	      return dailyBoxOfficeList.get(resultnum);
    }
+   @SuppressWarnings("unchecked")
+   @ResponseBody
+   @PostMapping("/koficmoviedata")
+   public Object koficmoviedata(@RequestBody Kofic item) throws OpenAPIFault, Exception{
+	      String key="52ed877329884c9bcff27fca7daf01d0";
+	      //영화페이지
 
+	      KobisOpenAPIRestService service = new KobisOpenAPIRestService(key);
+	      String moviedate=service.getMovieInfo(true,item.getMovieCd());
+
+	      ObjectMapper mapper = new ObjectMapper();
+	      HashMap<String,Object> data =mapper.readValue(moviedate,HashMap.class);
+	      System.out.println("데이터"+data);
+	      HashMap<String,Object> movieInfoResult=(HashMap<String, Object>) data.get("movieInfoResult");
+	      HashMap<String,Object> movieInfo=(HashMap<String, Object>) movieInfoResult.get("movieInfo");
+	      List<Kofic> audits=(List<Kofic>) movieInfo.get("audits");
+	       return audits.get(0);
+   }
    @SuppressWarnings("unchecked")
    @ResponseBody
    @PostMapping("/navermovie")

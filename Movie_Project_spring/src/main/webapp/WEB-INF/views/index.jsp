@@ -43,9 +43,9 @@
         
             <div class="black_box">
             <ul id="main-menu">
-            <li><a href="ticket/Ticketing">예매</a>
+            <li><a href="ticket/Ticketing?moviename=0">예매</a>
                 <ul id="sub-menu">
-                  <li><a href="ticket/Ticketing" aria-label="subemnu">예매하기</a></li>
+                  <li><a href="ticket/Ticketing?moviename=0" aria-label="subemnu">예매하기</a></li>
                   <li><a href="ticket/TicketInformation" aria-label="subemnu">예매안내</a></li>
                 </ul>
               </li>

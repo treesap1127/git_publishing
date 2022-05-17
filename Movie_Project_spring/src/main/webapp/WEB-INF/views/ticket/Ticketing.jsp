@@ -6,8 +6,9 @@
 
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-  <link href="../css/ticket/Ticketing.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="../css/style/style.css">
+  <link href="../../css/ticket/Ticketing.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../css/style/style.css">
+  <script src="../../js/ticket.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
       </a>
     </div>
 <div class="title_right">
-	                <a href="../../such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
+	                <a href="../../such"><img src="../../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
 	                <div class="login_link"><a href="../../serviceCenter/CenterService" >고객센터</a></div>
 	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="../../login">로그인</a></div></c:if>
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="../../logout">로그아웃</a></div></c:if>
@@ -79,17 +80,14 @@
         </div>
         <div class="movie_place_sub">
           <div class="movie_place_sub1">
-            <button>서울</button>
-            <button>경기/인천</button>
-            <button>충청/대전</button>
-            <button>전라/광주</button>
-            <button>경북/대구</button>
-            <button>강원</button>
-            <button>제주</button>
+			<c:forEach var="item" items="area">
+				
+			</c:forEach>          
           </div>
-          <div class="movie_place_sub2">
-            <button>서울</button>
-            <!-- c:for 로 뽑아내야함- javascipt로 뽑아와도 가능할듯 -->
+          <div class="movie_place_sub2" >
+        	<c:forEach var="item" items="movie">
+        		
+        	</c:forEach>          
           </div>
         </div>
       </div>
@@ -98,13 +96,7 @@
         <div class="movie_place_title">
           <div class="title_center">영화 선택</div>
         </div>
-        <div class="movie_select">
-          <select name="movie_sort" class="form-select" aria-label="Default select example"id="movie_sort">
-            <option value="ticketing_sort">예매순</option>
-            <option value="rating_sort">평점순</option>
-            <option value="expected_sort">예정작</option>
-          </select>
-        </div>
+       
         <div class="movie_audits">
           <div class="movie_">
             <img src="../../img/ticketing/12세.png" alt="심의등급" class="movie_audits_photo">

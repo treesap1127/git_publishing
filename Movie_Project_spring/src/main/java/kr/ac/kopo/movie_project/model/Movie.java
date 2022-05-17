@@ -7,6 +7,9 @@ public class Movie {
 	private String theaterName;
 	private String movieDate;
 	private String movieTime;
+	private String image;
+	private String ticSit;
+	private String movieRating;
 	
 	public String getMovieName() {
 		return movieName;
@@ -37,6 +40,24 @@ public class Movie {
 	}
 	public void setMovieTime(String movieTime) {
 		this.movieTime = movieTime;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getTicSit() {
+		return ticSit;
+	}
+	public void setTicSit(String ticSit) {
+		this.ticSit = ticSit;
+	}
+	public String getMovieRating() {
+		return movieRating;
+	}
+	public void setMovieRating(String movieRating) {
+		this.movieRating = movieRating;
 	}
 
 	

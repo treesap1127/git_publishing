@@ -300,7 +300,9 @@ padding: 2em 12em;
   height: 640px;
   border-right: 1px solid #dddddd;
     background-color: white;
+    overflow-y: scroll;
 }
+
 .movie_place_sub2>button{
   width: 100%;
   position: relative;
@@ -311,6 +313,8 @@ padding: 2em 12em;
   box-shadow: none;
   background-color: white;
 }
+.movie_place_sub2{ -ms-overflow-style: none; } 
+.movie_place_sub2::-webkit-scrollbar{ display:none; }
 .movie_place_sub2>button:hover{
   color: red;
 }
@@ -365,8 +369,10 @@ padding: 2em 12em;
 .movie_audits{
   border-right: 1px solid #dddddd;
   height: 640px;
-
+  overflow-y: scroll;
 }
+.movie_audits{ -ms-overflow-style: none; } 
+.movie_audits::-webkit-scrollbar{ display:none; }
 .movie_audits_photo{
   position: relative;
   left: 10px;

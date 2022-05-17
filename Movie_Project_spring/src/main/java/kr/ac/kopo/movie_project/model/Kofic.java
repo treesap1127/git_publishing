@@ -19,6 +19,7 @@ public class Kofic {
 	private String audiAcc;//누적관객수를 출력합니다.
 	private String scrnCnt;//해당일자에 상영한 스크린수를 출력합니다.
 	private String showCnt;//해당일자에 상영된 횟수를 출력합니다.
+	private String movieRating;//심의등급
 	// 위 까지 일일 박스 오피스 아래부터 주석 달면서 주간 박스오피스등을 사용해주세요
 	public String getRnum() {
 		return rnum;
@@ -128,6 +129,13 @@ public class Kofic {
 	public void setMovieNm(String movieNm) {
 		this.movieNm = movieNm;
 	}
+	public String getMovieRating() {
+		return movieRating;
+	}
+	public void setMovieRating(String movieRating) {
+		this.movieRating = movieRating;
+	}
+	
 
 	
 	

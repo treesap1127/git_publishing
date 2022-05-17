@@ -104,6 +104,8 @@
 			<input type="date" name="movieDate">
 		  	<label>시간:</label>
 			<input type="time" name="movieTime">
+			<input type="text" class="imagebox" name="image" style="display:none;">
+			<input type="text" class="movie_rating" name="movieRating" style="display:none;">
 		</div>
 	  	<div style="display:flex; margin-left: 22px;">
 	  		<button class="btn btn-primary btnadd buttonadd">등록하기</button>
@@ -118,16 +120,12 @@
 				<tr>
 					<th>영화 포스터</th>
 					<th>영화관 이름</th>
+					<th>영화관 심의 등급</th>
 					<th>영화 선택</th>
 				</tr>
 			</thead>
 			<tbody>
-
-						<tr>
-							<th><img class="posterimg"></th>
-							<th></th>
-							<th></th>
-						</tr>
+					
 			</tbody>
 		</table>
 	</div>   
