@@ -130,7 +130,7 @@
 							<td>${item.eventId}</td>
 							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>
 							<td><c:set var="ymd" value="<%=new java.util.Date()%>"/> <fmt:formatDate value="${ymd}" pattern="yyyy-MM-dd" /></td>							
-							<td>${sessionScope.member.id}</td>							
+							<td>${item.id}</td>							
 							<td><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger">삭제</button></a></td>
 						</tr>	
 										 
