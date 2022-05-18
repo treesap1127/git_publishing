@@ -20,7 +20,15 @@ public class TicketServiceImpl implements TicketService {
 
 	}
 	@Override
-	public Object movieplace(MovieAdmin bicCity) {
+	public List<MovieAdmin> movieplace(MovieAdmin bicCity) {
 		return dao.movieplace(bicCity);
+	}
+	@Override
+	public List<MovieAdmin> cinema(MovieAdmin item) {
+		return dao.cinema(item);
+	}
+	@Override
+	public List<Movie> cinemaCode(Movie item) {
+		return dao.cinemaCode(item);
 	}
 }

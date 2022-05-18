@@ -7,8 +7,18 @@
 		from movie 
 	</select>
 	<select id="movieplace" resultType="MovieAdmin">
-		select movie_area_name
+		select movie_area_name,cinema_code
 		from movie_admin 
 		where big_city=#{bigCity}
+	</select>
+	<select id="cinema" resultType="Movie">
+		select DISTINCT movie_name
+		from movie
+		where cinema_code=#{cinemaCode}
+	</select>
+	<select id="cinemaCode" resultType="Movie">
+		select cinema_code
+		from movie
+		where movie_name=#{movieName}
 	</select>
 </mapper>

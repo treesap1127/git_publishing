@@ -18,8 +18,16 @@ public class TicketDaoImpl implements TicketDao {
 		return sql.selectList("ticket.movielist");
 	}
 	@Override
-	public Object movieplace(MovieAdmin bicCity) {
+	public List<MovieAdmin> movieplace(MovieAdmin bicCity) {
 		return sql.selectList("ticket.movieplace", bicCity);
+	}
+	@Override
+	public List<MovieAdmin> cinema(MovieAdmin item) {
+		return sql.selectList("ticket.cinema", item);
+	}
+	@Override
+	public List<Movie> cinemaCode(Movie item) {
+		return  sql.selectList("ticket.cinemaCode", item);
 	}
 
 }

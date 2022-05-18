@@ -81,13 +81,13 @@
         </div>
         <div class="movie_place_sub">
           <div class="movie_place_sub1">
-			<button id="seoul" class="movie_place_">서울</button>
-            <button id="gyeonggi" class="movie_place_">경기/인천</button>
-            <button id="chungcheong" class="movie_place_">충청/대전</button>
-            <button id="jeonla" class="movie_place_">전라/광주</button>
-            <button id="gyeongbug" class="movie_place_">경북/대구</button>
-            <button id="gangwon" class="movie_place_">강원</button>
-            <button id="jeju" class="movie_place_">제주</button>
+			<button id="서울" class="movie_place_">서울</button>
+            <button id="경기" class="movie_place_">경기/인천</button>
+            <button id="대전" class="movie_place_">충청/대전</button>
+            <button id="전라" class="movie_place_">전라/광주</button>
+            <button id="경북" class="movie_place_">경북/대구</button>
+            <button id="강원" class="movie_place_">강원</button>
+            <button id="제주" class="movie_place_">제주</button>
           </div>
           <div class="movie_place_sub2">
  <!--      	<c:forEach var="item" items="${theater}">
@@ -170,9 +170,9 @@
         <img src="../img/ticketing/영화.png" alt="">
       </div>
       <div class="check_com">
-        <div style="font-size: 18px; font-weight: 500;">영화를 선택하세요.<br><br></div>
-        <div>영화관을 선택하세요.</div>
-        <div>영화일자를 선택하세요</div>
+        <div class="movie_check_" style="font-size: 18px; font-weight: 500;">영화를 선택하세요.<br><br></div>
+        <div class="cinema_check">영화관을 선택하세요.</div>
+        <div class="cinema_date">영화일자를 선택하세요</div>
       </div>
       <div class="sitting">
         <a href="sit"><button class="sitting_check btn btn-outline-danger">좌석 선택으로 넘어가기</button></a>

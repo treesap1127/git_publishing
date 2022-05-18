@@ -9,7 +9,11 @@ public interface TicketDao {
 
 	List<Movie> movielist();
 
-	Object movieplace(MovieAdmin bicCity);
+	List<MovieAdmin> movieplace(MovieAdmin bicCity);
+
+	List<MovieAdmin> cinema(MovieAdmin item);
+
+	List<Movie> cinemaCode(Movie item);
 
 
 }

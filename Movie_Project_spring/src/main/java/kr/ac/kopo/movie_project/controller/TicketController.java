@@ -49,8 +49,20 @@ public class TicketController {
 	}
 	@ResponseBody
 	@PostMapping("/movieplace")
-	public Object movieplace(@RequestBody MovieAdmin bicCity) {
-		return service.movieplace(bicCity);
+	public List<MovieAdmin> movieplace(@RequestBody MovieAdmin bicCity) {
+		List<MovieAdmin> item= service.movieplace(bicCity);
+		return item;
 	}
-	
+	@ResponseBody
+	@PostMapping("/cinema")
+	public List<MovieAdmin> cinema(@RequestBody MovieAdmin item) {
+		List<MovieAdmin> moviename= service.cinema(item);
+		return moviename;
+	}
+	@ResponseBody
+	@PostMapping("/cinemaCode")
+	public List<Movie> cinemaCode(@RequestBody Movie item) {
+		List<Movie> cinemaCode= service.cinemaCode(item);
+		return cinemaCode;
+	}
 }
