@@ -11,13 +11,13 @@ public interface ServiceCenterDao {
 
 	void add(Board item);
 
-	Board item(int articleId);
-
 	void update(Board item);
 
-	void delete(int articleId);
-
 	int total(Pager pager);
+
+	Board item(int boardId, int articleId);
+
+	void delete(int boardId, int articleId);
 
 	
 

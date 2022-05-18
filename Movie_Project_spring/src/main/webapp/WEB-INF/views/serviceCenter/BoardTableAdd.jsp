@@ -79,9 +79,11 @@
 	<div class="notice_box">
 	<div>
 		<div>
-			<h3>게시판 등록</h3>
+			<h3 class="tablename">게시판 등록</h3>
 		</div>
+		
 		<form method="post">
+		
 		<input type="text" name="boardId" style="display:none" value="${item}" readonly>
 			<div>
 				<label>게시판명</label>
@@ -125,6 +127,7 @@
 				<button>등록</button>
 				<button type="button">취소</button>
 			</div>
+			
 		</form>
 	</div>
 

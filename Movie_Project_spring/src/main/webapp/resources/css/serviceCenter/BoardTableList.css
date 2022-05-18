@@ -146,7 +146,7 @@ padding: 2em 12em;
 /*여기까지 기본 위 배너 css입니다!*/
 .notice_box{
     width: 1000px;
-    height: 1100px; 
+    height: 100%; 
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -260,8 +260,20 @@ padding: 2em 12em;
      border:1px solid #42454c;
   }
   
-
-
+.tablename{
+	position: relative;
+    left: 92%;
+    transform: translateX(-50%);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.btn-outline-success {
+    color: #198754;
+    border-color: #198754;
+    position: relative;
+    left: 94%;
+    margin-bottom: 20px;
+}
 
 /*여기까지 기본 위 배너 css입니다!*/
 /* bottom */

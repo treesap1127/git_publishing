@@ -11,10 +11,10 @@ public interface ServiceCenterservice {
 
 	void add(Board item);
 
-	Board item(int articleId);
-
 	void update(Board item);
 
-	void delete(int articleId);
+	void delete(int boardId,int articleId);
+
+	Board item(int boardId, int articleId);
 
 }

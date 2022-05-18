@@ -39,8 +39,9 @@ public class ServiceCenterController {
 			return path+"F&Q";
 		}
 		
+		@RequestMapping("/serviceCenter/{boardId}/BoardList")
 		@GetMapping("/BoardList")
-		public String BoardList(Model model,Pager pager) {
+		public String BoardList(@PathVariable int boardId,Model model,Pager pager) {
 			List<Board> list = service.list(pager);
 			model.addAttribute("list",list);
 			
@@ -52,34 +53,38 @@ public class ServiceCenterController {
 			return path +"BoardAdd";
 		}
 		@PostMapping("/BoardAdd")
-		public String add(Board item,HttpSession session) {
+		public String add(@PathVariable int boardId,Board item,HttpSession session) {
+			item.setArticleId(boardId); // 수정가능성 높음
+			
 			service.add(item);
 			return "redirect:BoardList";
 		}
 		
 		@GetMapping("/BoardView/{articleId}")
-		public String BoardView(@PathVariable int articleId,Model model) {
-			Board item = service.item(articleId);
+		public String BoardView(@PathVariable int boardId, @PathVariable int articleId,Model model) {
+			Board item = service.item(boardId,articleId);
 			model.addAttribute("item",item);
 			return path+"BoardView";
 		}
+		
 		@GetMapping("/BoardUpdate/{articleId}")
-		public String BoardUpdate(@PathVariable int articleId,Model model) {
-			Board item = service.item(articleId);
+		public String BoardUpdate(@PathVariable int boardId,@PathVariable int articleId,Model model) {
+			Board item = service.item(boardId,articleId);
 			model.addAttribute("item",item);
 			return path+"BoardUpdate";
 		}
 		@PostMapping("/BoardUpdate/{articleId}")
-		public String BoardUpdate(@PathVariable int articleId,Board item) {
+		public String BoardUpdate(@PathVariable int boardId,@PathVariable int articleId,Board item) {
 			item.setArticleId(articleId);
+			item.setBoardId(boardId);
 			service.update(item);
 			
 			return "redirect:../BoardList";
 		}
 		
 		@GetMapping("/delete/{articleId}")
-		public String delete(@PathVariable int articleId) {
-			service.delete(articleId);
+		public String delete(@PathVariable int boardId, @PathVariable int articleId) {
+			service.delete(boardId,articleId);
 			return "redirect:../BoardList";
 		}
 		

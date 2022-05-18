@@ -79,10 +79,10 @@
 	<div class="notice_box">
 	<div>
 		<div>
-			<h3>게시판 목록</h3>
+			<h3 class="tablename">게시판 목록</h3>
 		</div>
 		<div>
-			<table border="1">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>게시판 번호</th>
@@ -110,14 +110,15 @@
 							<td>${item.attach}</td>
 							<td>${item.secret}</td>
 							<td>${item.permission}</td>					
-							<td><a href="BoardTableUpdate/${item.boardId}">변경</a> <a href="delete/${item.boardId}">삭제</a> <a href="${item.boardId}/article/list">게시글</a></td>
+							<td><a href="BoardTableUpdate/${item.boardId}">변경</a> <a href="delete/${item.boardId}">삭제</a>
+							 <a href="${item.boardId}/BoardList">게시글</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
 		<div>
-			<a href="BoardTableAdd">추가</a>
+			<a href="BoardTableAdd" class="btn btn-outline-success">추가</a>
 		</div>
 	</div>
 

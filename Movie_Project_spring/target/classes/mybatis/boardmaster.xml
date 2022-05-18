@@ -9,9 +9,7 @@
 
 	<insert id="add">
 		INSERT INTO board_master
-		VALUES (null, #{subject},
-		#{reply}, #{attach}, #{secret}, #{permission})
-
+		VALUES (null, #{subject},#{reply}, #{attach}, #{secret}, #{permission})
 
 	</insert>
 
@@ -35,18 +33,16 @@
 	</delete>
 
 	<update id="create_board">
-		CREATE TABLE 'board_${boardId}' (
-		`article_id` INT PRIMARY KEY NOT NULL 
-		`subject` VARCHAR(64) NULL     
-		`id` VARCHAR(32) NOT NULL
-		`reg_date` VARCHAR(30) NOT NULL 
-		`contents` LONGTEXT NULL     
-		`view_count` INT NULL     
+		CREATE TABLE board_${boardId} (
+		article_id INT PRIMARY KEY NOT NULL, 
+		subject VARCHAR(64) NULL,     
+		id VARCHAR(32) NOT NULL,
+		reg_date VARCHAR(30) NOT NULL, 
+		contents LONGTEXT NULL,     
+		view_count INT NULL,     
+		CONSTRAINT MEMBER_FK FOREIGN KEY(id) REFERENCES member(id)
 		)
-		ALTER TABLE 'board_${boardId}'
-			ADD CONSTRAINT `FK_member_TO_board` 
-		FOREIGN KEY (`id`)
-		REFERENCES `member` (`id`)
+		
 	</update>
 
 	<update id="delete_board">

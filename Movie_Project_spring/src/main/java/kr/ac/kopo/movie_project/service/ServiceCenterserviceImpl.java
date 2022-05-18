@@ -26,20 +26,24 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 		dao.add(item);
 		
 	}
-	@Override
-	public Board item(int articleId) {
-		
-		return dao.item(articleId);
-	}
+
 	@Override
 	public void update(Board item) {
 		dao.update(item);
 		
 	}
+
+
 	@Override
-	public void delete(int articleId) {
-		dao.delete(articleId);
-		
+	public Board item(int boardId, int articleId) {
+	
+		return dao.item(boardId, articleId);
+	}
+
+
+	@Override
+	public void delete(int boardId, int articleId) {
+		dao.delete(boardId, articleId);
 	}
 
 }

@@ -7,7 +7,14 @@ public class Board {
 	private String id;
 	private String regDate;
 	private int viewCount;
+	private int boardId;
 
+	public int getBoardId() {
+		return boardId;
+	}
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
+	}
 	public String getSubject() {
 		return subject;
 	}
