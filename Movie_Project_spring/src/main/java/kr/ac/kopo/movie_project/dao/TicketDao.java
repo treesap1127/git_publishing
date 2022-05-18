@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.Theater;
 
 public interface TicketDao {
 
@@ -16,6 +17,10 @@ public interface TicketDao {
 	List<Movie> cinemaCode(Movie item);
 
 	List<Movie> cinematime(Movie item);
+
+	List<Movie> cinemaDate(Movie item);
+
+	List<Theater> ticketsit(Movie list);
 
 
 }

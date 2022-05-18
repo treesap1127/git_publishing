@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.Theater;
 
 @Repository
 public class TicketDaoImpl implements TicketDao {
@@ -32,6 +33,14 @@ public class TicketDaoImpl implements TicketDao {
 	@Override
 	public List<Movie> cinematime(Movie item) {
 		return sql.selectList("ticket.cinematime", item);
+	}
+	@Override
+	public List<Movie> cinemaDate(Movie item) {
+		return sql.selectList("ticket.cinemaDate", item);
+	}
+	@Override
+	public List<Theater> ticketsit(Movie list) {
+		return sql.selectList("ticket.ticketsit", list);
 	}
 
 }

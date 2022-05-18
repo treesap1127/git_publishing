@@ -8,9 +8,7 @@
   <link href="../css/ticket/ticket_sit.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/style/style.css">
 
-  <script>
-  	
-  </script>
+  <script src="../../../../../js/sit_list.js"></script>
 </head>
 
 <body>
@@ -83,8 +81,8 @@
 
         <div class="movie_checking">
           <div class="movie_info">선택한 상영관 및 시간</div>
-          <div class="movie_name">영화관</div>
-          <div class="movie_time">영화시간</div>
+          <div class="movie_name">영화관: ${list.theaterName}</div>
+          <div class="movie_time">영화시간: ${list.movieTime}</div>
         </div>
 
         <div class="sit_check">
@@ -97,173 +95,31 @@
         
         <div class="sit_img">
           <div class="sit_screen"></div>
-          <a href="" class="sit_return"><div></div></a>
         </div>
-        <div class="sit_aph">
-          <div>A</div>
-          <div>B</div>
-          <div>C</div>
-          <div>D</div>
-          <div>E</div>
-          <div>F</div>
-          <div>G</div>
-          <div>H</div>
-          <div>I</div>
-          <div>J</div>
-          <div>K</div>
-          <div>L</div>
-          <div>N</div>
-          <div>O</div>
-          <div>P</div>
-        </div>
+        
+        
+		        <div class="sit_aph">        </div>
+        <!-- 위에서 알파벳 정렬로 스크린이 나옴 -->
+        
         <div class="sit_checkbox">
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-            <div class="sit_b">02</div>
-            <div class="sit_c">03</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
+         </div>
+         <!-- 체크박스 생성 -->
+          <div style="display:flex; width:100%;height:17%">
+			
+		<div class="sit_aph_num"></div>
+        <!-- 숫자 생성 -->
           </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-          </div>
-          <div class="sit_list_garo">
-            <div class="sit_a">01</div>
-            <div class="sit_b">02</div>
-            <div class="sit_c">03</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-            <div class="sit_a">01</div>
-          </div>
-
-        </div>
+          
+          
+		<c:forEach items="${sit}" var="item">
+		
+		
+       <input type="text" value="${item.cinemaCode}" class="cinemaCode" style="display:none">
+       <input type="text" value="${item.theaterName}" class="theaterName" style="display:none">
+       <input type="text" value="${item.row}" class="row" style="display:none">
+       <input type="text" value="${item.line}" class="line" style="display:none">
+       <input type="text" value="${item.sit}" class="sit" style="display:none">
+       </c:forEach>
 </div>
 <div class="sitbottom">
         <div class="sit_bottom">

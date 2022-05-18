@@ -264,12 +264,12 @@ padding: 2em 12em;
   height: 10%;
 }
 .title_center{
-  color: white;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 66px;
+color: white;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 76px;
 }
 .movie_place_sub{
   display: flex;
@@ -315,6 +315,8 @@ padding: 2em 12em;
 }
 .movie_place_sub2{ -ms-overflow-style: none; } 
 .movie_place_sub2::-webkit-scrollbar{ display:none; }
+
+
 .movie_place_sub2>button:hover{
   color: red;
 }
@@ -362,9 +364,8 @@ padding: 2em 12em;
   background-color: white;
 }
 .movie_name{
-    position: relative;
-    top: 19%;
-    left: 5px;
+position: relative;
+    top: 7%;
 }
 .movie_audits{
   border-right: 1px solid #dddddd;
@@ -375,7 +376,6 @@ padding: 2em 12em;
 .movie_audits::-webkit-scrollbar{ display:none; }
 .movie_audits_photo{
     position: relative;
-    left: 5px;
     object-fit: contain;
     height: 40px;
     top: 2px;
@@ -392,7 +392,10 @@ padding: 2em 12em;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-  padding: 5px 14px;
+	    position: relative;
+    top: 2px;
+    padding: 4px 0px;
+    width: 134px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
 }
@@ -410,23 +413,28 @@ padding: 2em 12em;
   height: 100%;
 }
 .movie_contact_sub1{
-  display: flex;
-  position: relative;
-  width: 100%;
-  background-color: white;
+display: flex;
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background-color: white;
+    align-content: flex-start;
+    overflow-y: scroll;
 }
+.movie_contact_sub1{ -ms-overflow-style: none; } 
 .movie_contact_sub1:hover{
   background-color: white;
 }
+.movie_contact_sub1::-webkit-scrollbar{ display:none; }
 .movie_contact_sub2{
   width: 100%;
 }
 .contact_name{
-  transform: translateY(6px);
+      height: 40px;
 }
 .movie_contact{
   width: 30%;
-  height: 27%;
+  height: 33%;
   left: 6%;
   position: relative;
 }
@@ -437,7 +445,12 @@ padding: 2em 12em;
   flex-wrap: wrap;
   height: 45%;
   align-content: flex-start;
+  overflow-y: scroll;
 }
+.contact{ -ms-overflow-style: none; } 
+.contact::-webkit-scrollbar{ display:none; }
+
+
 .calender{
   height: 45%;
   width: 100%;
@@ -476,7 +489,7 @@ padding: 2em 12em;
   font-size: 20px;
   color: black;
   font-weight: 600;
-  width: 187px;
+    width: 216px;
 }
 /*티켓박스 완*/
 /*달력*/
@@ -555,4 +568,7 @@ padding: 2em 12em;
 
 .nextDay {
   transform: rotate(45deg);
+}
+.datebutton{
+	background-color: darkgray;
 }

@@ -14,17 +14,38 @@ $.ajax({
           success: code => {
 			for(l=0;l<code.length;l++){
 				$(".movie_audits").children(`:eq(${a})`).addClass(`name${code[l].cinemaCode}`);
+				
 				var testcode=`${code[l].cinemaCode}`
 				$(".movie_").click(function(){
 					$(".movie_").css("background-color","gainsboro");
 					$(this).css("background-color","white");
 					moviename=$(this).children("div").text();
 					$(".movie_check_").text(`${moviename}`);
-					
 					$(`.movieAreaName`).css("color","darkgray");
-					
 					$(`.the${testcode}`).css("color","black");
 					//영화관명 같은 theater 회색 이면 클래스 ㅇㅇ
+					dateitem={cinemaCode:testcode,movieName:moviename}
+					$.ajax({
+						url:"/ticket/cinemaDate",
+					       method: "POST",
+					       contentType: "application/json",
+					       dataType: "json",
+					       data: JSON.stringify(dateitem),
+					       success: date => {
+							
+							for(j=0;j<date.length;j++){
+								$(".movie_poster img").attr(`src`,`${date[j].image}`);
+							var	stringdate =date[j].movieDate;
+							mon=stringdate.substring(5, 7);
+							day_=stringdate.substring(8, 10);
+							month=parseInt(mon);
+							day=parseInt(day_);
+							$(`.${month}월${day}일`).css("background-color","white");
+							
+							}
+					},
+				           error: (xhr, result2) => console.log(`[실패] print`)
+						});
 				});
 			}
 			a++;
@@ -50,18 +71,22 @@ $(".movie_place_").click(function(){
           success: result => {
 			for(i=0;i<result.length;i++){
 			$(".movie_place_sub2").append(`<button class="movieAreaName the${result[i].cinemaCode}" id="${result[i].movieAreaName}"value="${result[i].cinemaCode}">${result[i].movieAreaName}</button>`)
-			$("check_com").append(`<div class="cinemaCode"style="display:none">${result[i].cinemaCode}</div>`)
 			$(`#${result[i].movieAreaName}`).click(function(){//영화관 클릭시
+			
+			
 			$(".movie_audits").attr("display","block");
 				$(this).css("color","red");
 				var name=$(this).text();
 				var code=$(this).val();
+				
+				$(".check_com").append(`<div class="cinemaCode"style="display:none">${code}</div>`)
+
 				$(".cinema_check").text(`영화관명 : ${name}`);
+				
 				$(".movieAreaName").css("color","black");
 				$(this).css("color","red");
 				cinema={movieAreaName:name,cinemaCode:code};
 				
-				console.log("네임 코드 "+name+"+++++++"+code);
 				$.ajax({
 					  url:"/ticket/cinema",
 			          method: "POST",
@@ -70,6 +95,7 @@ $(".movie_place_").click(function(){
 			          data: JSON.stringify(cinema),
 			          success: result2 => {
 							for(j=0;j<result2.length;j++){
+								$(`.check_com`).append(`<div class="theaterName" style="display:none">${result2[j].theaterName}</div>`)
 								$(".movie_").children("div").css("color","darkgray");
 								$(".movie_").children("div").addClass('nocheckmovie');
 								$(`.name${result2[j].cinemaCode}`).children("div").css("widit","1000px");
@@ -120,7 +146,7 @@ const dateFormat = (date) => {
 
     // 현재 날짜 표시하기
     for (let i = 1; i <= lastDay; i++) {    
-      htmlDummy += `<div class="datebutton" id="${nowYear}-${nowMonth}-${i}">${i}</div>`;
+      htmlDummy += `<div class="datebutton ${nowMonth}월${i}일" id="${nowYear}-${nowMonth}-${i}">${i}</div>`;
       
     }
 
@@ -158,12 +184,13 @@ const dateFormat = (date) => {
   }
   $(".datebutton").click(function(){
 		var dateval=$(this).attr("id");
-		$(".cinema_date").text(`${dateval}`);
-		console.log(`${dateval}`);
-		var moviename=$(".movie_check_").text();
-		var cinemacode=$(".cinemaCode").text();
+		$(".cinema_date").text(`예매일: ${dateval}`);
+		var movieName=$(".movie_check_").text();
+		
+		var cinemaCode=$(".cinemaCode").text();
+		console.log(`${movieName}-------${cinemaCode}`)
 		var date=`${dateval}`;
-		var time={movieName:moviename,cinemaCode:cinemacode,movieDate:date}
+		var time={movieName:movieName,cinemaCode:cinemaCode,movieDate:date}
 		
 		$.ajax({
 			url:"/ticket/cinematime",
@@ -172,11 +199,28 @@ const dateFormat = (date) => {
 			          dataType: "json",
 			          data: JSON.stringify(time),
 			          success: result4 => {
-				console.log(`${result4}`)
-				console.log(`${result4[0].movieName}`)
-				console.log(`${result4[0].movieRating}`)
-				console.log(`${result4[0].theaterName}`)
-				console.log(`${result4[0].movieTime}`)
+						console.log(`${result4}`);
+						for(j=0;j<result4.length;j++){
+						console.log(`${result4}`);
+						console.log(`${result4[j].movieName}`)
+						console.log(`${result4[j].movieRating}`)
+						console.log(`${result4[j].theaterName}`)
+						console.log(`${result4[j].movieTime}`)
+						$(".contact").append(`<div class="movie_contact"><div class="movie_contact_sub1"><img src="../img/ticketing/${result4[j].movieRating}.png" alt="심의등급" class="movie_audits_photo"><div class="movie_name contact_name">${result4[j].movieName}</div></div><div class="movie_contact_sub2"><button class="contact_button" id="${result4[j].movieTime}">상영시간: ${result4[j].movieTime}<br> 상영관:${result4[j].theaterName}</button></div></div>`);
+						$(".contact_button").click(function(){
+							var time=$(this).attr("id");
+							console.log(`시간${time}`);
+							$(".check_com").append(`<div>예매 시각: ${time}</div>`)
+							//movieName
+							//dateval date
+							//cinemaCode
+							theatername=$(`.theaterName`).text();
+							//time
+							console.log(`영화명: ${movieName} 날짜:${dateval} 시네마코드:${cinemaCode} 영화관이름:${theatername} 시간:${time}`)
+							$(".sitting a").attr("href",`sit?movieName=${movieName}&cinemaCode=${cinemaCode}&theaterName=${theatername}&movieDate=${dateval}&movieTime=${time}`)
+						});
+				}
+				
 			},
        error: (xhr, result) => console.log(`[실패] print`)
        });

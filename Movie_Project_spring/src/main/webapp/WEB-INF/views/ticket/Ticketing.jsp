@@ -141,31 +141,7 @@
 </div>
         <!-- 달력api -->
         <div class="contact">
-
-          <div class="movie_contact">
-            <div class="movie_contact_sub1">
-              <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
-              <div class="movie_name contact_name">영화명</div>
-            </div>
-            <div class="movie_contact_sub2">
-              <button class="contact_button">11:00<br>96/142 &nbsp;&nbsp;O관</button>
-            </div>
-          </div>
-          
-
-
-
-
-   <!--    <div class="movie_contact">
-            <div class="movie_contact_sub1">
-              <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
-              <div class="movie_name contact_name">영화명</div>
-            </div>
-            <div class="movie_contact_sub2">
-              <button class="contact_button">11:00<br>96/142 &nbsp;&nbsp;O관</button>
-            </div>
-          </div>
-          -->
+			<!-- 영상 시간 정보 js로 구현 -->
         </div>
       </div>
     </div>
