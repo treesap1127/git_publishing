@@ -5,7 +5,15 @@ public class Event {
 	private String eventName;
 	private String eventDate;
 	private String eventInfo;
-	private String id;	
+	private String id;
+	private int eventViewcnt;
+	
+	public int getEventViewcnt() {
+		return eventViewcnt;
+	}
+	public void setEventViewcnt(int eventViewcnt) {
+		this.eventViewcnt = eventViewcnt;
+	}
 	public int getEventId() {
 		return eventId;
 	}

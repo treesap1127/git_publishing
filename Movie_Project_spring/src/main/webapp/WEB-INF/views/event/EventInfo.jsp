@@ -66,7 +66,7 @@
       <div class="event_info_title_box">
         <div class="event_info_title">
           <span class="event_info_title_text">${item.eventName}</span>
-          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; |&nbsp; 조회수:1</p>
+          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; |&nbsp; ${item.eventViewcnt}</p>
         </div>
         <hr class="event_border2" style="border: solid 1px #dddddd;" width="1000px">
       </div>
