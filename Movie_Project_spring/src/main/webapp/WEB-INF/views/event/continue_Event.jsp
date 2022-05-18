@@ -128,8 +128,7 @@
                       <th>관리</th>
                       
                   </tr>
-              </thead>
-              <form>
+              </thead>             
               <tbody class="event_tbody_list">
             	 <c:if test="${list.size() < 1}">
 						<tr>
@@ -147,8 +146,7 @@
 						</tr>	
 										 
 					</c:forEach> 					    					
-              </tbody> 
-              </form>                                                  
+              </tbody>                                                               
           </table>                    
       </div>
       
