@@ -61,6 +61,7 @@
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
   <!-- 예매 -->
+
   <div class="gray_box">
     <div class="ticketing_name">영화/극장/관람일 선택</div>
     <div class="ticketing_box">
@@ -101,23 +102,43 @@
         <div class="movie_place_title">
           <div class="title_center">영화 선택</div>
         </div>
-       
         <div class="movie_audits">
           <c:forEach var="item" items="${movie}">
           <div class="movie_">
-            <img src="../../img/ticketing/${item.movieRating}.png" alt="심의등급" class="movie_audits_photo">
+ 	        <img src="../../img/ticketing/${item.movieRating}.png" alt="심의등급" class="movie_audits_photo">
             <div class="movie_name" id="${item.movieName}">${item.movieName}</div>
           </div>
         </c:forEach>
-          
+         
         </div>
+         
       </div>
 
       <div class="movie_date">
         <div class="movie_place_title">
           <div class="title_center">예매 일자</div>
         </div>
-          <div class="calender">달력</div>
+          <div class="calender">
+		  <div class='rap'>
+    <div class="header">
+       <div class="btnc prevDay"></div>
+      <h2 class='dateTitle'></h2>
+      <div class="btnc nextDay"></div>
+    </div>
+    
+    <div class="grid dateHead">
+      <div>일</div>
+      <div>월</div>
+      <div>화</div>
+      <div>수</div>
+      <div>목</div>
+      <div>금</div>
+      <div>토</div>
+    </div>
+
+    <div class="grid dateBoard"></div>
+  </div>	
+</div>
         <!-- 달력api -->
         <div class="contact">
 
@@ -130,7 +151,12 @@
               <button class="contact_button">11:00<br>96/142 &nbsp;&nbsp;O관</button>
             </div>
           </div>
-          <div class="movie_contact">
+          
+
+
+
+
+   <!--    <div class="movie_contact">
             <div class="movie_contact_sub1">
               <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
               <div class="movie_name contact_name">영화명</div>
@@ -139,29 +165,7 @@
               <button class="contact_button">11:00<br>96/142 &nbsp;&nbsp;O관</button>
             </div>
           </div>
-
-          <div class="movie_contact">
-            <div class="movie_contact_sub1">
-              <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
-              <div class="movie_name contact_name">영화명</div>
-            </div>
-            <div class="movie_contact_sub2">
-              <button class="contact_button">11:00<br>96/142 &nbsp;&nbsp;O관</button>
-            </div>
-          </div>
-
-
-
-
-          <div class="movie_contact">
-            <div class="movie_contact_sub1">
-              <img src="../img/ticketing/15.png" alt="심의등급" class="movie_audits_photo">
-              <div class="movie_name contact_name">영화명</div>
-            </div>
-            <div class="movie_contact_sub2">
-              <button class="contact_button">11:00<br>96/142 &nbsp;&nbsp;O관</button>
-            </div>
-          </div>
+          -->
         </div>
       </div>
     </div>
@@ -179,6 +183,7 @@
       </div>
     </div>
   </div>
+ 
   <div class="white_box"></div>
   <!-- 예매끝 -->
   <!-- 제일 최하단 -->

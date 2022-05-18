@@ -11,8 +11,10 @@ public interface TicketService {
 
 	List<MovieAdmin> movieplace(MovieAdmin bicCity);
 
-	List<MovieAdmin> cinema(MovieAdmin item);
+	List<Movie> cinema(MovieAdmin item);
 
 	List<Movie> cinemaCode(Movie item);
+
+	List<Movie> cinematime(Movie item);
 
 }

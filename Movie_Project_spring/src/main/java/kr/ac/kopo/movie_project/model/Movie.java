@@ -2,6 +2,7 @@ package kr.ac.kopo.movie_project.model;
 
 
 public class Movie {
+	private String movieCode;
 	private String movieName;
 	private String cinemaCode;
 	private String theaterName;
@@ -58,6 +59,12 @@ public class Movie {
 	}
 	public void setMovieRating(String movieRating) {
 		this.movieRating = movieRating;
+	}
+	public String getMovieCode() {
+		return movieCode;
+	}
+	public void setMovieCode(String movieCode) {
+		this.movieCode = movieCode;
 	}
 
 	

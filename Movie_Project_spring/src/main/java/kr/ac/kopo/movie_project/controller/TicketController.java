@@ -25,8 +25,7 @@ public class TicketController {
 	TicketService service;
 	
 	@RequestMapping("/Ticketing")
-	public String Ticketing(@RequestParam("moviename") String movieName,Model model) {
-		model.addAttribute("moviename", movieName);
+	public String Ticketing(Model model) {
 		List<Movie> movie = service.movielist();
 		model.addAttribute("movie", movie);
 		return path+"Ticketing";
@@ -55,8 +54,8 @@ public class TicketController {
 	}
 	@ResponseBody
 	@PostMapping("/cinema")
-	public List<MovieAdmin> cinema(@RequestBody MovieAdmin item) {
-		List<MovieAdmin> moviename= service.cinema(item);
+	public List<Movie> cinema(@RequestBody MovieAdmin item) {
+		List<Movie> moviename= service.cinema(item);
 		return moviename;
 	}
 	@ResponseBody
@@ -65,4 +64,11 @@ public class TicketController {
 		List<Movie> cinemaCode= service.cinemaCode(item);
 		return cinemaCode;
 	}
+	@ResponseBody
+	@PostMapping("/cinematime")
+	public List<Movie> cinematime(@RequestBody Movie item) {
+		List<Movie> time= service.cinematime(item);
+		return time;
+	}
+	
 }
