@@ -258,6 +258,7 @@ ul,li{list-style:none;}
 }
 .event_list{
 	text-align: center;
+	background: lightgray; 
 }
 .event_tbody_list{
 	text-align: center;

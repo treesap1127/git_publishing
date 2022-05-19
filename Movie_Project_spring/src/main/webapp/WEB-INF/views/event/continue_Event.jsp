@@ -98,9 +98,9 @@
       </div>
     </div>
       <!-- 슬라이드 아래부분 목록입니다 -->
- <!-- 현재 진행중인 이벤트 -->
+ <!-- 관리자가 로그인 할시 보이는 화면 -->
    <c:if test="${sessionScope.member.grade >= 2}">
-<div class="whitebox2">
+	<div class="whitebox2">
       <div class="scriptbox">
      	<p class="event-title">이벤트 목록</p>
       <div class="event_list_box">
@@ -116,7 +116,7 @@
 				<button class="btn btn-dark">검색</button>			
 			</form>
 		</div>
-         <table class="table table-striped table-bordered table-hover">         
+         <table class="table">         
               <colgroup>
                 <col width="130">
                 <col>
@@ -151,13 +151,8 @@
 					</c:forEach> 					    					
               </tbody>                                                               
           </table>                    
-      </div>
-      
-      
-      
+      </div>     
       <!-- 현재 징행중인 이벤트 -->
-
-
       <div class="pager ">  
         <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>	    
         <div class="page_wrap">
@@ -176,7 +171,10 @@
      </div>
      </c:if>
      
-     <!-- 유저가 로그인 할시 -->
+     
+     
+     
+     <!-- 유저가 로그인 할시 보이는 화면 -->
      <c:if test="${sessionScope.member.grade == 1}">
      <div class="whitebox2">
       <div class="scriptbox">
@@ -194,7 +192,7 @@
 				<button class="btn btn-dark">검색</button>			
 			</form>
 		</div>
-         <table class="table table-striped table-bordered table-hover">         
+         <table class="table">         
               <colgroup>
                 <col width="130">
                 <col>
@@ -206,9 +204,7 @@
                       <th>이벤트제목</th>
                       <th>작성자</th> 
                       <th>작성날짜</th>
-                      <th>조회수</th>                      
-                                          
-                      
+                      <th>조회수</th>                     
                   </tr>
               </thead>             
               <tbody class="event_tbody_list">
@@ -224,21 +220,14 @@
 							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>
 							<td>${item.id}</td>
 							<td>${item.eventDate}</td>
-							<td>${item.eventViewcnt}</td>							
-									
-							
-						</tr>	
-										 
+							<td>${item.eventViewcnt}</td>						
+						</tr>									 
 					</c:forEach> 					    					
               </tbody>                                                               
           </table>                    
-      </div>
+      </div>     
       
-      
-      
-      <!-- 현재 징행중인 이벤트 -->
-
-
+      <!-- 현재 진행중인 이벤트 -->
       <div class="pager ">       	    
         <div class="page_wrap">
           <div class="page_nation">
@@ -253,109 +242,8 @@
         </div>
        </div>
       </div>
-
      </div>
      </c:if>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
