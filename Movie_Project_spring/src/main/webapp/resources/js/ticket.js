@@ -42,12 +42,28 @@ $.ajax({
 					$(this).css("background-color","white");
 					moviename=$(this).children("div").text();
 					$(".movie_check_").text(`${moviename}`);
+					movieName={movieName:moviename}
+					$.ajax({
+						url:"/ticket/cinemaCode",
+				          method: "POST",
+				          async:false,
+				          contentType: "application/json",
+				          dataType: "json",
+				          data: JSON.stringify(movieName),
+				          success: moviecode => {
+								for(i=0;i<moviecode.length;i++)
+								$(`.movieAreaName`).css("background-color","white");
+								$(`.the${moviecode.cinemaCode}`).css("background-color","darkgray");
+								//요거 해당하는 test 코드 다 가져와서 넣어줘야겠다.
+								$(".movieAreaName").addClass("nocheckmovie");
+								//그리고 모든 movieAreaName에 클래스로 nocheck 주고
+								 $(`.the${moviecode.cinemaCode}`).removeClass("nocheckmovie");
+								//체크 되어있는건 removeClass 박기
+					},
+ 							error: (xhr, result2) => console.log(`[실패] print`)
+					})
 					
-					$(`.movieAreaName`).css("background-color","white");
-					$(`.the${testcode}`).css("background-color","darkgray");
-					//요거 해당하는 test 코드 다 가져와서 넣어줘야겠다.
-					//그리고 모든 movieAreaName에 클래스로 nocheck 주고 
-					//체크 되어있는건 removeClass 박기
+					
 					
 					dateitem={cinemaCode:testcode,movieName:moviename}
 					$.ajax({
