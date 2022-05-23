@@ -42,7 +42,6 @@ public class EventController {
 	
 	
 	
-	
 	@GetMapping("/end_Event")
 	public String end_Event() {
 		return path+"end_Event";

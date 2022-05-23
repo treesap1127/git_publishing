@@ -24,7 +24,7 @@ import kr.ac.kopo.movie_project.service.TicketService;
 public class TicketController {
 	final String path = "ticket/";
 	
-	@Autowired
+	@Autowired//service 선언
 	TicketService service;
 	
 	@RequestMapping("/Ticketing")
