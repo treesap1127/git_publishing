@@ -112,7 +112,7 @@
       </div>
       <div class="faq_notice_area">
           <div class="notice_board">
-            <p class="p_title2"><a href="NoticeList" class="btn_more">공지사항(바로 가기)</a></p>
+            <p class="p_title2"><a href="BoardList" class="btn_more">공지사항(바로 가기)</a></p>
             <div class="faq_box">
                             <div class="">
                               <table class="faq_table">
@@ -146,7 +146,9 @@
       <a href="NoticeList" class="service_img"><img alt="고객센터" src="/img/center_service/plannings.png" class="sub_box" style="display:block;">공지사항</a>
       <a href="F&Q" class="faq_img"><img alt="자주묻는질문" src="/img/center_service/faq.png" class="sub_box1" style="display:block;">자주묻는질문</a>      
    </div>
+   
     </div>
+    <a href="BoardTableList"><button class="btn btn-outline-primary">게시판생성</button></a>
   
   
   

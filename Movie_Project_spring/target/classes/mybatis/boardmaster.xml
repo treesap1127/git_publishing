@@ -1,34 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="boardmaster">
-	<select id="NoticeView" resultType="boardmaster">
-		select * from board_master 
+<mapper namespace="BoardMaster">
+	<select id="list" resultType="BoardMaster">
+		SELECT * FROM board_master
 	</select>
 
-	<insert id="Noticeadd">	
-	  INSERT INTO board_master
-      VALUES (BOARD_MASTER_SEQ.nextval, #{subject}, #{reply}, #{attach}, #{secret}, #{permission})
-      
-      <selectKey resultType="Int" keyProperty="boardId" order="AFTER">
-			SELECT BOARD_MASTER_SEQ.currval FROM DUAL		
-		</selectKey>
+	<insert id="add">
+		INSERT INTO board_master
+		VALUES (null, #{subject},#{reply}, #{attach}, #{secret}, #{permission})
 	</insert>
-	
-	<update id="NoticeUpdate">
-		 UPDATE board_master
-      	 SET subject=#{subject}, reply=#{reply}, attach=#{attach}, secret=#{secret}, permission=#{permission}
-     	 WHERE board_id=#{boardId}
+	<select id="item" resultType="Board">
+		SELECT * FROM board_master
+		WHERE
+		boardId=#{boardId}
+	</select>
+
+	<update id="update">
+		UPDATE board_master
+		SET subject=#{subject},
+		reply=#{reply}, attach=#{attach}, secret=#{secret},
+		permission=#{permission}
+		WHERE boardId=#{boardId}
 	</update>
-	
+
 	<delete id="delete">
 		DELETE FROM board_master
-		WHERE boardId=#{boardId}	
+		WHERE boardId=#{boardId}
 	</delete>
 
-	<select id="item" resultType="boardmaster">
-		select boardId,subject,reply,attach,secret,permission
-		from board_master where board_master.boardId=#{boardId}
+	<update id="create_board">
+		CREATE TABLE board_${boardId} (
+		article_id INT PRIMARY KEY NOT NULL, 
+		subject VARCHAR(64) NULL,     
+		id VARCHAR(32) NOT NULL,
+		reg_date VARCHAR(30) NOT NULL, 
+		contents LONGTEXT NULL,     
+		view_count INT NULL,     
+		CONSTRAINT MEMBER_FK FOREIGN KEY(id) REFERENCES member(id)
+		)
+		
+	</update>
+
+	<update id="delete_board">
+		DROP TABLE board_${boardId}
+	</update>
+
+	<update id="create_board_seq">
+		CREATE SEQUENCE BOARD_${boardId}_SEQ
+	</update>
+
+	<update id="delete_board_seq">
+		DROP SEQUENCE BOARD_${boardId}_SEQ
+	</update>
+	<select id="boardid" resultType="Integer">
+		select max(board_id)
+		from
+		board_master
 	</select>
 	
 	<update id="create_board">
