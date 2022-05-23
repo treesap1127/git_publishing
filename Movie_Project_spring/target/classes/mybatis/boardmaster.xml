@@ -40,7 +40,7 @@
       reg_date VARCHAR(30) NOT NULL, 
       contents LONGTEXT NULL,     
       view_count INT NULL,     
-      MEMBER_FK FOREIGN KEY(id) REFERENCES member(id)
+      FOREIGN KEY(id) REFERENCES member(id)
       )
       
    </update>
