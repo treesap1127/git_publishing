@@ -157,8 +157,8 @@
         <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>	    
         <div class="page_wrap">
           <div class="page_nation">
-             <a class="arrow pprev" href="?page=${pager.prev}"></a>
-             <a class="arrow prev" href="?page=${pager.next} "></a>
+             <a class="arrow pprev" href="?page=1"></a>
+             <a class="arrow prev" href="?page=${pager.prev} "></a>
              	<c:forEach var="page" items="${pager.list}">
 					<div><a href="?page=${page}">${page}</a></div>
 				</c:forEach>             
@@ -231,8 +231,8 @@
       <div class="pager ">       	    
         <div class="page_wrap">
           <div class="page_nation">
-             <a class="arrow pprev" href="?page=${pager.prev}"></a>
-             <a class="arrow prev" href="?page=${pager.next} "></a>
+             <a class="arrow pprev" href="?page=1"></a>
+             <a class="arrow prev" href="?page=${pager.prev} "></a>
              	<c:forEach var="page" items="${pager.list}">
 					<div><a href="?page=${page}">${page}</a></div>
 				</c:forEach>             
