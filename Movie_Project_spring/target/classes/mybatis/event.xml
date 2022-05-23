@@ -9,9 +9,50 @@
 	</select>
 	
 	<insert id="add">
-		INSERT INTO board_master
-		VALUES (#{event_id}, #{event_name}, #{event_date}, #{event_info})
-	
+		INSERT INTO event
+		VALUES (NULL,#{id},#{eventName}, DATE_FORMAT(NOW(),'%Y-%m-%d'), #{eventInfo}, NULL )	
 	</insert>
 	
+	<select id="item" resultType="Event">
+		SELECT * FROM event
+		WHERE event_id=#{eventId}
+	</select>
+	
+	<update id="update">
+		UPDATE event
+		SET event_name=#{eventName}, event_info=#{eventInfo} WHERE event_id=#{eventId}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM event
+		WHERE event_id=#{eventId}
+	</delete>
+	
+	<sql id="search">
+		<where>
+			<if test="search==1">
+				event.eventId=#{keyword}
+			</if>
+			<if test="search==2">
+				event.eventName LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>			
+			<if test="search==3">
+				memberId=${keyword}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM event
+		<include refid="search"></include>
+	</select>
+	
+	
+	<!-- 조회수 올리기 -->
+	<update id="viewcnt">
+		update event 
+		set event_viewcnt = event_viewcnt +
+		 1 
+		 where event_id = #{eventId}
+	</update>
 </mapper>

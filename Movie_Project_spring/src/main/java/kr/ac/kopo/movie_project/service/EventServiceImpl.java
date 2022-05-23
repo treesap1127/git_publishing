@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.movie_project.dao.EventDao;
 import kr.ac.kopo.movie_project.model.Event;
+import kr.ac.kopo.movie_project.util.Pager;
 @Service
 public class EventServiceImpl implements EventService {
 
@@ -14,11 +15,44 @@ public class EventServiceImpl implements EventService {
 	EventDao dao;
 	
 	@Override
-	public List<Event> continue_Event() {
-		
-		return dao.continue_Event();
+	public List<Event> continue_Event(Pager pager) {
+		int total = dao.total(pager);
+		pager.setTotal(total);
+		return dao.continue_Event(pager);
 	}
 
+	@Override
+	public List<Event> end_Event() {
+		
+		return dao.end_Event();
+	}
+
+	@Override
+	public void NoticeEventAdd(Event item) {
+		
+		dao.NoticeEventAdd(item);
+		
+	}
+
+	@Override
+	public void delete(int eventId) {
+		dao.delete(eventId);
+		
+	}
+
+	@Override
+	public void NoticeEventUpdate(Event item) {
+		dao.NoticeEventUpdate(item);
+		
+	}
+
+	@Override
+	public Event item(int eventId) {
+		
+		return dao.item(eventId);
+	}
+
+	
 	
 
 }

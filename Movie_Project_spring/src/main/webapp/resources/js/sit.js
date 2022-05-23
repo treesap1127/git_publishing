@@ -57,8 +57,6 @@ function sit_creat(){
 			$(".sit_aph").append(`<div>${row_item}</div>`);//알파벳나열
 			$(`.sit_aph`).children(`:eq(${i})`).addClass(`sit_aph_${i}`);//알파벳몇번째인지
 			$(`.sit_aph`).children(`:eq(${i})`).addClass(`sit_aph_group`);//알파벳그룹화 시켜서 단체 삭제
-			}
-				//위는 abcd를 생성
 			
 /*			$(`.sit_aph_${i}`).click(function(){// 클릭에 텍스트는 바뀌는데 줄이 안사라져서 포기한코드
 				
@@ -80,8 +78,8 @@ function sit_creat(){
 
 				}
 			})*/
-	
-
+		}
+	//위는 abcd를 생성
 	if($(".sit_num_group")){
 		$(".sit_num_group").remove();//좌석 있었으면 삭제
 	}
@@ -91,6 +89,7 @@ function sit_creat(){
 			$(`.sit_aph_num`).children(`:eq(${i})`).addClass(`sit_num${i}`);//숫자몇번째인지
 			$(`.sit_aph_num`).children(`:eq(${i})`).addClass(`sit_num_group`);//그룹화 시켜서 숫자 삭제
 		}
+	
 	//위는 1234를 생성
 }
 

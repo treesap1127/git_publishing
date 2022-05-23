@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,7 @@
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="../logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage">마이페이지</a></div>
+	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="../myPage/myPage">마이페이지</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade==2}">
 	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
@@ -68,9 +69,11 @@
         <div class="eventboxtext"> 진행중인 이벤트</div>
       </div>
 
+		
       <!-- 아래가 슬라이드 부분입니다 건들지마세요 -->
+      
       <div class="slide">
-        <ul>
+        <ul style="padding-left: 0rem;">
           <li>
             <div class="swipetextbox">
             <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 수학자</span>
@@ -80,235 +83,167 @@
 
           <li>
             <div class="swipetextbox">
-              <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 수학자</span>
+              <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 엘리스</span>
              </div>
           </li>
           <li>
             <div class="swipetextbox">
-              <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 수학자</span>
+              <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 퍼블리싱</span>
              </div>
           </li>
           <li>  <div class="swipetextbox">
-            <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 수학자</span>
+            <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 과학자</span>
            </div></li>
         </ul>
       </div>
     </div>
       <!-- 슬라이드 아래부분 목록입니다 -->
- <!-- 현재 진행중인 이벤트 -->
-<div class="whitebox2">
+ <!-- 관리자가 로그인 할시 보이는 화면 -->
+   <c:if test="${sessionScope.member.grade >= 2}">
+	<div class="whitebox2">
       <div class="scriptbox">
-     
+     	<p class="event-title">이벤트 목록</p>
       <div class="event_list_box">
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-
-        <div class="evnet_list_text_box">
-          <a href="EventInfo"><div class="event_list_img" style="background-image: url(../../resources/img/eventphoto/테스트용사진\ 가로사진.jpg);"></div></a>
-          <div class="event_list_text">
-            <a href="EventInfo"><span class="event_list_title">제목을 입력하세요</span></a>
-            <span class="event_list_date">2022.04.05</span>
-          </div>
-        </div>
-      </div>
-      
+      <div>
+		<form>		
+			<select name="search">
+				<option value="0">전체</option>
+				<option value="1">이벤트번호</option>
+				<option value="2">이벤트제목</option>
+				<option value="3">작성자</option>
+			</select>								
+				<input type="text" name="keyword">				
+				<button class="btn btn-dark">검색</button>			
+			</form>
+		</div>
+         <table class="table">         
+              <colgroup>
+                <col width="130">
+                <col>
+                <col width="170">
+            </colgroup>              
+              <thead>
+                  <tr class="event_list">
+                      <th>이벤트번호</th>
+                      <th>이벤트제목</th>
+                      <th>작성날짜</th>                      
+                      <th>작성자</th>
+                      <th>관리</th>
+                      
+                  </tr>
+              </thead>             
+              <tbody class="event_tbody_list">
+            	 <c:if test="${list.size() < 1}">
+						<tr>
+							<td colspan="5">등록 된 게시물이 없습니다</td>
+						</tr>
+					</c:if>
+					
+					<c:forEach var="item" items="${list}">
+						<tr>
+							<td>${item.eventId}</td>
+							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>
+							<td>${item.eventDate}</td>							
+							<td>${item.id}</td>													
+							<td><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger">삭제</button></a></td>
+						</tr>	
+										 
+					</c:forEach> 					    					
+              </tbody>                                                               
+          </table>                    
+      </div>     
       <!-- 현재 징행중인 이벤트 -->
-
-
-      <div class="pager ">
-      <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>
+      <div class="pager ">  
+        <a href="NoticeEventAdd"><button class="btn btn-outline-primary">등록</button></a>	    
         <div class="page_wrap">
           <div class="page_nation">
-             <a class="arrow pprev" href="#"></a>
-             <a class="arrow prev" href="#"></a>
-             <a href="#" class="active">1</a>
-             <a href="#">2</a>
-             <a href="#">3</a>
-             <a href="#">4</a>
-             <a href="#">5</a>
-             <a href="#">6</a>
-             <a href="#">7</a>
-             <a href="#">8</a>
-             <a href="#">9</a>
-             <a href="#">10</a>
-             <a class="arrow next" href="#"></a>
-             <a class="arrow nnext" href="#"></a>
+             <a class="arrow pprev" href="?page=${pager.prev}"></a>
+             <a class="arrow prev" href="?page=${pager.next} "></a>
+             	<c:forEach var="page" items="${pager.list}">
+					<div><a href="?page=${page}">${page}</a></div>
+				</c:forEach>             
+             <a class="arrow next" href="?page=${pager.next} "></a>
+             <a class="arrow nnext" href="?page=${pager.last} "></a>
           </div>
         </div>
        </div>
       </div>
-
      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     </c:if>
+     
+     
+     
+     
+     <!-- 유저가 로그인 할시 보이는 화면 -->
+     <c:if test="${sessionScope.member.grade == 1}">
+     <div class="whitebox2">
+      <div class="scriptbox">
+     	<p class="event-title">이벤트 목록</p>
+      <div class="event_list_box">
+      <div>
+		<form>		
+			<select name="search">
+				<option value="0">전체</option>
+				<option value="1">이벤트번호</option>
+				<option value="2">이벤트제목</option>
+				<option value="3">작성자</option>
+			</select>								
+				<input type="text" name="keyword">				
+				<button class="btn btn-dark">검색</button>			
+			</form>
+		</div>
+         <table class="table">         
+              <colgroup>
+                <col width="130">
+                <col>
+                <col width="170">
+            </colgroup>              
+              <thead>
+                  <tr class="event_list">
+                      <th>이벤트번호</th>
+                      <th>이벤트제목</th>
+                      <th>작성자</th> 
+                      <th>작성날짜</th>
+                      <th>조회수</th>                     
+                  </tr>
+              </thead>             
+              <tbody class="event_tbody_list">
+            	 <c:if test="${list.size() < 1}">
+						<tr>
+							<td colspan="5">등록 된 게시물이 없습니다</td>
+						</tr>
+					</c:if>
+					
+					<c:forEach var="item" items="${list}">
+						<tr>
+							<td>${item.eventId}</td>
+							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>
+							<td>${item.id}</td>
+							<td>${item.eventDate}</td>
+							<td>${item.eventViewcnt}</td>						
+						</tr>									 
+					</c:forEach> 					    					
+              </tbody>                                                               
+          </table>                    
+      </div>     
+      
+      <!-- 현재 진행중인 이벤트 -->
+      <div class="pager ">       	    
+        <div class="page_wrap">
+          <div class="page_nation">
+             <a class="arrow pprev" href="?page=${pager.prev}"></a>
+             <a class="arrow prev" href="?page=${pager.next} "></a>
+             	<c:forEach var="page" items="${pager.list}">
+					<div><a href="?page=${page}">${page}</a></div>
+				</c:forEach>             
+             <a class="arrow next" href="?page=${pager.next} "></a>
+             <a class="arrow nnext" href="?page=${pager.last} "></a>
+          </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     </c:if>
 
 
 

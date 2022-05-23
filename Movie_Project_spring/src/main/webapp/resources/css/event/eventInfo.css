@@ -184,13 +184,12 @@ padding: 2em 12em;
   height: 150px;
   /*background-color: aliceblue;*/
   top: 50px;
-
+  text-align: center;
 }
 .event_info_title_text{
   position: relative;
   /* align-content: center; */
-  font-size: 35px;
-  left: 38%;
+  font-size: 35px;  
   transform: translateX(-50%);
   font-weight: 500;
   top: 10px;
@@ -198,8 +197,7 @@ padding: 2em 12em;
 .event_info_title_date{
   position: relative;
   width: 1000px;
-  top: 40px;
-  left: 375px;
+  top: 40px; 
   font-size: 12px;
 }
 .event_border2{
@@ -222,7 +220,7 @@ padding: 2em 12em;
 }
 .whitebox2_info{
   position: relative;
-  width: 900px;
+  width: 700px;
   height: 500px;
   /* background-color: #666666; */
   left: 50%;
@@ -240,12 +238,15 @@ padding: 2em 12em;
   height: 50px;
   left: 860px;
   top: 50px;
+ 
 }
 .back_button_box{
   position: relative;
   width: 1000px;
   height: 130px;
   background-color:whitesmoke;
+  text-align:center;
+  padding-top: 25px;
 }
 
 

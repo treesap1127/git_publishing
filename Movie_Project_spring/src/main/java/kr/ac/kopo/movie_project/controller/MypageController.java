@@ -66,6 +66,7 @@ public class MypageController {
 	@ResponseBody					//마이페이지 등록(영화관)
 	@PostMapping("theater/add/sit_add")//상영관 등록 ajax
 	public Object sit_add(@RequestBody Theater item) {
+		System.out.println(item.getTheaterName()+"영화 상영관명");
 		service.sit_add(item);
 		return item;
 	}
@@ -130,5 +131,6 @@ public class MypageController {
 		service.movieadd(item);
 		return item;
 	}
+
 }
 

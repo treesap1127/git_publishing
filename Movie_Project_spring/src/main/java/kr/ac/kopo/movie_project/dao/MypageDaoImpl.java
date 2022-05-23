@@ -77,5 +77,4 @@ public class MypageDaoImpl implements MypageDao {
 	public void movie_all_delete(String cinemaCode) {
 		sql.delete("theater.movie_all_delete", cinemaCode);
 	}
-
 }

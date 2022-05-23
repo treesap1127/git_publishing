@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
  <jsp:include page="../include/header.jsp"></jsp:include>
 <link href="../css/serviceCenter/notice.list.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
@@ -19,8 +20,8 @@
     </div>
 <div class="title_right">
 	                <a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
-	                <div class="login_link"><a href="serviceCenter/CenterService" >고객센터</a></div>
-	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="login">로그인</a></div></c:if>
+	                <div class="login_link"><a href="../serviceCenter/CenterService" >고객센터</a></div>
+	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="../login">로그인</a></div></c:if>
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
@@ -56,85 +57,90 @@
             </ul>
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
-     <div class="notice_box">
-        <div class="notice_seq">영화예매 취소좀</div>          
-          <div class="notice_area">          
-             <table class="tb">
-                    
-              <thead class="notice_first">
-                  <tr>
-                      <th>번호 :</th>
-                      <th>조회수 :</th>
-                      <th>등록일 :</th>
-                  </tr>
-              </thead>              
-          </table>
-          <div class="tb_content">
-            <p style="margin: 0cm;">어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">ㆍ2D 일반 관람권은 2D 일반 영화에 한하여 적용 가능</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="margin: 0cm;">어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠어떻게 해야하죠</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">■ 기존</p>
-            <p style="MARGIN: 0cm">&nbsp;</p>
-            <p style="MARGIN: 0cm">■ 기존</p>   
 
+     <div class="notice_box">
+        <div class="notice_seq">공지사항</div>
+          <div class="notice_keyword">
+               
+              <select name="search" class="option_select" >
+                <option value="0">전체</option>
+                <option value="1">제목</option>
+                <option value="2">작성자</option>
+                <option value="3">등록일</option>              
+              </select>   
+                      
+            <input type="text" name="keyoword" >
+            <button class="btn btn-dark btn-sm">검색</button>
           </div>
+                 
+          <div class="notice_area">
+          
+             <table class="tb">
+              <colgroup>
+                <col width="130">
+                <col>
+                <col width="170">
+            </colgroup>              
+              <thead>
+                  <tr>
+                      <th>번호</th>
+                      <th>제목</th>
+                      <th>작성자</th>
+                      <th>등록일</th>
+                      <th>조회수</th>
+                      <th>관리</th>
+                      
+                  </tr>
+              </thead>
+              <tbody id="notice_midle">
+            	 <c:if test="${list.size() < 1}">
+						<tr>
+							<td colspan="5">등록 된 게시물이 없습니다</td>
+						</tr>
+					</c:if>
+					
+					<c:forEach var="item" items="${list}">
+						<tr class="dragItem">
+							<td>${item.articleId}</td>
+							<td><a href="view/${item.articleId}">${item.subject}</a></td>
+							<td>${item.memberId}</td>
+							<td>${item.viewCount}</td>							
+							<td><a href="update/${item.articleId}"><button class="btn btn-outline-success">수정</button></a> <a href="delete/${item.articleId}"><button class="btn btn-outline-danger">삭제</button></a></td>
+						</tr>
+					</c:forEach> 
+              </tbody>                          
+          </table>
+         </div>
+         <div class="add_keyword">
+          <a href="NoticeAdd"><button class="btn btn-outline-primary">등록</button></a>
          </div>
          <!-- 페이징디자인 -->
-<div class="pager ">
-    <div class="page_wrap">
-      <div class="page_nation">
-         <a class="arrow pprev" href="#"></a>
-         <a class="arrow prev" href="#"></a>
-         <a href="#" class="active">1</a>
-         <a href="#">2</a>
-         <a href="#">3</a>
-         <a href="#">4</a>
-         <a href="#">5</a>
-         <a href="#">6</a>
-         <a href="#">7</a>
-         <a href="#">8</a>
-         <a href="#">9</a>
-         <a href="#">10</a>
-         <a class="arrow next" href="#"></a>
-         <a class="arrow nnext" href="#"></a>
-      </div>
-   </div>
-  </div>
+         <div class="pager ">
+          <div class="page_wrap">
+            <div class="page_nation">
+               <a class="arrow pprev" href="?page=1"></a>
+               <a class="arrow prev" href="?page=${pager.prev}"></a>
+             		
+             		<c:forEach var="page" items="${pager.list}">
+						<div><a href="?page=${page}">${page}</a></div>
+					</c:forEach>
+					
+               <a class="arrow next" href="?page=${pager.next}"></a>
+               <a class="arrow nnext" href="?page=${pager.last}"></a>
+            </div>
          </div>
+        </div>
+        </div>
 
 
 
 
+     <!-- 제일 최하단 -->
 
-
-
-     
-
-
-          <!-- 제일 최하단 -->
-
+     <hr class="lhr5"/>
 <div class="bottom">
     <!--고객센터-->
-    <hr class="lhr5"/>
+
     <div class="inner_case_bottom">
         <div class="bottom_text_1">고객센터</div>
         <div class="bottom_text_2">평일 08:00 ~ 19:30, 토요일,공휴일
@@ -145,7 +151,9 @@
             <br><br>사업자 등록번호 : 123-45-6789<br>TEL : 02-1234-5678 Email : customer@projectCinema.co.kr
         </div>
         <div class="bottom_text_4">© ProjectCinema Co., Ltd All rights reservedv.</div>
-    </div></div>
-    <jsp:include page="../include/body.jsp"></jsp:include>
+    </div>
+</div>
+<jsp:include page="../include/body.jsp"></jsp:include>
+
 </body>
 </html>

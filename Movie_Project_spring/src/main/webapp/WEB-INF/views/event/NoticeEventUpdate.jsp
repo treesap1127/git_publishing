@@ -5,7 +5,7 @@
 <html>
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/notice_update.css" rel="stylesheet" type="text/css">
+<link href="../../../css/serviceCenter/notice_update.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
 
 <!-- 서머노트를 위해 추가해야할 부분 -->
@@ -32,31 +32,42 @@ $(document).ready(function() {
    });
 });
 </script>
+</head>
+<script>
+$(document).ready(function () {
+  console.log($.summernote.options);
+  // 실행시 언어 설정을 한글로 설정 
+  $.summernote.options.lang = 'ko-KR';
+  $.summernote.options.airMode = false;
+});
 
+var a = $('#summernote');
+
+</script>
 </head>
 <body>
   <div class="box_case">
     <!--좌우크기조절-->
     <div class="title">
       <a href="../../../../" class="main_back">
-        <img src="../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
+        <img src="../../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
         <div class="title_name">Miner Cinema</div>
       </a>
     </div>
 <div class="title_right">
-	                <a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
+	                <a href="such"><img src="../../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
 	                <div class="login_link"><a href="serviceCenter/CenterService" >고객센터</a></div>
 	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="login">로그인</a></div></c:if>
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage">마이페이지</a></div>
+	             <div class="title_plus_text" style="color: black;position: relative; left: 75%; top: 16%; width: 265px; font-size: 13px; font-weight: 600; text-align: right;">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage/myPage">마이페이지</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade==2}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
+	             <div class="title_plus_text" style="color: black;position: relative; left: 75%; top: 16%; width: 265px; font-size: 13px; font-weight: 600; text-align: right;">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade>=10}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">웹 관리</a></div>
+	             <div class="title_plus_text" style="color: black;position: relative; left: 75%; top: 16%; width: 265px; font-size: 13px; font-weight: 600; text-align: right;">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">웹 관리</a></div>
 	             </c:if>
         </div>
   <div class="black_box">
@@ -83,20 +94,20 @@ $(document).ready(function() {
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
-      <div class="update_box">이벤트 등록</div>
+      <div class="update_box">이벤트 변경</div>
       <form method="post" class="mt-4">
         <div class="form-floating mt-2">
           <label>제목</label>	
           <div >				
           <input type="text" name="eventName" class="form-control" placeholder="제목">
-          </div>        		
+          </div>         		
           <div style="display: none;">					
-          <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자" >		
+          <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자" style="display: none;">		
        		</div>
           <br>   
           <div class="file-upload" style="text-align: right;">
             <label for="ex_file">업로드</label>
-            <input type="file" id="ex_file">           
+            <input type="file" id="ex_file">            
         </div>        
         
         </div>	
@@ -108,8 +119,8 @@ $(document).ready(function() {
         
         <div>        	
           <div class="update_setbutton">
-          <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
-          <a href="continue_Event" class="btn btn-outline-primary">목록가기</a></div>						
+          <input type="submit" class="btn btn-outline-primary" value="변경하기" style="margin-right:40px;">
+          <a href="../continue_Event" class="btn btn-outline-primary">목록가기</a></div>						
         </div>
         
         

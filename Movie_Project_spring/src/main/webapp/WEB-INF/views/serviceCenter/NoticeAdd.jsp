@@ -102,7 +102,7 @@ var a = $('#summernote');
         <div>        	
           <div class="add_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
-          <a href="NoticeView" class="btn btn-outline-primary">목록가기</a></div>						
+          <a href="NoticeList" class="btn btn-outline-primary">목록가기</a></div>						
         </div>     
       </form>
     </div>
