@@ -30,8 +30,10 @@ public class EventController {
 	
 	
 	@GetMapping("/continue_Event")
-	public String continue_Event(Model model,Pager pager){
+	public String continue_Event(Model model,Pager pager,Event item){
 		List<Event> list = service.continue_Event(pager);
+		
+		service.viewcnt(item);
 		
 		model.addAttribute("list",list);
 		
@@ -50,6 +52,8 @@ public class EventController {
 	@GetMapping("/EventInfo/{eventId}")
 	public String EventInfo(@PathVariable int eventId, Model model) {
 		Event item = service.item(eventId);
+		
+		service.viewcnt(item);
 		
 		model.addAttribute("item", item);
 		

@@ -52,6 +52,12 @@ public class EventServiceImpl implements EventService {
 		return dao.item(eventId);
 	}
 
+	@Override
+	public void viewcnt(Event item) {
+		dao.viewcnt(item);
+		
+	}
+
 	
 	
 

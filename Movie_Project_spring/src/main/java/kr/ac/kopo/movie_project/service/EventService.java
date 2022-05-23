@@ -17,7 +17,9 @@ public interface EventService {
 
 	Event item(int eventId);
 
-	void NoticeEventUpdate(Event item);	
+	void NoticeEventUpdate(Event item);
+
+	void viewcnt(Event item);	
 
 	
 }
