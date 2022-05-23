@@ -1,29 +1,54 @@
 $(function(){
+	$.ajax({
+		url:"/ticket/movieview",
+          method: "GET",
+          async:false,
+          dataType: "json",
+          success: view => {
+			for(i=0;i<view.length;i++){
+				$(".movie_audits").append(`<div class="movie_ movie_${i}"><img src="../../img/ticketing/${view[i].movieRating}.png" alt="심의등급" class="movie_audits_photo">
+            <div class="movie_name" id="${view[i].movieName}">${view[i].movieName}</div></div>`);
+				
+			}
+},
+          error: (xhr, result2) => console.log(`[실패] print`)
+		
+	})
+	
+	
+	
 	length=$(".movie_audits").children().length;
 	a=0;
-	for(p=0;p<length;p++){
+	for(p=0;p<length;p++){ 
 	var moviename=$(".movie_audits").children(`:eq(${p})`).children("div").text();
 	var movieName={movieName:moviename};
 	$(".movie_audits").addClass("nodisplay");
+	console.log(`tllll${moviename}`);
 $.ajax({
 	url:"/ticket/cinemaCode",
           method: "POST",
+          async:false,
           contentType: "application/json",
           dataType: "json",
           data: JSON.stringify(movieName),
           success: code => {
 			for(l=0;l<code.length;l++){
 				$(".movie_audits").children(`:eq(${a})`).addClass(`name${code[l].cinemaCode}`);
-				
+				console.log(`1차 무비 명:~~~~~${a}`)
 				var testcode=`${code[l].cinemaCode}`
-				$(".movie_").click(function(){
+				
+				$(`.movie_${a}`).click(function(){
 					$(".movie_").css("background-color","gainsboro");
 					$(this).css("background-color","white");
 					moviename=$(this).children("div").text();
 					$(".movie_check_").text(`${moviename}`);
-					$(`.movieAreaName`).css("color","darkgray");
-					$(`.the${testcode}`).css("color","black");
-					//영화관명 같은 theater 회색 이면 클래스 ㅇㅇ
+					
+					$(`.movieAreaName`).css("background-color","white");
+					$(`.the${testcode}`).css("background-color","darkgray");
+					//요거 해당하는 test 코드 다 가져와서 넣어줘야겠다.
+					//그리고 모든 movieAreaName에 클래스로 nocheck 주고 
+					//체크 되어있는건 removeClass 박기
+					
 					dateitem={cinemaCode:testcode,movieName:moviename}
 					$.ajax({
 						url:"/ticket/cinemaDate",
@@ -71,22 +96,11 @@ $(".movie_place_").click(function(){
           success: result => {
 			for(i=0;i<result.length;i++){
 			$(".movie_place_sub2").append(`<button class="movieAreaName the${result[i].cinemaCode}" id="${result[i].movieAreaName}"value="${result[i].cinemaCode}">${result[i].movieAreaName}</button>`)
-			$(`#${result[i].movieAreaName}`).click(function(){//영화관 클릭시
+			$(`#${result[i].movieAreaName}`).click(function(){//영화관 클릭시	
+			var name=$(this).text();//영화관명 (달빛)
+			var code=$(this).val();//상영관 번호 test~
 			
-			
-			$(".movie_audits").attr("display","block");
-				$(this).css("color","red");
-				var name=$(this).text();
-				var code=$(this).val();
-				
-				$(".check_com").append(`<div class="cinemaCode"style="display:none">${code}</div>`)
-
-				$(".cinema_check").text(`영화관명 : ${name}`);
-				
-				$(".movieAreaName").css("color","black");
-				$(this).css("color","red");
-				cinema={movieAreaName:name,cinemaCode:code};
-				
+			cinema={movieAreaName:name,cinemaCode:code};			
 				$.ajax({
 					  url:"/ticket/cinema",
 			          method: "POST",
@@ -95,6 +109,15 @@ $(".movie_place_").click(function(){
 			          data: JSON.stringify(cinema),
 			          success: result2 => {
 							for(j=0;j<result2.length;j++){
+								console.log(`${result2[0].cinemaCode}`);
+								if(`${result2[0].cinemaCode}!='fail'`){
+									$(this).css("color","red");
+									$(".check_com").append(`<div class="cinemaCode"style="display:none">${code}</div>`)
+									$(".cinema_check").text(`영화관명 : ${name}`);
+									$(".movieAreaName").css("color","black");
+									$(this).css("color","red");
+									
+									
 								$(`.check_com`).append(`<div class="theaterName" style="display:none">${result2[j].theaterName}</div>`)
 								$(".movie_").children("div").css("color","darkgray");
 								$(".movie_").children("div").addClass('nocheckmovie');
@@ -102,6 +125,15 @@ $(".movie_place_").click(function(){
 								$(`.name${result2[j].cinemaCode}`).children("div").css("color","black");
 								$(`.name${result2[j].cinemaCode}`).children("div").removeClass('nocheckmovie');
 								$(".movie_audits").removeClass("nodisplay");
+								}
+								else if(`${result2[0].cinemaCode}=='fail'`){
+									select=confirm("상영 영화가 등록 되지 않은 영화관 입니다. \n 다시 선택 하시겠습니까?")
+									if(select==true){
+										alert("초기화 되었습니다.");
+										location.reload();
+									}
+								}
+
 							}
 						},
 				       error: (xhr, result2) => console.log(`[실패] print`)

@@ -55,4 +55,8 @@ public class TicketServiceImpl implements TicketService {
 	public List<Theater> ticketsit(Movie list) {
 		return dao.ticketsit(list);
 	}
+	@Override
+	public List<Movie> view() {
+		return dao.movielist();
+	}
 }

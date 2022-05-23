@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +28,14 @@ public class TicketController {
 	
 	@RequestMapping("/Ticketing")
 	public String Ticketing(Model model) {
-		List<Movie> movie = service.movielist();
-		model.addAttribute("movie", movie);
 		return path+"Ticketing";
+	}
+	@ResponseBody
+	@GetMapping("/movieview")
+	public List<Movie> movieview() {
+		List<Movie> list =service.view();
+		return list;
+		
 	}
 	@RequestMapping("/TicketInformation")
 	public String TicketInformation() {
@@ -68,7 +72,19 @@ public class TicketController {
 	@PostMapping("/cinema")
 	public List<Movie> cinema(@RequestBody MovieAdmin item) {
 		List<Movie> moviename= service.cinema(item);
-		return moviename;
+		if(moviename.size()==0) {
+			Movie a= new Movie();
+			a.setCinemaCode("fail");
+			
+			moviename.add(a);
+			
+			return moviename;
+		}
+		else {
+			return moviename;
+		}
+		
+		
 	}
 	@ResponseBody
 	@PostMapping("/cinemaCode")
@@ -92,6 +108,5 @@ public class TicketController {
 		List<Movie> date= service.cinemaDate(item);
 		return date;
 	}
-	
 	
 }

@@ -23,4 +23,6 @@ public interface TicketService {
 
 	List<Theater> ticketsit(Movie list);
 
+	List<Movie> view();
+
 }

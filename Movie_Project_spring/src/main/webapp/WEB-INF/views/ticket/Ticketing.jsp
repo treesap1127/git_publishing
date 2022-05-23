@@ -77,8 +77,8 @@
           <div class="title_center">영화관</div>
         </div>
         <div class="place">
-          <div class="place_box"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시/도</div>
-          <div class="place_box"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;영화관명</div>
+          <div class="place_box" style="text-align: center"><br>시/도</div>
+          <div class="place_box" style="text-align: center"><br>영화관명</div>
         </div>
         <div class="movie_place_sub">
           <div class="movie_place_sub1">
@@ -103,13 +103,7 @@
           <div class="title_center">영화 선택</div>
         </div>
         <div class="movie_audits">
-          <c:forEach var="item" items="${movie}">
-          <div class="movie_">
- 	        <img src="../../img/ticketing/${item.movieRating}.png" alt="심의등급" class="movie_audits_photo">
-            <div class="movie_name" id="${item.movieName}">${item.movieName}</div>
-          </div>
-        </c:forEach>
-         
+			<!-- 영화명 쭈르륵 -->         
         </div>
          
       </div>
