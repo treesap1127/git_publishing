@@ -20,6 +20,7 @@ import kr.ac.kopo.movie_project.util.Pager;
 
 @Controller
 @RequestMapping("/serviceCenter")
+//test
 public class ServiceCenterController {
    String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
    final String path = "serviceCenter/";
