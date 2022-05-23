@@ -20,7 +20,6 @@ import kr.ac.kopo.movie_project.util.Pager;
 
 @Controller
 @RequestMapping("/serviceCenter")
-//test
 public class ServiceCenterController {
    String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
    final String path = "serviceCenter/";
@@ -40,10 +39,9 @@ public class ServiceCenterController {
          return path+"F&Q";
       }
       
-      @RequestMapping("/serviceCenter/{boardId}/BoardList")
-      @GetMapping("/BoardList")
-      public String BoardList(@PathVariable int boardId,Model model,Pager pager) {
-         List<Board> list = service.list(pager);
+      @GetMapping("/{boardId}/BoardList")
+      public String BoardList(@PathVariable Long boardId,Model model,Pager pager) {
+         List<Board> list = service.list(pager,boardId);
          model.addAttribute("list",list);
          
          return path+"BoardList";

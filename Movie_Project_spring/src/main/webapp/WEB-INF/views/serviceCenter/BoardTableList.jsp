@@ -7,7 +7,7 @@
 <jsp:include page="../include/header.jsp"></jsp:include>
 <link href="../../../../../css/serviceCenter/BoardTableList.css"
 	rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../css/style/style.css">
+<link rel="stylesheet" href="../../../../css/style/style.css">
 </head>
 <body>
 	<div class="box_case">

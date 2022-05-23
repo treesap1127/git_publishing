@@ -14,10 +14,10 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	ServiceCenterDao dao;
 	
 	@Override
-	public List<Board> list(Pager pager) {
+	public List<Board> list(Pager pager,Long boardId) {
 		int total = dao.total(pager);
 		pager.setTotal(total);
-		return dao.list(pager);
+		return dao.list(pager,boardId);
 	}
 
 

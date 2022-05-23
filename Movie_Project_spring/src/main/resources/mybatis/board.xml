@@ -5,7 +5,7 @@
 <mapper namespace="Board">
 	<select id="list" resultType="Board">
 		SELECT * FROM board_${boardId}
-		
+		<include refid="search"></include>
 	</select>
 	
 	<insert id="add">
@@ -17,7 +17,7 @@
 		SELECT * FROM board
 		WHERE article_id=#{articleId}
 	</select>
-	
+
 	<update id="update">
 		UPDATE board
 		SET subject=#{subject}, contents=#{contents}

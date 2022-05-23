@@ -28,14 +28,15 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	}
 
 	@Override
-	public List<Board> list(Pager pager) {
-		// TODO Auto-generated method stub
-		return sql.selectList("Board.list", pager);
+	public List<Board> list(Pager pager,Long boardId) {
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		map.put("boardId",boardId);
+		map.put("pager",pager);
+		return sql.selectList("Board.list",map);
 	}
 
 	@Override
 	public int total(Pager pager) {
-		// TODO Auto-generated method stub
 		return sql.selectOne("Board.total", pager);
 	}
 
