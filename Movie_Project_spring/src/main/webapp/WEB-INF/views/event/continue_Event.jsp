@@ -15,7 +15,7 @@
 <script>
 $(function(){
 	if(${sessionScope.member.grade}<10){
-	$(".adminbtn").css("display","none");
+	$(".adminbtn").css("display","none");	
 	}
 });
 
@@ -134,7 +134,7 @@ $(function(){
                       <th>작성날짜</th>                      
                       <th>이벤트날짜</th>
                       <th>작성자</th>                      
-                      <th>관리</th>                      
+                      <th class="adminbtn">관리</th>                      
                   </tr>
               </thead>             
               <tbody class="event_tbody_list">
@@ -151,7 +151,7 @@ $(function(){
 							<td>${item.eventDate}</td>	
 							<td>${item.startDate}~${item.endDate}</td>
 							<td>${item.id}</td>																										
-							<td><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbtn">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a><a href="end_Event"><button class="btn btn-outline-danger adminbtn">종료이벤트</button></a></td>							
+							<td class="adminbtn"><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbtn">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a><a href="end_Event"><button class="btn btn-outline-danger adminbtn">종료이벤트</button></a></td>							
 						</tr>	
 										 
 					</c:forEach> 					    					
