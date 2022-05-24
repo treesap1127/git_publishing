@@ -127,11 +127,11 @@
 			</tbody>
 		</table>
 	</div>    
-        <div class="theater"><div class="theater_add_btn addblock ab"><a class="theater_add_link">영화관 추가요청</a></div>
-    </div>
+        
   </div>
+
 </div>
-      
+<div class="theater"><div class="theater_add_btn addblock ab"><a class="theater_add_link">영화관 추가요청</a></div></div>
     <!-- 제일 최하단 -->
 <div class="bottom">
     <!--고객센터-->

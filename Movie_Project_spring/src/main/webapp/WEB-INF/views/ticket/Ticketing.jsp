@@ -147,6 +147,8 @@
         <div class="movie_check_" style="font-size: 18px; font-weight: 500;">영화를 선택하세요.<br><br></div>
         <div class="cinema_check">영화관을 선택하세요.</div>
         <div class="cinema_date">영화일자를 선택하세요</div>
+        <div class="cinemaCode"style="display:none"></div>
+        <div class="theaterName" style="display:none"></div>
       </div>
       <div class="sitting">
         <a href="sit"><button class="sitting_check btn btn-outline-danger">좌석 선택으로 넘어가기</button></a>

@@ -104,7 +104,7 @@ public class TicketController {
 	}
 	@ResponseBody
 	@PostMapping("/cinemaDate")
-	public List<Movie> cinemaDate(@RequestBody Movie item) throws ParseException {
+	public List<Movie> cinemaDate(@RequestBody Movie item){
 		List<Movie> date= service.cinemaDate(item);
 		return date;
 	}
