@@ -74,7 +74,8 @@
    
     </div>
       <!-- 슬라이드 아래부분 목록입니다 -->
- <!-- 현재 진행중인 이벤트 -->
+      
+ <!-- 관리자일시 -->
   <c:if test="${sessionScope.member.grade >= 2}">
 <div class="whitebox2">
       <div class="scriptbox">     
@@ -108,20 +109,17 @@
 							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>														
 							<td>${item.id}</td>							
 							<td> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger">삭제</button></a></td>
-						</tr>	
-										 
+						</tr>										 
 					</c:forEach> 					    					
               </tbody>                                                   
           </table>                     
       </div>
-      <!-- 현재 징행중인 이벤트 -->
-
-
-    <div class="pager ">              
+      
+       <div class="pager ">       	    
         <div class="page_wrap">
           <div class="page_nation">
-             <a class="arrow pprev" href="?page=${pager.prev}"></a>
-             <a class="arrow prev" href="?page=${pager.next} "></a>
+             <a class="arrow pprev" href="?page=1"></a>
+             <a class="arrow prev" href="?page=${pager.prev} "></a>
              	<c:forEach var="page" items="${pager.list}">
 					<div><a href="?page=${page}">${page}</a></div>
 				</c:forEach>             
@@ -131,7 +129,6 @@
         </div>
        </div>
       </div>
-
      </div>
      </c:if>
      
@@ -139,6 +136,61 @@
      <!-- 유저 일시 -->
      <c:if test="${sessionScope.member.grade == 1}">
      <div class="whitebox2">
+      <div class="scriptbox">     
+      <div class="event_list_box">      
+      	 <table class="table table-striped table-bordered table-hover">         
+              <colgroup>
+                <col width="130">
+                <col>
+                <col width="170">
+            </colgroup>              
+              <thead>
+                  <tr class="event_list">
+                      <th>이벤트번호</th>
+                      <th>이벤트제목</th>                                         
+                      <th>작성자</th> 
+                      <th>조회수</th>                     
+                  </tr>
+              </thead>
+              <tbody class="event_tbody_list">
+            	 <c:if test="${list.size() < 1}">
+						<tr>
+							<td colspan="4">등록 된 게시물이 없습니다</td>
+						</tr>
+					</c:if>					
+					<c:forEach var="item" items="${list}">
+						<tr>
+							<td>${item.eventId}</td>
+							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>														
+							<td>${item.id}</td>	
+							<td>${item.eventViewcnt}</td>					
+						</tr>									 
+					</c:forEach> 					    					
+              </tbody>                                                   
+          </table>                     
+      </div>
+      
+     <div class="pager ">       	    
+        <div class="page_wrap">
+          <div class="page_nation">
+             <a class="arrow pprev" href="?page=1"></a>
+             <a class="arrow prev" href="?page=${pager.prev} "></a>
+             	<c:forEach var="page" items="${pager.list}">
+					<div><a href="?page=${page}">${page}</a></div>
+				</c:forEach>             
+             <a class="arrow next" href="?page=${pager.next} "></a>
+             <a class="arrow nnext" href="?page=${pager.last} "></a>
+          </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     </c:if>
+     
+     
+     <!-- 비회원일시 -->
+    <c:if test="${sessionScope.member.id == null}">
+	  <div class="whitebox2">
       <div class="scriptbox">     
       <div class="event_list_box">
       
@@ -152,13 +204,15 @@
                   <tr class="event_list">
                       <th>이벤트번호</th>
                       <th>이벤트제목</th>                                         
-                      <th>작성자</th>                      
+                      <th>작성자</th>
+                      <th>조회수</th>
+                      
                   </tr>
               </thead>
               <tbody class="event_tbody_list">
             	 <c:if test="${list.size() < 1}">
 						<tr>
-							<td colspan="5">등록 된 게시물이 없습니다</td>
+							<td colspan="4">등록 된 게시물이 없습니다</td>
 						</tr>
 					</c:if>
 					
@@ -167,20 +221,18 @@
 							<td>${item.eventId}</td>
 							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>														
 							<td>${item.id}</td>	
-							<td>${item.eventViewcnt}</td>					
-						</tr>									 
+							<td>${item.eventViewcnt}</td>						
+						</tr>										 
 					</c:forEach> 					    					
               </tbody>                                                   
           </table>                     
       </div>
-      <!-- 현재 징행중인 이벤트 -->
-
-
-    <div class="pager ">              
+      
+       <div class="pager ">       	    
         <div class="page_wrap">
           <div class="page_nation">
-             <a class="arrow pprev" href="?page=${pager.prev}"></a>
-             <a class="arrow prev" href="?page=${pager.next} "></a>
+             <a class="arrow pprev" href="?page=1"></a>
+             <a class="arrow prev" href="?page=${pager.prev} "></a>
              	<c:forEach var="page" items="${pager.list}">
 					<div><a href="?page=${page}">${page}</a></div>
 				</c:forEach>             
@@ -190,109 +242,10 @@
         </div>
        </div>
       </div>
-
      </div>
      </c:if>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     
+     
 
 
 

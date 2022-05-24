@@ -67,7 +67,7 @@
       <div class="event_info_title_box">
         <div class="event_info_title">
           <span class="event_info_title_text">${item.eventName}</span>
-          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; &nbsp;</p>
+          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; | ${item.startDate}~${item.endDate} &nbsp;</p>
         </div>
         <hr class="event_border2" style="border: solid 1px #dddddd;" width="1000px">
       </div>
@@ -97,7 +97,7 @@
       <div class="event_info_title_box">
         <div class="event_info_title">
           <span class="event_info_title_text">${item.eventName}</span>
-          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; |&nbsp; ${item.eventViewcnt}</p>
+          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; |&nbsp; ${item.eventViewcnt} | ${item.startDate}~${item.endDate} &nbsp;</p>
         </div>
         <hr class="event_border2" style="border: solid 1px #dddddd;" width="1000px">
       </div>
@@ -114,8 +114,36 @@
         </div>
       </div>
     </div>
+  </div>
+</c:if>
 
+  	<!-- 비회원일시 -->
+    <c:if test="${sessionScope.member.id == null}">
+    <div class="gray_main">
+    <div class="whitebox">
+      <div class="whitebox_info">
+        <div class="whitebox_info_text">이벤트</div>
+      </div>
+      <div class="event_info_title_box">
+        <div class="event_info_title">
+          <span class="event_info_title_text">${item.eventName}</span>
+          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; | ${item.startDate}~${item.endDate} &nbsp; |&nbsp; ${item.eventViewcnt} </p>
+        </div>
+        <hr class="event_border2" style="border: solid 1px #dddddd;" width="1000px">
+      </div>
 
+      <div class="whitebox2">
+        <div class="whitebox2_photo">사진을 넣어주세요</div>
+        <div class="whitebox2_info">
+         <div><내용 및 유의사항>
+          <div>${item.eventInfo}</div>
+		</div>
+        </div>
+        <div class="back_button_box">
+          <a href="../../event/continue_Event"><button class="btn btn-outline-primary">목록으로가기</button></a>
+        </div>
+      </div>
+    </div>
   </div>
 </c:if>
 

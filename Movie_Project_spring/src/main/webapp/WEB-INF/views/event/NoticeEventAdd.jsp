@@ -9,28 +9,43 @@
 <link rel="stylesheet" href="../css/style/style.css">
 
 <!-- 서머노트를 위해 추가해야할 부분 -->
-<script src="js/summernote-lite.js"></script>
-<script src="js/summernote-ko-KR.js"></script>
-<link rel="stylesheet" href="js/summernote-lite.css">
-<!--  -->
-<link
-   href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-   rel="stylesheet">
-<script
-   src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/lang/summernote-ko-KR.js"></script>
 <script>
 $(document).ready(function() {
    //여기 아래 부분
    $('#summernote').summernote({
-        height: 300,                 // 에디터 높이
+        height: 500,                 // 에디터 높이
         minHeight: null,             // 최소 높이
         maxHeight: null,             // 최대 높이
         focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
         lang: "ko-KR",               // 한글 설정
         placeholder: '최대 2048자까지 쓸 수 있습니다'   //placeholder 설정
-          
+        
    });
 });
+</script>
+
+
+<script>
+ $(function(){
+  $("#mform").submit(function(){
+         var startDate = $('#startDate').val();
+         var endDate = $('#endDate').val();
+         //-을 구분자로 연,월,일로 잘라내어 배열로 반환
+         var startArray = startDate.split('-');
+         var endArray = endDate.split('-');   
+         //배열에 담겨있는 연,월,일을 사용해서 Date 객체 생성
+         var start_date = new Date(startArray[0], startArray[1], startArray[2]);
+         var end_date = new Date(endArray[0], endArray[1], endArray[2]);
+              //날짜를 숫자형태의 날짜 정보로 변환하여 비교한다.
+         if(start_date.getTime() > end_date.getTime()) {
+             alert("종료날짜보다 시작날짜가 작아야합니다.");
+             return false;
+         }
+      });
+ });
 </script>
 
 </head>
@@ -84,7 +99,7 @@ $(document).ready(function() {
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
       <div class="update_box">이벤트 등록</div>
-      <form method="post" class="mt-4">
+      <form method="post" class="mt-4" id="mform">
         <div class="form-floating mt-2">
           <label>제목</label>	
           <div >				
@@ -96,9 +111,10 @@ $(document).ready(function() {
           <br>   
           <div class="file-upload" style="text-align: right;">
             <label for="ex_file">업로드</label>
-            <input type="file" id="ex_file">           
-        </div>        
-        
+            <input type="file" id="ex_file">
+            이벤트 시작일<input type="date" name="startDate">
+			이벤트 종료일<input type="date" name="endDate">
+       	 </div>        
         </div>	
         	
         <label>내용</label>			

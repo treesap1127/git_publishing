@@ -35,7 +35,8 @@ public class EventController {
 		
 		service.viewcnt(item);
 		
-		model.addAttribute("list",list);
+		model.addAttribute("list",list);		
+		
 		
 		return path+"continue_Event";
 	}	
