@@ -257,9 +257,15 @@ padding: 2em 12em;
 .check_com{
   position: relative;
   top: 30px;
-  left: 80px;
+
   height: 150px;
-  width: 300px;
+	width: 300px;
+}
+.check_com_box{
+    width: 80%;
+    position: relative;
+    left: 30px;
+    height: 100%;
 }
 .ticketing_name{
   position: relative;
@@ -344,6 +350,16 @@ padding: 2em 12em;
   padding-left: 2px;
   padding-top: 1px;
 }
+.sit_a{
+  width: 20px;
+  height: 17px;
+  background: #848484;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 10px;
+  padding-left: 2px;
+  padding-top: 1px;
+}
 .sit_a:hover{
   background: red;
 }
@@ -370,6 +386,10 @@ padding: 2em 12em;
   font-size: 10px;
   padding-left: 2px;
   padding-top: 1px;
+}
+.sit_d{
+	width: 20px;
+    height: 17px;
 }
 .sit_bottom{
   display: flex;
@@ -433,20 +453,20 @@ padding: 2em 12em;
   opacity: 50%;
 }
 .aud_but:hover{
-  background-color: red;
-  opacity: 100%;
+    background-color: gray;
+    color: white;
 }
 .ten_but{
   border: 0;
   outline: 0;
   background-color: white;
-  border: 1px solid border;
+  border: 1px solid #dddddd;
   padding: 1px 6px;
   opacity: 50%;
 }
 .ten_but:hover{
-  background-color: red;
-  opacity: 100%;
+    background-color: gray;
+    color: white;
 }
 .movie_info{
   position: relative;

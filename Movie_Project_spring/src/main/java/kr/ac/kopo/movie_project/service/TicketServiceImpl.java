@@ -59,4 +59,8 @@ public class TicketServiceImpl implements TicketService {
 	public List<Movie> view() {
 		return dao.movielist();
 	}
+	@Override
+	public Movie moviecode(Movie item) {
+		return dao.moviecode(item);
+	}
 }

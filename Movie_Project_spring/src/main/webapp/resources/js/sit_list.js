@@ -36,16 +36,16 @@ $(function(){
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text(sititem[k]);
 			//색상을 if=text=''이면 sit_c로 해버리고 있으면 b하기
 			if($(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text()==''){
-				$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_c`);
+				$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_d`);
 			}
 			else{
 				$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_b`);
 			}
 			++k;
-
-			
 		}
 	}
+	
+	//요러코롬 링크 설정 해줘야함 값=.check_com_box ㅇㅇ$(".sit_checkbox").attr("href","payment");
 	
 	
 })

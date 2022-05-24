@@ -1,6 +1,8 @@
 package kr.ac.kopo.movie_project.controller;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,13 +44,15 @@ public class TicketController {
 		return path+"TicketInformation";
 	}
 	@GetMapping("/sit")
-	public String ticketsit(@RequestParam String movieName,@RequestParam String cinemaCode,@RequestParam String theaterName,@RequestParam String movieDate,@RequestParam String movieTime,Model model) {
+	public String ticketsit(@RequestParam String movieName,@RequestParam String cinemaCode,@RequestParam String theaterName,@RequestParam String movieDate,@RequestParam String movieTime,@RequestParam int movieCode,Model model) {
 		Movie list =new Movie();
 		list.setMovieName(movieName);
+		//moviecode...;
 		list.setCinemaCode(cinemaCode);
 		list.setTheaterName(theaterName);
 		list.setMovieDate(movieDate);
 		list.setMovieTime(movieTime);
+		list.setMovieCode(movieCode);
 		model.addAttribute("list", list);
 		List<Theater> sit = service.ticketsit(list);
 		model.addAttribute("sit", sit);
@@ -83,8 +87,6 @@ public class TicketController {
 		else {
 			return moviename;
 		}
-		
-		
 	}
 	@ResponseBody
 	@PostMapping("/cinemaCode")
@@ -107,6 +109,11 @@ public class TicketController {
 	public List<Movie> cinemaDate(@RequestBody Movie item){
 		List<Movie> date= service.cinemaDate(item);
 		return date;
+	}
+	@ResponseBody
+	@PostMapping("/moviecodea")
+	public Movie moviecode(@RequestBody Movie item){
+		return service.moviecode(item);
 	}
 	
 }

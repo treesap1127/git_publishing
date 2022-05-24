@@ -1,4 +1,5 @@
 $(function(){
+	$(".sitting_check").attr("onclick","warning()");
 	$.ajax({
 		url:"/ticket/movieview",
           method: "GET",
@@ -41,17 +42,17 @@ $(`.movie_`).click(function(){//영화명을 누른..5003
 		//초기화
 		$(".contact").empty();//일시 통 삭제
 		$(".chetime").empty();//시간 입력 초기화
-		$(".cinema_date").text('영화일자를 선택하세요'); //예매 일자 취소
+		$(".cinema_date").text('영화일자를 선택하세요.'); //예매 일자 취소
 		
 		
 		$(".movieAreaName").css("background-color","white");
 		$(".movieAreaName").addClass("nocheckmovie");
 		$(".movie_").css("background-color","gainsboro");
+		$(`.datebutton`).addClass("nocheckmovie");
 		$(this).css("background-color","white");
 		moviename=$(this).children("div").text();
 		$(".movie_check_").text(`${moviename}`);
 		movieName={movieName:moviename}
-		console.log(`클릭이 되었다는 메세지 보낸 영화명:${moviename}`)
 		$.ajax({
 			url:"/ticket/cinemaCode",
 	          method: "POST",
@@ -61,11 +62,10 @@ $(`.movie_`).click(function(){//영화명을 누른..5003
 	          data: JSON.stringify(movieName),
 	          success: moviecode => {
 					a=moviecode.length;
-					console.log(`이건 뭔 숫자길래${a}`)
 					for(i=0;i<a;i++){
 					//console.log(`코드는 ${moviecode}`)
 					movieCCode = `${moviecode[i].cinemaCode}`;
-					$(`.the${movieCCode}`).css("background-color","darkgray");
+					$(`.the${movieCCode}`).css("background-color","gainsboro");
 					//요거 해당하는 test 코드 다 가져와서 넣어줘야겠다.
 					//그리고 모든 movieAreaName에 클래스로 nocheck 주고
 					$(`.the${movieCCode}`).removeClass("nocheckmovie");
@@ -76,7 +76,6 @@ $(`.movie_`).click(function(){//영화명을 누른..5003
 		})
 		
 		testcode=$(".cinemaCode").text();
-		console.log(`code~${testcode}`);// 이거 리스트로 위에서 넣어줘야할꺼 같은데..빼면서 에이젝
 		
 		dateitem={cinemaCode:testcode,movieName:moviename}
 		$(".datebutton").css("background-color","darkgray");
@@ -95,6 +94,7 @@ $(`.movie_`).click(function(){//영화명을 누른..5003
 				day_=stringdate.substring(8, 10);
 				month=parseInt(mon);
 				day=parseInt(day_);
+				$(`.${month}월${day}일`).removeClass("nocheckmovie");
 				$(`.${month}월${day}일`).css("background-color","white");
 				}
 		},
@@ -102,25 +102,17 @@ $(`.movie_`).click(function(){//영화명을 누른..5003
 			});
 	});
 
-
-
-
-
-//달력 노체크 만들기 -- 노체크는 다 이벤트 막아버려(nocheck alert창 띄울 수 있으면 좋겠다.)
-//영화 display:none 첨에 넣고 영화관 클릭시 생기게 ㅇㅇ
-//영화관명 클릭하면 해당하는거 nocheck 삭제
-//시/도 클릭하면 영화관,영화 nocheck삭제
-//좌석 선택 하려면 다 5번 버튼 눌러야함 1234번이 누르면 초기화 필요
 $(".movie_place_").click(function(){
 		//초기화 영화 biccity를 누른..5001 
 		//초기화
+		$(".movie_place_").css("color","black");
 		$(".chetime").empty();//시간 입력 초기화
 		$(".datebutton").css("background-color","darkgray");//달력 초기화
 		$(".contact").empty(); //예매버튼 초기화
-		$(".cinema_date").text('영화일자를 선택하세요'); //예매 일자 취소
+		$(".cinema_date").text('영화일자를 선택하세요.'); //예매 일자 취소
 		
 		$(".movie_poster>img").attr("src","../img/ticketing/영화.png");
-		$(".movie_check_").text("영화를 선택하세요:");
+		$(".movie_check_").text("영화를 선택하세요.");
 		
 		$(".movie_").css("background-color","gainsboro");
 		$(".movie_").removeClass(".nocheckmovie");
@@ -128,14 +120,18 @@ $(".movie_place_").click(function(){
 		
 		$(".cinemaCode").text('');
 		$(".theaterName").text('');
-		$(".cinema_check").text("영화관을 선택하세요:");
+		$(".cinema_check").text("영화관을 선택하세요.");
 		$(".movie_>div").css("color","black");
 		$(".movieAreaName").css("color","black");
+		$(`.movie_`).removeClass('nocheckmovie');
+		$(`.movieAreaName`).removeClass("nocheckmovie");
+		$(`.datebutton`).addClass("nocheckmovie");
 		//영화 선택 글자 색깔
 		
 		
 		$(".movie_place_").css("background-color","gainsboro")
 		$(this).css("background-color","white")
+		$(this).css("color","red")
 		bigCity=$(this).attr('id');
 		item={bigCity:bigCity};
 		$(".movie_place_sub2").empty();
@@ -154,18 +150,18 @@ $(".movie_place_").click(function(){
 				$(".chetime").empty();//시간 입력 초기화
 				$(".datebutton").css("background-color","darkgray");//달력 초기화
 				$(".contact").empty(); //예매버튼 초기화
-				$(".cinema_date").text('영화일자를 선택하세요'); //예매 일자 취소
+				$(".cinema_date").text('영화일자를 선택하세요.'); //예매 일자 취소
 				
 				$(".movie_poster>img").attr("src","../img/ticketing/영화.png");
-				$(".movie_check_").text("영화를 선택하세요:");
+				$(".movie_check_").text("영화를 선택하세요.");
 				
 				$(".movie_").css("background-color","gainsboro");
 				$(".movie_").removeClass(".nocheckmovie");
 				$(".movieAreaName").css("background-color","white");
+				$(`.datebutton`).addClass("nocheckmovie");
 				
 				var name=$(this).text();//영화관명 (달빛)
 				var code=$(this).val();//상영관 번호 test~
-				console.log("들어오나 확인")
 				cinema={movieAreaName:name,cinemaCode:code};			
 					$.ajax({
 						  url:"/ticket/cinema",
@@ -175,7 +171,6 @@ $(".movie_place_").click(function(){
 				          data: JSON.stringify(cinema),
 				          success: result2 => {
 								for(j=0;j<result2.length;j++){
-									console.log(`${result2[0].cinemaCode}`);
 									if(`${result2[0].cinemaCode}!='fail'`){
 										$(this).css("color","red");
 										$(".cinemaCode").text(`${code}`)
@@ -189,7 +184,7 @@ $(".movie_place_").click(function(){
 									$(".movie_audits").children("div").addClass('nocheckmovie');
 									$(`.name${result2[j].cinemaCode}`).children("div").css("widit","1000px");
 									$(`.name${result2[j].cinemaCode}`).children("div").css("color","black");
-									$(`.name${result2[j].cinemaCode}`).children("div").removeClass('nocheckmovie');
+									$(`.name${result2[j].cinemaCode}`).removeClass('nocheckmovie');
 									$(".movie_audits").removeClass("nodisplay");
 									}
 									else if(`${result2[0].cinemaCode}=='fail'`){
@@ -211,11 +206,6 @@ $(".movie_place_").click(function(){
 	})//지역 클릭 끝
 	
 
-	
-	
-	
-	
-	
 	//캘린더!
 	// Date 포맷 
 const dateFormat = (date) => {
@@ -242,8 +232,17 @@ const dateFormat = (date) => {
     }
 
     // 현재 날짜 표시하기
-    for (let i = 1; i <= lastDay; i++) {    
-      htmlDummy += `<div class="datebutton ${nowMonth}월${i}일" id="${nowYear}-${nowMonth}-${i}">${i}</div>`;
+    for (let i = 1; i <= lastDay; i++) {  
+	Mon=nowMonth;
+	a=i;
+	if(nowMonth<10){
+		Mon='0'+nowMonth.toString();
+	}
+	if(i<10){
+		a='0'+i.toString();
+	}
+	  
+      htmlDummy += `<div class="datebutton ${nowMonth}월${i}일 nocheckmovie" id="${nowYear}-${Mon}-${a}">${i}</div>`;
       
     }
 
@@ -283,13 +282,11 @@ const dateFormat = (date) => {
   		//초기화
 		$(".contact").empty();
 		
-		
 		var dateval=$(this).attr("id");
 		$(".cinema_date").text(`예매일: ${dateval}`);
 		var movieName=$(".movie_check_").text();
 		
 		var cinemaCode=$(".cinemaCode").text();
-		console.log(`${movieName}-------${cinemaCode}`)
 		var date=`${dateval}`;
 		console.log(`데이터 모음 ${movieName}이름 ${cinemaCode}코드 ${date}날짜`)
 		var time={movieName:movieName,cinemaCode:cinemaCode,movieDate:date}
@@ -321,13 +318,32 @@ const dateFormat = (date) => {
 							//cinemaCode
 							theatername=$(`.theaterName`).text();
 							//time
-							console.log(`영화명: ${movieName} 날짜:${dateval} 시네마코드:${cinemaCode} 영화관이름:${theatername} 시간:${time}`)
-							$(".sitting a").attr("href",`sit?movieName=${movieName}&cinemaCode=${cinemaCode}&theaterName=${theatername}&movieDate=${dateval}&movieTime=${time}`)
-						});
+							moviecodedata={movieName:movieName,cinemaCode:cinemaCode,movieDate:dateval,movieTime:time}
+							console.log(`${moviecodedata.movieName}${moviecodedata.cinemaCode}${moviecodedata.movieDate}${moviecodedata.movieTime}`);
+							$.ajax({
+								url:"/ticket/moviecodea",
+							       method: "POST",
+							       contentType: "application/json",
+							       dataType: "json",
+							       data: JSON.stringify(moviecodedata),
+							       success: moviecodel => {
+								console.log("오긴옴")
+								console.log(`코드코드 ${moviecodel.movieCode}`)
+								console.log(`영화명: ${movieName} 날짜:${dateval} 시네마코드:${cinemaCode} 영화관이름:${theatername} 시간:${time} 코드${moviecodel.movieCode}`)
+								$(".sitting a").attr("href",`sit?movieName=${movieName}&cinemaCode=${cinemaCode}&theaterName=${theatername}&movieDate=${dateval}&movieTime=${time}&movieCode=${moviecodel.movieCode}`)
+								$(".sitting_check").attr("onclick","");
+								
+								},
+								error: (xhr, result2) => console.log(`[실패] print`)
+					      		 });
+					})
 				}
 				
 			},
        error: (xhr, result) => console.log(`[실패] print`)
        });
 		})
-	})
+})
+function warning(){
+	alert("영화관,영화,상영일,상영시간을 먼저 선택해주세요");
+}

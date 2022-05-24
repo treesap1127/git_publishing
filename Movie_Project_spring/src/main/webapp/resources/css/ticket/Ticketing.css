@@ -284,7 +284,6 @@ color: white;
 .movie_place_sub1>button{
   width: 100%;
   position: relative;
-  top: 2%;
   line-height: 40px;
   border:none;
   outline: none;
@@ -306,7 +305,6 @@ color: white;
 .movie_place_sub2>button{
   width: 100%;
   position: relative;
-  top: 2%;
   line-height: 40px;
   border:none;
   outline: none;
@@ -365,7 +363,7 @@ color: white;
 }
 .movie_name{
 position: relative;
-    top: 7%;
+        top: 12%;
 }
 .movie_audits{
   border-right: 1px solid #dddddd;
@@ -571,4 +569,7 @@ display: flex;
 }
 .datebutton{
 	background-color: darkgray;
+}
+.nodisplay{
+	display:none;
 }

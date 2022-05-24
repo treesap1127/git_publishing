@@ -22,5 +22,7 @@ public interface TicketDao {
 
 	List<Theater> ticketsit(Movie list);
 
+	Movie moviecode(Movie item);
+
 
 }

@@ -124,9 +124,9 @@
 <div class="sitbottom">
         <div class="sit_bottom">
           <div class="category">
-            <div class="sit_a">01</div><div class="sit_bottom_category">선택가능</div>
-            <div class="sit_c">02</div><div class="sit_bottom_category">선택불가</div>
-            <div class="sit_b">03</div><div class="sit_bottom_category">선택완료</div>
+            <div class="sit_b">00</div><div class="sit_bottom_category">선택가능</div>
+            <div class="sit_c">00</div><div class="sit_bottom_category">선택불가</div>
+            <div class="sit_a">00</div><div class="sit_bottom_category">선택완료</div>
           </div>
           <div class="sit_infomation">
             -좌석선택 후, 5분 이내 결제하지 않으면 좌석이 해제 될 수 있습니다.<br>-한 번 선택한 좌석은 예매 성공 유무에 상관없이 약 5분간 홀딩 됩니다.
@@ -140,9 +140,13 @@
           <img src="../../img/ticketing/영화.png" alt="">
         </div>
         <div class="check_com">
-          <div style="font-size: 18px; font-weight: 500;">영화를 선택하세요.<br><br></div>
-          <div>영화관을 선택하세요.</div>
-          <div>영화일자를 선택하세요</div>
+        <div class="check_com_box">
+          <div style="font-size: 18px; font-weight: 500;">${list.movieName}</div>
+          <div>상영관 :${list.theaterName}</div>
+          <div>상영 일자: ${list.movieDate}</div>
+          <div>상영 시간:${list.movieTime}</div>
+          <div style="display: none">${list.movieCode}</div>
+          </div>
         </div>
         <div class="sit_price_total">
 
@@ -163,7 +167,8 @@
           </div>
         </div>
         <div class="sitting">
-          <a href="payment" class="sitting_check"><button class="btn btn-outline-danger">결제창으로 넘어가기</button></a>
+          <a class="sitting_check"><button class="btn btn-outline-danger">결제창으로 넘어가기</button></a>
+          <!-- href="payment" -->
         </div>
       </div>
 

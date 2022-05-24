@@ -25,4 +25,6 @@ public interface TicketService {
 
 	List<Movie> view();
 
+	Movie moviecode(Movie item);
+
 }

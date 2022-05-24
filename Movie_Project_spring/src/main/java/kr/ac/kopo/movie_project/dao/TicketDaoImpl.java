@@ -42,5 +42,9 @@ public class TicketDaoImpl implements TicketDao {
 	public List<Theater> ticketsit(Movie list) {
 		return sql.selectList("ticket.ticketsit", list);
 	}
+	@Override
+	public Movie moviecode(Movie item) {
+		return sql.selectOne("ticket.moviecode", item);
+	}
 
 }
