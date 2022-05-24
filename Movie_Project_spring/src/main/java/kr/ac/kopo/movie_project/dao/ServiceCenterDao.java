@@ -17,7 +17,7 @@ public interface ServiceCenterDao {
 
 	Board item(int boardId, int articleId);
 
-	void delete(int boardId, int articleId);
+	void delete(Long boardId, Long articleId);
 
 	
 

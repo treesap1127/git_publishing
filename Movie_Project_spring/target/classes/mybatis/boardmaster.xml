@@ -29,12 +29,16 @@
 
    <delete id="delete">
       DELETE FROM board_master
-      WHERE boardId=#{boardId}
+      WHERE board_id=#{boardId}
    </delete>
+   
+   <update id="deleteboard">
+      DROP TABLE board_#{boardId}
+   </update>
 
    <update id="create_board">
       CREATE TABLE board_${boardId} (
-      article_id INT PRIMARY KEY NOT NULL, 
+      article_id INT PRIMARY KEY AUTO_INCREMENT, 
       subject VARCHAR(64) NULL,     
       id VARCHAR(32) NOT NULL,
       reg_date VARCHAR(30) NOT NULL, 
@@ -53,9 +57,7 @@
       CREATE SEQUENCE BOARD_${boardId}_SEQ
    </update>
 
-   <update id="delete_board_seq">
-      DROP SEQUENCE BOARD_${boardId}_SEQ
-   </update>
+   
    <select id="boardid" resultType="Integer">
       select max(board_id)
       from

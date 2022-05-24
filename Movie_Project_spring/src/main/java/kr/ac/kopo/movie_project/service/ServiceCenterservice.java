@@ -13,8 +13,8 @@ public interface ServiceCenterservice {
 
 	void update(Board item);
 
-	void delete(int boardId,int articleId);
-
 	Board item(int boardId, int articleId);
+
+	void delete(Long boardId, Long articleId);
 
 }

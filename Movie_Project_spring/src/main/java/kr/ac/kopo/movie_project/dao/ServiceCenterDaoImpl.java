@@ -50,13 +50,13 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	}
 
 	@Override
-	public void delete(int boardId, int articleId) {
+	public void delete(Long boardId, Long articleId) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
 		map.put("boardId", boardId);
 		map.put("articleId", articleId);
 
-		sql.delete("board.delete", map);
+		sql.delete("Board.delete", map);
 
 	}
 

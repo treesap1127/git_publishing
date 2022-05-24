@@ -6,21 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/notice_view.css" rel="stylesheet"
+<link href="../../../css/serviceCenter/notice_view.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" href="../css/style/style.css">
+<link rel="stylesheet" href="../../../css/style/style.css">
 </head>
 <body>
 	<div class="box_case">
 		<!--좌우크기조절-->
 		<div class="title">
 			<a href="../../../../" class="main_back"> <img
-				src="../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
+				src="../../../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
 				<div class="title_name">Miner Cinema</div>
 			</a>
 		</div>
 		<div class="title_right">
-			<a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘"
+			<a href="such"><img src="../../../img/root/돋보기화이트.jpg" alt="돋보기아이콘"
 				style="height: 22px; width: 25px;" /></a>
 			<div class="login_link">
 				<a href="../serviceCenter/CenterService">고객센터</a>
@@ -79,7 +79,7 @@
 	<!--여기까지 기본 위 배너 입니다!-->
 
 	<div class="notice_box">
-		<div class="notice_seq">공지사항</div>
+		<div class="notice_seq">목록</div>
 		
 		<div class="notice_keyword">
 		<form>
@@ -135,7 +135,6 @@
 			</table>
 		</div>
 		<div class="add_keyword">
-			<a href="BoardTableList"><button class="btn btn-outline-primary">게시판생성</button></a>
 			<a href="BoardAdd"><button class="btn btn-outline-primary">등록</button></a>
 		</div>
 		<!-- 페이징디자인 -->

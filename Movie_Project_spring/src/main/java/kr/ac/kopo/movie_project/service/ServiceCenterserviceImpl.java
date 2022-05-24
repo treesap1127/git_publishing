@@ -42,8 +42,10 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 
 
 	@Override
-	public void delete(int boardId, int articleId) {
+	public void delete(Long boardId, Long articleId) {
 		dao.delete(boardId, articleId);
 	}
+
+
 
 }

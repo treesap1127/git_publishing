@@ -25,7 +25,8 @@ public class BoardServiceImpl implements BoardService {
 
 		return dao.item(boardId);
 	}
-
+	
+	@Transactional
 	@Override
 	public void delete(int boardId) {
 		dao.delete(boardId);

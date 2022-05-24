@@ -110,7 +110,7 @@
 							<td>${item.attach}</td>
 							<td>${item.secret}</td>
 							<td>${item.permission}</td>					
-							<td><a href="BoardTableUpdate/${item.boardId}">변경</a> <a href="delete/${item.boardId}">삭제</a>
+							<td><a href="BoardTableUpdate/${item.boardId}">변경</a> <a href="BoardTabledelete/${item.boardId}">삭제</a>
 							 <a href="${item.boardId}/BoardList">게시글</a></td>
 						</tr>
 					</c:forEach>

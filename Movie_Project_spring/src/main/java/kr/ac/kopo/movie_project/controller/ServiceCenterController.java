@@ -47,11 +47,11 @@ public class ServiceCenterController {
          return path+"BoardList";
       }
       
-      @GetMapping("/BoardAdd")
+      @GetMapping("/{boardId}/BoardAdd")
       public String BoardAdd() {
          return path +"BoardAdd";
       }
-      @PostMapping("/BoardAdd")
+      @PostMapping("/{boardId}/BoardAdd")
       public String add(@PathVariable int boardId,Board item,HttpSession session) {
          item.setArticleId(boardId); // 수정가능성 높음
          
@@ -59,20 +59,20 @@ public class ServiceCenterController {
          return "redirect:BoardList";
       }
       
-      @GetMapping("/BoardView/{articleId}")
+      @GetMapping("{boardId}/BoardView/{articleId}")
       public String BoardView(@PathVariable int boardId, @PathVariable int articleId,Model model) {
          Board item = service.item(boardId,articleId);
          model.addAttribute("item",item);
          return path+"BoardView";
       }
       
-      @GetMapping("/BoardUpdate/{articleId}")
+      @GetMapping("/{boardId}/BoardUpdate/{articleId}")
       public String BoardUpdate(@PathVariable int boardId,@PathVariable int articleId,Model model) {
          Board item = service.item(boardId,articleId);
          model.addAttribute("item",item);
          return path+"BoardUpdate";
       }
-      @PostMapping("/BoardUpdate/{articleId}")
+      @PostMapping("/{boardId}/BoardUpdate/{articleId}")
       public String BoardUpdate(@PathVariable int boardId,@PathVariable int articleId,Board item) {
          item.setArticleId(articleId);
          item.setBoardId(boardId);
@@ -81,8 +81,8 @@ public class ServiceCenterController {
          return "redirect:../BoardList";
       }
       
-      @GetMapping("/delete/{articleId}")
-      public String delete(@PathVariable int boardId, @PathVariable int articleId) {
+      @GetMapping("/{boardId}/delete/{articleId}")
+      public String delete(@PathVariable Long boardId, @PathVariable Long articleId) {
          service.delete(boardId,articleId);
          return "redirect:../BoardList";
       }
