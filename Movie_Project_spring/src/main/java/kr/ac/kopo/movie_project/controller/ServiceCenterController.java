@@ -23,7 +23,7 @@ import kr.ac.kopo.movie_project.util.Pager;
 public class ServiceCenterController {
    String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
    final String path = "serviceCenter/";
-   
+   	//test
       @Autowired
       ServiceCenterservice service;
       

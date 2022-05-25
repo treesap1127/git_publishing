@@ -82,7 +82,7 @@ $(document).ready(function() {
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
-      <div class="add_box">공지사항 등록</div>
+      <div class="add_box">게시글 등록</div>
       <form method="post" class="mt-4">
         <div class="form-floating mt-2">
           <label>제목</label>	
@@ -95,7 +95,7 @@ $(document).ready(function() {
           <br>   
           <div class="file-upload" style="text-align: right;">           
             <input class="ex_file" type="file" id="ex_file" > 
-            <input type="date" name="ragdate">
+           
         </div>        
         
         </div>	
@@ -114,7 +114,7 @@ $(document).ready(function() {
         <div>        	
           <div class="add_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
-          <a href="NoticeView" class="btn btn-outline-primary">목록가기</a></div>						
+          <a href=".." class="btn btn-outline-primary">목록가기</a></div>						
         </div>     
       </form>
     </div>

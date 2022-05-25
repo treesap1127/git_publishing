@@ -19,7 +19,7 @@ public class BoardController {
    final String path = "serviceCenter/";
    @Autowired
    BoardService service;
-   
+   //test
    @GetMapping("/BoardTableList")
    public String BoardTableList(Model model) {
       List<BoardMaster> list = service.list();
