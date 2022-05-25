@@ -41,4 +41,9 @@
 		from movie
 		where movie_name=#{movieName} and cinema_code=#{cinemaCode} and movie_date=#{movieDate} and movie_time=#{movieTime}
 	</select>
+	<select id="movieimage" resultType="Movie">
+		select image
+		from movie
+		where movie_code=#{movieCode}
+	</select>
 </mapper>

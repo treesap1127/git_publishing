@@ -24,5 +24,7 @@ public interface TicketDao {
 
 	Movie moviecode(Movie item);
 
+	Movie movieimage(Movie list);
+
 
 }

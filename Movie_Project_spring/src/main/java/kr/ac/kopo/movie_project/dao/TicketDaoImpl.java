@@ -46,5 +46,9 @@ public class TicketDaoImpl implements TicketDao {
 	public Movie moviecode(Movie item) {
 		return sql.selectOne("ticket.moviecode", item);
 	}
+	@Override
+	public Movie movieimage(Movie list) {
+		return sql.selectOne("ticket.movieimage",list);
+	}
 
 }

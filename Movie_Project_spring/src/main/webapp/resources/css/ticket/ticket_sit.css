@@ -250,9 +250,14 @@ padding: 2em 12em;
   border: 1px solid #dddddd;
 }
 .movie_poster{
-  position: relative;
-  top: 5px;
-  left: 5px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+}
+
+.movie_poster>img{
+	    position: relative;
+    top: 9px;
 }
 .check_com{
   position: relative;

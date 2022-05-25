@@ -109,17 +109,51 @@ $(".ten_but").click(function(){// 청소년 클릭시
 	paytotal=numberWithCommas(paytot);
 	$(".paytotal").text(paytotal);
 })
+var sitCode=[]
 $(".sit_b").click(function(){
 	$(this).removeClass("sit_b");
 	$(this).off("click");
 	$(this).addClass("sit_a");
 	$(".sit_a").attr("onclick","confirm_test()");
 	
-	sit_code=$(this).text();
-	$(".sit_info").append(`<div class="smalltype">${sit_code}</div>`)
+	sit_data=$(this).text();
+	$(".sit_info").append(`<div class="smalltype">${sit_data}</div>`)
+	 
+	//마지막 링크 설정! cinema_code,sit_code,teenager,adult,image
+	adult=$(".adultnum").text();
+	teenager=$(".teenagernum").text();
+	
+	movieCode=$(".movieCode").text();
+	
+	sit_length=$(".sit_info").children().length;
+	for(i=0;i<sit_length;i++){
+		sit_item=$(".sit_info").children(`:eq(${i})`).text();
+	}
+	sitCode.push(sit_item);
+	adult=parseInt(adult);
+	teenager=parseInt(teenager);
+	
+	
+	if(sit_length==adult+teenager){
+		link_item={movieCode:movieCode,sitCode:sitCode,adult:adult,teenager:teenager}
+		localStorage.setItem("link_item", JSON.stringify(link_item));
+		$(".sit_che_btn").attr("onclick","");
+		$(".sitting_check").click(function(){
+			if(confirm(`선택하신 좌석:${sitCode}\n 어른:${adult}명\n청소년${teenager}명\n위 내용이 맞습니까?`)){
+				  location.href="payment";
+  	 		}
+		})
+	}
+	else{
+		$(".sit_che_btn").attr("onclick","warning()");
+		$(".sitting_check").removeAttr("href");
+		$(".sitting_check").off("click");
+	}
+	
 });
 	
-	//요러코롬 링크 설정 해줘야함 값=.check_com_box ㅇㅇ$(".sit_checkbox").attr("href","payment");
+	
+	
 })
 function confirm_test(){
 	if(confirm("좌석 취소 시 재 선택 해야합니다\n 재선택 하시겠습니까?")){
@@ -128,4 +162,7 @@ function confirm_test(){
 }
 function numberWithCommas(x) {
 	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+function warning(){
+	alert("선택한 인원 수에 맞춰 인원을 선택 해주세요!")
 }

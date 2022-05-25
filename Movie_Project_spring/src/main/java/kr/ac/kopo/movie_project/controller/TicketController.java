@@ -47,13 +47,14 @@ public class TicketController {
 	public String ticketsit(@RequestParam String movieName,@RequestParam String cinemaCode,@RequestParam String theaterName,@RequestParam String movieDate,@RequestParam String movieTime,@RequestParam int movieCode,Model model) {
 		Movie list =new Movie();
 		list.setMovieName(movieName);
-		//moviecode...;
 		list.setCinemaCode(cinemaCode);
 		list.setTheaterName(theaterName);
 		list.setMovieDate(movieDate);
 		list.setMovieTime(movieTime);
 		list.setMovieCode(movieCode);
 		model.addAttribute("list", list);
+		Movie item=service.movieimage(list);
+		model.addAttribute("item", item);
 		List<Theater> sit = service.ticketsit(list);
 		model.addAttribute("sit", sit);
 		return path+"TicketSit";

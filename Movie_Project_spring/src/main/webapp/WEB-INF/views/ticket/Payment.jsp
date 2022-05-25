@@ -32,6 +32,7 @@ $(function(){
 
     });
   </script>
+   <script src="../../../../../js/payment.js"></script>
 </head>
 
 <body>

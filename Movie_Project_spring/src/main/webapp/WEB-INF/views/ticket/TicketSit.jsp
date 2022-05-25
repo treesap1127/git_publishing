@@ -138,15 +138,15 @@
 
       <div class="ticket_check_box">
         <div class="movie_poster">
-          <img src="../../img/ticketing/영화.png" alt="">
+          <img src="${item.image}" alt="">
         </div>
         <div class="check_com">
         <div class="check_com_box">
           <div style="font-size: 18px; font-weight: 500;">${list.movieName}</div>
-          <div>상영관 :${list.theaterName}</div>
-          <div>상영 일자: ${list.movieDate}</div>
-          <div>상영 시간:${list.movieTime}</div>
-          <div style="display: none">${list.movieCode}</div>
+          <div class="theaterName"id="${list.theaterName}">상영관 :${list.theaterName}</div>
+          <div class="movieDate" id="${list.movieDate}">상영 일자: ${list.movieDate}</div>
+          <div class="movieTime" id="${list.movieTime}">상영 시간:${list.movieTime}</div>
+          <div class="movieCode" id="${list.movieCode}" style="display: none">${list.movieCode}</div>
           </div>
         </div>
         <div class="sit_price_total">
@@ -174,14 +174,13 @@
           
         <div class="sitting">
 
-          <a class="sitting_check"><button class="btn btn-outline-danger">결제창으로 넘어가기</button></a>
+          <a class="sitting_check"><button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button></a>
           <!-- href="payment" -->
         </div>
           
         </div>
       </div>
     </div>
-  </div>
   <!-- 좌석선택끝 -->
 
   <!-- 제일 최하단 -->
