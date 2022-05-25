@@ -110,7 +110,11 @@ $(".ten_but").click(function(){// 청소년 클릭시
 	$(".paytotal").text(paytotal);
 })
 var sitCode=[]
+click_num=0;
 $(".sit_b").click(function(){
+	total_num=$(".paynum").text();
+	console.log(`클릭 한 수${click_num} 인원 수${total_num}`)
+	if(total_num>click_num){
 	$(this).removeClass("sit_b");
 	$(this).off("click");
 	$(this).addClass("sit_a");
@@ -148,6 +152,11 @@ $(".sit_b").click(function(){
 		$(".sit_che_btn").attr("onclick","warning()");
 		$(".sitting_check").removeAttr("href");
 		$(".sitting_check").off("click");
+	}
+	click_num++;
+	}
+	else{
+		alert("인원 수 보다 많은 좌석은 선택 불가 합니다.");
 	}
 	
 });

@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="../css/style/style.css">
 
   <script src="../../../../../js/sit_list.js"></script>
+  <script>
+  	
+  </script>
 </head>
 
 <body>
