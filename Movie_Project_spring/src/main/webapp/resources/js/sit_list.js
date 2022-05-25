@@ -1,7 +1,6 @@
 $(function(){
 	line=$(".line").val();
 	row=$(".row").val();
-	console.log(`여기요 여기${line}`)
 	for(i=0;i<row;i++){//이거 row 선택자로 끌어오기
 		row_item=String.fromCharCode(65+i);
 		$(".sit_aph").append(`<div>${row_item}</div>`);//알파벳나열
@@ -44,11 +43,88 @@ $(function(){
 			++k;
 		}
 	}
+$(".aud_but").click(function(){// 어른 클릭시
+	$(".aud_but").css("background-color","white");
+	$(".aud_but").css("color","black");
+	$(this).css("background-color","gray");
+	$(this).css("color","white");
+	i=$(this).text();
+
+	$(".adultnum").text(`${i}`);
+	money=i*13000;
+	moneystr=numberWithCommas(money);
+	$(".adultmoney").text(`${moneystr}`);// 기본 설정
 	
-	//요러코롬 링크 설정 해줘야함 값=.check_com_box ㅇㅇ$(".sit_checkbox").attr("href","payment");
+	adultnum=$(".adultnum").text();
+	console.log(`${adultnum} 성인 숫자`);
+	teenagernum=$(".teenagernum").text();
+	console.log(`${teenagernum} 청소년 숫자`);
+	adultnum=parseInt(adultnum);
+	teenagernum=parseInt(teenagernum);
+	paytotal=adultnum+teenagernum;
+	console.log(`${paytotal} 토탈 숫자`);
+	paymon=paytotal*500;
+	paymoney=numberWithCommas(paymon);
 	
+	$(".paynum").text(paytotal);
+	$(".paymoney").text(paymoney);// 수수료
+	
+	//최종 결제 금액
+	adultpay=adultnum*13000;
+	tenagerpay=teenagernum*11000;
+	paytot=paymon+tenagerpay+adultpay
+	paytotal=numberWithCommas(paytot);
+	$(".paytotal").text(paytotal);
 	
 })
 
+$(".ten_but").click(function(){// 청소년 클릭시
+	$(".ten_but").css("background-color","white");
+	$(".ten_but").css("color","black");
+	$(this).css("background-color","gray");
+	$(this).css("color","white");
+	i=$(this).text();
 
+	$(".teenagernum").text(`${i}`);
+	money=i*11000;
+	moneystr=numberWithCommas(money);
+	$(".teenagermoney").text(`${moneystr}`);// 기본 설정
+	
+	adultnum=$(".adultnum").text();
+	teenagernum=$(".teenagernum").text();
+	adultnum=parseInt(adultnum);
+	teenagernum=parseInt(teenagernum);
+	paytotal=adultnum+teenagernum;
+	paytotal=adultnum+teenagernum;
+	paymon=paytotal*500;
+	paymoney=numberWithCommas(paymon);
+	
+	$(".paynum").text(paytotal);
+	$(".paymoney").text(paymoney);// 수수료
+	
+	//최종 결제 금액
+	adultpay=adultnum*13000;
+	tenagerpay=teenagernum*11000;
+	paytot=paymon+tenagerpay+adultpay
+	paytotal=numberWithCommas(paytot);
+	$(".paytotal").text(paytotal);
+})
+$(".sit_b").click(function(){
+	$(this).removeClass("sit_b");
+	$(this).addClass("sit_a");
+	$(".sit_a").click(function(){
+			if(confirm("좌석 취소 시 재 선택 해야합니다\n 재선택 하시겠습니까?")){
+  			location.reload();
+  	 		}
+  	 		else{break;}
+	});
+	sit_code=$(this).text();
+	$(".sit_info").append(`<div class="smalltype">${sit_code}</div>`)
+});
+	
+	//요러코롬 링크 설정 해줘야함 값=.check_com_box ㅇㅇ$(".sit_checkbox").attr("href","payment");
+})
 
+function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

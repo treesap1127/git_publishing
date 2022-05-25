@@ -360,9 +360,6 @@ padding: 2em 12em;
   padding-left: 2px;
   padding-top: 1px;
 }
-.sit_a:hover{
-  background: red;
-}
 .sit_b{
   width: 20px;
   height: 17px;
@@ -409,9 +406,6 @@ padding: 2em 12em;
   padding: 0px 7px;
   font-weight: 300;
   font-size: 14px;
-}
-.sit_info{
-  font-weight: 300;
 }
 .adult{
   display: flex;
@@ -497,14 +491,31 @@ padding: 2em 12em;
   font-weight: 600;
   width: 200px;
 }
-.sit_info{
-  position: relative;
-  top: 44%;
-  transform: translateY(-50%);
-  left: 10%;
-  opacity: 60%;
-  width: 200px;
+.sit_inf{
+    font-weight: 300;
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+    left: 10%;
+    opacity: 60%;
+    width: 246px;
+    height: 27px;
 }
+.sit_info{
+    display: flex;
+    top: 53%;
+    transform: translateY(-50%);
+    left: 10%;
+    opacity: 60%;
+    width: 274px;
+    height: 57px;
+    position: relative;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+}
+.smalltype{
+    height: 29px;
+    padding-right: 7px;}
 .sit_infomation{
   position: relative;
   transform: translate(48px, 17px);
@@ -535,34 +546,6 @@ padding: 2em 12em;
     border-right: 1px solid #dddddd;
         width: 20px;
         text-align: center;
-}
-.sit_price{
-  display: flex;
-  width: 100%;
-  height: 68%;
-  padding-top: 8%;
-  padding-left: 11%;
-  border-bottom: 1px solid #dddddd;
-}
-.sit_total{
-  display: flex;
-  padding-top: 6%;
-  padding-left: 11%;
-}
-.sit_price_total{
-  border-left: 1px solid #dddddd;
-  border-right: 1px solid #dddddd;
-  width: 25%;
-}
-.sit_price_num{
-  position: relative;
-  left: 50px;
-  text-align: right;
-}
-.sit_total_num{
-  position: relative;
-  left: 50px;
-  text-align: right;
 }
 .sitting{
   width: 35%;
@@ -596,4 +579,36 @@ padding: 2em 12em;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.sit_price_total{
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	    width: 25%;
+}
+.sit_price{
+    width: 100%;
+    height: 68%;
+    border-bottom: 1px solid #dddddd;
+}
+.sit_price>div{
+	display: flex;
+    width: 100%;
+    height: 25%;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+.sit_price>div>div{
+	width: 50%;
+    height: 137%;
+}
+.sit_total{
+    display: flex;
+    width: 100%;
+    height: 29%;
+    padding-left: 25px;
+    padding-top: 13px;
+}
+
+.sit_total>div{
+	width: 50%;
 }

@@ -87,7 +87,8 @@
 
         <div class="sit_check">
           <div class="sit_text">선택한 좌석</div>
-          <div class="sit_info">좌석을 선택해 주세요</div>
+          <div class="sit_inf">선택 된 좌석</div>
+          <div class="sit_info"></div>
         </div>
       </div>
       <div class="absol_center">인원을 먼저 선택 해주세요!</div>
@@ -149,29 +150,36 @@
           </div>
         </div>
         <div class="sit_price_total">
-
-          <div class="sit_price">
-            <div>
-              <div>성인(1)</div>
-              <div>예매수수료(1)</div>
+        	<div class="sit_price">
+	          	<div class="sit_price_adult">
+	                <div class="adult_num">성인(<span class="adultnum">0</span>)</div>
+	                <div class="adult_money"><span class="adultmoney">0</span>원</div>
+	            </div>
+	            <div class="sit_price_teenager">
+	                <div class="teenager_num">청소년(<span class="teenagernum">0</span>)</div>
+	                <div class="teenager_money"><span class="teenagermoney">0</span>원</div>
+	            </div>
+	           	<div class="sit_price_fees">
+	            	<div class="pay_num">예매수수료(<span class="paynum">0</span>)</div>
+	            	<div class="pay_money"><span class="paymoney">0</span>원</div>
+	            </div>
             </div>
-            <div class="sit_price_num">
-              <div>13,000원</div>
-              <div>500원</div>
+            <div class="sit_total">
+            	<div>최종결제 금액</div>
+            	<div class="sit_total_num"> <span class="paytotal">0</span>원
             </div>
           </div>
-
-          <div class="sit_total">
-            <div>최종결제 금액</div>
-            <div class="sit_total_num"> 13,500&nbsp;원</div>
           </div>
-        </div>
+
+          
         <div class="sitting">
+
           <a class="sitting_check"><button class="btn btn-outline-danger">결제창으로 넘어가기</button></a>
           <!-- href="payment" -->
         </div>
+          
+        </div>
       </div>
-
     </div>
   </div>
   <!-- 좌석선택끝 -->
