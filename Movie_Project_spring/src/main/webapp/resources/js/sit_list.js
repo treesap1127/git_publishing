@@ -111,20 +111,21 @@ $(".ten_but").click(function(){// 청소년 클릭시
 })
 $(".sit_b").click(function(){
 	$(this).removeClass("sit_b");
+	$(this).off("click");
 	$(this).addClass("sit_a");
-	$(".sit_a").click(function(){
-			if(confirm("좌석 취소 시 재 선택 해야합니다\n 재선택 하시겠습니까?")){
-  			location.reload();
-  	 		}
-  	 		else{break;}
-	});
+	$(".sit_a").attr("onclick","confirm_test()");
+	
 	sit_code=$(this).text();
 	$(".sit_info").append(`<div class="smalltype">${sit_code}</div>`)
 });
 	
 	//요러코롬 링크 설정 해줘야함 값=.check_com_box ㅇㅇ$(".sit_checkbox").attr("href","payment");
 })
-
+function confirm_test(){
+	if(confirm("좌석 취소 시 재 선택 해야합니다\n 재선택 하시겠습니까?")){
+  			location.reload();
+  	 		}
+}
 function numberWithCommas(x) {
 	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

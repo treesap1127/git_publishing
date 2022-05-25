@@ -3,13 +3,14 @@ package kr.ac.kopo.movie_project.model;
 public class Ticketing {
 	private String ticketCode;
 	private String id;
-	private String movieName;
 	private String cinemaCode;
 	private String theaterName;
 	private String sitCode;
-	private String movieTime;
-	
-	
+	private int movieCode;
+	private int teenager;
+	private int adult;
+	private String payTool;
+	private String payTime;
 	public String getTicketCode() {
 		return ticketCode;
 	}
@@ -22,29 +23,11 @@ public class Ticketing {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getMovieName() {
-		return movieName;
-	}
-	public void setMovieName(String movieName) {
-		this.movieName = movieName;
-	}
 	public String getCinemaCode() {
 		return cinemaCode;
 	}
 	public void setCinemaCode(String cinemaCode) {
 		this.cinemaCode = cinemaCode;
-	}
-	public String getSitCode() {
-		return sitCode;
-	}
-	public void setSitCode(String sitCode) {
-		this.sitCode = sitCode;
-	}
-	public String getMovieTime() {
-		return movieTime;
-	}
-	public void setMovieTime(String movieTime) {
-		this.movieTime = movieTime;
 	}
 	public String getTheaterName() {
 		return theaterName;
@@ -52,6 +35,41 @@ public class Ticketing {
 	public void setTheaterName(String theaterName) {
 		this.theaterName = theaterName;
 	}
+	public String getSitCode() {
+		return sitCode;
+	}
+	public void setSitCode(String sitCode) {
+		this.sitCode = sitCode;
+	}
+	public int getMovieCode() {
+		return movieCode;
+	}
+	public void setMovieCode(int movieCode) {
+		this.movieCode = movieCode;
+	}
+	public int getTeenager() {
+		return teenager;
+	}
+	public void setTeenager(int teenager) {
+		this.teenager = teenager;
+	}
+	public int getAdult() {
+		return adult;
+	}
+	public void setAdult(int adult) {
+		this.adult = adult;
+	}
+	public String getPayTool() {
+		return payTool;
+	}
+	public void setPayTool(String payTool) {
+		this.payTool = payTool;
+	}
+	public String getPayTime() {
+		return payTime;
+	}
+	public void setPayTime(String payTime) {
+		this.payTime = payTime;
+	}
 	
-
 }
