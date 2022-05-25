@@ -162,7 +162,6 @@ $(".sit_b").click(function(){
 });
 	
 	
-	
 })
 function confirm_test(){
 	if(confirm("좌석 취소 시 재 선택 해야합니다\n 재선택 하시겠습니까?")){

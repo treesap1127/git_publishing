@@ -10,7 +10,7 @@
    
    <insert id="sit_add">
    	insert into theater 
-   	values (#{cinemaCode},#{theaterName},#{sit},#{row},#{line})
+   	values (#{cinemaCode},#{theaterName},#{sit},#{row},#{line},NULL)
    </insert>
    
    <select id="theaterlist" resultType="Theater">
