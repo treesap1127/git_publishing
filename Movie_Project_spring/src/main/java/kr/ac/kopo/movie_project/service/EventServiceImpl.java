@@ -22,9 +22,9 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public List<Event> end_Event() {
+	public List<Event> end_Event(Pager pager) {
 		
-		return dao.end_Event();
+		return dao.end_Event(pager);
 	}
 
 	@Override

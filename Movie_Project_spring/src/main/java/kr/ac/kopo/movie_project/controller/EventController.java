@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import kr.ac.kopo.movie_project.model.Event;
 import kr.ac.kopo.movie_project.service.EventService;
 import kr.ac.kopo.movie_project.util.Pager;
@@ -42,14 +41,24 @@ public class EventController {
 	}	
 	
 	@GetMapping("/end_Event")
-	public String end_Event(Model model) {
-		List<Event> list = service.end_Event();
+	public String end_Event(Model model,Pager pager) {
+		List<Event> list = service.end_Event(pager);		
 		
-		model.addAttribute("list",list);
+		model.addAttribute("list",list);		
 		
 		return path+"end_Event";
 	}
 	
+	@GetMapping("/end_Event/{eventId}")
+	public String end_event(@PathVariable int eventId, Model model) {
+		
+		Event item = service.item(eventId);	
+	
+		model.addAttribute("item", item);
+		
+		return path+"end_Event";
+	}
+
 	@GetMapping("/EventInfo/{eventId}")
 	public String EventInfo(@PathVariable int eventId, Model model) {
 		Event item = service.item(eventId);

@@ -9,7 +9,7 @@ public interface EventDao {
 
 	List<Event> continue_Event(Pager pager);
 
-	List<Event> end_Event();
+	List<Event> end_Event(Pager pager);
 
 	void NoticeEventAdd(Event item);
 
