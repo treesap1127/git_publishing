@@ -23,6 +23,8 @@ public interface EventDao {
 
 	void viewcnt(Event item);
 
+	void endEventUpdate(Event item);
+
 
 
 }

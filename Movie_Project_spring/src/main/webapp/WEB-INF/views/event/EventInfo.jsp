@@ -76,7 +76,7 @@
         <div class="whitebox2_photo">사진을 넣어주세요</div>
         <div class="whitebox2_info">
          <div><내용 및 유의사항>
-          <div>${item.eventInfo}</div>
+          <div>${item.eventInfo}${item.endInfo}</div>
 		</div>
         </div>
         <div class="back_button_box">

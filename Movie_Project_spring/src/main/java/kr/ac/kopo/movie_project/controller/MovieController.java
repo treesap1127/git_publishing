@@ -35,7 +35,7 @@ public class MovieController {
    @ResponseBody
    @PostMapping("/koficmovie")
    public Object kobisMovie(@RequestBody Kofic item) throws OpenAPIFault, Exception{
-	      String key="52ed877329884c9bcff27fca7daf01d0";
+	      String key="c40c54a366ca0e818ddeea2e8ff18558";
 	      //영화페이지
 	      Calendar cal = Calendar.getInstance();
 	      SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -67,7 +67,7 @@ public class MovieController {
    @ResponseBody
    @PostMapping("/koficmoviedata")
    public Object koficmoviedata(@RequestBody Kofic item) throws OpenAPIFault, Exception{
-	      String key="52ed877329884c9bcff27fca7daf01d0";
+	      String key="c40c54a366ca0e818ddeea2e8ff18558";
 	      //영화페이지
 
 	      KobisOpenAPIRestService service = new KobisOpenAPIRestService(key);
@@ -167,7 +167,7 @@ public class MovieController {
        }
       @SuppressWarnings("unchecked")
        private HashMap<String,Object> listdata(Kofic item) throws OpenAPIFault, Exception{
-          String key="52ed877329884c9bcff27fca7daf01d0";
+          String key="c40c54a366ca0e818ddeea2e8ff18558";
 
          Calendar cal = Calendar.getInstance();
          SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");

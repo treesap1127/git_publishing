@@ -15,7 +15,7 @@
 <script>
 $(function(){
 	if(${sessionScope.member.grade}<10){
-	$(".adminbtton").css("display","none");	
+	$(".adminbttons").css("display","none");	
 	}
 });
 
@@ -98,9 +98,10 @@ $(function(){
               <thead>
                   <tr class="event_list">
                       <th>이벤트번호</th>
-                      <th>이벤트제목</th>                                         
+                      <th>이벤트제목</th>
+                      <th>종료날짜</th>                                        
                       <th>작성자</th>
-                      <th class="adminbtton">관리</th>
+                      <th class="adminbttons">관리</th>
                       
                   </tr>
               </thead>
@@ -111,31 +112,18 @@ $(function(){
 						</tr>
 					</c:if>
 					
-					
+					<c:forEach var="item" items="${list}">
 						<tr>
 							<td>${item.eventId}</td>
-							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>														
+							<td><a href="EventInfo/${item.eventId}">${item.eventName}${item.endName}</a></td>
+							<td>${item.endDate}</td>														
 							<td>${item.id}</td>							
-							<td class="adminbtton"><a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbtton">삭제</button></a></td>
+							<td class="adminbttons"><a href="endEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbttons">수정</button></a><a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbttons ">삭제</button></a></td>
 						</tr>										 
-										    					
+					</c:forEach>				    					
               </tbody>                                                   
           </table>                     
-      </div>
-      
-       <div class="pager ">       	    
-        <div class="page_wrap">
-          <div class="page_nation">
-             <a class="arrow pprev" href="?page=1"></a>
-             <a class="arrow prev" href="?page=${pager.prev} "></a>
-             	<c:forEach var="page" items="${pager.list}">
-					<div><a href="?page=${page}">${page}</a></div>
-				</c:forEach>             
-             <a class="arrow next" href="?page=${pager.next} "></a>
-             <a class="arrow nnext" href="?page=${pager.last} "></a>
-          </div>
-        </div>
-       </div>
+      </div>   
       </div>
      </div>
 

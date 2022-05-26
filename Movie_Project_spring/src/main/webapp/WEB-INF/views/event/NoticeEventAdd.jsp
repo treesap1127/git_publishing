@@ -27,7 +27,6 @@ $(document).ready(function() {
 });
 </script>
 
-
 <script>
  $(function(){
   $("#mform").submit(function(){

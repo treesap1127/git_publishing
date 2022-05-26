@@ -27,25 +27,6 @@ $(document).ready(function() {
 });
 </script>
 
-<script>
- $(function(){
-  $("#mform").submit(function(){
-         var startDate = $('#startDate').val();
-         var endDate = $('#endDate').val();
-         //-을 구분자로 연,월,일로 잘라내어 배열로 반환
-         var startArray = startDate.split('-');
-         var endArray = endDate.split('-');   
-         //배열에 담겨있는 연,월,일을 사용해서 Date 객체 생성
-         var start_date = new Date(startArray[0], startArray[1], startArray[2]);
-         var end_date = new Date(endArray[0], endArray[1], endArray[2]);
-              //날짜를 숫자형태의 날짜 정보로 변환하여 비교한다.
-         if(start_date.getTime() > end_date.getTime()) {
-             alert("종료날짜보다 시작날짜가 작아야합니다.");
-             return false;
-         }
-      });
- });
-</script>
 </head>
 <body>
   <div class="box_case">
@@ -101,7 +82,7 @@ $(document).ready(function() {
         <div class="form-floating mt-2">
           <label>제목</label>	
           <div >				
-          <input type="text" name="eventName" class="form-control" placeholder="제목">
+          <input type="text" name="endName" class="form-control" placeholder="제목">
           </div>         		
           <div style="display: none;">					
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자" style="display: none;">		
@@ -109,25 +90,22 @@ $(document).ready(function() {
           <br>   
           <div class="file-upload" style="text-align: right;">
             <label for="ex_file">업로드</label>
-            <input type="file" id="ex_file">
-            이벤트 시작일<input type="date" name="startDate">
-			이벤트 종료일<input type="date" name="endDate">            
+            <input type="file" id="ex_file"> 
+            이벤트 종료일<input type="date" name="endDate">                     
         </div>        
         
         </div>	
         	
         <label>내용</label>			
         <div class="mt-2">
-          <textarea id="summernote" name="eventInfo" rows="25" cols="123"></textarea>    
+          <textarea id="summernote" name="endInfo" rows="25" cols="123"></textarea>    
         </div>
         
         <div>        	
           <div class="update_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="변경하기" style="margin-right:40px;">
-          <a href="../continue_Event" class="btn btn-outline-primary">목록가기</a></div>						
-        </div>
-        
-        
+          <a href="../end_Event" class="btn btn-outline-primary">목록가기</a></div>						
+        </div>       
       
       </form>
     </div>

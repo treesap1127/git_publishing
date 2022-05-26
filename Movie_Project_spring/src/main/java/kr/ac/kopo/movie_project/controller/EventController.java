@@ -47,17 +47,8 @@ public class EventController {
 		model.addAttribute("list",list);		
 		
 		return path+"end_Event";
-	}
+	}	
 	
-	@GetMapping("/end_Event/{eventId}")
-	public String end_event(@PathVariable int eventId, Model model) {
-		
-		Event item = service.item(eventId);	
-	
-		model.addAttribute("item", item);
-		
-		return path+"end_Event";
-	}
 
 	@GetMapping("/EventInfo/{eventId}")
 	public String EventInfo(@PathVariable int eventId, Model model) {
@@ -100,6 +91,25 @@ public class EventController {
 		service.NoticeEventUpdate(item);
 		
 		return "redirect:../continue_Event";
+		
+	}
+	
+	@GetMapping("/endEventUpdate/{eventId}")
+	public String endEventUpdate(@PathVariable int eventId, Model model) {
+		Event item =  service.item(eventId);
+		
+		model.addAttribute("item", item);
+		
+		return path + "endEventUpdate";
+	}
+	
+	@PostMapping("/endEventUpdate/{eventId}")
+	public String endEventUpdate(@PathVariable int eventId, Event item) {
+		item.setEventId(eventId);
+		
+		service.endEventUpdate(item);
+		
+		return "redirect:../end_Event";
 		
 	}
 	

@@ -58,6 +58,12 @@ public class EventServiceImpl implements EventService {
 		
 	}
 
+	@Override
+	public void endEventUpdate(Event item) {
+		dao.endEventUpdate(item);
+		
+	}
+
 	
 	
 
