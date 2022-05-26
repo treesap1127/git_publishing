@@ -82,7 +82,7 @@ $(document).ready(function() {
         <div class="form-floating mt-2">
           <label>제목</label>	
           <div >				
-          <input type="text" name="endName" class="form-control" placeholder="제목">
+          <input type="text" name="eventName" class="form-control" placeholder="제목">
           </div>         		
           <div style="display: none;">					
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자" style="display: none;">		
@@ -98,7 +98,7 @@ $(document).ready(function() {
         	
         <label>내용</label>			
         <div class="mt-2">
-          <textarea id="summernote" name="endInfo" rows="25" cols="123"></textarea>    
+          <textarea id="summernote" name="eventInfo" rows="25" cols="123"></textarea>    
         </div>
         
         <div>        	

@@ -8,23 +8,9 @@ public class Event {
 	private String id;
 	private int eventViewcnt;
 	private String startDate;
-	private String endDate;
-	private String endName;
-	private String endInfo;
+	private String endDate;	
 	
-	
-	public String getEndName() {
-		return endName;
-	}
-	public void setEndName(String endName) {
-		this.endName = endName;
-	}
-	public String getEndInfo() {
-		return endInfo;
-	}
-	public void setEndInfo(String endInfo) {
-		this.endInfo = endInfo;
-	}
+
 	public String getStartDate() {
 		return startDate;
 	}

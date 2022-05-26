@@ -10,7 +10,7 @@
 	
 	<insert id="add">
 		INSERT INTO event
-		VALUES (NULL,#{id},#{eventName}, DATE_FORMAT(NOW(),'%Y-%m-%d'), #{eventInfo}, ${eventViewcnt},DATE_FORMAT(#{startDate},'%Y-%m-%d'),DATE_FORMAT(#{endDate},'%Y-%m-%d'),#{endName},#{endInfo})	
+		VALUES (NULL,#{id},#{eventName}, DATE_FORMAT(NOW(),'%Y-%m-%d'), #{eventInfo}, #{eventViewcnt},DATE_FORMAT(#{startDate},'%Y-%m-%d'),DATE_FORMAT(#{endDate},'%Y-%m-%d'))	
 	</insert>
 	
 	<select id="item" resultType="Event">
@@ -25,7 +25,7 @@
 	
 	<update id="endupdate">
 		UPDATE event
-		SET end_name=#{endName}, end_info=#{endInfo},end_date=#{endDate} WHERE event_id=#{eventId}
+		SET event_name=#{eventName}, event_info=#{eventInfo},end_date=#{endDate} WHERE event_id=#{eventId}
 	</update>
 	
 	<delete id="delete">

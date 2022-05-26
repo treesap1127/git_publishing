@@ -7,7 +7,12 @@
  <jsp:include page="../include/header.jsp"></jsp:include>
     <link rel="stylesheet" href="../../resources/css/style/style.css">
     <link rel="stylesheet" href="../../resources/css/event/eventInfo.css">
-    <link rel="javascript" href="js/mainpage.js">
+    <link rel="javascript" href="js/mainpage.js">    
+<script>
+$(function(){	
+	$(".eventbtns").css("display","none");
+	});
+</script>
 </head>
 <body>
   <div class="box_case">
@@ -76,11 +81,12 @@
         <div class="whitebox2_photo">사진을 넣어주세요</div>
         <div class="whitebox2_info">
          <div><내용 및 유의사항>
-          <div>${item.eventInfo}${item.endInfo}</div>
+          <div>${item.eventInfo}</div>
 		</div>
         </div>
         <div class="back_button_box">
-          <a href="../../event/continue_Event"><button class="btn btn-outline-primary">목록으로가기</button></a>
+          <a href="../../event/continue_Event"><button class="btn btn-outline-primary eventbtns">목록으로가기</button></a>
+          <a href="../../event/end_Event"><button class="btn btn-outline-primary">목록으로가기</button></a>
         </div>
       </div>
     </div>
