@@ -136,15 +136,34 @@ $(".sit_b").click(function(){
 	sitCode.push(sit_item);
 	adult=parseInt(adult);
 	teenager=parseInt(teenager);
-	
+	id=$(".title_plus_text").attr("id");
 	
 	if(sit_length==adult+teenager){
 		link_item={movieCode:movieCode,sitCode:sitCode,adult:adult,teenager:teenager}
+		ajax_item={movieCode:movieCode,selectSit:sitCode,id:id}
 		localStorage.setItem("link_item", JSON.stringify(link_item));
 		$(".sit_che_btn").attr("onclick","");
 		$(".sitting_check").click(function(){
 			if(confirm(`선택하신 좌석:${sitCode}\n 어른:${adult}명\n청소년${teenager}명\n위 내용이 맞습니까?`)){
-				  location.href="payment";
+				  $.ajax({
+					url : "/ticket/sit_tic_add",
+                     method:"POST",
+                     contentType:"application/json",
+                     dataType:"text",
+                     data:JSON.stringify(ajax_item),
+                     success: complete =>{
+							if(complete){
+								location.href="payment";
+							}
+							else{
+								alert("다른 손님이 먼저 선택한 좌석입니다 다시 선택해주세요");
+								location.reload();
+							}
+				}, error: (xhr, result2) => console.log(`[실패] print`)
+			});
+				  
+				  
+				  
   	 		}
 		})
 	}

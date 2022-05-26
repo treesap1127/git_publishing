@@ -91,7 +91,7 @@
       <div class="top_box_info">회원 등급은: 웹관리자, 영화관 관리자 회원, 일반 회원으로 나뉩니다.</div>
     </div>
 <div class="mypage">
-  <div class="mypage_inline">
+  <div class="mypage_inline drag_css">
   	<div class="theater_top">영화관 관리 페이지</div>
 
 	<div class="theater_table">

@@ -29,4 +29,5 @@ public interface TicketService {
 
 	Movie movieimage(Movie list);
 
+
 }

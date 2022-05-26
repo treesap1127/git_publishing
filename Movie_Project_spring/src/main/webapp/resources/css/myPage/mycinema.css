@@ -261,13 +261,15 @@ margin-bottom: 50px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    overflow-y: scroll;
+}
+.drag_css{
+	overflow-y: scroll;
     height: 536px;
     -ms-overflow-style: none; 
     scrollbar-width: none;
 }
-.mypage_inline::-webkit-scrollbar {
-    display: none;
+.drag_css::-webkit-scrollbar{
+	display: none;
 }
 .my_page{
   width: 100%;

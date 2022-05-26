@@ -9,7 +9,6 @@ public class Movie {
 	private String movieDate;
 	private String movieTime;
 	private String image;
-	private String ticSit;
 	private String movieRating;
 	
 	public String getMovieName() {
@@ -47,12 +46,6 @@ public class Movie {
 	}
 	public void setImage(String image) {
 		this.image = image;
-	}
-	public String getTicSit() {
-		return ticSit;
-	}
-	public void setTicSit(String ticSit) {
-		this.ticSit = ticSit;
 	}
 	public String getMovieRating() {
 		return movieRating;

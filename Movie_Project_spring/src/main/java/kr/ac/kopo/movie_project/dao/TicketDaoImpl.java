@@ -1,5 +1,6 @@
 package kr.ac.kopo.movie_project.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -50,5 +51,6 @@ public class TicketDaoImpl implements TicketDao {
 	public Movie movieimage(Movie list) {
 		return sql.selectOne("ticket.movieimage",list);
 	}
+	
 
 }

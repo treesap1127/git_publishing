@@ -10,7 +10,7 @@
    
    <insert id="sit_add">
    	insert into theater 
-   	values (#{cinemaCode},#{theaterName},#{sit},#{row},#{line},NULL)
+   	values (#{cinemaCode},#{theaterName},#{sit},#{row},#{line})
    </insert>
    
    <select id="theaterlist" resultType="Theater">
@@ -19,7 +19,7 @@
    </select>
    <insert id="movieadd">
    		insert into movie
-   		values (Null,#{movieName},#{cinemaCode},#{theaterName},#{movieDate},#{movieTime},#{image},Null,#{movieRating})
+   		values (Null,#{movieName},#{cinemaCode},#{theaterName},#{movieDate},#{movieTime},#{image},#{movieRating})
    </insert>
    
    <select id="movieList" resultType="Movie">
