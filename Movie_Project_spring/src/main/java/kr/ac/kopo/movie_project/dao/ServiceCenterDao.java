@@ -4,16 +4,17 @@ import java.util.List;
 
 import kr.ac.kopo.movie_project.model.Board;
 import kr.ac.kopo.movie_project.util.Pager;
+import kr.ac.kopo.movie_project.util.PagerBoardId;
 
 public interface ServiceCenterDao {
 
-	List<Board> list(Pager pager, Long boardId);
+	List<Board> list(PagerBoardId pager);
 
 	void add(Board item);
 
 	void update(Board item);
 
-	int total(Pager pager);
+	int total(PagerBoardId pager);
 
 	Board item(int boardId, int articleId);
 

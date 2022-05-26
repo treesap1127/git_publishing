@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.kopo.movie_project.model.Board;
 import kr.ac.kopo.movie_project.service.ServiceCenterservice;
-import kr.ac.kopo.movie_project.util.Pager;
+import kr.ac.kopo.movie_project.util.PagerBoardId;
 
 @Controller
 @RequestMapping("/serviceCenter")
@@ -40,8 +40,9 @@ public class ServiceCenterController {
       }
       
       @GetMapping("/{boardId}/BoardList")
-      public String BoardList(@PathVariable Long boardId,Model model,Pager pager) {
-         List<Board> list = service.list(pager,boardId);
+      public String BoardList(@PathVariable Long boardId,Model model,PagerBoardId pager) {
+         pager.setBoardId(boardId);
+    	  List<Board> list = service.list(pager,boardId);
          model.addAttribute("list",list);
          
          return path+"BoardList";
@@ -86,7 +87,6 @@ public class ServiceCenterController {
          service.delete(boardId,articleId);
          return "redirect:../BoardList";
       }
-      
    
       
       

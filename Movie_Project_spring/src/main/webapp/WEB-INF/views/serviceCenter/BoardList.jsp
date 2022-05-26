@@ -20,8 +20,8 @@
 			</a>
 		</div>
 		<div class="title_right">
-			<a href="such"><img src="../../../img/root/돋보기화이트.jpg" alt="돋보기아이콘"
-				style="height: 22px; width: 25px;" /></a>
+			<a href="such"><img src="../../../img/root/돋보기화이트.jpg"
+				alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
 			<div class="login_link">
 				<a href="../serviceCenter/CenterService">고객센터</a>
 			</div>
@@ -80,19 +80,21 @@
 
 	<div class="notice_box">
 		<div class="notice_seq">목록</div>
-		
+
 		<div class="notice_keyword">
-		<form>
-			<select name="search" class="option_select">
-				<option value="0">전체</option>
-				<option value="1">제목</option>
-				<option value="2">내용</option>
-				<option value="3">작성자</option>
-			</select> <input type="text" name="keyoword">
-			<button class="btn btn-dark btn-sm">검색</button>
+
+			<form>
+				<select name="search" class="option_select">
+					<option value="0">전체</option>
+					<option value="1">제목</option>
+					<option value="2">내용</option>
+					<option value="3">작성자</option>
+				</select> <input type="text" name="keyword">
+				<button class="btn btn-dark btn-sm">검색</button>
+			</form>
 		</div>
-		</form>
-		
+
+
 		<div class="notice_area">
 
 			<table class="tb">
@@ -120,13 +122,15 @@
 							<td>${item.id}</td>
 							<td>${item.regDate}</td>
 							<td>${item.viewCount}</td>
-							<td><a href="BoardUpdate/${item.articleId}"><button
-										class="btn btn-outline-success">수정</button></a> <a href="delete/${item.articleId}"><button
-										class="btn btn-outline-danger">삭제</button></a></td>
+							<td><a href="BoardUpdate/${item.articleId}">
+									<button class="btn btn-outline-success">수정</button>
+							</a> <a href="delete/${item.articleId}">
+									<button class="btn btn-outline-danger">삭제</button>
+							</a></td>
 						</tr>
 					</c:forEach>
 					<c:if test="${list.size()<1}">
-						<tr>
+						<tr id="notice_midle">
 							<td>등록된 글이 없습니다</td>
 						</tr>
 					</c:if>
@@ -141,18 +145,19 @@
 		<div class="pager ">
 			<div class="page_wrap">
 				<div class="page_nation">
-					<a class="arrow pprev" href="?page=1"></a>
-					 <a class="arrow prev" href="?page=${pager.prev}"></a>
-					 
-					 <c:forEach var="page" items="${pager.list}">
-					 <a href="?page=${page}" class="active">${page}</a> 
-					 </c:forEach>
-					 
-					 <a class="arrow next" href="?page=${pager.next} "></a> 
-					 <a class="arrow nnext" href="?page=${pager.last}"></a>
+					<a class="arrow pprev" href="?page=1"></a> <a class="arrow prev"
+						href="?page=${pager.prev}"></a>
+
+					<c:forEach var="page" items="${pager.list}">
+						<a href="?page=${page}" class="active">${page}</a>
+					</c:forEach>
+
+					<a class="arrow next" href="?page=${pager.next} "></a> <a
+						class="arrow nnext" href="?page=${pager.last}"></a>
 				</div>
 			</div>
 		</div>
+
 	</div>
 
 
@@ -170,9 +175,8 @@
 				휴무&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;02-1234-5678&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customer@projectCinema.co.kr</div>
 			<div class="bottom_text_3">
 				상호 : (주)프로젝트영화 &nbsp;&nbsp;&nbsp; 대표자 : 2조<br> 주소 : 대전광역시 동구
-				우암로 352-21 (주)프로젝트영화 <br>
-				<br>사업자 등록번호 : 123-45-6789<br>TEL : 02-1234-5678 Email :
-				customer@projectCinema.co.kr
+				우암로 352-21 (주)프로젝트영화 <br> <br>사업자 등록번호 : 123-45-6789<br>TEL
+				: 02-1234-5678 Email : customer@projectCinema.co.kr
 			</div>
 			<div class="bottom_text_4">© ProjectCinema Co., Ltd All rights
 				reservedv.</div>
