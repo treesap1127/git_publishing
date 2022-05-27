@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
 
 public interface TicketDao {
@@ -25,6 +26,12 @@ public interface TicketDao {
 	Movie moviecode(Movie item);
 
 	Movie movieimage(Movie list);
+
+	Movie sitTicdata(SitSelect item);
+
+	String sit_tic_add(SitSelect item);
+
+	Movie paymentItem(SitSelect item);
 
 
 

@@ -5,7 +5,7 @@ public class SitSelect {
 	private String cinemaCode;
 	private String theaterName;
 	private String id;
-	private String seleceSit;
+	private String selectSit;
 	public int getMovieCode() {
 		return movieCode;
 	}
@@ -30,11 +30,12 @@ public class SitSelect {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getSeleceSit() {
-		return seleceSit;
+	public String getSelectSit() {
+		return selectSit;
 	}
-	public void setSeleceSit(String seleceSit) {
-		this.seleceSit = seleceSit;
+	public void setSelectSit(String selectSit) {
+		this.selectSit = selectSit;
 	}
+	
 	
 }

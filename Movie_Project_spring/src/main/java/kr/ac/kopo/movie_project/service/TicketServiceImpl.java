@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import kr.ac.kopo.movie_project.dao.TicketDao;
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
 
 @Service
@@ -66,5 +67,17 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public Movie movieimage(Movie list) {
 		return dao.movieimage(list);
+	}
+	@Override
+	public Movie sitTicdata(SitSelect item) {
+		return dao.sitTicdata(item);
+	}
+	@Override
+	public String sit_tic_add(SitSelect item) {
+		return dao.sit_tic_add(item);
+	}
+	@Override
+	public Movie paymentItem(SitSelect item) {
+		return dao.paymentItem(item);
 	}
 }

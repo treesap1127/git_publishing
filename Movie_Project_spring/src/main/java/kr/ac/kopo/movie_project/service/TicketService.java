@@ -5,7 +5,9 @@ import java.util.List;
 
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.Ticketing;
 
 public interface TicketService {
 
@@ -29,5 +31,10 @@ public interface TicketService {
 
 	Movie movieimage(Movie list);
 
+	Movie sitTicdata(SitSelect item);
+
+	String sit_tic_add(SitSelect item);
+
+	Movie paymentItem(SitSelect item);
 
 }

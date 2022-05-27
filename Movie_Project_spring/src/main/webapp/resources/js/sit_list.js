@@ -109,7 +109,7 @@ $(".ten_but").click(function(){// 청소년 클릭시
 	paytotal=numberWithCommas(paytot);
 	$(".paytotal").text(paytotal);
 })
-var sitCode=[]
+let sitCode=[]
 click_num=0;
 $(".sit_b").click(function(){
 	total_num=$(".paynum").text();
@@ -134,14 +134,18 @@ $(".sit_b").click(function(){
 		sit_item=$(".sit_info").children(`:eq(${i})`).text();
 	}
 	sitCode.push(sit_item);
+
 	adult=parseInt(adult);
 	teenager=parseInt(teenager);
 	id=$(".title_plus_text").attr("id");
 	
 	if(sit_length==adult+teenager){
+		
 		link_item={movieCode:movieCode,sitCode:sitCode,adult:adult,teenager:teenager}
+		sitCode=sitCode.toString();
 		ajax_item={movieCode:movieCode,selectSit:sitCode,id:id}
 		localStorage.setItem("link_item", JSON.stringify(link_item));
+		console.log(`좌석 번호: ${ajax_item.selectSit}`)
 		$(".sit_che_btn").attr("onclick","");
 		$(".sitting_check").click(function(){
 			if(confirm(`선택하신 좌석:${sitCode}\n 어른:${adult}명\n청소년${teenager}명\n위 내용이 맞습니까?`)){
@@ -152,7 +156,8 @@ $(".sit_b").click(function(){
                      dataType:"text",
                      data:JSON.stringify(ajax_item),
                      success: complete =>{
-							if(complete){
+							isBoolean=Boolean(complete)
+							if(isBoolean){
 								location.href="payment";
 							}
 							else{

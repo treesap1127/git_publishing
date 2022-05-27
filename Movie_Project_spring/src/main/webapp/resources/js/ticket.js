@@ -179,7 +179,6 @@ $(".movie_place_").click(function(){
 										$(this).css("color","red");
 										
 										
-									$(`.theaterName`).text(`${result2[j].theaterName}`);
 									$(".movie_").children("div").css("color","darkgray");
 									$(".movie_audits").children("div").addClass('nocheckmovie');
 									$(`.name${result2[j].cinemaCode}`).children("div").css("widit","1000px");
@@ -300,16 +299,12 @@ const dateFormat = (date) => {
 			          success: result4 => {
 						console.log(`${result4}`);
 						for(j=0;j<result4.length;j++){
-						console.log(`${result4}`);
-						console.log(`${result4[j].movieName}`)
-						console.log(`${result4[j].movieRating}`)
-						console.log(`${result4[j].theaterName}`)
-						console.log(`${result4[j].movieTime}`)
-						$(".contact").append(`<div class="movie_contact"><div class="movie_contact_sub1"><img src="../img/ticketing/${result4[j].movieRating}.png" alt="심의등급" class="movie_audits_photo"><div class="movie_name contact_name">${result4[j].movieName}</div></div><div class="movie_contact_sub2"><button class="contact_button" id="${result4[j].movieTime}">상영시간: ${result4[j].movieTime}<br> 상영관:${result4[j].theaterName}</button></div></div>`);
+						theaterName_item=`${result4[j].theaterName}`;
+						$(".contact").append(`<div class="movie_contact"><div class="movie_contact_sub1"><img src="../img/ticketing/${result4[j].movieRating}.png" alt="심의등급" class="movie_audits_photo"><div class="movie_name contact_name">${result4[j].movieName}</div></div><div class="movie_contact_sub2"><button class="contact_button" id="${result4[j].movieTime}">상영시간: ${result4[j].movieTime}<br> 상영관:${theaterName_item}</button></div></div>`);
 						$(".contact_button").click(function(){//버튼을 누른 5005
 							$(".chetime").empty();
 							//초기화
-							
+							$(`.theaterName`).text(`${theaterName_item}`);
 							var time=$(this).attr("id");
 							console.log(`시간${time}`);
 							$(".check_com").append(`<div class="chetime">예매 시각: ${time}</div>`)

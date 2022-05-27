@@ -6,7 +6,6 @@ public class Theater {
 	private int row;
 	private int line;
 	private String sit;
-	private String sit_reser;
 	
 	public String getCinemaCode() {
 		return cinemaCode;
@@ -37,12 +36,6 @@ public class Theater {
 	}
 	public void setSit(String sit) {
 		this.sit = sit;
-	}
-	public String getSit_reser() {
-		return sit_reser;
-	}
-	public void setSit_reser(String sit_reser) {
-		this.sit_reser = sit_reser;
 	}
 
 	

@@ -11,16 +11,17 @@
   <script>
 $(function(){
       $(".credit").click(function(){
+    	$(".payTool_post").attr("value","");
         $(".credit_").css('display','block');
         $(".phone_").css('display','none');
         $(".bank_").css('display','none');
       });
-      $(".phone").click(function(){
+      $(".Phone").click(function(){
         $(".credit_").css('display','none');
         $(".phone_").css('display','block');
         $(".bank_").css('display','none');
       });
-      $(".bank").click(function(){
+      $(".Bank").click(function(){
         $(".credit_").css('display','none');
         $(".phone_").css('display','none');
         $(".bank_").css('display','block');
@@ -51,7 +52,7 @@ $(function(){
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="../../logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage">마이페이지</a></div>
+	             <div class="title_plus_text"><span class="user_id">${sessionScope.member.userName}</span> 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage">마이페이지</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade==2}">
 	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
@@ -90,8 +91,8 @@ $(function(){
       <div class="pay_select">
         <div class="pay_top_menu">
           <div class="pay_top_menu_button credit ared">신용카드</div>
-          <div class="pay_top_menu_button phone">휴대폰</div>
-          <div class="pay_top_menu_button bank">실시간 계좌이체</div>
+          <div class="pay_top_menu_button Phone" id="Phone">휴대폰</div>
+          <div class="pay_top_menu_button Bank" id="Bank">실시간 계좌이체</div>
         </div>
         
         <div class="pay_bottom credit_bottom">
@@ -106,35 +107,47 @@ $(function(){
     </div>
         <!--아래는 영화 선택 목록-->
         <div class="ticket_check_box">
-          <div class="movie_poster">
-            <img src="../img/ticketing/영화.png" alt="">
+        <div class="movie_poster">
+          <img src="../../img/ticketing/영화.png" alt="">
+        </div>
+        <div class="check_com">
+        <div class="check_com_box">
+          <div class="movieName"style="font-size: 18px; font-weight: 500;">영화를 선택해주세요.</div>
+          <div class="theaterName">상영관 :${list.theaterName}</div>
+          <div class="movieDate">상영 일자: ${list.movieDate}</div>
+          <div class="movieTime">상영 시간:${list.movieTime}</div>
+          <div class="movieCode" style="display: none"></div>
           </div>
-          <div class="check_com">
-            <div style="font-size: 18px; font-weight: 500;">영화를 선택하세요.<br><br></div>
-            <div>영화관을 선택하세요.</div>
-            <div>영화일자를 선택하세요</div>
-          </div>
-          <div class="sit_price_total">
-    
-            <div class="sit_price">
-              <div>
-                <div>성인(1)</div>
-                <div>예매수수료(1)</div>
-              </div>
-              <div class="sit_price_num">
-                <div>13,000원</div>
-                <div>500원</div>
-              </div>
+        </div>
+        <div class="sit_price_total">
+        	<div class="sit_price">
+	          	<div class="sit_price_adult">
+	                <div class="adult_num">성인(<span class="adultnum">0</span>)</div>
+	                <div class="adult_money"><span class="adultmoney">0</span>원</div>
+	            </div>
+	            <div class="sit_price_teenager">
+	                <div class="teenager_num">청소년(<span class="teenagernum">0</span>)</div>
+	                <div class="teenager_money"><span class="teenagermoney">0</span>원</div>
+	            </div>
+	           	<div class="sit_price_fees">
+	            	<div class="pay_num">예매수수료(<span class="paynum">0</span>)</div>
+	            	<div class="pay_money"><span class="paymoney">0</span>원</div>
+	            </div>
             </div>
-    
             <div class="sit_total">
-              <div>최종결제 금액</div>
-              <div class="sit_total_num"> 13,500&nbsp;원</div>
+            	<div>최종결제 금액</div>
+            	<div class="sit_total_num"> <span class="paytotal">0</span>원
             </div>
           </div>
-          <div class="sitting">
-            <a href="complete" class="sitting_check"><button class="btn btn-outline-danger" value="card" style="padding: 15px 27px;font-size: 17px;">결제 하기</button></a>
           </div>
+
+          
+        <div class="sitting">
+
+          <a class="sitting_check"><button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button></a>
+          <!-- href="payment" -->
+        </div>
+          
         </div>
       </div>
     <!-- 좌석선택끝 -->
@@ -146,8 +159,8 @@ $(function(){
         <div class="pay_select">
           <div class="pay_top_menu">
             <div class="pay_top_menu_button credit">신용카드</div>
-            <div class="pay_top_menu_button phone ared">휴대폰</div>
-            <div class="pay_top_menu_button bank">실시간 계좌이체</div>
+            <div class="pay_top_menu_button Phone ared">휴대폰</div>
+            <div class="pay_top_menu_button Bank">실시간 계좌이체</div>
           </div>
           
           <div class="pay_bottom credit_bottom">
@@ -173,36 +186,48 @@ $(function(){
       </div>
           <!--아래는 영화 선택 목록-->
     <div class="ticket_check_box">
-      <div class="movie_poster">
-        <img src="../img/ticketing/영화.png" alt="">
-      </div>
-      <div class="check_com">
-        <div style="font-size: 18px; font-weight: 500;">영화를 선택하세요.<br><br></div>
-        <div>영화관을 선택하세요.</div>
-        <div>영화일자를 선택하세요</div>
-      </div>
-      <div class="sit_price_total">
-
-        <div class="sit_price">
-          <div>
-            <div>성인(1)</div>
-            <div>예매수수료(1)</div>
-          </div>
-          <div class="sit_price_num">
-            <div>13,000원</div>
-            <div>500원</div>
+        <div class="movie_poster">
+          <img src="../../img/ticketing/영화.png" alt="">
+        </div>
+        <div class="check_com">
+        <div class="check_com_box">
+          <div class="movieName"style="font-size: 18px; font-weight: 500;">영화를 선택해주세요.</div>
+          <div class="theaterName">상영관 :${list.theaterName}</div>
+          <div class="movieDate">상영 일자: ${list.movieDate}</div>
+          <div class="movieTime">상영 시간:${list.movieTime}</div>
+          <div class="movieCode" style="display: none"></div>
           </div>
         </div>
+        <div class="sit_price_total">
+        	<div class="sit_price">
+	          	<div class="sit_price_adult">
+	                <div class="adult_num">성인(<span class="adultnum">0</span>)</div>
+	                <div class="adult_money"><span class="adultmoney">0</span>원</div>
+	            </div>
+	            <div class="sit_price_teenager">
+	                <div class="teenager_num">청소년(<span class="teenagernum">0</span>)</div>
+	                <div class="teenager_money"><span class="teenagermoney">0</span>원</div>
+	            </div>
+	           	<div class="sit_price_fees">
+	            	<div class="pay_num">예매수수료(<span class="paynum">0</span>)</div>
+	            	<div class="pay_money"><span class="paymoney">0</span>원</div>
+	            </div>
+            </div>
+            <div class="sit_total">
+            	<div>최종결제 금액</div>
+            	<div class="sit_total_num"> <span class="paytotal">0</span>원
+            </div>
+          </div>
+          </div>
 
-        <div class="sit_total">
-          <div>최종결제 금액</div>
-          <div class="sit_total_num"> 13,500&nbsp;원</div>
+          
+        <div class="sitting">
+
+          <a class="sitting_check"><button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button></a>
+          <!-- href="payment" -->
         </div>
-      </div>
-      <div class="sitting">
-        <a href="complete" class="sitting_check"><button class="btn btn-outline-danger" value="phone" style="padding: 15px 27px;font-size: 17px;">결제 하기</button></a>
-      </div>
-    </div>
+          
+        </div>
   </div>
 <!-- 좌석선택끝 -->
 
@@ -213,8 +238,8 @@ $(function(){
     <div class="pay_select">
       <div class="pay_top_menu">
         <div class="pay_top_menu_button credit">신용카드</div>
-        <div class="pay_top_menu_button phone">휴대폰</div>
-        <div class="pay_top_menu_button bank ared">실시간 계좌이체</div>
+        <div class="pay_top_menu_button Phone" id="phone">휴대폰</div>
+        <div class="pay_top_menu_button Bank ared"id="bank">실시간 계좌이체</div>
       </div>
       
       <div class="pay_bottom credit_bottom">
@@ -242,32 +267,57 @@ $(function(){
           <img src="../../img/ticketing/영화.png" alt="">
         </div>
         <div class="check_com">
-          <div style="font-size: 18px; font-weight: 500;">영화를 선택하세요.<br><br></div>
-          <div>영화관을 선택하세요.</div>
-          <div>영화일자를 선택하세요</div>
+        <div class="check_com_box">
+          <div class="movieName"style="font-size: 18px; font-weight: 500;">영화를 선택해주세요.</div>
+          <div class="theaterName">상영관 :${list.theaterName}</div>
+          <div class="movieDate">상영 일자: ${list.movieDate}</div>
+          <div class="movieTime">상영 시간:${list.movieTime}</div>
+          <div class="movieCode" style="display: none"></div>
+          </div>
         </div>
         <div class="sit_price_total">
-
-          <div class="sit_price">
-            <div>
-              <div>성인(1)</div>
-              <div>예매수수료(1)</div>
+        	<div class="sit_price">
+	          	<div class="sit_price_adult">
+	                <div class="adult_num">성인(<span class="adultnum">0</span>)</div>
+	                <div class="adult_money"><span class="adultmoney">0</span>원</div>
+	            </div>
+	            <div class="sit_price_teenager">
+	                <div class="teenager_num">청소년(<span class="teenagernum">0</span>)</div>
+	                <div class="teenager_money"><span class="teenagermoney">0</span>원</div>
+	            </div>
+	           	<div class="sit_price_fees">
+	            	<div class="pay_num">예매수수료(<span class="paynum">0</span>)</div>
+	            	<div class="pay_money"><span class="paymoney">0</span>원</div>
+	            </div>
             </div>
-            <div class="sit_price_num">
-              <div>13,000원</div>
-              <div>500원</div>
+            <div class="sit_total">
+            	<div>최종결제 금액</div>
+            	<div class="sit_total_num"> <span class="paytotal">0</span>원
             </div>
           </div>
-
-          <div class="sit_total">
-            <div>최종결제 금액</div>
-            <div class="sit_total_num"> 13,500&nbsp;원</div>
           </div>
-        </div>
+
+          
         <div class="sitting">
-          <a href="payment" class="sitting_check"><button class="btn btn-outline-danger">결제창으로 넘어가기</button></a>
+				<form method="post">
+		<div style="display: none">
+			<input type="text" value="" name="ticketCode" class="ticketCode_post">
+			<input type="text" value="${sessionScope.member.id}" name="id" class="id_post">
+			<input type="text" value="1" name="cinemaCode" class="cinemaCode_post">
+			<input type="text" value="1" name="theaterName" class="theaterName_post">
+			<input type="text" value="1" name="sitCode" class="sitCode_post">
+			<input type="number" value="1" name="movieCode" class="movieCode_post">
+			<input type="number" value="1" name="teenager" class="teenager_post">
+			<input type="number" value="1" name="adult" class="adult_post">
+			<input type="text" value="" name="payTool" class="payTool_post">
+		</div>
+		<button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button>
+	</form>
+         
+          <!-- href="payment" -->
         </div>
-      </div>
+          
+        </div>
   </div>
 <!-- 좌석선택끝 -->
   

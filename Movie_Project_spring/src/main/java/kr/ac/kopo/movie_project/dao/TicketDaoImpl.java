@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
 
 @Repository
@@ -50,6 +51,23 @@ public class TicketDaoImpl implements TicketDao {
 	@Override
 	public Movie movieimage(Movie list) {
 		return sql.selectOne("ticket.movieimage",list);
+	}
+	@Override
+	public Movie sitTicdata(SitSelect item) {
+		return sql.selectOne("ticket.socTicdata",item);
+	}
+	@Override
+	public String sit_tic_add(SitSelect item) {
+		try {
+			sql.insert("ticket.sit_tic_add",item);
+		} catch (Exception e) {
+			return "";
+		}
+		return "true";
+	}
+	@Override
+	public Movie paymentItem(SitSelect item) {
+		return sql.selectOne("ticket.paymentItem", item);
 	}
 	
 
