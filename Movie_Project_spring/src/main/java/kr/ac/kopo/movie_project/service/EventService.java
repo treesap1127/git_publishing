@@ -21,7 +21,11 @@ public interface EventService {
 
 	void viewcnt(Event item);
 
-	void endEventUpdate(Event item);	
+	void endEventUpdate(Event item);
+
+	void deleteList(List<Integer> list);
+
+	boolean deleteImage(int eventId);	
 
 	
 }

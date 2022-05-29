@@ -14,9 +14,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
 import kr.ac.kopo.movie_project.model.Event;
+import kr.ac.kopo.movie_project.model.EventImage;
 import kr.ac.kopo.movie_project.service.EventService;
 import kr.ac.kopo.movie_project.util.Pager;
+import kr.ac.kopo.movie_project.util.Uploader;
 
 @Controller
 @RequestMapping("/event")
@@ -26,6 +32,20 @@ public class EventController {
 	
 	@Autowired
 	EventService service;	
+	
+	@RequestMapping("/delete_list")
+	public String deleteList(@RequestParam("eventId") List<Integer> list) { 
+		service.deleteList(list);
+		
+		return "redirect:list";
+	}
+
+	@ResponseBody
+	@GetMapping("/image/delete/{eventId}") 
+	public boolean deleteImage(@PathVariable int eventId)
+	{
+		return service.deleteImage(eventId);
+	}
 	
 	
 	@GetMapping("/continue_Event")
@@ -68,10 +88,18 @@ public class EventController {
 	}
 	
 	@PostMapping("/NoticeEventAdd")
-	public String NoticeEventAdd(Event item,HttpSession session) {
-		
+	public String NoticeEventAdd(Event item,HttpSession session,@RequestParam("eventImage") List<MultipartFile> eventImage) {
+		try {
+			Uploader<EventImage> uploader = new Uploader<>();
+			
+			List<EventImage> images = uploader.makeList(eventImage, EventImage.class);
+			
+			item.setImages(images);
+	
 		service.NoticeEventAdd(item);
-		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "redirect:continue_Event";		
 	}	
 	
@@ -85,10 +113,19 @@ public class EventController {
 	}
 	
 	@PostMapping("/NoticeEventUpdate/{eventId}")
-	public String NoticeEventUpdate(@PathVariable int eventId, Event item) {
-		item.setEventId(eventId);
+	public String NoticeEventUpdate(@PathVariable int eventId, Event item,@RequestParam("eventImage") List<MultipartFile> eventImage) {
+		try {
+			Uploader<EventImage> uploader = new Uploader<>();
+			
+			List<EventImage> images = uploader.makeList(eventImage, EventImage.class);
+			
+			item.setImages(images);
+			item.setEventId(eventId);
 		
 		service.NoticeEventUpdate(item);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return "redirect:../continue_Event";
 		

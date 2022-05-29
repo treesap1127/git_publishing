@@ -4,15 +4,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.ac.kopo.movie_project.dao.EventDao;
+import kr.ac.kopo.movie_project.dao.EventImageDao;
 import kr.ac.kopo.movie_project.model.Event;
+import kr.ac.kopo.movie_project.model.EventImage;
 import kr.ac.kopo.movie_project.util.Pager;
 @Service
 public class EventServiceImpl implements EventService {
 
 	@Autowired
 	EventDao dao;
+	
+	@Autowired
+	EventImageDao eventImageDao; 
 	
 	@Override
 	public List<Event> continue_Event(Pager pager) {
@@ -31,6 +37,14 @@ public class EventServiceImpl implements EventService {
 	public void NoticeEventAdd(Event item) {
 		
 		dao.NoticeEventAdd(item);
+		
+		if(item.getImages() != null) {
+			for(EventImage image : item.getImages()) {
+				image.setEventId( item.getEventId() );
+				
+				eventImageDao.add(image);
+			}
+		}	
 		
 	}
 
@@ -62,6 +76,18 @@ public class EventServiceImpl implements EventService {
 	public void endEventUpdate(Event item) {
 		dao.endEventUpdate(item);
 		
+	}
+	
+	@Transactional
+	@Override
+	public void deleteList(List<Integer> list) {
+		for(Integer eventId : list) 
+			dao.delete(eventId);		
+	}
+
+	@Override
+	public boolean deleteImage(int eventId) {		
+		return eventImageDao.delete(eventId);
 	}
 
 	
