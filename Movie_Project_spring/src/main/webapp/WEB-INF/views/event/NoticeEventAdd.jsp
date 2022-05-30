@@ -98,10 +98,10 @@ $(document).ready(function() {
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
       <div class="update_box">이벤트 등록</div>
-      <form method="post" class="mt-4" id="mform">
+      <form method="post" class="mt-4" id="mform" enctype="multipart/form-data">
         <div class="form-floating mt-2">
           <label>제목</label>	
-          <div >				
+          <div>				
           <input type="text" name="eventName" class="form-control" placeholder="제목">
           </div>        		
           <div style="display: none;">					

@@ -4,7 +4,7 @@
 <mapper namespace="eventimage">
 	<insert id="add">					
 		INSERT INTO upload 
-		VALUES (NULL, #{eventId} ,#{filename}, #{filesize}, #{uuid})
+		VALUES (NULL, #{eventId} ,#{filename}, #{uuid})
 	</insert>
 	
 	<delete id="delete">

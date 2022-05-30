@@ -5,7 +5,14 @@
 <mapper namespace="Event">
 
 	<select id="list" resultType="Event">
-		SELECT * FROM event
+		SELECT event.*,
+			event_image.fileId image_fileId,
+			event_image.event_eventId event_eventId
+			event_image.filename filename, 
+			event_image.uuid uuid, 
+	  
+		FROM product
+		LEFT JOIN event_image ON event.eventId=event_image.event_fileId
 	</select>
 	
 	<insert id="add">
