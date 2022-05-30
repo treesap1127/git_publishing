@@ -34,6 +34,7 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
+	@Transactional
 	public void NoticeEventAdd(Event item) {
 		
 		dao.NoticeEventAdd(item);
@@ -55,8 +56,17 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
+	@Transactional
 	public void NoticeEventUpdate(Event item) {
 		dao.NoticeEventUpdate(item);
+		
+		if(item.getImages() != null) {
+			for(EventImage image : item.getImages()) {
+				image.setEventId( item.getEventId() );
+				
+				eventImageDao.add(image);
+			}
+		}
 		
 	}
 

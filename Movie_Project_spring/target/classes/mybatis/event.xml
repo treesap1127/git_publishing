@@ -5,15 +5,26 @@
 <mapper namespace="Event">
 
 	<select id="list" resultType="Event">
-		SELECT event.*,
-			event_image.fileId image_fileId,
-			event_image.event_eventId event_eventId
-			event_image.filename filename, 
-			event_image.uuid uuid, 
-	  
-		FROM product
-		LEFT JOIN event_image ON event.eventId=event_image.event_fileId
+		SELECT * FROM event
 	</select>
+	
+	<resultMap type="Event" id="EventMap">
+		<id column="event_id" property="eventId" />
+		<result column="event_name" property="eventName"/>
+		<result column="event_date" property="eventDate"/>
+		<result column="event_info" property="eventInfo"/>
+		<result column="id" property="id"/>
+		<result column="event_viewcnt" property="eventViewcnt"/>
+		<result column="start_date" property="startDate"/>
+		<result column="end_date" property="endDate"/>
+		
+		<collection property="images" column="eventId" ofType="EventImage" javaType="ArrayList">
+			<id column="event_id" property="eventId" />
+			<result column="event_id" property="eventId"/>
+			<result column="file_name" property="filename"/>
+			<result column="uuid" property="uuid"/>			
+		</collection>
+	</resultMap>
 	
 	<insert id="add">
 		INSERT INTO event

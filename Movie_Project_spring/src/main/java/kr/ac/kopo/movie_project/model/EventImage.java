@@ -5,8 +5,7 @@ import kr.ac.kopo.movie_project.util.UploadFile;
 public class EventImage implements UploadFile {
 	private int fileId;
 	private int eventId;
-	private String filename;
-	private int filesize;
+	private String filename;	
 	private String uuid;
 	
 
@@ -28,12 +27,7 @@ public class EventImage implements UploadFile {
 	public void setFilename(String filename) {
 		this.filename = filename;
 	}
-	public int getFilesize() {
-		return filesize;
-	}
-	public void setFilesize(int filesize) {
-		this.filesize = filesize;
-	}
+	
 	public String getUuid() {
 		return uuid;
 	}

@@ -97,7 +97,7 @@ $(document).ready(function() {
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
       <div class="update_box">이벤트 변경</div>
-      <form method="post" class="mt-4">
+      <form method="post" class="mt-4" enctype="multipart/form-data">
         <div class="form-floating mt-2">
           <label>제목</label>	
           <div >				
@@ -108,8 +108,8 @@ $(document).ready(function() {
        		</div>
           <br>   
           <div class="file-upload" style="text-align: right;">
-            <label for="ex_file">업로드</label>
-            <input type="file" id="ex_file">
+            <label for="eventImage">업로드</label>
+            <input type="file" id="eventImage" class="form-control">
             이벤트 시작일<input type="date" name="startDate">
 			이벤트 종료일<input type="date" name="endDate">            
         </div>        

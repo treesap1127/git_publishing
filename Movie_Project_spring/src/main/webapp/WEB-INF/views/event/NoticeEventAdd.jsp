@@ -109,8 +109,8 @@ $(document).ready(function() {
        		</div>
           <br>   
           <div class="file-upload" style="text-align: right;">
-            <label for="ex_file">업로드</label>
-            <input type="file" id="ex_file">
+            <label for="images">업로드</label>
+            <input type="file" id="images" class="form-control">
             이벤트 시작일<input type="date" name="startDate">
 			이벤트 종료일<input type="date" name="endDate">
        	 </div>        

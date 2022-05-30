@@ -3,12 +3,12 @@
 
 <mapper namespace="eventimage">
 	<insert id="add">					
-		INSERT INTO upload 
+		INSERT INTO eventimage 
 		VALUES (NULL, #{eventId} ,#{filename}, #{uuid})
 	</insert>
 	
 	<delete id="delete">
-		DELETE FROM upload
+		DELETE FROM eventimage
 		WHERE file_id=#{fileId}
 	</delete>
 </mapper>
