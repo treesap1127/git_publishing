@@ -440,3 +440,10 @@ border-left: 1px solid #dddddd;
     padding-left: 25px;
     padding-top: 13px;
 }
+.form_sty{
+	position: relative;
+    top: 50%;
+    left: 50%;
+    width: 164px;
+    transform: translate(-50%,-50%);
+}

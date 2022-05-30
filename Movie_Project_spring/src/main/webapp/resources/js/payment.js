@@ -3,6 +3,7 @@ $(function(){
 	//item{movieCode:movieCode,sitCode:sitCode,adult:adult,teenager:teenager}
 	//이미지 영화명 상영관 상영일자 상영시간
 	//complete image movieName theaterName movieDate movieTime
+	$(".sit_che_btn").attr("type","button");
 	console.log(`코드~~~${item.movieCode}`)
 	data={movieCode:item.movieCode}
 	$.ajax({
@@ -90,18 +91,21 @@ $(function(){
 		ticketCode=$(".Bank").attr('id');
 		$(".payTool_post").attr("value",`${ticketCode}`);
 		$(".credit_box_top>button").css("color","black");
-		$(".sit_che_btn").attr("onclick","");
+		$(".sit_che_btn").attr("onclick");
+		$(".sit_che_btn").removeAttr("type");
 	});
 	$(".Phone").click(function(){
-		ticketCode=$(".Phone").attr('id');
+		ticketCode=$(".Phone").removeAttr('id');
 		$(".payTool_post").attr("value",`${ticketCode}`);
 		$(".credit_box_top>button").css("color","black");
-		$(".sit_che_btn").attr("onclick","");
+		$(".sit_che_btn").removeAttr("onclick");
+		$(".sit_che_btn").removeAttr("type");
 	});
 	$(".credit_box_top").children('button').click(function(){
 		creadit=$(this).val();
 		$(".payTool_post").attr("value",`${creadit}`);
-		$(".sit_che_btn").attr("onclick","");
+		$(".sit_che_btn").removeAttr("onclick");
+		$(".sit_che_btn").removeAttr("type");
 	});
 	// 자 이제 이 코드를 저장 시킬 차례야! jsp와 컨트롤러를 연결하렴
 	// 그리고 ticketsit에서 스케줄러 등록하고 여기서 삭제 등록 트렌젝션 해도 될듯 실패시 좌석고르는거부터 다시하라하고 ㅇㅇ

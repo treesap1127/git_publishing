@@ -1,6 +1,8 @@
 package kr.ac.kopo.movie_project.controller;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.Ticketing;
 import kr.ac.kopo.movie_project.service.TicketService;
 
 @Controller
@@ -62,10 +65,20 @@ public class TicketController {
 	public String pay() {
 		return path+"Payment";
 	}
+	@PostMapping("/payment")
+	public String pay(Ticketing item,Model model) {
+		Date now = new Date();         
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");         
+		String formatedNow = formatter.format(now);
+		item.setPayTime(formatedNow);
+		System.out.println("time"+formatedNow);
+		service.ticketcomplete(item);
+		model.addAttribute("item", item);
+		return "redirect:../ticket/complete";
+	}
 	@ResponseBody
 	@PostMapping("/paymentItem")
 	public Movie paymentItem(@RequestBody SitSelect item){
-		System.out.println("오나용?"+item.getCinemaCode());
 		Movie list=service.paymentItem(item);
 		return list;
 	}
@@ -130,7 +143,6 @@ public class TicketController {
 		item.setCinemaCode(data.getCinemaCode());
 		String check=service.sit_tic_add(item);
 		return check;
-			
 	}
 	
 }

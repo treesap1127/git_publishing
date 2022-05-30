@@ -6,6 +6,7 @@ import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.Ticketing;
 
 public interface TicketDao {
 
@@ -32,6 +33,14 @@ public interface TicketDao {
 	String sit_tic_add(SitSelect item);
 
 	Movie paymentItem(SitSelect item);
+
+	void ticketcomplete(Ticketing item);
+
+	void ticketcomplete_delete_sit(Ticketing item);
+
+	void ticketcomplete_sit(Ticketing item);
+
+	void sit_tic_delete(SitSelect item);
 
 
 

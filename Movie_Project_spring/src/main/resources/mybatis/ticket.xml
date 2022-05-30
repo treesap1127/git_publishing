@@ -60,4 +60,20 @@
 		from Movie
 		where movie_code=#{movieCode}
 	</select>
+		<insert id="ticketcomplete">
+		insert into ticketing
+		VALUES (#{ticketCode},#{id},#{cinemaCode},#{theaterName},#{sitCode},#{movieCode},#{teenager},#{adult},#{payTool},#{payTime}) 
+	</insert>
+	<delete id="ticketcomplete_delete_sit">
+		DELETE FROM sit_select
+		where movie_code=#{movieCode} and cinema_code=#{cinemaCode} and theater_name=#{theaterName} and id=#{id} and selece_sit=#{sitCode}
+	</delete>
+	<delete id="sit_tic_delete">
+		DELETE FROM sit_select
+		where movie_code=#{movieCode} and id=#{id} and selece_sit=#{selectSit}
+	</delete>
+		<insert id="ticketcomplete_sit">
+		insert into sit_select
+		VALUES (#{movieCode},#{cinemaCode},#{theaterName},#{id},#{sitCode}) 
+	</insert>
 </mapper>

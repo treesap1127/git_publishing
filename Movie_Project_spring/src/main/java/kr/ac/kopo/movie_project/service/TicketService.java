@@ -37,4 +37,6 @@ public interface TicketService {
 
 	Movie paymentItem(SitSelect item);
 
+	void ticketcomplete(Ticketing item);
+
 }

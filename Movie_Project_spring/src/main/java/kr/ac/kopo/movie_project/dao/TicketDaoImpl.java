@@ -1,16 +1,17 @@
 package kr.ac.kopo.movie_project.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.Ticketing;
 
 @Repository
 public class TicketDaoImpl implements TicketDao {
@@ -69,6 +70,23 @@ public class TicketDaoImpl implements TicketDao {
 	public Movie paymentItem(SitSelect item) {
 		return sql.selectOne("ticket.paymentItem", item);
 	}
-	
-
+	@Override
+	public void ticketcomplete(Ticketing item) {
+		sql.insert("ticket.ticketcomplete", item);
+	}
+	@Override
+	public void ticketcomplete_delete_sit(Ticketing item) {
+		sql.delete("ticket.ticketcomplete_delete_sit", item);
+	}
+	@Override
+	public void ticketcomplete_sit(Ticketing item) {
+		sql.insert("ticket.ticketcomplete_sit",item);
+		//여기다 멈추는거 ㄱ
+	}
+	//@Scheduled(fixedDelay=300000,initialDelay = 300000)//5분 후 실행 이거 함수에 파라미터 빼고 해야한데..
+	@Override
+	public void sit_tic_delete(SitSelect item) {
+		sql.delete("ticket.sit_tic_delete", item);
+		//스케줄러 해서 시작하고 멈추는건 
+	}
 }

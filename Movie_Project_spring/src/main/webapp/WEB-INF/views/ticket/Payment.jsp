@@ -144,8 +144,20 @@ $(function(){
           
         <div class="sitting">
 
-          <a class="sitting_check"><button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button></a>
-          <!-- href="payment" -->
+	<form method="post" class="form_sty">
+		<div style="display: none">
+			<input type="text" value="" name="ticketCode" class="ticketCode_post">
+			<input type="text" value="${sessionScope.member.id}" name="id" class="id_post">
+			<input type="text" value="1" name="cinemaCode" class="cinemaCode_post">
+			<input type="text" value="1" name="theaterName" class="theaterName_post">
+			<input type="text" value="1" name="sitCode" class="sitCode_post">
+			<input type="number" value="1" name="movieCode" class="movieCode_post">
+			<input type="number" value="1" name="teenager" class="teenager_post">
+			<input type="number" value="1" name="adult" class="adult_post">
+			<input type="text" value="" name="payTool" class="payTool_post">
+		</div>
+		<button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button>
+	</form>
         </div>
           
         </div>
@@ -222,9 +234,20 @@ $(function(){
 
           
         <div class="sitting">
-
-          <a class="sitting_check"><button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button></a>
-          <!-- href="payment" -->
+	<form method="post" class="form_sty">
+		<div style="display: none">
+			<input type="text" value="" name="ticketCode" class="ticketCode_post">
+			<input type="text" value="${sessionScope.member.id}" name="id" class="id_post">
+			<input type="text" value="1" name="cinemaCode" class="cinemaCode_post">
+			<input type="text" value="1" name="theaterName" class="theaterName_post">
+			<input type="text" value="1" name="sitCode" class="sitCode_post">
+			<input type="number" value="1" name="movieCode" class="movieCode_post">
+			<input type="number" value="1" name="teenager" class="teenager_post">
+			<input type="number" value="1" name="adult" class="adult_post">
+			<input type="text" value="" name="payTool" class="payTool_post">
+		</div>
+		<button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button>
+	</form>
         </div>
           
         </div>
@@ -299,7 +322,7 @@ $(function(){
 
           
         <div class="sitting">
-				<form method="post">
+	<form method="post" class="form_sty">
 		<div style="display: none">
 			<input type="text" value="" name="ticketCode" class="ticketCode_post">
 			<input type="text" value="${sessionScope.member.id}" name="id" class="id_post">

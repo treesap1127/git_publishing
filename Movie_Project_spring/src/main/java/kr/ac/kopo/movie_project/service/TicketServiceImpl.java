@@ -7,12 +7,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.ac.kopo.movie_project.dao.TicketDao;
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.Ticketing;
 
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -74,10 +76,19 @@ public class TicketServiceImpl implements TicketService {
 	}
 	@Override
 	public String sit_tic_add(SitSelect item) {
-		return dao.sit_tic_add(item);
+		String data=dao.sit_tic_add(item);
+		dao.sit_tic_delete(item);
+		return data;
 	}
 	@Override
 	public Movie paymentItem(SitSelect item) {
 		return dao.paymentItem(item);
+	}
+	@Transactional
+	@Override
+	public void ticketcomplete(Ticketing item) {
+		dao.ticketcomplete(item);
+		dao.ticketcomplete_delete_sit(item);
+		dao.ticketcomplete_sit(item);
 	}
 }
