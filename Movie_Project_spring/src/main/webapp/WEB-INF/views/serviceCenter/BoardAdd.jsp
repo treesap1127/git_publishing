@@ -83,7 +83,7 @@ $(document).ready(function() {
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
       <div class="add_box">게시글 등록</div>
-      <form method="post" class="mt-4">
+      <form method="post" class="mt-4" enctype="multipart/form-data">
         <div class="form-floating mt-2">
           <label>제목</label>	
           <div >				
@@ -94,7 +94,7 @@ $(document).ready(function() {
        		</div>
           <br>   
           <div class="file-upload" style="text-align: right;">           
-            <input class="ex_file" type="file" id="ex_file" > 
+            <input class="file" type="file" id="file" > 
            
         </div>        
         

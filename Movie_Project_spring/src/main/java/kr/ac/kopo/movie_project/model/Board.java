@@ -1,5 +1,7 @@
 package kr.ac.kopo.movie_project.model;
 
+import java.util.List;
+
 public class Board {
 	private int articleId;
 	private String subject;
@@ -8,7 +10,9 @@ public class Board {
 	private String regDate;
 	private int viewCount;
 	private int boardId;
-
+	private List<BoardImage> Images;
+	
+	
 	public int getBoardId() {
 		return boardId;
 	}
@@ -53,6 +57,13 @@ public class Board {
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
+	public List<BoardImage> getImages() {
+		return Images;
+	}
+	public void setImages(List<BoardImage> images) {
+		Images = images;
+	}
+	
 	
 	
 	
