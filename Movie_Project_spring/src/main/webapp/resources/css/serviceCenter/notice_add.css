@@ -222,6 +222,29 @@ padding: 2em 12em;
   width: 100%;
 }
 
+.update_setbutton{
+  text-align: center;
+  padding: 2%;
+}
+.update_addbutton{
+    color: #0d6efd;
+    border-color: #0d6efd;
+    --text: #fff;
+    --font-size: 16px;
+    padding: 10px 17px;
+    line-height: var(--font-size);
+    border-radius: 10px;
+    margin-right: 5%
+    }
+    
+    .update_box{
+  	position: relative;
+ 	 padding: 60px 0 30px;
+ 	 font-size: 35px;
+  	font-weight: 700;
+ 	 text-align: center;
+	}
+
 /*여기까지 기본 위 배너 css입니다!*/
 /* bottom */
 /* 최하단 css */

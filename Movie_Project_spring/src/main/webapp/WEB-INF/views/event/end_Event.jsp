@@ -118,7 +118,7 @@ $(function(){
 							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>
 							<td>${item.endDate}</td>														
 							<td>${item.id}</td>							
-							<td class="adminbttons"><a href="endEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbttons">수정</button></a><a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbttons ">삭제</button></a></td>
+							<td class="adminbttons"><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbttons">수정</button></a><a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbttons ">삭제</button></a></td>
 						</tr>										 
 					</c:forEach>				    					
               </tbody>                                                   

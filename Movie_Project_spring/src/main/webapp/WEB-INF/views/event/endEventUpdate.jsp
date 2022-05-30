@@ -88,8 +88,7 @@ $(document).ready(function() {
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자" style="display: none;">		
        		</div>
           <br>   
-          <div class="file-upload" style="text-align: right;">
-            <label for="ex_file">업로드</label>
+          <div class="file-upload" style="text-align: right;">           
             <input type="file" id="ex_file"> 
             이벤트 종료일<input type="date" name="endDate">                     
         </div>        

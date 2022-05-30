@@ -81,12 +81,7 @@ public class EventServiceImpl implements EventService {
 		dao.viewcnt(item);
 		
 	}
-
-	@Override
-	public void endEventUpdate(Event item) {
-		dao.endEventUpdate(item);
-		
-	}
+	
 	
 	@Transactional
 	@Override

@@ -129,26 +129,8 @@ public class EventController {
 		
 		return "redirect:../continue_Event";
 		
-	}
+	}	
 	
-	@GetMapping("/endEventUpdate/{eventId}")
-	public String endEventUpdate(@PathVariable int eventId, Model model) {
-		Event item =  service.item(eventId);
-		
-		model.addAttribute("item", item);
-		
-		return path + "endEventUpdate";
-	}
-	
-	@PostMapping("/endEventUpdate/{eventId}")
-	public String endEventUpdate(@PathVariable int eventId, Event item) {
-		item.setEventId(eventId);
-		
-		service.endEventUpdate(item);
-		
-		return "redirect:../end_Event";
-		
-	}
 	
 	@GetMapping("/delete/{eventId}")
 	public String delete(@PathVariable int eventId) {

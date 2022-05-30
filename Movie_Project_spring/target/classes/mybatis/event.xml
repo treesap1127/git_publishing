@@ -41,11 +41,6 @@
 		SET event_name=#{eventName}, event_info=#{eventInfo},start_date=#{startDate},end_date=#{endDate} WHERE event_id=#{eventId}
 	</update>
 	
-	<update id="endupdate">
-		UPDATE event
-		SET event_name=#{eventName}, event_info=#{eventInfo},end_date=#{endDate} WHERE event_id=#{eventId}
-	</update>
-	
 	<delete id="delete">
 		DELETE FROM event
 		WHERE event_id=#{eventId}

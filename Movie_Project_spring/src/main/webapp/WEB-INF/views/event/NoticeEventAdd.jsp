@@ -5,7 +5,7 @@
 <html>
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/notice_update.css" rel="stylesheet" type="text/css">
+<link href="../css/serviceCenter/notice_add.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
 
 <!-- 서머노트를 위해 추가해야할 부분 -->
@@ -97,7 +97,7 @@ $(document).ready(function() {
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
-      <div class="update_box">이벤트 등록</div>
+      <div class="add_box">이벤트 등록</div>
       <form method="post" class="mt-4" id="mform" enctype="multipart/form-data">
         <div class="form-floating mt-2">
           <label>제목</label>	
@@ -108,9 +108,9 @@ $(document).ready(function() {
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자" >		
        		</div>
           <br>   
-          <div class="file-upload" style="text-align: right;">
-            <label for="images">업로드</label>
-            <input type="file" id="images" class="form-control">
+          <div class="file-upload" style="text-align: right;">            
+                <input class="form-control" type="file" id="ex_file" > 
+                <br>
             이벤트 시작일<input type="date" name="startDate">
 			이벤트 종료일<input type="date" name="endDate">
        	 </div>        
@@ -122,12 +122,10 @@ $(document).ready(function() {
         </div>
         
         <div>        	
-          <div class="update_setbutton">
+          <div class="add_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
           <a href="continue_Event" class="btn btn-outline-primary">목록가기</a></div>						
-        </div>
-        
-        
+        </div>       
       
       </form>
     </div>
