@@ -116,8 +116,6 @@
           
           
 		<c:forEach items="${sit}" var="item">
-		
-		
        <input type="text" value="${item.cinemaCode}" class="cinemaCode" style="display:none">
        <input type="text" value="${item.theaterName}" class="theaterName" style="display:none">
        <input type="text" value="${item.row}" class="row" style="display:none">
@@ -173,10 +171,8 @@
             </div>
           </div>
           </div>
-
           
         <div class="sitting">
-
           <a class="sitting_check"><button class="btn btn-outline-danger sit_che_btn" onclick="warning()">결제창으로 넘어가기</button></a>
           <!-- href="payment" -->
         </div>
@@ -187,7 +183,6 @@
   <!-- 좌석선택끝 -->
 
   <!-- 제일 최하단 -->
-
   <div class="bottom">
     <!--고객센터-->
     <hr class="lhr5" />

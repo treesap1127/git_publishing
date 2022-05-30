@@ -77,7 +77,6 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public String sit_tic_add(SitSelect item) {
 		String data=dao.sit_tic_add(item);
-		dao.sit_tic_delete(item);
 		return data;
 	}
 	@Override
@@ -86,9 +85,42 @@ public class TicketServiceImpl implements TicketService {
 	}
 	@Transactional
 	@Override
-	public void ticketcomplete(Ticketing item) {
-		dao.ticketcomplete(item);
-		dao.ticketcomplete_delete_sit(item);
+	public String ticketcomplete(Ticketing item) throws Exception {
+		SitSelect check=dao.ticketcompletecheck(item);
+		try {
+			if(check.getSelectSit()=="") {
+
+				throw new Exception();
+			}
+			else {
+				dao.ticketcomplete(item);
+				Thread thread = new Thread();
+				thread.interrupt();
+				dao.ticketcomplete_delete_sit(item);
+				return "true";
+			}
+		} catch (Exception e) {
+			return "false";
+		}
+	}
+	@Override
+	public void ticketsitadd(Ticketing item) {
 		dao.ticketcomplete_sit(item);
 	}
+	@SuppressWarnings("static-access")
+	@Override
+	public String sit_tic_delete(SitSelect item) {
+	     Thread thread = new Thread();
+		try {
+			thread.sleep(600000);
+		} catch (InterruptedException e) {
+			System.out.println("쓰래드가 종료되었습니다.");
+		}
+		return dao.sit_tic_delete(item);
+	}
+	@Override
+	public List<SitSelect> sitset(SitSelect list) {
+		return dao.sitset(list);
+	}
+
 }

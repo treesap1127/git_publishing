@@ -37,6 +37,12 @@ public interface TicketService {
 
 	Movie paymentItem(SitSelect item);
 
-	void ticketcomplete(Ticketing item);
+	String ticketcomplete(Ticketing item) throws Exception;
+
+	String sit_tic_delete(SitSelect item) throws InterruptedException;
+
+	void ticketsitadd(Ticketing item);
+
+	List<SitSelect> sitset(SitSelect item);
 
 }

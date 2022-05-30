@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Movie;
@@ -81,12 +80,22 @@ public class TicketDaoImpl implements TicketDao {
 	@Override
 	public void ticketcomplete_sit(Ticketing item) {
 		sql.insert("ticket.ticketcomplete_sit",item);
-		//여기다 멈추는거 ㄱ
 	}
-	//@Scheduled(fixedDelay=300000,initialDelay = 300000)//5분 후 실행 이거 함수에 파라미터 빼고 해야한데..
 	@Override
-	public void sit_tic_delete(SitSelect item) {
-		sql.delete("ticket.sit_tic_delete", item);
-		//스케줄러 해서 시작하고 멈추는건 
+	public String sit_tic_delete(SitSelect item) {
+		try {
+			sql.delete("ticket.sit_tic_delete",item);
+		} catch (Exception e) {
+			return "";
+		}
+		return "true";
+	}
+	@Override
+	public SitSelect ticketcompletecheck(Ticketing item) {
+		return sql.selectOne("ticket.ticketcompletecheck",item);
+	}
+	@Override
+	public List<SitSelect> sitset(SitSelect list) {
+		return sql.selectList("ticket.sitset",list);
 	}
 }

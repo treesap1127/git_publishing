@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
@@ -59,20 +60,34 @@ public class TicketController {
 		model.addAttribute("item", item);
 		List<Theater> sit = service.ticketsit(list);
 		model.addAttribute("sit", sit);
+
 		return path+"TicketSit";
+	}
+	@ResponseBody
+	@PostMapping("/sitset")
+	public List<SitSelect> sitset(@RequestBody SitSelect item) {
+		List<SitSelect> list=service.sitset(item);
+		System.out.println("마마"+list.get(0));
+		return list;
+		
 	}
 	@GetMapping("/payment")
 	public String pay() {
 		return path+"Payment";
 	}
 	@PostMapping("/payment")
-	public String pay(Ticketing item,Model model) {
+	public String pay(Ticketing item,Model model, RedirectAttributes ra) throws Exception {
 		Date now = new Date();         
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");         
 		String formatedNow = formatter.format(now);
 		item.setPayTime(formatedNow);
 		System.out.println("time"+formatedNow);
-		service.ticketcomplete(item);
+			String bool=service.ticketcomplete(item);
+			if(bool=="false") {
+				ra.addFlashAttribute("msg", "false");
+				return "redirect:./Ticketing";
+			}
+		service.ticketsitadd(item);
 		model.addAttribute("item", item);
 		return "redirect:../ticket/complete";
 	}
@@ -86,6 +101,7 @@ public class TicketController {
 	public String com() {
 		return path+"TicketComplete";
 	}
+	
 	@ResponseBody
 	@PostMapping("/movieplace")
 	public List<MovieAdmin> movieplace(@RequestBody MovieAdmin bicCity) {
@@ -142,6 +158,12 @@ public class TicketController {
 		item.setTheaterName(data.getTheaterName());
 		item.setCinemaCode(data.getCinemaCode());
 		String check=service.sit_tic_add(item);
+		return check;
+	}
+	@ResponseBody
+	@PostMapping("/sit_tic_delete")
+	public String sit_tic_delete(@RequestBody SitSelect item) throws InterruptedException {//좌 아이템엔 영화 코드와 좌석,id가 존재.
+		String check=service.sit_tic_delete(item);
 		return check;
 	}
 	

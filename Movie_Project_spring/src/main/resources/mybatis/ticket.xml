@@ -51,6 +51,11 @@
 		from movie
 		where movie_code=#{movieCode}
 	</select>
+	<select id="ticketcompletecheck" resultType="SitSelect">
+	select *
+	from sit_select
+	where movie_code=#{movieCode} and cinema_code=#{cinemaCode} and id=#{id} and select_sit=#{sitCode}
+	</select>
 	<insert id="sit_tic_add">
 		insert into sit_select
 		VALUES (#{movieCode},#{cinemaCode},#{theaterName},#{id},#{selectSit}) 
@@ -66,14 +71,19 @@
 	</insert>
 	<delete id="ticketcomplete_delete_sit">
 		DELETE FROM sit_select
-		where movie_code=#{movieCode} and cinema_code=#{cinemaCode} and theater_name=#{theaterName} and id=#{id} and selece_sit=#{sitCode}
+		where movie_code=#{movieCode} and cinema_code=#{cinemaCode} and theater_name=#{theaterName} and id=#{id} and select_sit=#{sitCode}
 	</delete>
 	<delete id="sit_tic_delete">
 		DELETE FROM sit_select
-		where movie_code=#{movieCode} and id=#{id} and selece_sit=#{selectSit}
+		where movie_code=#{movieCode} and id=#{id} and select_sit=#{selectSit}
 	</delete>
 		<insert id="ticketcomplete_sit">
 		insert into sit_select
 		VALUES (#{movieCode},#{cinemaCode},#{theaterName},#{id},#{sitCode}) 
 	</insert>
+	<select id="sitset" resultType="SitSelect">
+		select *
+		from sit_select
+		where movie_code=#{movieCode} and cinema_code=#{cinemaCode} and theater_name=#{theaterName}
+	</select>
 </mapper>

@@ -9,7 +9,13 @@
   <link href="../../css/ticket/Ticketing.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../../css/style/style.css">
   <script src="../../js/ticket.js"></script>
+<script>
 
+       window.onload = function(){
+    	   const msg = '${msg}';
+    	   if(msg) alert('5분이 지났습니다. 재선택 해주세요.');
+   		};
+    </script>
 </head>
 
 <body>

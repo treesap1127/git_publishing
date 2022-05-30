@@ -327,7 +327,6 @@ const dateFormat = (date) => {
 								console.log(`영화명: ${movieName} 날짜:${dateval} 시네마코드:${cinemaCode} 영화관이름:${theatername} 시간:${time} 코드${moviecodel.movieCode}`)
 								$(".sitting a").attr("href",`sit?movieName=${movieName}&cinemaCode=${cinemaCode}&theaterName=${theatername}&movieDate=${dateval}&movieTime=${time}&movieCode=${moviecodel.movieCode}`)
 								$(".sitting_check").attr("onclick","");
-								
 								},
 								error: (xhr, result2) => console.log(`[실패] print`)
 					      		 });

@@ -36,12 +36,14 @@ public interface TicketDao {
 
 	void ticketcomplete(Ticketing item);
 
-	void ticketcomplete_delete_sit(Ticketing item);
-
 	void ticketcomplete_sit(Ticketing item);
 
-	void sit_tic_delete(SitSelect item);
+	String sit_tic_delete(SitSelect item);
 
+	void ticketcomplete_delete_sit(Ticketing item);
 
+	SitSelect ticketcompletecheck(Ticketing item);
+
+	List<SitSelect> sitset(SitSelect list);
 
 }

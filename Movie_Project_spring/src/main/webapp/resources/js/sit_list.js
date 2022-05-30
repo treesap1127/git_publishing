@@ -15,6 +15,8 @@ $(function(){
 	}
 	var k=0;
 	//리스트 split으로 분할 해서 넣어주기
+	const setsit=$(".setsit").val();
+	
 	const sitcode=$(".sit").val();
 	var sititem =sitcode.split(",");
 	for(i=0;i<row;i++){//이거 row 선택자로 끌어오기
@@ -29,8 +31,6 @@ $(function(){
 			p=k+1;
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_${row_item}`);//행삭제를 위한 숫자
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_${l}`);//열삭제를 위한 숫자
-//			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_b`);//좌석 색상 정하기
-//			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text(`${row_item}${l}`);//좌석명
  			//리스트 split으로 분할한거 [k]해서 넣고
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text(sititem[k]);
 			//색상을 if=text=''이면 sit_c로 해버리고 있으면 b하기
@@ -43,6 +43,27 @@ $(function(){
 			++k;
 		}
 	}
+	moviecode_=$(".movieCode").val();
+	cinemacode_=$(".cinemaCode").val();
+	theatername_=$(".theaterName").val();
+	data={movieCode:moviecode_,cinemaCode:cinemacode_,theaterName:theatername_}
+	$.ajax({
+		  url:"/ticket/sitset",
+          method:"POST",
+          contentType:"application/json",
+          dataType:"json",
+          data:JSON.stringify(data),
+          success: item => {
+						console.log("왔습니다!"+item.length);
+						console.log(`왔습니다! ${item[0].selectSit}`);
+						
+						for(i=0;i<item.length;i++){
+							console.log(`${item[i].selectSit}`)
+						}
+					},
+		error: (xhr, result2) => console.log(`[실패] print`)
+          
+	})
 $(".aud_but").click(function(){// 어른 클릭시
 	$(".aud_but").css("background-color","white");
 	$(".aud_but").css("color","black");
@@ -158,6 +179,21 @@ $(".sit_b").click(function(){
                      success: complete =>{
 							isBoolean=Boolean(complete)
 							if(isBoolean){
+								$.ajax({
+									 url : "/ticket/sit_tic_delete",
+				                     method:"POST",
+				                     contentType:"application/json",
+				                     dataType:"text",
+				                     data:JSON.stringify(ajax_item),
+				                     success: test =>{
+										thisBoolean=Boolean(test)
+										if(thisBoolean){
+										alert(`좌석이 취소 되었습니다.`);
+										}
+										else{alert("좌석 취소를 실패하였습니다..")}
+									}, error: (xhr, result2) => console.log(`[실패] print`)
+								});
+								
 								location.href="payment";
 							}
 							else{
