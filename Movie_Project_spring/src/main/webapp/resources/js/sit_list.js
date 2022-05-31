@@ -33,6 +33,7 @@ $(function(){
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_${l}`);//열삭제를 위한 숫자
  			//리스트 split으로 분할한거 [k]해서 넣고
 			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text(sititem[k]);
+			$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(sititem[k]);
 			//색상을 if=text=''이면 sit_c로 해버리고 있으면 b하기
 			if($(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).text()==''){
 				$(`.sit_checkbox`).children(`:eq(${i})`).children(`:eq(${j})`).addClass(`sit_d`);
@@ -43,23 +44,27 @@ $(function(){
 			++k;
 		}
 	}
-	moviecode_=$(".movieCode").val();
+	moviecode_=$(".movieCode").text();
 	cinemacode_=$(".cinemaCode").val();
 	theatername_=$(".theaterName").val();
+	console.log("무비코드ㅡㅡㅡ"+moviecode_)
 	data={movieCode:moviecode_,cinemaCode:cinemacode_,theaterName:theatername_}
 	$.ajax({
 		  url:"/ticket/sitset",
           method:"POST",
           contentType:"application/json",
-          dataType:"json",
+          dataType:"text",
           data:JSON.stringify(data),
           success: item => {
-						console.log("왔습니다!"+item.length);
-						console.log(`왔습니다! ${item[0].selectSit}`);
-						
-						for(i=0;i<item.length;i++){
-							console.log(`${item[i].selectSit}`)
+						bottle=item.split(",");
+						for(i=0;i<bottle.length;i++){
+							console.log(bottle[i]);
+							$(`.${bottle[i]}`).removeClass("sit_b");
+							$(`.${bottle[i]}`).addClass("sit_c");
+							$(".sit_c").text("");		
+							$(".sit_c").off("click");
 						}
+						
 					},
 		error: (xhr, result2) => console.log(`[실패] print`)
           
@@ -132,6 +137,7 @@ $(".ten_but").click(function(){// 청소년 클릭시
 })
 let sitCode=[]
 click_num=0;
+
 $(".sit_b").click(function(){
 	total_num=$(".paynum").text();
 	console.log(`클릭 한 수${click_num} 인원 수${total_num}`)
@@ -220,7 +226,8 @@ $(".sit_b").click(function(){
 	}
 	
 });
-	
+	$(".sit_c").text("");		
+	$(".sit_c").off("click");
 	
 })
 function confirm_test(){

@@ -87,9 +87,10 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public String ticketcomplete(Ticketing item) throws Exception {
 		SitSelect check=dao.ticketcompletecheck(item);
+		System.out.println("좌석 값들!"+check.getSelectSit());
 		try {
 			if(check.getSelectSit()=="") {
-
+				System.out.println("좌석 값들!"+check.getSelectSit());
 				throw new Exception();
 			}
 			else {

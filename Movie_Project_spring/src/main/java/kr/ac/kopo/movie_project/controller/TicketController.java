@@ -65,11 +65,19 @@ public class TicketController {
 	}
 	@ResponseBody
 	@PostMapping("/sitset")
-	public List<SitSelect> sitset(@RequestBody SitSelect item) {
-		List<SitSelect> list=service.sitset(item);
-		System.out.println("마마"+list.get(0));
-		return list;
-		
+	public String sitset(@RequestBody SitSelect item) {
+		List<SitSelect> list=service.sitset(item);//가져옴
+		StringBuffer data=new StringBuffer();
+		if(list.size()!=0) {
+			for(int i=0;i<list.size();i++) {
+				SitSelect j=list.get(i);// 기초 좌석 파일
+				String b=j.getSelectSit();//String 좌석 파일
+				data.append(b+",");
+			}
+			String subString = data.substring(0,data.length()-1);
+			return subString;
+		}
+		return "";
 	}
 	@GetMapping("/payment")
 	public String pay() {
@@ -81,7 +89,6 @@ public class TicketController {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");         
 		String formatedNow = formatter.format(now);
 		item.setPayTime(formatedNow);
-		System.out.println("time"+formatedNow);
 			String bool=service.ticketcomplete(item);
 			if(bool=="false") {
 				ra.addFlashAttribute("msg", "false");
@@ -137,7 +144,6 @@ public class TicketController {
 		System.out.println(item.getCinemaCode());
 		System.out.println(item.getMovieDate());
 		List<Movie> time= service.cinematime(item);
-		
 		return time;
 	}
 	@ResponseBody
