@@ -109,7 +109,7 @@ $(document).ready(function() {
        		</div>
           <br>   
           <div class="file-upload" style="text-align: right;">            
-                <input class="form-control" type="file" id="ex_file" > 
+                <input class="form-control" type="file" name="eventImage" > 
                 <br>
             이벤트 시작일<input type="date" name="startDate">
 			이벤트 종료일<input type="date" name="endDate">
@@ -120,13 +120,14 @@ $(document).ready(function() {
         <div class="mt-2">
           <textarea id="summernote" name="eventInfo" rows="25" cols="123"></textarea>    
         </div>
-        
         <div>        	
           <div class="add_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
           <a href="continue_Event" class="btn btn-outline-primary">목록가기</a></div>						
         </div>       
-      
+      	
+      	
+      		
       </form>
     </div>
 

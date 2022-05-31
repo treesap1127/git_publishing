@@ -6,6 +6,6 @@ public interface EventImageDao {
 
 	void add(EventImage image);
 
-	boolean delete(int eventId);
+	boolean delete(int code);
 
 }

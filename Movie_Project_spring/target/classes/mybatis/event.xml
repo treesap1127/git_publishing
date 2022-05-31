@@ -5,7 +5,14 @@
 <mapper namespace="Event">
 
 	<select id="list" resultType="Event">
-		SELECT * FROM event
+		SELECT event.*, 
+			eventimage.code image_code, 
+			eventimage.file_name file_name, 
+			eventimage.uuid uuid, 
+			eventimage.event_id event_id  
+		FROM event
+		LEFT JOIN eventimage ON event.event_id=eventimage.event_id
+		<include refid="search"></include>
 	</select>
 	
 	<resultMap type="Event" id="EventMap">
@@ -19,21 +26,29 @@
 		<result column="end_date" property="endDate"/>
 		
 		<collection property="images" column="eventId" ofType="EventImage" javaType="ArrayList">
-			<id column="event_id" property="eventId" />
-			<result column="event_id" property="eventId"/>
+			<id column="image_code" property="code" />			
 			<result column="file_name" property="filename"/>
-			<result column="uuid" property="uuid"/>			
+			<result column="uuid" property="uuid"/>	
+			<result column="event_id" property="eventId"/>		
 		</collection>
 	</resultMap>
 	
+	
 	<insert id="add">
 		INSERT INTO event
-		VALUES (NULL,#{id},#{eventName}, DATE_FORMAT(NOW(),'%Y-%m-%d'), #{eventInfo}, #{eventViewcnt},DATE_FORMAT(#{startDate},'%Y-%m-%d'),DATE_FORMAT(#{endDate},'%Y-%m-%d'))	
+		VALUES (NULL,#{id},#{eventName}, DATE_FORMAT(NOW(),'%Y-%m-%d'), #{eventInfo}, #{eventViewcnt},DATE_FORMAT(#{startDate},'%Y-%m-%d'),DATE_FORMAT(#{endDate},'%Y-%m-%d'))
+		
 	</insert>
 	
 	<select id="item" resultType="Event">
-		SELECT * FROM event
-		WHERE event_id=#{eventId}
+			SELECT event.*, 
+			eventimage.code image_code, 
+			eventimage.file_name file_name, 
+			eventimage.uuid uuid, 
+			eventimage.event_id event_id  
+		FROM event
+		LEFT JOIN eventimage ON event.event_id=eventimage.event_id
+		WHERE event.event_id=#{eventId}
 	</select>
 	
 	<update id="update">
@@ -72,4 +87,8 @@
 		set event_viewcnt = event_viewcnt + 1 
 		 where event_id = #{eventId}
 	</update>
+	<select id="eventItem" resultType="Integer">
+		select max(event_id)
+		from event
+	</select>
 </mapper>

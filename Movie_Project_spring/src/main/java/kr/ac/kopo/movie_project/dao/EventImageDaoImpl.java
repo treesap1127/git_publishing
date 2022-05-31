@@ -18,8 +18,8 @@ public class EventImageDaoImpl implements EventImageDao {
 	}
 
 	@Override
-	public boolean delete(int eventId) {		
-		if(sql.delete("eventimage.delete", eventId) > 0)
+	public boolean delete(int code) {		
+		if(sql.delete("eventimage.delete", code) > 0)
 			return true;
 		else
 			return false;

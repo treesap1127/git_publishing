@@ -38,10 +38,11 @@ public class EventServiceImpl implements EventService {
 	public void NoticeEventAdd(Event item) {
 		
 		dao.NoticeEventAdd(item);
+		item.setEventId(dao.eventItem());
 		
 		if(item.getImages() != null) {
 			for(EventImage image : item.getImages()) {
-				image.setEventId( item.getEventId() );
+				image.setEventId(item.getEventId());
 				
 				eventImageDao.add(image);
 			}
@@ -59,10 +60,11 @@ public class EventServiceImpl implements EventService {
 	@Transactional
 	public void NoticeEventUpdate(Event item) {
 		dao.NoticeEventUpdate(item);
+		item.setEventId(dao.eventItem());		
 		
 		if(item.getImages() != null) {
 			for(EventImage image : item.getImages()) {
-				image.setEventId( item.getEventId() );
+				image.setEventId(item.getEventId());
 				
 				eventImageDao.add(image);
 			}
@@ -86,13 +88,13 @@ public class EventServiceImpl implements EventService {
 	@Transactional
 	@Override
 	public void deleteList(List<Integer> list) {
-		for(Integer eventId : list) 
-			dao.delete(eventId);		
+		for(Integer code : list) 
+			dao.delete(code);		
 	}
 
 	@Override
-	public boolean deleteImage(int eventId) {		
-		return eventImageDao.delete(eventId);
+	public boolean deleteImage(int code) {		
+		return eventImageDao.delete(code);
 	}
 
 	

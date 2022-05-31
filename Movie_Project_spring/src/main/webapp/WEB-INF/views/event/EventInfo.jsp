@@ -83,7 +83,7 @@ $(function(){
 				<c:if test="${item.images == null || item.images.size() < 1}">
 					<li>등록 된 제품이미지가 없습니다</li>
 				</c:if>
-				<c:forEach var="image" items="${item.images}">
+				<c:forEach var="image" items="${item.images}" >
 					<li><img src="/upload/${image.uuid}_${image.filename}"/></li>
 				</c:forEach>				
 			</ul>        
@@ -100,6 +100,7 @@ $(function(){
       </div>
     </div>
   </div>
+  
 
 
 

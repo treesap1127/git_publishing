@@ -21,7 +21,9 @@ public interface EventDao {
 
 	int total(Pager pager);
 
-	void viewcnt(Event item);	
+	void viewcnt(Event item);
+
+	int eventItem();	
 
 
 

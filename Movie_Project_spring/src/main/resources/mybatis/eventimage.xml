@@ -4,11 +4,11 @@
 <mapper namespace="eventimage">
 	<insert id="add">					
 		INSERT INTO eventimage 
-		VALUES (NULL, #{eventId} ,#{filename}, #{uuid})
+		VALUES (NULL,#{filename}, #{uuid} , #{eventId})
 	</insert>
 	
 	<delete id="delete">
 		DELETE FROM eventimage
-		WHERE file_id=#{fileId}
+		WHERE code=#{code}
 	</delete>
 </mapper>

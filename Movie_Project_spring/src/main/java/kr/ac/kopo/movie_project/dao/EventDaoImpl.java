@@ -54,6 +54,10 @@ public class EventDaoImpl implements EventDao {
 	public void viewcnt(Event item) {
 		sql.update("Event.viewcnt", item);
 		
+	}
+	@Override
+	public int eventItem() {
+		return sql.selectOne("Event.eventItem");
 	}	
 
 	

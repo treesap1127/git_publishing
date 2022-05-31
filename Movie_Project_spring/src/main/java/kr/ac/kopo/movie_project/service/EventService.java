@@ -23,7 +23,7 @@ public interface EventService {
 
 	void deleteList(List<Integer> list);
 
-	boolean deleteImage(int eventId);	
+	boolean deleteImage(int code);	
 
 	
 }

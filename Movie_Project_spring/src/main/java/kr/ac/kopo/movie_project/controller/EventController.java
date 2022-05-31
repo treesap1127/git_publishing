@@ -34,17 +34,17 @@ public class EventController {
 	EventService service;	
 	
 	@RequestMapping("/delete_list")
-	public String deleteList(@RequestParam("eventId") List<Integer> list) { 
+	public String deleteList(@RequestParam("code") List<Integer> list) { 
 		service.deleteList(list);
 		
 		return "redirect:list";
 	}
 
 	@ResponseBody
-	@GetMapping("/image/delete/{eventId}") 
-	public boolean deleteImage(@PathVariable int eventId)
+	@GetMapping("/image/delete/{code}") 
+	public boolean deleteImage(@PathVariable int code)
 	{
-		return service.deleteImage(eventId);
+		return service.deleteImage(code);
 	}
 	
 	
