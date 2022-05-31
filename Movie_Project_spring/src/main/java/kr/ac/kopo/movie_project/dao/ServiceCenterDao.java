@@ -20,6 +20,8 @@ public interface ServiceCenterDao {
 
 	void delete(Long boardId, Long articleId);
 
+	int maxitem(Board item);
+
 	
 
 }

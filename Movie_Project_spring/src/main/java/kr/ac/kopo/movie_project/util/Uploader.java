@@ -8,7 +8,7 @@ import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Uploader<T extends UploadFile> {
-   final String uploadPath = "D:\\upload/"; //저장위치
+   final String uploadPath = "D:/upload/"; //저장위치
    
    public List<T> makeList(List<MultipartFile> files,Class<T> type) throws Exception {
       List<T> result =new ArrayList<>(); //어레이리스트 객체생성해서 리절트에 담음

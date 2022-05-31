@@ -60,4 +60,9 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 
 	}
 
+	@Override
+	public int maxitem(Board item) {
+		return sql.selectOne("Board.maxitem", item);
+	}
+
 }

@@ -18,7 +18,9 @@
 		SELECT * FROM board_${boardId}
 		WHERE article_id=#{articleId}
 	</select>
-
+	<select id="maxitem" resultType="Integer">
+		SELECT max(article_id) FROM board_${boardId}
+	</select>
 	<update id="update">
 		UPDATE board_${boardId}
 		SET subject=#{subject},

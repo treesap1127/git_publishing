@@ -27,14 +27,23 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 
 	
 	@Override
+	@Transactional
 	public void add(Board item) {
+		
 		dao.add(item);
+		int articleId=dao.maxitem(item);
+		
+		 item.setArticleId(articleId);
 		
 		if(item.getImages() != null) {
+			
 			for (BoardImage image : item.getImages()) {
-				image.setBoardCode(item.getArticleId());
+				image.setArticleId(item.getArticleId());
+				image.setBoardId(item.getBoardId());
+				System.out.println("사이"+image.getArticleId()+"사이"+image.getBoardId());
 				
 				boardImageDao.add(image);
+				  
 			}
 		} 
 	}

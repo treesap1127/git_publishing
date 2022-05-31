@@ -6,7 +6,18 @@ public class BoardImage implements UploadFile {
 	private int boardId;
 	private String filename;
 	private String UUID;
-	private int boardCode;
+	private int articleId;
+	private int code;
+	
+	
+	
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
 
 	public int getBoardId() {
 		return boardId;
@@ -16,12 +27,14 @@ public class BoardImage implements UploadFile {
 		this.boardId = boardId;
 	}
 
-	public int getBoardCode() {
-		return boardCode;
+	
+
+	public int getArticleId() {
+		return articleId;
 	}
 
-	public void setBoardCode(int boardCode) {
-		this.boardCode = boardCode;
+	public void setArticleId(int articleId) {
+		this.articleId = articleId;
 	}
 
 	public String getFilename() {

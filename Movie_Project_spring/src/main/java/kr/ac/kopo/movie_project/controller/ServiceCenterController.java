@@ -54,21 +54,30 @@ public class ServiceCenterController {
       
       @GetMapping("/{boardId}/BoardAdd")
       public String BoardAdd() {
+    	  
          return path +"BoardAdd";
       }
       @PostMapping("/{boardId}/BoardAdd")
       public String add(@PathVariable int boardId,Board item,HttpSession session, @RequestParam("boardImage") List<MultipartFile> boardImage) {
-         item.setArticleId(boardId); // 수정가능성 높음
+         item.setBoardId(boardId); // 수정가능성 높음
+         
+         
          try {
              Uploader<BoardImage> uploader =new Uploader<>(); //업로더라고 객체생성함 보드이미지 모델에 업로더 담궈둠
-             
+         
              List<BoardImage> images=uploader.makeList(boardImage,BoardImage.class);
-             //makeList는 파일 사이즈 조정하는듯
-             //보드이미지 모델을 images라고 줄인담에 uploader.makeList(~~)를 사이즈 초과되지않게 images에 담가둠
+
              item.setImages(images);
+             List<BoardImage> a = item.getImages();
+             BoardImage b = a.get(0);
+             System.out.println("이미지ㅣㅣㅣㅣㅣㅣ"+ b.getArticleId());
+             System.out.println("이미지ㅣㅣㅣㅣㅣㅣ"+ b.getBoardId());
+             System.out.println("이미지ㅣㅣㅣㅣㅣㅣ"+ b.getFilename());
+             System.out.println("이미지ㅣㅣㅣㅣㅣㅣ"+ b.getUUID());
+			
              //셋 이미지 해서 이미지 설정해줌 
              service.add(item);
-             System.out.println("Awdwad");
+           
           }
            catch (Exception e) {
                 e.printStackTrace(); //에러 출력 
@@ -77,6 +86,8 @@ public class ServiceCenterController {
          
          return "redirect:BoardList";
       }
+      
+      
       
       @GetMapping("{boardId}/BoardView/{articleId}")
       public String BoardView(@PathVariable int boardId, @PathVariable int articleId,Model model) {

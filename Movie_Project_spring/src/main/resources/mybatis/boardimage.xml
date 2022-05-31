@@ -4,7 +4,7 @@
 <mapper namespace="boardimage">
 	<insert id="add">
 	INSERT INTO board_image
-	VALUES(NULL, #{filename},#{UUID},#{id})
+	VALUES(NULL, #{filename},#{UUID},#{articleId},#{boardId})
 	</insert>
 
 

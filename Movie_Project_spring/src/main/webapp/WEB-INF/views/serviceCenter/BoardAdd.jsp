@@ -28,6 +28,26 @@ $(document).ready(function() {
 		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
           
 	});
+	   $("#add_image").click(function() {
+	         const div = $("<div>").addClass("mt-2");
+	         const label = $("<label>").text("제품이미지");
+	         const button = $("<span>").text("삭제");
+
+	         button.addClass("btn btn-outline-primary btn-sm");
+	         const file = $("<input>").attr("type", "file");
+	         file.attr("name", "productImage");
+	         file.addClass("form-control");
+
+	         button.click(function() {
+	            $(this).parent().remove();
+	         });
+
+	         div.append(label);
+	         div.append(button);
+	         div.append(file);
+
+	         $("form > div:last-child").before(div);
+	      });
 });
 </script>
 <!--  -->
@@ -93,10 +113,7 @@ $(document).ready(function() {
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자">		
        		</div>
           <br>   
-          <div class="file-upload" style="text-align: right;">           
-            <input class="file" type="file" id="file" > 
-           
-        </div>        
+            
         
         </div>	
         	
@@ -112,6 +129,10 @@ $(document).ready(function() {
         
         
         <div>        	
+            <div class="mt-2">
+            <label>파일:<span id="add_image" class="btn btn-outline-primary btn-sm">추가</span></label> 
+               <input type="file" name="boardImage" class="form-control">
+         </div> 
           <div class="add_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
           <a href=".." class="btn btn-outline-primary">목록가기</a></div>						
