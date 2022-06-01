@@ -9,7 +9,7 @@ public interface EventService {
 
 	List<Event> continue_Event(Pager pager);
 
-	List<Event> end_Event();
+	List<Event> end_Event(Pager pager);
 
 	void NoticeEventAdd(Event item);
 
@@ -17,7 +17,13 @@ public interface EventService {
 
 	Event item(int eventId);
 
-	void NoticeEventUpdate(Event item);	
+	void NoticeEventUpdate(Event item);
+
+	void viewcnt(Event item);	
+
+	void deleteList(List<Integer> list);
+
+	boolean deleteImage(int code);	
 
 	
 }

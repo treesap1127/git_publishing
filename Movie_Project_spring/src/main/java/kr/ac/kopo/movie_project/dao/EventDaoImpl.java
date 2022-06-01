@@ -20,9 +20,9 @@ public class EventDaoImpl implements EventDao {
 		return sql.selectList("Event.list",pager);
 	}
 	@Override
-	public List<Event> end_Event() {
+	public List<Event> end_Event(Pager pager) {
 		
-		return sql.selectList("Event.list");
+		return sql.selectList("Event.list",pager);
 	}
 	
 	@Override
@@ -50,6 +50,15 @@ public class EventDaoImpl implements EventDao {
 		
 		return sql.selectOne("Event.total",pager);
 	}
+	@Override
+	public void viewcnt(Event item) {
+		sql.update("Event.viewcnt", item);
+		
+	}
+	@Override
+	public int eventItem() {
+		return sql.selectOne("Event.eventItem");
+	}	
 
 	
 

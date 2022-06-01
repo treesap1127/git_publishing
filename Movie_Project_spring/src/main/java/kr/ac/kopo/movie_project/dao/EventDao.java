@@ -9,7 +9,7 @@ public interface EventDao {
 
 	List<Event> continue_Event(Pager pager);
 
-	List<Event> end_Event();
+	List<Event> end_Event(Pager pager);
 
 	void NoticeEventAdd(Event item);
 
@@ -20,6 +20,10 @@ public interface EventDao {
 	Event item(int eventId);
 
 	int total(Pager pager);
+
+	void viewcnt(Event item);
+
+	int eventItem();	
 
 
 

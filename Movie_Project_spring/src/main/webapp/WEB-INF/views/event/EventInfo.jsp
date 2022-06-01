@@ -7,7 +7,12 @@
  <jsp:include page="../include/header.jsp"></jsp:include>
     <link rel="stylesheet" href="../../resources/css/style/style.css">
     <link rel="stylesheet" href="../../resources/css/event/eventInfo.css">
-    <link rel="javascript" href="js/mainpage.js">
+    <link rel="javascript" href="js/mainpage.js">    
+<script>
+$(function(){	
+	$(".eventbtns").css("display","none");
+	});
+</script>
 </head>
 <body>
   <div class="box_case">
@@ -57,8 +62,9 @@
             </ul>
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
-     <!-- 제일 최하단 -->
-  <div class="gray_main">
+     <!-- 제일 최하단 --> 
+    
+    <div class="gray_main">
     <div class="whitebox">
       <div class="whitebox_info">
         <div class="whitebox_info_text">이벤트</div>
@@ -66,26 +72,35 @@
       <div class="event_info_title_box">
         <div class="event_info_title">
           <span class="event_info_title_text">${item.eventName}</span>
-          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; |&nbsp; ${item.eventViewcnt}</p>
+          <p class="event_info_title_date">${item.eventDate} &nbsp; | &nbsp; ${item.id} &nbsp; | ${item.startDate}~${item.endDate} &nbsp; |&nbsp; ${item.eventViewcnt} </p>
         </div>
         <hr class="event_border2" style="border: solid 1px #dddddd;" width="1000px">
       </div>
 
       <div class="whitebox2">
-        <div class="whitebox2_photo">사진을 넣어주세요</div>
+        <div class="whitebox2_photo">
+        	<ul>
+				<c:if test="${item.images == null || item.images.size() < 1}">
+					<li>등록 된 제품이미지가 없습니다</li>
+				</c:if>
+				<c:forEach var="image" items="${item.images}" >
+					<li><img src="/upload/${image.uuid}_${image.filename}"/></li>
+				</c:forEach>				
+			</ul>        
+        </div>
         <div class="whitebox2_info">
          <div><내용 및 유의사항>
           <div>${item.eventInfo}</div>
 		</div>
         </div>
         <div class="back_button_box">
-          <a href="../../event/continue_Event"><button class="btn btn-outline-primary">목록으로가기</button></a>
+          <a href="../../event/continue_Event"><button class="btn btn-outline-primary ">목록으로가기</button></a>
+          <a href="../../event/end_Event"><button class="btn btn-outline-primary eventbtns">목록으로가기</button></a>
         </div>
       </div>
     </div>
-
-
   </div>
+  
 
 
 

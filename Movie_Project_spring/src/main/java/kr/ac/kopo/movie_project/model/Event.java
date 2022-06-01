@@ -1,5 +1,7 @@
 package kr.ac.kopo.movie_project.model;
 
+import java.util.List;
+
 public class Event {
 	private int eventId;
 	private String eventName;
@@ -7,7 +9,29 @@ public class Event {
 	private String eventInfo;
 	private String id;
 	private int eventViewcnt;
+	private String startDate;
+	private String endDate;	
+	private List<EventImage> images;
 	
+
+	public List<EventImage> getImages() {
+		return images;
+	}
+	public void setImages(List<EventImage> images) {
+		this.images = images;
+	}
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
 	public int getEventViewcnt() {
 		return eventViewcnt;
 	}
