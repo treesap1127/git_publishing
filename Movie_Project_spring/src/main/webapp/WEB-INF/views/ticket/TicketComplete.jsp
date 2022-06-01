@@ -58,17 +58,18 @@
   <!--여기까지 기본 위 배너 입니다!-->
      <!-- 제일 최하단 -->
      <div class="gray_box">
-      <div class="fail_name">userID님의 예매가 완료 되었습니다.</div>
+      <div class="fail_name">${sessionScope.member.userName}님의 예매가 완료 되었습니다.</div>
       <div class="fail_info">
-        <img src="https://movie-simg.yes24.com/NYes24//MOVIE//M61/M06/M000126106_094624.jpg/dims/thumbnail/170x245/optimize" alt="영화 사진"class="complete_img">
+        <img src="${list.image}" alt="영화 사진"class="complete_img">
         <div class="complete_text">
-          <div>예매번호: <span style="color: red;">00A00000000000</span></div>
+          <div>예매번호: <span style="color: red;">${item.ticketCode}</span></div>
           <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-          <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한"/>영화명</div>
-          <div>극장: 극장명</div>
-          <div>일시: 2022-03-29 (목) 17:20~19:27</div>
-          <div>인원: 어린이1명</div>
-          <div>좌석: A열 13번</div>
+          <div>영화: <img src="../../img/ticketing/${list.movieRating}.png" alt="연령제한"/>${list.movieName}</div>
+          <div>극장: ${list.theaterName}</div>
+          <div>일시: ${list.movieDate} ${list.movieDate}</div>
+		  <div>결제 일시: ${item.payTime}</div>
+          <div>인원: <c:if test="${item.teenager ne 0}">청소년 ${item.teenager}&nbsp;</c:if> <c:if test="${item.adult ne 0}">성인 ${item.adult}&nbsp;</c:if></div>
+          <div>좌석: ${item.sitCode}</div>
         </div>
       </div>
       <div class="a_tag"><a href="../myPage/myPage" class="fail_link"><div class="fail_button"><br>예매 내역 확인</div></a></div>

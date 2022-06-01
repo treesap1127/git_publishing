@@ -6,6 +6,8 @@ import java.util.List;
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.TicketItem;
+import kr.ac.kopo.movie_project.model.Ticketing;
 
 public interface MypageDao {
 
@@ -34,5 +36,12 @@ public interface MypageDao {
 	void movie_delete(String cinemaCode, String theaterName);
 
 	void movie_all_delete(String cinemaCode);
+
+	List<TicketItem> myticket(String id);
+
+	String cancel(Ticketing item);
+
+	List<TicketItem> myDateTicket(String id);
+
 
 }

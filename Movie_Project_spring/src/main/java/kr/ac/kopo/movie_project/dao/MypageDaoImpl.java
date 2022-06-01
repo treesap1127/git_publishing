@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.TicketItem;
+import kr.ac.kopo.movie_project.model.Ticketing;
 @Repository
 public class MypageDaoImpl implements MypageDao {
 	@Autowired
@@ -76,5 +78,22 @@ public class MypageDaoImpl implements MypageDao {
 	@Override
 	public void movie_all_delete(String cinemaCode) {
 		sql.delete("theater.movie_all_delete", cinemaCode);
+	}
+	@Override
+	public List<TicketItem> myticket(String id) {
+		return sql.selectList("theater.myticket", id);
+	}
+	@Override
+	public String cancel(Ticketing item) {
+		try {
+			sql.update("theater.cancel", item);
+		} catch (Exception e) {
+			return "false";
+		}
+		return "true";
+	}
+	@Override
+	public List<TicketItem> myDateTicket(String id) {
+		return sql.selectList("theater.myDateTicket", id);
 	}
 }

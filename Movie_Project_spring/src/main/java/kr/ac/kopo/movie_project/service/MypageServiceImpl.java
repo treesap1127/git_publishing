@@ -11,6 +11,8 @@ import kr.ac.kopo.movie_project.dao.MypageDao;
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
+import kr.ac.kopo.movie_project.model.TicketItem;
+import kr.ac.kopo.movie_project.model.Ticketing;
 @Service
 public class MypageServiceImpl implements MypageService {
 	@Autowired
@@ -68,5 +70,19 @@ public class MypageServiceImpl implements MypageService {
 		dao.moviedelete(item);
 		
 	}
+	@Override
+	public List<TicketItem> myticket(String id) {
+		return dao.myticket(id);
+	}
+	@Override
+	public String cancel(Ticketing item) {
+		String test=dao.cancel(item);
+		return test;
+	}
+	@Override
+	public List<TicketItem> myDateTicket(String id) {
+		return dao.myDateTicket(id);
+	}
+
 
 }

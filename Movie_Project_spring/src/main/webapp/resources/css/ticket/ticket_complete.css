@@ -225,9 +225,10 @@ padding: 2em 12em;
     background-color: whitesmoke;
   }
   .fail_name{
-    position: relative;
+	position: relative;
     font-size: 22px;
-    width: 340px;
+    width: 550px;
+    text-align: center;
     top: 90px;
     left: 50%;
     transform: translateX(-50%);

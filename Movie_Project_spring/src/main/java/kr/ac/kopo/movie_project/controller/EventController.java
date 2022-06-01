@@ -64,7 +64,8 @@ public class EventController {
 	
 	@PostMapping("/NoticeEventAdd")
 	public String NoticeEventAdd(Event item,HttpSession session) {
-		
+		String a = item.getEventInfo();
+		item.setEventInfo(a);
 		service.NoticeEventAdd(item);
 		
 		return "redirect:continue_Event";		
@@ -72,10 +73,9 @@ public class EventController {
 	
 	@GetMapping("/NoticeEventUpdate/{eventId}")
 	public String NoticeEventUpdate(@PathVariable int eventId, Model model) {
-		Event item =  service.item(eventId);
+		Event item =service.item(eventId);
 		
-		model.addAttribute("item", item);
-		
+		model.addAttribute("list", item);
 		return path + "NoticeEventUpdate";
 	}
 	
@@ -86,7 +86,6 @@ public class EventController {
 		service.NoticeEventUpdate(item);
 		
 		return "redirect:../continue_Event";
-		
 	}
 	
 	@GetMapping("/delete/{eventId}")

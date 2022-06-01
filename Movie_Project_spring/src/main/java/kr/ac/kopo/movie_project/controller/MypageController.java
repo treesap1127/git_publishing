@@ -20,6 +20,8 @@ import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
 import kr.ac.kopo.movie_project.service.MypageService;
+import kr.ac.kopo.movie_project.model.TicketItem;
+import kr.ac.kopo.movie_project.model.Ticketing;
 
 @Controller
 @RequestMapping("myPage/")
@@ -29,11 +31,20 @@ public class MypageController {
 	final String path="myPage/";
 	
 	@GetMapping("myPage")//마이페이지메인
-	public String mypage() {
+	public String mypage(HttpSession session,Model model) {
+		String id=(String) session.getAttribute("id");
+		System.out.println(id+"id값!");
+		List<TicketItem> TicketItem =service.myticket(id);//ticket 담아옴
+		//ticketitem에 다 넣어서 보냅시다.
+		model.addAttribute("TicketItem", TicketItem);
 		return path+"myPage";
 	}
 	@GetMapping("mymovie")//나의 영화목록
-	public String mymovie() {
+	public String mymovie(HttpSession session,Model model) {
+		String id=(String) session.getAttribute("id");
+		System.out.println(id+"id값!");
+		List<TicketItem> TicketItem =service.myDateTicket(id);//시간 지난 영화상영 ㅇㅇ
+		model.addAttribute("TicketItem", TicketItem);
 		return path+"myMovie";
 	}
 	@GetMapping("mygrade")//나의 평점
@@ -129,6 +140,12 @@ public class MypageController {
 	public Object movieadd(@RequestBody Movie item) {
 		service.movieadd(item);
 		return item;
+	}
+	@ResponseBody
+	@PostMapping("cancel")
+	public String cancel(@RequestBody Ticketing item) {
+		String bool=service.cancel(item);
+		return bool;
 	}
 }
 

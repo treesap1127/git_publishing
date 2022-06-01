@@ -45,6 +45,8 @@ public class RootController {
 	public String login(Member member,HttpSession session) {
 		if(memberservice.login(member)) {
 			session.setAttribute("member", member);
+			String id=member.getId();
+			session.setAttribute("id", id);
 			String target=(String) session.getAttribute("target");			
 			return "redirect:"+(target==null?"/":target);
 		}
@@ -83,6 +85,10 @@ public class RootController {
 	@GetMapping("/findid")
 	public String findid() {
 		return path+"findid";
+	}
+	@GetMapping("/movie_info/NowPlayRank")
+	public String NowPlayRank() {
+		return "movie_info/NowPlayRank";
 	}
 	
 	

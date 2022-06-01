@@ -45,4 +45,6 @@ public interface TicketService {
 
 	List<SitSelect> sitset(SitSelect item);
 
+	Ticketing ticketitem(Ticketing item);
+
 }

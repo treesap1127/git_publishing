@@ -95,8 +95,7 @@ public class TicketController {
 				return "redirect:./Ticketing";
 			}
 		service.ticketsitadd(item);
-		model.addAttribute("item", item);
-		return "redirect:../ticket/complete";
+		return "redirect:../ticket/complete?ticketCode="+item.getTicketCode()+"&movieCode="+item.getMovieCode();
 	}
 	@ResponseBody
 	@PostMapping("/paymentItem")
@@ -105,7 +104,16 @@ public class TicketController {
 		return list;
 	}
 	@GetMapping("/complete")
-	public String com() {
+	public String com(@RequestParam String ticketCode,@RequestParam int movieCode,Model model) {
+		Ticketing item=new Ticketing();
+		item.setTicketCode(ticketCode);
+		item.setMovieCode(movieCode);
+		item =service.ticketitem(item);
+		model.addAttribute("item", item);
+		SitSelect Sititem = new SitSelect();
+		Sititem.setMovieCode(item.getMovieCode());
+		Movie list = service.paymentItem(Sititem);
+		model.addAttribute("list", list);
 		return path+"TicketComplete";
 	}
 	

@@ -74,12 +74,14 @@
               <button class="aud_but a0">0</button><button class="aud_but a1">1</button><button class="aud_but a2">2</button><button class="aud_but a3">3</button><button class="aud_but a4">4</button><button class="aud_but a5">5</button><button class="aud_but a6">6</button><button class="aud_but a7">7</button><button class="aud_but a8">8</button>
             </div>
           </div>
+          <c:if test="${item.movieRating ne 19}">
           <div class="teenager">
             <div class="teenager_text">청소년</div>
             <div class="teenager_button">
               <button class="ten_but t0">0</button><button class="ten_but t1">1</button><button class="ten_but t2">2</button><button class="ten_but t3">3</button><button class="ten_but t4">4</button><button class="ten_but t5">5</button><button class="ten_but t6">6</button><button class="ten_but t7">7</button><button class="ten_but t8">8</button>
             </div>
           </div>
+          </c:if>
         </div>
 
         <div class="movie_checking">

@@ -6,8 +6,8 @@
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include> 
     <link rel="stylesheet" href="../../resources/css/style/style.css">
-    <link rel="stylesheet" href="../../resources/css/movie_info/Expected.css">
-    <link rel="javascript" href="js/mainpage.js">
+    <link rel="stylesheet" href="../../resources/css/movie_info/nowplayrank.css">
+    <script src="../../js/NowPlayRank.js"></script>
 </head>
 <body>
    <body>
@@ -60,437 +60,240 @@
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="midbox">
        <div class="moviechartbox">
-            <div class="moviechart">현재상영작</div>
+            <div class="moviechart">오늘의 박스오피스 순위</div>
           </div>
       <div class="moviebox">
-        <!-- <div class="movirank1-4"> -->
-          <div class="movierank">
-            <div class="movieinfo">
-              <p class="movieinfo_public">  <span class="ranting15">15</span>
-              뜨거운 피
-              </p>
-              <p class="movieinfo_public2">
-                <span>예매율:26.64%</span>
-                <span>평점 : 7</span>
-              </p>
-            </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/뜨거운피 포스터.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              
-              </div>
-            </div>
-
-
-
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="ranting12">12</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-          
-              </div>
-            </div>
-
-
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="rantingall">전체</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              </div>
-            </div>
-
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="rantingall">전체</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              </div>
-            </div>
-         <!-- </div> -->
-         <!-- 무비랭크 1-4 -->
-         <div class="movierank">
-          <div class="movieinfo">
-            <p class="movieinfo_public">  <span class="rantingall">전체</span>
-            이상한 나라의 수학자
-            </p>
-            <p class="movieinfo_public2">
-              <span>예매율:26.64%</span>
-              <span>평점 : 7</span>
-            </p>
-          </div>
-          <div class="moviephoto">
-          <div class="container">
-            <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-            <div class="textbox">
-              <button class="text">예매</button>
-              <button class="text1">정보</button>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="movierank">
-          <div class="movieinfo">
-            <p class="movieinfo_public">  <span class="rantingall">전체</span>
-            이상한 나라의 수학자
-            </p>
-            <p class="movieinfo_public2">
-              <span>예매율:26.64%</span>
-              <span>평점 : 7</span>
-            </p>
-          </div>
-          <div class="moviephoto">
-          <div class="container">
-            <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-            <div class="textbox">
-              <button class="text">예매</button>
-              <button class="text1">정보</button>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="movierank">
-          <div class="movieinfo">
-            <p class="movieinfo_public">  <span class="rantingall">전체</span>
-            이상한 나라의 수학자
-            </p>
-            <p class="movieinfo_public2">
-              <span>예매율:26.64%</span>
-              <span>평점 : 7</span>
-            </p>
-          </div>
-          <div class="moviephoto">
-          <div class="container">
-            <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-            <div class="textbox">
-              <button class="text">예매</button>
-              <button class="text1">정보</button>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="movierank">
-          <div class="movieinfo">
-            <p class="movieinfo_public">  <span class="rantingall">전체</span>
-            이상한 나라의 수학자
-            </p>
-            <p class="movieinfo_public2">
-              <span>예매율:26.64%</span>
-              <span>평점 : 7</span>
-            </p>
-          </div>
-          <div class="moviephoto">
-          <div class="container">
-            <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-            <div class="textbox">
-              <button class="text">예매</button>
-              <button class="text1">정보</button>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="movierank">
-          <div class="movieinfo">
-            <p class="movieinfo_public">  <span class="rantingall">전체</span>
-            이상한 나라의 수학자
-            </p>
-            <p class="movieinfo_public2">
-              <span>예매율:26.64%</span>
-              <span>평점 : 7</span>
-            </p>
-          </div>
-          <div class="moviephoto">
-          <div class="container">
-            <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-            <div class="textbox">
-              <button class="text">예매</button>
-              <button class="text1">정보</button>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="movierank">
-          <div class="movieinfo">
-            <p class="movieinfo_public">  <span class="rantingall">전체</span>
-            이상한 나라의 수학자
-            </p>
-            <p class="movieinfo_public2">
-              <span>예매율:26.64%</span>
-              <span>평점 : 7</span>
-            </p>
-          </div>
-          <div class="moviephoto">
-          <div class="container">
-            <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-            <div class="textbox">
-              <button class="text">예매</button>
-              <button class="text1">정보</button>
-            </div>
-          </div>
-          </div>
-        </div>
-           
-
-
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="rantingall">전체</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              </div>
-            </div>
-
-
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="rantingall">전체</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              </div>
-            </div>
-
-
-
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="rantingall">전체</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              </div>
-            </div>
-
-
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="rantingall">전체</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              </div>
-            </div>
-
-            
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="rantingall">전체</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              </div>
-            </div>
-            
-            <div class="movierank">
-              <div class="movieinfo">
-                <p class="movieinfo_public">  <span class="rantingall">전체</span>
-                이상한 나라의 수학자
-                </p>
-                <p class="movieinfo_public2">
-                  <span>예매율:26.64%</span>
-                  <span>평점 : 7</span>
-                </p>
-              </div>
-              <div class="moviephoto">
-              <div class="container">
-                <img src="../../resources/img/poster/이상한나라의수학자.jfif" alt="Picsum" class="image" style="width:100%">
-                <div class="textbox">
-                  <button class="text">예매</button>
-                  <button class="text1">정보</button>
-                </div>
-              </div>
-              </div>
-            </div>
-
-
-     
-       
-
-
-          </div>
-               <!-- 페이징디자인 -->
-               <div class="pager ">
-                <div class="page_wrap">
-                  <div class="page_nation">
-                     <a class="arrow pprev" href="#"></a>
-                     <a class="arrow prev" href="#"></a>
-                     <a href="#" class="active">1</a>
-                     <a href="#">2</a>
-                     <a href="#">3</a>
-                     <a href="#">4</a>
-                     <a href="#">5</a>
-                     <a href="#">6</a>
-                     <a href="#">7</a>
-                     <a href="#">8</a>
-                     <a href="#">9</a>
-                     <a href="#">10</a>
-                     <a class="arrow next" href="#"></a>
-                     <a class="arrow nnext" href="#"></a>
+      
+		      
+          <div class="rank_view">
+      <ul class="rank_list clear" style="list-style: none;">
+            <li>
+              <div class="flip-card" id="movie_data_1">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src=""alt="">
+                    <div class="rl_info_box">
+                      <p class="rank_num"></p>
+                    </div>
                   </div>
-               </div>
+                  <div class="flip-card-back">
+                    <img src="" alt="">
+                    <div class="rl_info_box">
+                      <p class="rank_num"></p>
+                      <div class="rl_btn_box">
+                        <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                        <a href="/MovieInfo/Index?mId=M000126106" class="btn_rank_st movie_datalink_1 movie_info">정보</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-          
+            </li>
+
+            <li>
+              <div class="flip-card" id="movie_data_2">
+                  <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                          <img src="" alt="">
+                          <div class="rl_info_box">
+                              <p class="rank_num"></p>
+                          </div>
+                      </div>
+                      <div class="flip-card-back">
+                         <img src="" alt="">
+                          <div class="rl_info_box">
+                              <p class="rank_num"></p>
+                              <div class="rl_btn_box">
+                                      <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                  <a href="/MovieInfo/Index?mId=M000077286" class="btn_rank_st movie_datalink_2 movie_info">정보</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </li>
+          <li>
+              <div class="flip-card" id="movie_data_3">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                            <div class="rl_btn_box">
+                                    <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000126050" class="btn_rank_st movie_datalink_3 movie_info">정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+              <div class="flip-card" id="movie_data_4">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                            <div class="rl_btn_box">
+                                    <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000126151" class="btn_rank_st movie_datalink_4 movie_info">정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+              <div class="flip-card" id="movie_data_5">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                            <div class="rl_btn_box">
+                                    <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000125360" class="btn_rank_st movie_datalink_5 movie_info">정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+              <div class="flip-card" id="movie_data_6">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                            <div class="rl_btn_box">
+                                    <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000125360" class="btn_rank_st movie_datalink_6 movie_info">정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+              <div class="flip-card" id="movie_data_7">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                            <div class="rl_btn_box">
+                                    <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000125360" class="btn_rank_st movie_datalink_7 movie_info">정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+              <div class="flip-card" id="movie_data_8">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                            <div class="rl_btn_box">
+                                    <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000125360" class="btn_rank_st movie_datalink_8 movie_info">정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+              <div class="flip-card" id="movie_data_9">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                            <div class="rl_btn_box">
+                                    <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000125360" class="btn_rank_st movie_datalink_9 movie_info">정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+              <div class="flip-card" id="movie_data_10">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="" alt="">
+                        <div class="rl_info_box">
+                            <p class="rank_num"></p>
+                            <div class="rl_btn_box">
+                                    <a href="../../ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000125360" class="btn_rank_st movie_datalink_10 movie_info">정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+      </ul>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+           
+            
+          </div>
+  </div>
 
 
      <!-- 제일 최하단 -->

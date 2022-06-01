@@ -23,7 +23,7 @@ a:hover {
     <!--좌우크기조절-->
     <div class="title">
       <a href="../../../../" class="main_back">
-        <img src="img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
+        <img src="../../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
         <div class="title_name">Miner Cinema</div>
       </a>
     </div>
@@ -75,47 +75,41 @@ a:hover {
 
       <div class="grade_info">
        <!--빈 박스--> 
-       <div class="grade_info_box">
+       <c:if test="${TicketItem.size()==0}">
+        <div class="grade_info_box">
           <div class="grade_empty_text">등록된 영화가 없습니다</div>
         </div>
+       </c:if>
 
 <!--1번 박스 -->
-
+		<c:forEach var="ticket" items="${TicketItem}">
   <div class="grade_info_box" style="display: flex;">
     <div class="movie_box_left">
-      <img src="img/mypage/영화_small.png" alt="" class="">
+      <img src="${ticket.image}" alt="" class="">
     </div>
 
     <div class="movie_box_center">
       <div style="display: flex;">
         <div class="my_movie_title" style="position: relative;top: 12%;">영화명 : </div>
-        <div class="my_movie_name" style="position: relative;top: 12%;">신비한 동물들과 덤블도어의 비밀</div>
+        <div class="my_movie_name" style="position: relative;top: 12%;">${ticket.movieName}</div>
       </div>
       <div style="display: flex;">
         <div class="my_movie_title">상영일 : </div>
-        <div class="my_movie_name">2010년 01월 26일</div>
+        <div class="my_movie_name">${ticket.movieDate}</div>
       </div>
     </div>
-
     <div class="movie_box_right">
-      <div style="display: flex;">
+      <div style="display: flex;position: relative;top: 4px;">
         <div class="movie_box_right_label">영화 인원:</div>
-        <div>1명</div>
+        <div class="total">${ticket.teenager+ticket.adult}명</div>
       </div>
-
-      <div style="display: flex;">
-        <div class="movie_box_right_label">예매 표 가격:</div>
-        <div>13,000 원</div>
-      </div>
-
-      <div style="display: flex;">
+      <div style="display: flex;position: relative;top: 28px;">
         <div class="movie_box_right_label">인원 연령:</div>
-        <div>어린이 0명 청소년 1명 어른 0명</div>
+        <div>청소년 ${ticket.teenager}명 어른 ${ticket.adult}명</div>
       </div>
-
     </div>
-    
   </div>
+  </c:forEach>
         <!--1번 박스 끝 -->
 
       </div>

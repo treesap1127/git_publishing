@@ -89,18 +89,6 @@
           	<a href="/signup">회원가입</a>  <a href="/findid">아이디찾기</a>  <a href="/login" onclick="findpw()">비밀번호찾기(문의)</a>
         </div>
       </div>
-    
-      
-
-        <div class="center2">       
-            <h1>소셜로그인</h1>	              
-                <section class="Easy-sgin-in-wrap">
-                    <div class="sign-a-list">
-                        <div id ="kakao_id_login" class="ka"><a href="#"><img src="img/login/kakao.png" alt="카카오" style="height: 45px; width: 45px;" /><i class="fas fa-kakaocorp"></i><span>카카오톡 계정으로 로그인</span></a></div>
-                        <div id ="naver_id_login" class="na"><a href="#"><img src="img/login/naver.png" alt="네이버" style="height: 45px; width: 45px;"/>네이버 계정으로 로그인</a></div>                  
-                    </div>                     			  
-                </section>             
-              </div>
 		  
     </div>
 <!-- 제일 최하단 -->

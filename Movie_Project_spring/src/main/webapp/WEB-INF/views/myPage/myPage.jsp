@@ -20,15 +20,36 @@
         $(".menu_cancel").click(function(){
           $(".ticket_check_cancle").css('display','block');
           $(".ticket_sale").css('display','none');
-          $(".ticket_sale_").css('display','none');
         });
         $(".menu_add").click(function(){
           $(".ticket_check_cancle").css('display','none');
           $(".ticket_sale").css('display','none');
-          $(".ticket_sale_").css('display','block');
         });
-        
-      });
+        $(".cancel").click(function(){
+        	ticket_code=$(this).attr("id");
+        	ticketCode={ticketCode:ticket_code}
+        	  if(confirm("예매를 취소하시겠습니까?. \n 환불은 3~5일내로 될 예정입니다.")){
+            		$.ajax({
+            		  url:"/myPage/cancel",
+           		      method: "POST",
+           		      contentType: "application/json",
+           		      dataType: "text",
+           		      data: JSON.stringify(ticketCode),
+           		      success: code => {
+           		    	  		if(code="true"){
+           		    	  			alert("예매 취소가 완료 되었습니다.");
+           		    	  		location.reload();
+           		    	  		}
+           		    	  		else{
+           		    	  			alert("취소가 되지 않는 경우 관리자에게 문의 하세요.");
+           		    	  		}
+	           		      },
+	       		       error: (xhr, result2) => console.log(`[실패] print`)
+	        			});
+            		}
+        		 	
+            	  })
+        });
     </script>
     <style>
     	.title_plus_text{
@@ -85,37 +106,19 @@
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
     <div class="top_box">
-      <div class="top_box_name">OOO님은 <span style="color: brown;">일반 회원</span>입니다</div>
+      <div class="top_box_name">${sessionScope.member.userName}님은 <span style="color: brown;">일반 회원</span>입니다</div>
       <div class="top_box_info">회원 등급은: 웹관리자, 영화관 관리자 회원, 일반 회원으로 나뉩니다.</div>
     </div>
-<div class="mypage">
+<div class="mypage" style="height: 2300px;">
   <div class="mypage_inline">
     <div class="my_page" style="display: flex;">
       <div class="my_top">
-        <div class="my_bank_name"><span class="my_bank_title">MY계좌</span></div>
-        <div class="my_back_box">
-          <div class="my_back_box_"style="border-right:1px solid lightgray">
-            <div>예매권</div>
-            <div style="font-weight: 600;">0매</div>
-          </div>
-          <div class="my_back_box_">
-            <div>할인권</div>
-            <div style="font-weight: 600;">0매</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="my_top">
         <div class="my_bank_name"><span class="my_bank_title">MY영화</span></div>
         <div class="my_back_box">
-         <div class="my_back_box_"style="border-right:1px solid lightgray">
-          <a href="mygrade"><img src="../img/mypage/평점.png" alt="">
-            <div style="color: black;">나의 평점 모아보기</div></a>
-          </div>
-          <div class="my_back_box_">
-            <a href="mymovie"><img src="../img/mypage/본 영화.png" alt="">
-            <div style="color: black;">내가 본 영화</div></a>
-          </div>
+          <a href="mymovie"class="my_back_box_href"><div class="my_back_box_">
+            <img src="../img/mypage/본 영화.png" alt="">
+            <div style="color: black;">내가 본 영화</div>
+          </div></a>
         </div>
       </div>
       
@@ -125,44 +128,33 @@
 
 
       <div class="ticket_check_cancle">
-        <div class="menu" style="display: flex;">
-          <div class="menu1 menu_cancel">예매확인/취소</div>
-          <div class="menu2 menu_add">예매권/할인권 등록</div>
-        </div>
 
         <div class="Cbutton" style="display: flex;">
           <button class="check" id="check_menu">예매내역</button><button class="cancle cb">취소내역</button>
         </div>
 
-        <div class="com_ticket_info">
-          <div class="com_tic_name">관람 가능 예매내역 1건 (단, 취소가능 시간이 지나면 예매취소 버튼은 보이지 않습니다.)</div>
-       
+        <div class="com_ticket_info drag_css">
+          <div class="com_tic_name">관람 가능 예매내역 (단, 취소가능 시간이 지나면 예매취소 버튼은 보이지 않습니다.)</div>
+		
+		<c:forEach var="TicketItem" items="${TicketItem}">
+		<c:if test="${TicketItem.cancel==0}">
           <div class="fail_info">
-            <img src="https://movie-simg.yes24.com/NYes24//MOVIE//M61/M06/M000126106_094624.jpg/dims/thumbnail/170x245/optimize" alt="영화 사진"class="complete_img">
+            <img src="${TicketItem.image}" alt="영화 사진"class="complete_img">
             <div class="complete_text">
-              <div>예매번호: <span style="color: red;">00A00000000000</span></div>
+              <div>예매번호: <span style="color: red;">${TicketItem.ticketCode}</span></div>
               <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-              <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한" />영화명</div>
-              <div>극장: 극장명</div>
-              <div>일시: 2022-03-29 (목) 17:20~19:27</div>
-              <div>인원: 어린이1명</div>
-              <div>좌석: A열 13번</div>
+              <div>영화: <img src="../img/ticketing/${TicketItem.movieRating}.png" alt="연령제한" />${TicketItem.movieName}</div>
+              <div>극장: ${TicketItem.theaterName}</div>
+              <div>일시: ${TicketItem.movieDate} ${TicketItem.movieTime}</div>
+              <div>인원: <c:if test="${TicketItem.teenager ne 0}">청소년 ${TicketItem.teenager}&nbsp;</c:if> <c:if test="${TicketItem.adult ne 0}">성인 ${TicketItem.adult}&nbsp;</c:if></div>
+              <div style="display: flex;justify-content: space-between;">
+	              <div>좌석: ${TicketItem.sitCode}</div>
+	              <button id="${TicketItem.ticketCode}"class="btn btn-danger cancel">예매 취소</button>
+              </div>
             </div>
           </div>
-
-          <div class="fail_info">
-            <img src="https://movie-simg.yes24.com/NYes24//MOVIE//M61/M06/M000126106_094624.jpg/dims/thumbnail/170x245/optimize" alt="영화 사진"class="complete_img">
-            <div class="complete_text">
-              <div>예매번호: <span style="color: red;">00A00000000000</span></div>
-              <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-              <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한" />영화명</div>
-              <div>극장: 극장명</div>
-              <div>일시: 2022-03-29 (목) 17:20~19:27</div>
-              <div>인원: 어린이1명</div>
-              <div>좌석: A열 13번</div>
-            </div>
-          </div>
-
+          </c:if>
+		</c:forEach>
 
           <hr class="lhr6">
         </div>
@@ -197,44 +189,30 @@
 
 
       <div class="ticket_sale" style="display: none;">
-        <div class="menu" style="display: flex;">
-          <div class="menu1 menu_cancel">예매확인/취소</div>
-          <div class="menu2 menu_add">예매권/할인권 등록</div>
-        </div>
 
         <div class="Cbutton" style="display: flex;">
           <button class="check" >예매내역</button><button class="cancle cb" id="check_menu">취소내역</button>
         </div>
 
-        <div class="com_ticket_info">
-          <div class="com_tic_name">취소한 예매 1건</div>
-       
+        <div class="com_ticket_info drag_css">
+          <div class="com_tic_name">취소한 예매</div>
+
+		<c:forEach var="TicketItem" items="${TicketItem}">
+		<c:if test="${TicketItem.cancel eq '1'}">
           <div class="fail_info">
-            <img src="https://movie-simg.yes24.com/NYes24//MOVIE//M61/M06/M000126106_094624.jpg/dims/thumbnail/170x245/optimize" alt="영화 사진"class="complete_img">
+            <img src="${TicketItem.image}" alt="영화 사진"class="complete_img">
             <div class="complete_text">
-              <div>예매번호: <span id="not_check" style="text-decoration: line-through;">00A00000000000</span></div>
+              <div>예매번호: <span style="text-decoration: line-through;">${TicketItem.ticketCode}</span></div>
               <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-              <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한"/>영화명</div>
-              <div>극장: 극장명</div>
-              <div>일시: 2022-03-29 (목) 17:20~19:27</div>
-              <div>인원: 어린이1명</div>
-              <div>좌석: A열 13번</div>
+              <div>영화: <img src="../img/ticketing/${TicketItem.movieRating}.png" alt="연령제한" />${TicketItem.movieName}</div>
+              <div>극장: ${TicketItem.theaterName}</div>
+              <div>일시: ${TicketItem.movieDate} ${TicketItem.movieTime}</div>
+              <div>인원: <c:if test="${TicketItem.teenager ne 0}">청소년 ${TicketItem.teenager}&nbsp;</c:if> <c:if test="${TicketItem.adult ne 0}">성인 ${TicketItem.adult}&nbsp;</c:if></div>
+              <div>좌석: ${TicketItem.sitCode}</div>
             </div>
           </div>
-
-          <div class="fail_info">
-            <img src="https://movie-simg.yes24.com/NYes24//MOVIE//M61/M06/M000126106_094624.jpg/dims/thumbnail/170x245/optimize" alt="영화 사진"class="complete_img">
-            <div class="complete_text">
-              <div>예매번호: <span style="text-decoration: line-through;">00A00000000000</span></div>
-              <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
-              <div>영화: <img src="../img/ticketing/19세.png" alt="연령제한"/>영화명</div>
-              <div>극장: 극장명</div>
-              <div>일시: 2022-03-29 (목) 17:20~19:27</div>
-              <div>인원: 어린이1명</div>
-              <div>좌석: A열 13번</div>
-            </div>
-          </div>
-
+ 			</c:if>
+		</c:forEach>
 
           <hr class="lhr6">
         </div>
@@ -263,93 +241,6 @@
         </div>
 
       </div>
-
-
-
-
-      <div class="ticket_sale_" style="display: none;">
-        <div class="menu" style="display: flex;">
-          <div class="menu2 menu_cancel">예매확인/취소</div>
-          <div class="menu1 menu_add">예매권/할인권 등록</div>
-        </div>
-
-        <div class="com_ticket_info">
-          <div class="com_tic_name">사용가능 예매권 <span style="color: red;">0</span> 매, 할인권 <span style="color: red;">0</span> 매 <span style="opacity: 0.4;">(2022 년 등록한 예매권 0 매)</span></div>
-          <div class="red_txt_box">
-            <form class="flex">
-              <input type="text" class="red_txt">
-              <button class="red_button">등록</button>
-            </form>
-          </div>
-
-          <div class="c_info_text such_text">- 예매권/할인권은 반드시 로그인을 하셔야만 등록 가능합니다.</div>
-          <div class="c_info_text such_text">- 예매권/할인권 등록 후 반드시 영화예매를 완료해야만 영화 관람이 가능합니다.</div>
-          <div class="c_info_text such_text">- 입력번호 중 한자라도 틀리거나 공란이 있을 시 등록이 되지 않으니 정확히 확인하시고 입력해주세요.</div>
-
-          <div class="sale_box">
-
-            <div class="sale_box_double">
-
-              <div>
-                <label class="table_name">예매권</label>
-                <table class="table">
-                 <thead class="table-light"><tr><th>구분</th><th>예매권 번호</th><th>사용기한</th><th>사용가능/매수</th><th>특이사항</th></tr></thead>
-                 <tr><td>구분</td><td>예매권 번호</td><td>사용기한</td><td>사용가능/매수</td><td>특이사항</td></tr>
-                 <tr><td>구분</td><td>예매권 번호</td><td>사용기한</td><td>사용가능/매수</td><td>특이사항</td></tr>
-                 <tr><td>구분</td><td>예매권 번호</td><td>사용기한</td><td>사용가능/매수</td><td>특이사항</td></tr>
-                 <tr><td>구분</td><td>예매권 번호</td><td>사용기한</td><td>사용가능/매수</td><td>특이사항</td></tr>
-                </table>
-              </div>
-              <div class="such_text_box">
-                <div class="c_info_text such_text">- 연간 예매권 등록매수는 1인당 24매(1인 1매권)로 제한됩니다. 24회 초과 시 예매권 등록이 불가합니다.</div>
-                <div class="c_info_text such_text">- 동일한 그룹의 예매권은 한 아이디당 4매(1인 1매권)까지만 등록이 가능합니다.</div>
-                <div class="c_info_text such_text">- 영화 예매권 결제는 관람요금이 14,000원 이하인 경우에 한합니다. (장당 추가 결제 불가)</div>
-              </div>
-            </div>
-            <div class="sale_box_double_bottom">
-              <div>
-                <label class="table_name">예매권</label>
-                <table class="table">
-                 <thead class="table-light"><tr><th>구분</th><th>예매권 번호</th><th>사용기한</th><th>사용가능/매수</th><th>특이사항</th></tr></thead>
-                 <tr><td>구분</td><td>예매권 번호</td><td>사용기한</td><td>사용가능/매수</td><td>특이사항</td></tr>
-                 <tr><td>구분</td><td>예매권 번호</td><td>사용기한</td><td>사용가능/매수</td><td>특이사항</td></tr>
-                 <tr><td>구분</td><td>예매권 번호</td><td>사용기한</td><td>사용가능/매수</td><td>특이사항</td></tr>
-                 <tr><td>구분</td><td>예매권 번호</td><td>사용기한</td><td>사용가능/매수</td><td>특이사항</td></tr>
-                </table>
-              </div>
-            </div>
-
-          </div>
-          
-          
-          <hr class="lhr6">
-        </div>
-        
-        <div class="c_info_box">
-          <div class="c_info">
-            <div class="c_info_name">예매권</div>
-            <div class="c_info_text">로그인 후 받으신 고유 번호를 등록하여 원하는 극장과 날짜의 영화를 예매할 수 있는 무료 이용권입니다.<br>단, 예매권의 형태에 따라 사용방법이 상이하오니 예매권이 종류를 정확히 확인 해주세요.<br><br>- 일반영화 예매권 : 사이트 내에서 예매 가능한 모든 극장과 날짜의 영화 예매 가능<br>- 지정영화 예매권 : 예매권에 지정된 영화만 예매 가능<br>- 1+1예매권 : 2인 이상 예매시 1매 예매 가능<br>- 평일 예매권 : 토요일, 일요일, 공휴일을 제외한 평일영화만 예매 가능</div>
-         </div>
-
-          <div class="c_info" style="position: relative; top: 30px;">
-            <div class="c_info_name">할인권</div>
-            <div class="c_info_text">로그인 후 받으신 고유 번호를 등록하여 예매시, 할인권 금액만큼 할인 받고 예매할 수 있는 이용권입니다.<br>※ 예매권/할인권의 분실 또는 도난에 대해서는 영화 사이트가 책임지지 않습니다.</div>
-          </div>
-
-          <div class="c_info" style="position: relative;bottom: 90px;">
-            <div class="c_info_name" >예매권/할인권 등록</div>
-            <div class="c_info_text">- 영화예매권/할인권을 등록하신 이후에는 반드시 나의 예매내역 > 예매권/할인권 에서 등록된 예매권의 사용기간과 사용매수, 할인금액을 확인하시기 바랍니다.<br>- 영화예매권 결제는 관람요금이 14,000원 이하인 경우에 한합니다. (극장별 3D상영버전이나 묶음상영, 일부 극장의 주말 요금이 14,000원을 초과할 경우 예매권 결제 금액에 따라 이용불가)<br>- 영화예매권/할인권 등록만으로 영화관람은 불가능하며, 반드시 예매 마감 시간 전에 영화 사이트에서 영화 예매를 완료하셔야 합니다. (영화, 극장, 날짜, 회차 등 선택 후 마지막 결제 단계에서 예매권, 할인권 사용 가능)<br>- 영화예매권/할인권에 지정된 사용기간은 따로 표기가 있지 않으면 예매일 기준입니다.(관람일이 예매권/할인권 사용기간 이후라도, 기간안에 미리 예매해두시면 됩니다.)<br>- 특정한 영화나 극장이 지정된 영화예매권/할인권 인지 확인해 주세요. 영화가 지정된 영화예매권은 사용기간 내에 해당영화가 종영되면 사용기간이 남아도 영화예매권을 사용할 수 없습니다.<br>- 예매권/할인권은 영화 사이트에서 예매가 가능한 상영관에 한 해 사용이 가능합니다. (예매가 오픈 되지 않는 일부 특별관 제외)<br>- 영화할인권은 한번 예매시 1개만 사용 가능합니다. (단, 마니아 추가혜택 영화할인권은 해당 영화할인권에 한해 2매 이상 예매시 2개 동시 사용이 가능합니다.)<br>- 영화예매권/할인권으로 예매 후 극장에서 예매번호로 반드시 티켓발권을 하셔야 합니다.</div>
-          </div>
-
-          <div class="c_info" style="position: relative; top:90px">
-            <div class="c_info_name">예매 취소 시</div>
-            <div class="c_info_text">영화예매 취소시, 영화예매권/할인권은 다시 사용가능으로 복구됩니다.<br>- 단, 예매 취소하는 시점이 영화예매권/할인권 사용기간이 지난 후라면 영화예매권은 복구되지 않습니다. 예매취소하기 전에 사용기간을 꼭 확인해 주시기 바랍니다.<br>- 극장현장에서 영화예매권/할인권으로 결제한 영화를 취소할 경우, 현금 환불을 받거나 다른 영화로 변경이 불가합니다.<br>- 극장 현장에서 취소하신 경우 취소 내역은 관람일 다음날 오전 중에 반영 됩니다. 사용하신 예매권/할인권의 복구도 이 때 함께 진행되니 취소에 유의하시기 바랍니다.</div>
-          </div>
-        </div>
-
-      </div>
-
-
 
 
     </div>

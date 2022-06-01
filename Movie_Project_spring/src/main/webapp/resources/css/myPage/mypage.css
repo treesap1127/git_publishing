@@ -263,11 +263,11 @@ a{
 }
 .my_page{
   width: 100%;
-  height: 430px;
+  height: 233px;
   justify-content: space-between;
 }
 .my_top{
-  width: 49%;
+  width: 100%;
   height: 100%;
 }
 .my_bank_name{
@@ -281,17 +281,28 @@ a{
 
 }
 .my_back_box{
-  width: 100%;
-  height: 56%;
-  background-color: white;
-  display: flex;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    position: relative;
+    top: 80px;
 }
 .my_back_box_{
-  width: 50%;
-  padding: 55px;
+display: flex;
+}
+.my_back_box_href{
   font-size: 18px;
   text-align: center;
   line-height: 58px;
+  width: 1080px;
+}
+.my_back_box_>img{
+	position: relative;
+    left: 450px;
+}
+.my_back_box_>div{
+	position: relative;
+    left: 450px;
 }
 .ticket_check_cancle{
   width: 100%;
@@ -341,24 +352,36 @@ a{
 }
 
 .fail_info{
-  position: relative;
-  background-color: white;
-  display: flex;
-  width: 100%;
-  height: 400px;
-  /* top: 178px; */
-  left: 50%;
-  transform: translateX(-50%);
-  border: 1px solid #dddddd;
-  margin-bottom: 50px;
+position: relative;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    height: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #dddddd;
 }
 .complete_img{
-  width: 284px;
+	    width: 172px;
+}
+.cancel{
+	margin-left: 620px;
+    position: relative;
+    bottom: 12px;
+}
+.drag_css{
+	overflow-y: scroll;
+    height: 665px;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+.drag_css::-webkit-scrollbar{
+	display: none;
 }
 .complete_text{
   padding: 30px;
-  width: 59%;
-  line-height: 40px;
+      width: 84%;
+    line-height: 26px;
 }
 .com_tic_name{
   padding-bottom: 50px;

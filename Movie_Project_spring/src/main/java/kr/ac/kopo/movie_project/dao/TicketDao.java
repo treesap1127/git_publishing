@@ -46,4 +46,6 @@ public interface TicketDao {
 
 	List<SitSelect> sitset(SitSelect list);
 
+	Ticketing ticketitem(Ticketing item);
+
 }

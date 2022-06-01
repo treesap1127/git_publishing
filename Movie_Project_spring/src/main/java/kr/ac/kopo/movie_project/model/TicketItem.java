@@ -1,6 +1,6 @@
 package kr.ac.kopo.movie_project.model;
 
-public class Ticketing {
+public class TicketItem {
 	private String ticketCode;
 	private String id;
 	private String cinemaCode;
@@ -12,6 +12,42 @@ public class Ticketing {
 	private String payTool;
 	private String payTime;
 	private int cancel;
+	private String movieName;
+	private String movieDate;
+	private String movieTime;
+	private String image;
+	private String movieRating;
+	
+	public String getMovieName() {
+		return movieName;
+	}
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+	public String getMovieDate() {
+		return movieDate;
+	}
+	public void setMovieDate(String movieDate) {
+		this.movieDate = movieDate;
+	}
+	public String getMovieTime() {
+		return movieTime;
+	}
+	public void setMovieTime(String movieTime) {
+		this.movieTime = movieTime;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getMovieRating() {
+		return movieRating;
+	}
+	public void setMovieRating(String movieRating) {
+		this.movieRating = movieRating;
+	}
 	public String getTicketCode() {
 		return ticketCode;
 	}
@@ -78,5 +114,4 @@ public class Ticketing {
 	public void setCancel(int cancel) {
 		this.cancel = cancel;
 	}
-	
 }

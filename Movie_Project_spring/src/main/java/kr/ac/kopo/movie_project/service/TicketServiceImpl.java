@@ -123,5 +123,10 @@ public class TicketServiceImpl implements TicketService {
 	public List<SitSelect> sitset(SitSelect list) {
 		return dao.sitset(list);
 	}
+	@Override
+	public Ticketing ticketitem(Ticketing item) {
+		return dao.ticketitem(item);
+		
+	}
 
 }

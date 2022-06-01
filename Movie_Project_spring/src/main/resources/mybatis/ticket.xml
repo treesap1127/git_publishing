@@ -67,7 +67,7 @@
 	</select>
 		<insert id="ticketcomplete">
 		insert into ticketing
-		VALUES (#{ticketCode},#{id},#{cinemaCode},#{theaterName},#{sitCode},#{movieCode},#{teenager},#{adult},#{payTool},#{payTime}) 
+		VALUES (#{ticketCode},#{id},#{cinemaCode},#{theaterName},#{sitCode},#{movieCode},#{teenager},#{adult},#{payTool},#{payTime},'0') 
 	</insert>
 	<delete id="ticketcomplete_delete_sit">
 		DELETE FROM sit_select
@@ -86,4 +86,10 @@
 		from sit_select
 		where movie_code=#{movieCode} and cinema_code=#{cinemaCode} and theater_name=#{theaterName}
 	</select>
+		<select id="ticketitem" resultType="Ticketing">
+		select *
+		from ticketing
+		where ticket_code=#{ticketCode}
+	</select>
+
 </mapper>

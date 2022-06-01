@@ -98,4 +98,8 @@ public class TicketDaoImpl implements TicketDao {
 	public List<SitSelect> sitset(SitSelect list) {
 		return sql.selectList("ticket.sitset",list);
 	}
+	@Override
+	public Ticketing ticketitem(Ticketing item) {
+		return sql.selectOne("ticket.ticketitem", item);
+	}
 }

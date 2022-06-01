@@ -1,6 +1,6 @@
 
 $(function(){
-   for(i=1;i<6;i++){
+   for(i=1;i<11;i++){
    var rank={rank:10,rnum:i};//10개중 //2번
    $.ajax({
           url:"/koficmovie",

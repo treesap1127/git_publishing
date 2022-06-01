@@ -146,7 +146,7 @@ padding: 2em 12em;
 /*여기까지 기본 위 배너 css입니다!*/
 .login_box{
   width: 1000px;
-  height: 830px; 
+    height: 750px;
   position: relative;
   left: 52%;
   transform: translateX(-50%);
@@ -272,9 +272,9 @@ padding: 2em 12em;
 }
 .center{
   position: relative;  
-  top: 5%;
-  left: 23%;
-  transform: translate(-50%, 38%);
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
   width: 500px;
   height: 400px;
   background: white;

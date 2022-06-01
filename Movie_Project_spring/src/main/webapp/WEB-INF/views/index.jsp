@@ -20,7 +20,7 @@
             <div class="title">
               <a href="." class="main_back">
                 <img src="img/root/메인아이콘.jpg" alt="메인아이콘"/>
-                <div class="title_name">Miner Cinema</div>
+                <div class="title_name">Minor Cinema</div>
               </a>
             </div>
 
@@ -49,11 +49,7 @@
                   <li><a href="ticket/TicketInformation" aria-label="subemnu">예매안내</a></li>
                 </ul>
               </li>
-              <li><a href="movie_info/NowPlayRank">영화</a>
-                <ul id="sub-menu">
-                  <li><a href="movie_info/NowPlayRank" aria-label="subemnu">현재 상영작</a></li>
-                  <li><a href="movie_info/Expected" aria-label="subemnu">상영예정작</a></li>
-                </ul>
+              <li><a href="movie_info/NowPlayRank">영화 정보</a>
               </li>
               <li><a href="event/continue_Event">이벤트</a>
                 <ul id="sub-menu">
@@ -66,8 +62,8 @@
      <!--여기까지 기본 위 배너 입니다!-->
     <div class="top_box">
       <div class="top_photo"></div>
-      <div class="top_movie_name">영화제목</div>
-      <div class="top_movie_grade">영화순위,예매율</div>
+      <div class="top_movie_name">Minor Cinema</div>
+      <div class="top_movie_grade">편리하게 사용할 수 있는 통합 예매사이트</div>
     </div>
     <div class="rank_view">
       <ul class="rank_list clear" style="list-style: none;">
@@ -85,8 +81,8 @@
                     <div class="rl_info_box">
                       <p class="rank_num"></p>
                       <div class="rl_btn_box">
-                        <a href="" class="btn_rank_st">예매</a>
-                        <a href="/MovieInfo/Index?mId=M000126106" class="btn_rank_st movie_datalink_1">정보</a>
+                        <a href="ticket/Ticketing" class="btn_rank_st">예매</a>
+                        <a href="/MovieInfo/Index?mId=M000126106" class="btn_rank_st movie_datalink_1 movie_info">정보</a>
                       </div>
                     </div>
                   </div>
@@ -109,7 +105,7 @@
                               <p class="rank_num"></p>
                               <div class="rl_btn_box">
                                       <a href="ticket/Ticketing" class="btn_rank_st">예매</a>
-                                  <a href="/MovieInfo/Index?mId=M000077286" class="btn_rank_st movie_datalink_2">정보</a>
+                                  <a href="/MovieInfo/Index?mId=M000077286" class="btn_rank_st movie_datalink_2 movie_info">정보</a>
                               </div>
                           </div>
                       </div>
@@ -130,8 +126,8 @@
                         <div class="rl_info_box">
                             <p class="rank_num"></p>
                             <div class="rl_btn_box">
-                                    <a href="" class="btn_rank_st">예매</a>
-                                <a href="/MovieInfo/Index?mId=M000126050" class="btn_rank_st movie_datalink_3">정보</a>
+                                    <a href="ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000126050" class="btn_rank_st movie_datalink_3 movie_info">정보</a>
                             </div>
                         </div>
                     </div>
@@ -153,7 +149,7 @@
                             <p class="rank_num"></p>
                             <div class="rl_btn_box">
                                     <a href="ticket/Ticketing" class="btn_rank_st">예매</a>
-                                <a href="/MovieInfo/Index?mId=M000126151" class="btn_rank_st movie_datalink_4">정보</a>
+                                <a href="/MovieInfo/Index?mId=M000126151" class="btn_rank_st movie_datalink_4 movie_info">정보</a>
                             </div>
                         </div>
                     </div>
@@ -174,8 +170,8 @@
                         <div class="rl_info_box">
                             <p class="rank_num"></p>
                             <div class="rl_btn_box">
-                                    <a href="" class="btn_rank_st">예매</a>
-                                <a href="/MovieInfo/Index?mId=M000125360" class="btn_rank_st movie_datalink_5">정보</a>
+                                    <a href="ticket/Ticketing" class="btn_rank_st">예매</a>
+                                <a href="/MovieInfo/Index?mId=M000125360" class="btn_rank_st movie_datalink_5 movie_info">정보</a>
                             </div>
                         </div>
                     </div>
