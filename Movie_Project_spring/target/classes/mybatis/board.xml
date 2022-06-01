@@ -5,47 +5,55 @@
 <mapper namespace="Board">
 	<select id="list" resultType="Board">
 		SELECT * FROM board_${boardId}
-		
+		<include refid="search"></include>
 	</select>
-	
+
 	<insert id="add">
-		INSERT INTO board
-		VALUES (null,#{subject},#{id},DATE_FORMAT(NOW(),'%Y-%m-%d'), #{contents}, #{viewCount})
+		INSERT INTO board_${boardId}
+		VALUES
+		(null,#{subject},#{id},DATE_FORMAT(NOW(),'%Y-%m-%d'), #{contents},#{viewCount})
 	</insert>
-	
+
 	<select id="item" resultType="Board">
-		SELECT * FROM board
+		SELECT * FROM board_${boardId}
 		WHERE article_id=#{articleId}
 	</select>
-	
+	<select id="maxitem" resultType="Integer">
+		SELECT max(article_id) FROM board_${boardId}
+	</select>
 	<update id="update">
-		UPDATE board
-		SET subject=#{subject}, contents=#{contents}
+		UPDATE board_${boardId}
+		SET subject=#{subject},
+		contents=#{contents}
 		WHERE article_id=#{articleId}
 	</update>
-	
+
 	<delete id="delete">
-		DELETE FROM board
-		WHERE article_id=#{articleId}
+		DELETE FROM board_${boardId}
+		WHERE
+		article_id=#{articleId}
+
 	</delete>
-	
-	
-	
-<sql id="search">
+
+
+
+	<sql id="search">
 		<where>
 			<if test="search==1">
-				board.subject=#{keyword}
+				subject LIKE CONCAT('%',CONCAT(#{keyword},'%'))
 			</if>
 			<if test="search==2">
-				board.contents LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+				contents LIKE CONCAT('%',CONCAT(#{keyword},'%'))
 			</if>
 			<if test="search==3">
-				board.member.id LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+				memberId=${keyword}
 			</if>
 		</where>
 	</sql>
-<select id="total" resultType="Integer">
-		SELECT COUNT(*) FROM board
+
+
+	<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM board_${boardId}
 		<include refid="search"></include>
 	</select>
 </mapper>

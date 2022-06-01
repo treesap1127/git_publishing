@@ -67,19 +67,19 @@
                      
                                   <thead>
                                       <tr>
-                                          <td><a href="#">Q 네이버 페이로 결제할수 있나용?</a></td>
+                                          <td><a href="F&Q">Q 네이버 페이로 결제할수 있나용?</a></td>
                                        </tr>
                                        <tr>
-                                        <td><a href="#">Q 한번에 몇 매까지 예매가 가능한가요?</a></td>
+                                        <td><a href="F&Q">Q 한번에 몇 매까지 예매가 가능한가요?</a></td>
                                      </tr>
                                      <tr>
-                                      <td><a href="#">Q 네이버 페이로 결제할수 있나용?</a></td>
+                                      <td><a href="F&Q">Q 네이버 페이로 결제할수 있나용?</a></td>
                                    </tr>
                                    <tr>
-                                    <td><a href="#">Q 예매후 극장 예매표는 어떻게 받나요?</a></td>
+                                    <td><a href="F&Q">Q 예매후 극장 예매표는 어떻게 받나요?</a></td>
                                  </tr>
                                  <tr>
-                                  <td><a href="#">Q 예매 취소내역은 어디서 확인하나요?</a></td>
+                                  <td><a href="F&Q">Q 예매 취소내역은 어디서 확인하나요?</a></td>
                                </tr>
                               
                                       </thead>

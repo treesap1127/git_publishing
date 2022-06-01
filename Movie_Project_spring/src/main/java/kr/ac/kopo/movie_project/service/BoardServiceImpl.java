@@ -22,13 +22,13 @@ public class BoardServiceImpl implements BoardService {
 
    @Override
    public BoardMaster item(int boardId) {
-
-      return dao.item(boardId);
-   }
-
-   @Override
-   public void delete(int boardId) {
-      dao.delete(boardId);
+		return dao.item(boardId);
+	}
+	
+	@Transactional
+	@Override
+	public void delete(int boardId) {
+		dao.delete(boardId);
 
       dao.deleteTable(boardId);
 

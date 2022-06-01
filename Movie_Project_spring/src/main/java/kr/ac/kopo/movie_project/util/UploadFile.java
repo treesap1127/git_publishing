@@ -4,6 +4,7 @@ public interface UploadFile {
 
 	void setFilename(String filename);
 
-	void setUuid(String uuid);
+	void setUUID(String uuid);
 
 }
+

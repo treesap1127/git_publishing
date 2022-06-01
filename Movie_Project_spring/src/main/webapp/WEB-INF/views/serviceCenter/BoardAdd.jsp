@@ -5,8 +5,8 @@
 <html>
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/notice_add.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../css/style/style.css">
+<link href="../../../css/serviceCenter/notice_add.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../css/style/style.css">
 
 <!-- 서머노트를 위해 추가해야할 부분 -->
 <script src="js/summernote-lite.js"></script>
@@ -28,6 +28,26 @@ $(document).ready(function() {
 		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
           
 	});
+	   $("#add_image").click(function() {
+	         const div = $("<div>").addClass("mt-2");
+	         const label = $("<label>").text("제품이미지");
+	         const button = $("<span>").text("삭제");
+
+	         button.addClass("btn btn-outline-primary btn-sm");
+	         const file = $("<input>").attr("type", "file");
+	         file.attr("name", "productImage");
+	         file.addClass("form-control");
+
+	         button.click(function() {
+	            $(this).parent().remove();
+	         });
+
+	         div.append(label);
+	         div.append(button);
+	         div.append(file);
+
+	         $("form > div:last-child").before(div);
+	      });
 });
 </script>
 <!--  -->
@@ -38,12 +58,12 @@ $(document).ready(function() {
     <!--좌우크기조절-->
     <div class="title">
       <a href="../../../../" class="main_back">
-        <img src="../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
+        <img src="../../../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
         <div class="title_name">Miner Cinema</div>
       </a>
     </div>
 <div class="title_right">
-	                <a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
+	                <a href="such"><img src="../../../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
 	                <div class="login_link"><a href="serviceCenter/CenterService" >고객센터</a></div>
 	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="login">로그인</a></div></c:if>
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="logout">로그아웃</a></div></c:if>
@@ -82,8 +102,8 @@ $(document).ready(function() {
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
-      <div class="add_box">공지사항 등록</div>
-      <form method="post" class="mt-4">
+      <div class="add_box">게시글 등록</div>
+      <form method="post" class="mt-4" enctype="multipart/form-data">
         <div class="form-floating mt-2">
           <label>제목</label>	
           <div >				
@@ -93,10 +113,7 @@ $(document).ready(function() {
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자">		
        		</div>
           <br>   
-          <div class="file-upload" style="text-align: right;">           
-            <input class="ex_file" type="file" id="ex_file" > 
-            <input type="date" name="ragdate">
-        </div>        
+            
         
         </div>	
         	
@@ -112,9 +129,13 @@ $(document).ready(function() {
         
         
         <div>        	
+            <div class="mt-2">
+            <label>파일:<span id="add_image" class="btn btn-outline-primary btn-sm">추가</span></label> 
+               <input type="file" name="boardImage" class="form-control">
+         </div> 
           <div class="add_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
-          <a href="NoticeView" class="btn btn-outline-primary">목록가기</a></div>						
+          <a href=".." class="btn btn-outline-primary">목록가기</a></div>						
         </div>     
       </form>
     </div>

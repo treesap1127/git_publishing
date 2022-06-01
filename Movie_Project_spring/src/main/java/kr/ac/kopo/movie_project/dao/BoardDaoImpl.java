@@ -49,7 +49,7 @@ SqlSession sql;
 
    @Override
    public void deleteTable(int boardId) {
-      sql.update("BoardMaster.delete_board", boardId);
+      sql.update("BoardMaster.deleteboard", boardId);
 
    }
 

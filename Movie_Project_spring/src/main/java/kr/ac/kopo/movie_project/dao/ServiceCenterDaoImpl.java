@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Board;
 import kr.ac.kopo.movie_project.util.Pager;
+import kr.ac.kopo.movie_project.util.PagerBoardId;
 
 @Repository
 public class ServiceCenterDaoImpl implements ServiceCenterDao {
@@ -28,14 +29,14 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	}
 
 	@Override
-	public List<Board> list(Pager pager) {
-		// TODO Auto-generated method stub
-		return sql.selectList("Board.list", pager);
+	public List<Board> list(PagerBoardId pager) {
+
+		
+		return sql.selectList("Board.list",pager);
 	}
 
 	@Override
-	public int total(Pager pager) {
-		// TODO Auto-generated method stub
+	public int total(PagerBoardId pager) {
 		return sql.selectOne("Board.total", pager);
 	}
 
@@ -49,14 +50,19 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	}
 
 	@Override
-	public void delete(int boardId, int articleId) {
+	public void delete(Long boardId, Long articleId) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
 		map.put("boardId", boardId);
 		map.put("articleId", articleId);
 
-		sql.delete("board.delete", map);
+		sql.delete("Board.delete", map);
 
+	}
+
+	@Override
+	public int maxitem(Board item) {
+		return sql.selectOne("Board.maxitem", item);
 	}
 
 }

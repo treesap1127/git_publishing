@@ -22,7 +22,7 @@ public class Uploader<T extends UploadFile> {
 								
 				T item = type.getDeclaredConstructor().newInstance();
 				item.setFilename(filename);
-				item.setUuid(uuid);
+				item.setUUID(uuid);
 				
 				result.add(item);
 			}
@@ -32,3 +32,4 @@ public class Uploader<T extends UploadFile> {
 	}
 
 }
+
