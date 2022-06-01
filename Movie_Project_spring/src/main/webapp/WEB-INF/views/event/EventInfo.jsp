@@ -63,12 +63,10 @@ $(function(){
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <!-- 제일 최하단 --> 
-    
-    <div class="gray_main">
-    <div class="whitebox">
-      <div class="whitebox_info">
+    <div class="whitebox_info">
         <div class="whitebox_info_text">이벤트</div>
       </div>
+    <div class="whitebox">
       <div class="event_info_title_box">
         <div class="event_info_title">
           <span class="event_info_title_text">${item.eventName}</span>
@@ -78,18 +76,17 @@ $(function(){
       </div>
 
       <div class="whitebox2">
-        <div class="whitebox2_photo">
+       
         	<ul>
-				<c:if test="${item.images == null || item.images.size() < 1}">
-					<li>등록 된 제품이미지가 없습니다</li>
-				</c:if>
+<!-- 			<c:if test="${item.images == null || item.images.size() < 1}">
+				</c:if> -->
 				<c:forEach var="image" items="${item.images}" >
 					<li><img src="/upload/${image.uuid}_${image.filename}"/></li>
 				</c:forEach>				
 			</ul>        
         </div>
         <div class="whitebox2_info">
-         <div><내용 및 유의사항>
+         <div style="text-align: center">
           <div>${item.eventInfo}</div>
 		</div>
         </div>
@@ -98,8 +95,6 @@ $(function(){
           <a href="../../event/end_Event"><button class="btn btn-outline-primary eventbtns">목록으로가기</button></a>
         </div>
       </div>
-    </div>
-  </div>
   
 
 

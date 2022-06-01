@@ -7,7 +7,7 @@ import kr.ac.kopo.movie_project.util.PagerBoardId;
 
 public interface ServiceCenterservice {
 
-	List<Board> list(PagerBoardId pager, Long boardId);
+	List<Board> list(PagerBoardId pager);
 
 	void add(Board item);
 

@@ -7,11 +7,8 @@
 <meta charset="UTF-8">
  <jsp:include page="../include/header.jsp"></jsp:include>
     <link rel="stylesheet" href="../../resources/css/style/style.css">
-    <link rel="stylesheet" href="../../resources/css/event/end_event.css">
-    <link rel="javascript" href="js/mainpage.js">
+    <link rel="stylesheet" href="../../resources/css/event/continue_event.css">
 
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
 $(function(){
 	if(${sessionScope.member.grade}<10){
@@ -71,25 +68,26 @@ $(function(){
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <!--여기까지 기본 위 배너 입니다!-->
-     <div class="whitebox">
-      <div class="eventbox">
-        <div class="eventboxtext">종료된 이벤트</div>        
+     <div class="eventbox">
+        <div class="eventboxtext"> 종료 된 이벤트</div>
       </div>
-      <div>* 총 ${pager.total} 건 날짜가 지난이벤트 입니다.</div>
-     
 
-      <!-- 아래가 슬라이드 부분입니다 건들지마세요 -->
-   
-    </div>
-      <!-- 슬라이드 아래부분 목록입니다 -->
-      
- <!-- 관리자일시 -->
- 
-<div class="whitebox2">
-      <div class="scriptbox">     
+	<div class="whitebox2">
+      <div class="scriptbox">
       <div class="event_list_box">
-      
-      	 <table class="table table-striped table-bordered table-hover">         
+      <div>
+		<form>		
+			<select id="search">
+				<option value="0">전체</option>
+				<option value="1">이벤트번호</option>
+				<option value="2">이벤트제목</option>
+				<option value="3">작성자</option>
+			</select>								
+				<input type="text" name="keyword">				
+				<button class="btn btn-dark">검색</button>			
+			</form>
+		</div>
+         <table class="table">         
               <colgroup>
                 <col width="130">
                 <col>
@@ -99,16 +97,17 @@ $(function(){
                   <tr class="event_list">
                       <th>이벤트번호</th>
                       <th>이벤트제목</th>
-                      <th>종료날짜</th>                                        
-                      <th>작성자</th>
-                      <th class="adminbttons">관리</th>
-                      
+                      <th>작성날짜</th>                      
+                      <th>이벤트날짜</th>
+                      <th>조회수</th>
+                      <th>작성자</th>                      
+                      <th class="adminbtn">관리</th>                      
                   </tr>
-              </thead>
+              </thead>             
               <tbody class="event_tbody_list">
             	 <c:if test="${list.size() < 1}">
 						<tr>
-							<td colspan="5">등록 된 게시물이 없습니다</td>
+							<td colspan="7">등록 된 게시물이 없습니다</td>
 						</tr>
 					</c:if>
 					
@@ -116,14 +115,32 @@ $(function(){
 						<tr>
 							<td>${item.eventId}</td>
 							<td><a href="EventInfo/${item.eventId}">${item.eventName}</a></td>
-							<td>${item.endDate}</td>														
-							<td>${item.id}</td>							
-							<td class="adminbttons"><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbttons">수정</button></a><a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbttons ">삭제</button></a></td>
-						</tr>										 
-					</c:forEach>				    					
-              </tbody>                                                   
-          </table>                     
-      </div>   
+							<td>${item.eventDate}</td>	
+							<td>${item.startDate}~${item.endDate}</td>
+							<td>${item.eventViewcnt}</td>
+							<td>${item.id}</td>																										
+							<td class="adminbtn"><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbtn">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a></td>							
+						</tr>	
+										 
+					</c:forEach> 					    					
+              </tbody>                                                               
+          </table>                    
+      </div>     
+      
+      <div class="pager ">  
+            <a href="NoticeEventAdd"><button class="btn btn-outline-primary adminbtn">등록</button></a>
+        <div class="page_wrap">
+          <div class="page_nation">
+             <a class="arrow pprev" href="?page=1"></a>
+             <a class="arrow prev" href="?page=${pager.prev} "></a>
+             	<c:forEach var="page" items="${pager.list}">
+					<div><a href="?page=${page}">${page}</a></div>
+				</c:forEach>             
+             <a class="arrow next" href="?page=${pager.next} "></a>
+             <a class="arrow nnext" href="?page=${pager.last} "></a>
+          </div>
+        </div>
+       </div>
       </div>
      </div>
 

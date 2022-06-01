@@ -262,7 +262,15 @@ text-align: right;
   line-height: 1.5;
   border-radius: 8.2rem;
 }
-
+.drag_css{
+	overflow-y: scroll;
+    height: 536px;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+.drag_css::-webkit-scrollbar{
+	display: none;
+}
 
 
 /* bottom */

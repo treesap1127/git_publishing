@@ -9,9 +9,6 @@
  <jsp:include page="../include/header.jsp"></jsp:include>
     <link rel="stylesheet" href="../../resources/css/style/style.css">
     <link rel="stylesheet" href="../../resources/css/event/continue_event.css">
-    <link rel="javascript" href="js/mainpage.js">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
 $(function(){
 	if(${sessionScope.member.grade}<10){
@@ -69,44 +66,12 @@ $(function(){
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <!--여기까지 기본 위 배너 입니다!-->
-     <div class="whitebox">
       <div class="eventbox">
-        <div class="eventboxtext"> 진행중인 이벤트</div>
+        <div class="eventboxtext">진행 이벤트</div>
       </div>
 
-		
-      <!-- 아래가 슬라이드 부분입니다 건들지마세요 -->
-      
-      <div class="slide">
-        <ul style="padding-left: 0rem;">
-          <li>
-            <div class="swipetextbox">
-            <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 수학자</span>
-           </div>
-          </li>
-
-
-          <li>
-            <div class="swipetextbox">
-              <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 이상한 나라의 엘리스</span>
-             </div>
-          </li>
-          <li>
-            <div class="swipetextbox">
-              <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 퍼블리싱</span>
-             </div>
-          </li>
-          <li>  <div class="swipetextbox">
-            <span class="swipetext">[이것은 울트라 엄청난 영화입니다.] 그것은 바로 과학자</span>
-           </div></li>
-        </ul>
-      </div>
-    </div>
-      <!-- 슬라이드 아래부분 목록입니다 -->
-      
 	<div class="whitebox2">
       <div class="scriptbox">
-     	<p class="event-title">이벤트 목록</p>
       <div class="event_list_box">
       <div>
 		<form>		
@@ -140,7 +105,7 @@ $(function(){
               <tbody class="event_tbody_list">
             	 <c:if test="${list.size() < 1}">
 						<tr>
-							<td colspan="6">등록 된 게시물이 없습니다</td>
+							<td colspan="7">등록 된 게시물이 없습니다</td>
 						</tr>
 					</c:if>
 					

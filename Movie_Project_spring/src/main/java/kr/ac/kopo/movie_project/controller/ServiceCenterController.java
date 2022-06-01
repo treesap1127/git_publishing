@@ -46,8 +46,9 @@ public class ServiceCenterController {
       @GetMapping("/{boardId}/BoardList")
       public String BoardList(@PathVariable Long boardId,Model model,PagerBoardId pager) {
          pager.setBoardId(boardId);
-    	  List<Board> list = service.list(pager,boardId);
+    	 List<Board> list = service.list(pager);
          model.addAttribute("list",list);
+         model.addAttribute("pager", pager);
          
          return path+"BoardList";
       }

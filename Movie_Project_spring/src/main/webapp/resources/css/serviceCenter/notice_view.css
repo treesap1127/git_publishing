@@ -342,3 +342,7 @@ text-align: right;
   left: 45px;
 }
 /* bottom */
+  .option_select{
+  	    width: 90px;
+    margin-right: 40px;
+  }

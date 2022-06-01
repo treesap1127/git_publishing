@@ -162,6 +162,8 @@ padding: 2em 12em;
   position: relative;
   width: 1000px;
   height: 120px;
+      left: 50%;
+    transform: translateX(-50%);
 }
 .eventboxtext{ 
   position: relative;
@@ -516,3 +518,7 @@ ul,li{list-style:none;}
     left: 45px;
   }
   /* bottom */
+  
+  .event_image_css{
+  	
+  }

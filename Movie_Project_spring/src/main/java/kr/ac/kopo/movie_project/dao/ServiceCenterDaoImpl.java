@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Board;
-import kr.ac.kopo.movie_project.util.Pager;
 import kr.ac.kopo.movie_project.util.PagerBoardId;
 
 @Repository
@@ -30,8 +29,6 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 
 	@Override
 	public List<Board> list(PagerBoardId pager) {
-
-		
 		return sql.selectList("Board.list",pager);
 	}
 

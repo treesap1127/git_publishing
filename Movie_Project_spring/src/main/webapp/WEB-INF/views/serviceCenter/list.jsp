@@ -83,14 +83,14 @@
 
 		<div class="notice_keyword">
 
-			<form>
-				<select name="search" class="option_select">
+			<form style="display: flex;height: 35px;">
+				<select name="search" class="option_select  form-select">
 					<option value="0">전체</option>
 					<option value="1">제목</option>
 					<option value="2">내용</option>
 					<option value="3">작성자</option>
 				</select> <input type="text" name="keyword">
-				<button class="btn btn-dark btn-sm">검색</button>
+				<button class="btn btn-dark btn-sm"style="width: 75px; margin-left:10px;">검색</button>
 			</form>
 		</div>
 
@@ -131,7 +131,7 @@
 					</c:forEach>
 					<c:if test="${list.size()<1}">
 						<tr id="notice_midle">
-							<td>등록된 글이 없습니다</td>
+							<td colspan="6">등록된 글이 없습니다</td>
 						</tr>
 					</c:if>
 

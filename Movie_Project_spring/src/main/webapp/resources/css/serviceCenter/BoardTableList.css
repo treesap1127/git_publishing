@@ -176,7 +176,7 @@ padding: 2em 12em;
 
 .tb th{
   height: 50px;
-  font-size: 13px;
+      font-size: 17px;
   color: #2b2b2b;
   font-weight: normal;
   vertical-align: middle;
@@ -262,17 +262,24 @@ padding: 2em 12em;
   
 .tablename{
 	position: relative;
-    left: 92%;
+    left: 50%;
+        width: 137px;
     transform: translateX(-50%);
     margin-top: 30px;
     margin-bottom: 30px;
 }
 .btn-outline-success {
-    color: #198754;
+	background-color:#198754;
+	color: white;
     border-color: #198754;
     position: relative;
-    left: 94%;
+    left: 80%;
+    width: 100px;
+    height: 41px;
     margin-bottom: 20px;
+}
+.table{
+	text-align: center;
 }
 
 /*여기까지 기본 위 배너 css입니다!*/

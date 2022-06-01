@@ -18,8 +18,7 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	@Autowired
 	boardImageDao boardImageDao;
 	@Override
-	public List<Board> list(PagerBoardId pager,Long boardId) {
-		pager.setBoardId(boardId);
+	public List<Board> list(PagerBoardId pager) {
 		int total = dao.total(pager);
 		pager.setTotal(total);
 		return dao.list(pager);

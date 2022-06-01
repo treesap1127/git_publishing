@@ -16,13 +16,11 @@ public class EventDaoImpl implements EventDao {
 	
 	@Override
 	public List<Event> continue_Event(Pager pager) {
-		
-		return sql.selectList("Event.list",pager);
+		return sql.selectList("Event.continue_Event",pager);
 	}
 	@Override
 	public List<Event> end_Event(Pager pager) {
-		
-		return sql.selectList("Event.list",pager);
+		return sql.selectList("Event.end_Event",pager);
 	}
 	
 	@Override
