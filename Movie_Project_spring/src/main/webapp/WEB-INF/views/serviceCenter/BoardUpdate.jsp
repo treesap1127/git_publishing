@@ -18,6 +18,10 @@
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 <script>
+window.onload = function(){
+	   const msg = '${msg}';
+	   if(msg) alert('모든 항목을 입력해주세요!');
+	};
 $(document).ready(function() {
 	//여기 아래 부분
 	$('#summernote').summernote({
@@ -37,12 +41,12 @@ $(document).ready(function() {
     <!--좌우크기조절-->
     <div class="title">
       <a href="../../../../" class="main_back">
-        <img src="../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
+        <img src="../../../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
         <div class="title_name">Miner Cinema</div>
       </a>
     </div>
 <div class="title_right">
-	                <a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
+	                <a href="such"><img src="../../../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
 	                <div class="login_link"><a href="serviceCenter/CenterService" >고객센터</a></div>
 	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="login">로그인</a></div></c:if>
 	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="logout">로그아웃</a></div></c:if>
@@ -86,45 +90,32 @@ $(document).ready(function() {
         <div class="form-floating mt-2">
           <label>제목</label>	
           <div >				
-          <input type="text" name="subject" class="form-control" placeholder="제목">
+          <input type="text" name="subject" class="form-control" value="${item.subject}" placeholder="제목">
           </div>      
-          		
           <div style="display: none">					
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자">		
        		</div>
           <br>   
           <div class="file-upload" style="text-align: right;">
-            <label for="ex_file">업로드</label>
-            <input type="file" id="ex_file"> 
-            <input type="date" name="ragdate">
         </div>        
         
         </div>	
         	
         <label>내용</label>			
         <div class="mt-2">
-          <textarea id="summernote" name="contents" rows="25" cols="123"></textarea>    
+          <textarea id="summernote" name="contents" rows="25" cols="123">${item.contents}</textarea>    
         </div>
         
         <div>        	
           <div class="update_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="변경하기" style="margin-right:40px;">
-          <a href="NoticeView" class="btn btn-outline-primary">목록가기</a></div>						
+          <a href="../../serviceCenter/BoardList" class="btn btn-outline-primary">목록가기</a></div>						
         </div>
         
         
       
       </form>
     </div>
-
-
-
-
-
-
-
-     
-
 
           <!-- 제일 최하단 -->
 

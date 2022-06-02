@@ -60,30 +60,20 @@
         <div class="notice_seq">${item.subject}</div>          
           <div class="notice_area">          
              <table class="tb">
-                    
               <thead class="notice_first">
                   <tr>
                       <th>번호 : ${item.articleId}</th>
-                      <th>조회수: </th>
+                      <th>조회수: ${item.viewCount}</th>
                       <th>${item.regDate}</th>
                   </tr>
               </thead>              
           </table>
           <div class="tb_content">
    				${item.contents}
-
           </div>
          </div>
-         <!-- 페이징디자인 -->
-
+         	<a href="../../serviceCenter/BoardList"class="btn btn-primary"style="position:relative;margin-top:30px;left: 50%;transform:translateX(-50%)">뒤로가기</a>
          </div>
-
-
-
-
-
-
-
      
 
 

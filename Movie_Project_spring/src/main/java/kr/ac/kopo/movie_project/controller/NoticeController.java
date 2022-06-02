@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.kopo.movie_project.model.Notice;
 import kr.ac.kopo.movie_project.service.NoticeService;
+import kr.ac.kopo.movie_project.util.Pager;
 
 @Controller
 @RequestMapping("/serviceCenter")
 public class NoticeController {
-	//tset
 	String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 	final String path = "serviceCenter/";
 	
@@ -28,15 +29,17 @@ public class NoticeController {
 		NoticeService service;
 		
 		@GetMapping("/CenterService")
-		public String CenterService() {
-			
+		public String CenterService(Model model) {
+			List<Notice> item=service.notice();
+			model.addAttribute("item", item);
 			return path+"CenterService";
 		}
 		
 		@GetMapping("/BoardList")
-		public String BoardList(Model model) {
-			List<Notice> list = service.list();
+		public String BoardList(Model model,Pager pager) {
+			List<Notice> list = service.list(pager);
 			model.addAttribute("list",list);
+			model.addAttribute("pager",pager);
 			
 			return path+"BoardList";
 		}
@@ -46,8 +49,12 @@ public class NoticeController {
 			return path +"BoardAdd";
 		}
 		@PostMapping("/BoardAdd")
-		public String add(Notice item,HttpSession session) {
-			service.add(item);
+		public String add(Notice item,HttpSession session,RedirectAttributes ra) {
+			String bool=service.add(item);
+			if(bool=="false") {
+				ra.addFlashAttribute("msg", "false");
+				return "redirect:../serviceCenter/BoardAdd";
+			}
 			return "redirect:BoardList";
 		}
 		
@@ -64,10 +71,13 @@ public class NoticeController {
 			return path+"BoardUpdate";
 		}
 		@PostMapping("/BoardUpdate/{articleId}")
-		public String BoardUpdate(@PathVariable int articleId,Notice item) {
+		public String BoardUpdate(@PathVariable int articleId,Notice item,RedirectAttributes ra) {
 			item.setArticleId(articleId);
-			service.update(item);
-			
+			String bool=service.update(item);
+			if(bool=="false") {
+				ra.addFlashAttribute("msg", "false");
+				return "redirect:../serviceCenter/BoardUpdate/"+articleId;
+			}
 			return "redirect:../BoardList";
 		}
 		

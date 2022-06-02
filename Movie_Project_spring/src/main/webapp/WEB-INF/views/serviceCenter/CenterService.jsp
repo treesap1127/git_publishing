@@ -116,27 +116,15 @@
             <div class="faq_box">
                             <div class="">
                               <table class="faq_table">
-                   
                                 <thead>
-                                    <tr>
-                                        <td><a href="#">[알림] 안녕하세요 관리자입니다.</a></td>
-                                     </tr>
+                                	<c:forEach items="${item}" var="item">
                                      <tr>
-                                      <td><a href="#">[알림] 안녕하세요 관리자입니다.</a></td>
-                                   </tr>
-                                   <tr>
-                                    <td><a href="#">[알림] 안녕하세요 관리자입니다.</a></td>
-                                 </tr>
-                                 <tr>
-                                  <td><a href="#">[알림] 안녕하세요 관리자입니다.</a></td>
-                               </tr>
+                                        <td><a href="BoardList">${item.subject}</a></td>
+                                     </tr>
+                                     </c:forEach>
                                     </thead>
-                                                    
                             </table>
                             </div>
-                        
-
-     
       </div>
    
   </div>
@@ -148,7 +136,6 @@
    </div>
    
     </div>
-    <a href="BoardTableList"><button class="btn btn-outline-primary">게시판생성</button></a>
   
   
   

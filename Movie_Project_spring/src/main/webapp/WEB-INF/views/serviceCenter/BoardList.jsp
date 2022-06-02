@@ -71,8 +71,7 @@
 				<ul id="sub-menu">
 					<li><a href="../../../../event/continue_Event"
 						aria-label="subemnu">진행중인 이벤트</a></li>
-					<li><a href="../../../../event/end_Event" aria-label="subemnu">종료된
-							이벤트</a></li>
+					<li><a href="../../../../event/end_Event" aria-label="subemnu">종료된 이벤트</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -129,11 +128,6 @@
 						</tr>
 					</c:if>
 
-
-
-
-
-
 				</tbody>
 			</table>
 		</div>
@@ -141,17 +135,19 @@
 			<a href="BoardAdd"><button class="btn btn-outline-primary">등록</button></a>
 		</div>
 		<!-- 페이징디자인 -->
-		<div class="pager ">
-			<div class="page_wrap">
-				<div class="page_nation">
-					<a class="arrow pprev" href="#"></a> <a class="arrow prev" href="#"></a>
-					<a href="#" class="active">1</a> <a href="#">2</a> <a href="#">3</a>
-					<a href="#">4</a> <a href="#">5</a> <a href="#">6</a> <a href="#">7</a>
-					<a href="#">8</a> <a href="#">9</a> <a href="#">10</a> <a
-						class="arrow next" href="#"></a> <a class="arrow nnext" href="#"></a>
-				</div>
-			</div>
-		</div>
+      <div class="pager ">  
+        <div class="page_wrap">
+          <div class="page_nation">
+             <a class="arrow pprev" href="?page=1"></a>
+             <a class="arrow prev" href="?page=${pager.prev} "></a>
+             	<c:forEach var="page" items="${pager.list}">
+					<div><a href="?page=${page}">${page}</a></div>
+				</c:forEach>             
+             <a class="arrow next" href="?page=${pager.next} "></a>
+             <a class="arrow nnext" href="?page=${pager.last} "></a>
+          </div>
+        </div>
+       </div>
 	</div>
 
 

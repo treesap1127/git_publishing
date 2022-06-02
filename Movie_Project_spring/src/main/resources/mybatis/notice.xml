@@ -7,6 +7,11 @@
 		SELECT * FROM notice
 	</select>
 	
+	<select id="notice" resultType="Notice">
+		SELECT * FROM notice
+		limit 0, 5
+	</select>
+	
 	<insert id="add">
 		INSERT INTO notice
 		VALUES (null,#{subject},#{id},DATE_FORMAT(NOW(),'%Y-%m-%d'), #{contents}, #{viewCount})

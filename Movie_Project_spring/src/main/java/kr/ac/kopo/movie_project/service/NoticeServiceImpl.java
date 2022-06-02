@@ -7,19 +7,19 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.movie_project.dao.NoticeDao;
 import kr.ac.kopo.movie_project.model.Notice;
+import kr.ac.kopo.movie_project.util.Pager;
 @Service
 public class NoticeServiceImpl implements NoticeService {
 	@Autowired
 	NoticeDao dao;
 	@Override
-	public List<Notice> list() {
-		
-		return dao.list();
+	public List<Notice> list(Pager pager) {
+		return dao.list(pager);
 	}
 
 	@Override
-	public void add(Notice item) {
-		dao.add(item);
+	public String add(Notice item) {
+		return dao.add(item);
 
 	}
 
@@ -35,9 +35,14 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public void update(Notice item) {
-		dao.update(item);
+	public String update(Notice item) {
+		return dao.update(item);
 
+	}
+
+	@Override
+	public List<Notice> notice() {
+		return dao.notice();
 	}
 
 }

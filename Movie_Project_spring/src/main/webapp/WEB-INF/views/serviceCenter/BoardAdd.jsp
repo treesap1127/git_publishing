@@ -17,6 +17,11 @@
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 <script>
+window.onload = function(){
+	   const msg = '${msg}';
+	   if(msg) alert('모든 항목을 입력해주세요!');
+	};
+
 $(document).ready(function() {
 	//여기 아래 부분
 	$('#summernote').summernote({
@@ -94,8 +99,6 @@ $(document).ready(function() {
        		</div>
           <br>   
           <div class="file-upload" style="text-align: right;">           
-            <input class="ex_file" type="file" id="ex_file" > 
-            <input type="date" name="ragdate">
         </div>        
         
         </div>	
@@ -114,7 +117,7 @@ $(document).ready(function() {
         <div>        	
           <div class="add_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
-          <a href="NoticeView" class="btn btn-outline-primary">목록가기</a></div>						
+          <a href="../../serviceCenter/BoardList" class="btn btn-outline-primary">목록가기</a></div>						
         </div>     
       </form>
     </div>

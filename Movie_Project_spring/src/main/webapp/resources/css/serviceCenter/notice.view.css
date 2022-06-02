@@ -146,7 +146,7 @@ padding: 2em 12em;
 /*여기까지 기본 위 배너 css입니다!*/
 .notice_box{
     width: 1000px;
-    height: 1100px; 
+    height: 700px; 
     position: relative;
     left: 50%;
     transform: translateX(-50%);
