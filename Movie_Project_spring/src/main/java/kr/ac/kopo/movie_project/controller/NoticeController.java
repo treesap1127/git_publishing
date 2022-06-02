@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.ac.kopo.movie_project.model.Faq;
 import kr.ac.kopo.movie_project.model.Notice;
 import kr.ac.kopo.movie_project.service.NoticeService;
 import kr.ac.kopo.movie_project.util.Pager;
@@ -32,6 +33,9 @@ public class NoticeController {
 		public String CenterService(Model model) {
 			List<Notice> item=service.notice();
 			model.addAttribute("item", item);
+			List<Faq> list=service.faq();
+			model.addAttribute("list", list);
+			
 			return path+"CenterService";
 		}
 		

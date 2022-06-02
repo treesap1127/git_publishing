@@ -27,6 +27,12 @@ public class ServiceCenterController {
       public String faq(Model model, Faq item) {
     	  List<Faq> list = service.list();
     	  model.addAttribute("list",list);
+    	  List<Faq> list1 = service.list1();
+    	  model.addAttribute("list1",list1);
+    	  List<Faq> list2 = service.list2();
+    	  model.addAttribute("list2",list2);
+    	  List<Faq> list3 = service.list3();
+    	  model.addAttribute("list3",list3);
     	  return path+"Faq";
       }
       
@@ -42,10 +48,9 @@ public class ServiceCenterController {
       
       @GetMapping("/FaqUpdate/{faqId}")
       public String faqupdate(@PathVariable int faqId, Model model) {
+    	  
     	 Faq item = service.item(faqId);
-    	 
     	 model.addAttribute("item", item);
-    	 
     	 return path + "FaqUpdate";
     	 
       }
@@ -59,10 +64,9 @@ public class ServiceCenterController {
     	  return "redirect:../Faq";    	  
       }
       
-      @GetMapping("/delete/{faqId}")
+      @GetMapping("/FAQdelete/{faqId}")
       public String delete(@PathVariable int faqId) {
     	  service.delete(faqId);
-    	  
     	  return "redirect:../Faq";
       }
       

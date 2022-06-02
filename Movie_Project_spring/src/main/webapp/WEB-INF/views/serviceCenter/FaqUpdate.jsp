@@ -16,22 +16,19 @@
 	rel="stylesheet">
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<!-- 서머노트를 위해 추가해야할 부분 -->
+<link
+   href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+   rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
-$(document).ready(function() {
-	//여기 아래 부분
-	$('#summernote').summernote({
-		  height: 300,                 // 에디터 높이
-		  minHeight: null,             // 최소 높이
-		  maxHeight: null,             // 최대 높이
-		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-		  lang: "ko-KR",					// 한글 설정
-		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
-          
-	});
-	
-});
+window.onload = function(){
+	   const msg = '${msg}';
+	   if(msg) alert('모든 항목을 입력해주세요!');
+	};
+
+	$('#summernote').summernote();
 </script>
-<!--  -->
 </head>
 
 <body>
@@ -94,12 +91,17 @@ $(document).ready(function() {
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자">		
        		</div>
           <br>   
-            
+            <label>카테고리</label>
+       		<select name="category" class="form-control" style="padding-top:0;padding-bottom:0;">
+       			<option value="영화예매">영화예매</option>
+       			<option value="이벤트">이벤트</option>
+       			<option value="결제취소">결제취소</option>
+       		</select>
         
         </div>       	
         <label>내용</label>			
         <div class="mt-2">
-          <input id="summernote" name="contents" value="${item.contents}">  
+          <textarea id="summernote" name="contents" rows="25" cols="123">${item.contents}</textarea>
             
         </div>         
           <div class="add_setbutton">

@@ -9,7 +9,7 @@
 	
 	<insert id="add">
 		INSERT INTO faq
-		VALUES (NULL,#{subject},#{id},#{contents})
+		VALUES (NULL,#{category},#{subject},#{id},#{contents})
 	</insert>
 	
 	<select id="item" resultType="Faq">
@@ -19,7 +19,7 @@
 	
 	<update id="update">
 		UPDATE faq
-		SET subject=#{subject}, contents=#{contents}
+		SET subject=#{subject}, contents=#{contents},category=#{category}
 		WHERE faq_id=#{faqId}
 	</update>
 	
@@ -28,4 +28,15 @@
 		WHERE faq_id=#{faqId}
 	</delete>
 	
+	<select id="list1" resultType="Faq">
+		select * from faq where	category='영화예매';
+	</select>
+	
+	<select id="list2" resultType="Faq">
+		select * from faq where	category='이벤트';
+	</select>
+	
+	<select id="list3" resultType="Faq">
+		select * from faq where	category='결제취소';
+	</select>
 </mapper>

@@ -207,11 +207,9 @@
         <hr class="event_border2" style="border: solid 1px #666666;" width="430px">
         <div class="announcement_letter2">
             <ul style="line-height:290%">
-            <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
-            <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
-            <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
-            <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
-            <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
+            <c:forEach items="${item}" var="item">
+            	<li><a href="serviceCenter/BoardList" style="color:black;">[공지] ${item.subject}</a></li>
+            </c:forEach>
         </ul>
         </div>
     </div>
@@ -220,11 +218,9 @@
         <hr class="event_border2" style="border: solid 1px #666666;" width="460px">
         <div class="qna_letter2">
             <ul style="line-height:290%">
-                <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
-                <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
-                <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
-                <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
-                <li>2D 일반 관람권 활용 스페셜관 이용안내</li>
+                <c:forEach items="${list}" var="list">
+            	<li><a href="serviceCenter/Faq" style="color:black;">Q. ${list.subject}</a></li>
+            </c:forEach>
             </ul>
         </div>
     </div>

@@ -28,7 +28,7 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	@Override
 	public Faq item(int faqId) {
 		
-		return sql.selectOne("Faq.item");
+		return sql.selectOne("Faq.item",faqId);
 	}
 
 	@Override
@@ -41,6 +41,18 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	public void delete(int faqId) {
 		sql.delete("Faq.delete", faqId);
 		
+	}
+	@Override
+	public List<Faq> list1() {
+		return sql.selectList("Faq.list1");
+	}
+	@Override
+	public List<Faq> list2() {
+		return sql.selectList("Faq.list2");
+	}
+	@Override
+	public List<Faq> list3() {
+		return sql.selectList("Faq.list3");
 	}
 
 }

@@ -124,14 +124,14 @@ $(function(){
             <div class="area_index">결제/취소</div>
           </div> 
           
-          <div class="faq_area">
+          <div class="faq_area drag_css">
           
             <table class="faq_table">                                 
               <thead>  
                <c:forEach items="${list}" var="item">
                 <tr>           
                     <td><details>
-                      <summary>Q ${item.subject}<a href="FaqUpdate/${item.faqId}"><button class="btn btn-outline-success adminbtn">변경</button></a> <a href="delete/${item.faqId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a>
+                      <summary>Q ${item.subject}<a href="FaqUpdate/${item.faqId}"><button class="btn btn-outline-success adminbtn">변경</button></a> <a href="FAQdelete/${item.faqId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a>
                       <img src="/img/center_service/down_faq.png" class="down_img"></summary>
                       ${item.contents}
                     </details></td>  
@@ -166,17 +166,17 @@ $(function(){
       <div class="area_index" >결제/취소</div>
     </div>            
   
-      <div class="faq_area">
+     <div class="faq_area drag_css">
           
             <table class="faq_table">                                 
               <thead>  
-               <c:forEach items="${list}" var="item">
+               <c:forEach items="${list1}" var="item">
                 <tr>           
                     <td><details>
-                      <summary>Q ${item.subject}
+                      <summary>Q ${item.subject}<a href="FaqUpdate/${item.faqId}"><button class="btn btn-outline-success adminbtn">변경</button></a> <a href="delete/${item.faqId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a>
                       <img src="/img/center_service/down_faq.png" class="down_img"></summary>
                       ${item.contents}
-                    </details><a href="FaqUpdate/${item.faqId}"><button class="btn btn-outline-success adminbtn">변경</button></a> <a href="delete/${item.faqId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a></td>  
+                    </details></td>  
                 </tr>     
                  
             </c:forEach>         
@@ -190,11 +190,6 @@ $(function(){
 </div>
 
 
-   <!-- 무브 2박스 -->     
-      
-
-  
-  
   <!-- 무브3박스 -->
   <div class="faq_box3">        
     <div class="area">
@@ -213,32 +208,29 @@ $(function(){
       <div class="area_index">결제/취소</div>
     </div> 
     
-    <div class="faq_area">
+    <div class="faq_area drag_css">
           
-      <table class="faq_table">
-               
-        <thead>
-          <tr>           
-            <td><details>
-              <summary>Q 당첨여부는 어디서 확인하나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-            </details></td>   
-        </tr>              
-        <tr>           
-          <td><details>
-            <summary>Q 경품수령은 어디서 하나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-          </details></td>   
-      </tr>              
-           
-        </thead>
-                            
-    </table>
-  </div>
+            <table class="faq_table">                                 
+              <thead>  
+               <c:forEach items="${list2}" var="item">
+                <tr>           
+                    <td><details>
+                      <summary>Q ${item.subject}<a href="FaqUpdate/${item.faqId}"><button class="btn btn-outline-success adminbtn">변경</button></a> <a href="delete/${item.faqId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a>
+                      <img src="/img/center_service/down_faq.png" class="down_img"></summary>
+                      ${item.contents}
+                    </details></td>  
+                </tr>     
+                 
+            </c:forEach>         
+              </thead>                              
+          </table>        
+        </div>
+         <div class="adminbtn">
+    		  <a href="FaqAdd"><button class="btn btn-outline-primary adminbtn">등록</button></a>
+  		 </div> 
   
 
 </div>
-
-<!-- 무브3박스 -->
-
 
   <!-- 무브4 박스 -->
   
@@ -259,30 +251,26 @@ $(function(){
       <div class="area_index" style="background-color: #ec6159;;">결제/취소</div>
     </div> 
     
-    <div class="faq_area">
+    <div class="faq_area drag_css">
           
-      <table class="faq_table">
-               
-        <thead>
-          <tr>           
-            <td><details>
-              <summary>Q 취소는 어떻게 하나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-            </details></td>   
-        </tr>              
-        <tr>           
-          <td><details>
-            <summary>Q 예매내역 중 일부만 취소가 가능한가요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-          </details></td>   
-      </tr>              
-      <tr>           
-        <td><details>
-          <summary>Q 언제까지 영화예매 취소가 가능한가요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-        </details></td>   
-    </tr>              
-        </thead>
-                            
-    </table>
-  </div>
+            <table class="faq_table">                                 
+              <thead>  
+               <c:forEach items="${list3}" var="item">
+                <tr>           
+                    <td><details>
+                      <summary>Q ${item.subject}<a href="FaqUpdate/${item.faqId}"><button class="btn btn-outline-success adminbtn">변경</button></a> <a href="delete/${item.faqId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a>
+                      <img src="/img/center_service/down_faq.png" class="down_img"></summary>
+                      ${item.contents}
+                    </details></td>  
+                </tr>     
+                 
+            </c:forEach>         
+              </thead>                              
+          </table>        
+        </div>
+         <div class="adminbtn">
+    		  <a href="FaqAdd"><button class="btn btn-outline-primary adminbtn">등록</button></a>
+  		 </div> 
   
 
 </div>

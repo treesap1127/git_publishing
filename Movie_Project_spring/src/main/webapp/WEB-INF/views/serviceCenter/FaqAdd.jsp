@@ -9,28 +9,12 @@
 <link rel="stylesheet" href="../../css/style/style.css">
 
 <!-- 서머노트를 위해 추가해야할 부분 -->
-<script src="js/summernote-lite.js"></script>
-<script src="js/summernote-ko-KR.js"></script>
 <link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+   href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+   rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
-$(document).ready(function() {
-	//여기 아래 부분
-	$('#summernote').summernote({
-		  height: 300,                 // 에디터 높이
-		  minHeight: null,             // 최소 높이
-		  maxHeight: null,             // 최대 높이
-		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-		  lang: "ko-KR",					// 한글 설정
-		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
-          
-	});
-	
-});
-</script>
+$('#summernote').summernote();</script>
 <!--  -->
 </head>
 
@@ -87,12 +71,19 @@ $(document).ready(function() {
       <form method="post" class="mt-4">
         <div class="form-floating mt-2">
           <label>제목</label>	
-          <div >				
+          <div>
           <input type="text" name="subject" class="form-control" placeholder="제목">
           </div>      
           <div style="display: none">					
           <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자">		
        		</div>
+       		<br>
+       		<label>카테고리</label>
+       		<select name="category" class="form-control" style="padding-top:0;padding-bottom:0;">
+       			<option value="영화예매">영화예매</option>
+       			<option value="이벤트">이벤트</option>
+       			<option value="결제취소">결제취소</option>
+       		</select>
           <br>    
          </div>       	
         <label>내용</label>			
@@ -102,17 +93,13 @@ $(document).ready(function() {
    
           <div class="add_setbutton">
           <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
-          <a href="../Faq" class="btn btn-outline-primary">목록가기</a></div>         
+          <a href="../serviceCenter/Faq" class="btn btn-outline-primary">목록가기</a></div>         
       </form>
     </div>
 
 
 
 
-
-
-
-     
 
 
           <!-- 제일 최하단 -->

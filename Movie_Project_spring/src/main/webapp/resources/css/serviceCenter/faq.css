@@ -150,7 +150,7 @@ padding: 2em 12em;
 
 .faqs_box{
     width: 1000px;
-    height: 1200px; 
+    height: 900px; 
     position: relative;
     left: 52%;
     transform: translateX(-50%);
@@ -168,7 +168,9 @@ padding: 2em 12em;
     position: relative;
  
 }
-
+.faq_area{
+	height: 400px;
+}
 
 
 .area_index {
@@ -309,20 +311,34 @@ details[open] summary {
   margin-bottom: .5em;
 }
 .down_img {
+    position: relative;
+    float: right;
+    width: 20px;
+    height: 20px;
+    left: 50px;
+}
+.adminbtn {
+	text-align: center;
+	position: relative;
+}
+
+.drag_css{
+    overflow-y: scroll;
+    height: 455px;
+    width: 1000px;
+}
+.drag_css::-webkit-scrollbar{
+	display: none;
+}
+
+
+summary>a>button{
 	float: right;
-	width: 20px;
-	height: 20px;
-	margin-right: 35px
+	position: relative;
+	right:120px;
+	bottom: 10px;
+	margin-right:10px;
 }
-adminbtn {
-	text-align: right;
-    padding-right: 24px;
-    padding-top: 20px;
-}
-
-
-
-
 
 /*여기까지 기본 위 배너 css입니다!*/
 /* bottom */

@@ -16,4 +16,10 @@ public interface ServiceCenterservice {
 
 	void delete(int faqId);
 
+	List<Faq> list1();
+
+	List<Faq> list2();
+
+	List<Faq> list3();
+
 }

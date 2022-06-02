@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.movie_project.dao.NoticeDao;
+import kr.ac.kopo.movie_project.model.Faq;
 import kr.ac.kopo.movie_project.model.Notice;
 import kr.ac.kopo.movie_project.util.Pager;
 @Service
@@ -43,6 +44,11 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public List<Notice> notice() {
 		return dao.notice();
+	}
+
+	@Override
+	public List<Faq> faq() {
+		return dao.faq();
 	}
 
 }

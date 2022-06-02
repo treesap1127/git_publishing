@@ -1,12 +1,12 @@
 package kr.ac.kopo.movie_project.model;
 
-import java.util.List;
 
 public class Faq {
 	private int faqId;
 	private String subject;
 	private String id;
 	private String contents;
+	private String category;
 	public int getFaqId() {
 		return faqId;
 	}
@@ -30,6 +30,12 @@ public class Faq {
 	}
 	public void setContents(String contents) {
 		this.contents = contents;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	

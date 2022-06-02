@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.ac.kopo.movie_project.model.Faq;
 import kr.ac.kopo.movie_project.model.Notice;
 import kr.ac.kopo.movie_project.util.Pager;
 @Repository
@@ -52,6 +53,11 @@ SqlSession sql;
 	@Override
 	public List<Notice> notice() {
 		return sql.selectList("Notice.notice");
+	}
+
+	@Override
+	public List<Faq> faq() {
+		return sql.selectList("Notice.faq");
 	}
 
 

@@ -27,7 +27,6 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 
 	@Override
 	public Faq item(int faqId) {
-		
 		return dao.item(faqId);
 	}
 
@@ -43,6 +42,24 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	public void delete(int faqId) {
 		dao.delete(faqId);
 		
+	}
+
+
+	@Override
+	public List<Faq> list1() {
+		return dao.list1();
+	}
+
+
+	@Override
+	public List<Faq> list2() {
+		return dao.list2();
+	}
+
+
+	@Override
+	public List<Faq> list3() {
+		return dao.list3();
 	}
 
 }

@@ -8,32 +8,17 @@
 <link href="../../../css/serviceCenter/notice_update.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
 
-<!-- 서머노트를 위해 추가해야할 부분 -->
-<script src="js/summernote-lite.js"></script>
-<script src="js/summernote-ko-KR.js"></script>
-<link rel="stylesheet" href="js/summernote-lite.css">
 <link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+   href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+   rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 <script>
 window.onload = function(){
 	   const msg = '${msg}';
 	   if(msg) alert('모든 항목을 입력해주세요!');
 	};
-$(document).ready(function() {
-	//여기 아래 부분
-	$('#summernote').summernote({
-		  height: 300,                 // 에디터 높이
-		  minHeight: null,             // 최소 높이
-		  maxHeight: null,             // 최대 높이
-		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-		  lang: "ko-KR",					// 한글 설정
-		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
-          
-	});
-});
+	$('#summernote').summernote();
 </script>
 </head>
 <body>
