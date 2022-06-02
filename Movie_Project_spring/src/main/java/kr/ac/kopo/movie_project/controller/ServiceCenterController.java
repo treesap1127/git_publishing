@@ -30,12 +30,7 @@ public class ServiceCenterController {
    	//test
       @Autowired
       ServiceCenterservice service;
-      
-      @GetMapping("/CenterService")
-      public String CenterService() {
-         
-         return path+"CenterService";
-      }
+
 
       @GetMapping("/F&Q")
       public String faq() {

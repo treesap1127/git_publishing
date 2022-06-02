@@ -15,9 +15,9 @@
 		<mapper resource="mybatis/event.xml"/>
 		<mapper resource="mybatis/ticket.xml"/>
 		<mapper resource="mybatis/board.xml"/>
-		<mapper resource="mybatis/boardmaster.xml"/>
 		<mapper resource="mybatis/eventimage.xml"/>
 		<mapper resource="mybatis/boardimage.xml"/>
+		<mapper resource="mybatis/notice.xml"/>
    </mappers>
 
 </configuration>
