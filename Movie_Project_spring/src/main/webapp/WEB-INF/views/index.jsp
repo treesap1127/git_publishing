@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="css/style/style.css">
     <link rel="stylesheet" href="css/mainpage.css">
     <script src="js/index.js"></script>
+    <script>
+    	$(function(){
+    		if(${sessionScope.member.grade}==1){
+    		$(".mypage").click(function(){
+    			location.href="myPage/myPage";
+    		})
+    		$(".mypage").attr("onclick","");
+    		}
+    	});
     
+    	function user(){
+    		alert("유저로 로그인하여 접속 해주세요.")
+    	}
+    </script>
     <style>
        .title_plus_text{
        color:white}
@@ -37,7 +50,7 @@
                 <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage/myCinema">영화관 관리</a></div>
                 </c:if>
                 <c:if test="${sessionScope.member.grade>=10}">
-                <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">웹 관리</a></div>
+                <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="webadmin/admin">웹 관리</a></div>
                 </c:if>
         </div>
         
@@ -210,6 +223,9 @@
             <c:forEach items="${item}" var="item">
             	<li><a href="serviceCenter/BoardList" style="color:black;">[공지] ${item.subject}</a></li>
             </c:forEach>
+            <c:if test="${item.size() eq 0}">
+            	<li><a href="serviceCenter/BoardList" style="color:black;">[공지가 아직 등록 되지 않았습니다.]</a></li>
+            </c:if>
         </ul>
         </div>
     </div>
@@ -218,19 +234,22 @@
         <hr class="event_border2" style="border: solid 1px #666666;" width="460px">
         <div class="qna_letter2">
             <ul style="line-height:290%">
-                <c:forEach items="${list}" var="list">
+            <c:forEach items="${list}" var="list">
             	<li><a href="serviceCenter/Faq" style="color:black;">Q. ${list.subject}</a></li>
             </c:forEach>
+             <c:if test="${list.size() eq 0}">
+            	<li><a href="serviceCenter/Faq" style="color:black;">[FAQ가 아직 등록 되지 않았습니다.]</a></li>
+            </c:if>
             </ul>
         </div>
     </div>
   </div>
     <!-- 영화순위,예매,고객센터,마이페이지 -->
     <div class="Box_tool">
-       <a href="movie_info/MovieRank">  <div class="movie_ranking"></div> </a>
-       <a href="">  <div class="ticketing"></div> </a> 
-       <a href="">  <div class="service_center"></div> </a> 
-       <a href="">  <div class="mypage"></div> </a> 
+       <a href="movie_info/NowPlayRank">  <div class="movie_ranking"></div> </a>
+       <a href="ticket/Ticketing">  <div class="ticketing"></div> </a> 
+       <a href="serviceCenter/CenterService">  <div class="service_center"></div> </a> 
+       <div class="mypage" onclick="user()"></div>
 
     </div>
 </div>

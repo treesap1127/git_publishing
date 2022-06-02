@@ -51,4 +51,9 @@ public class NoticeServiceImpl implements NoticeService {
 		return dao.faq();
 	}
 
+	@Override
+	public void viewCount(int articleId) {
+		dao.viewCount(articleId);
+	}
+
 }

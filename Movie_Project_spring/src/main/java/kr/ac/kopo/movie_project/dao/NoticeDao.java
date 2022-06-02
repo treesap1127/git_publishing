@@ -22,4 +22,6 @@ public interface NoticeDao {
 
 	List<Faq> faq();
 
+	void viewCount(int articleId);
+
 }

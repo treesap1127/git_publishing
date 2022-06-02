@@ -22,4 +22,6 @@ public interface NoticeService {
 
 	List<Faq> faq();
 
+	void viewCount(int articleId);
+
 }

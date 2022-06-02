@@ -30,7 +30,7 @@
 	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade>=10}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">웹 관리</a></div>
+	             <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="webadmin/admin">웹 관리</a></div>
 	             </c:if>
         </div>
   <div class="black_box">
@@ -66,6 +66,11 @@
                    <table class="faq_table">
         
                      <thead>
+                     <c:if test="${list.size() eq 0}">
+                                	<tr>
+                                        <td><a href="BoardList">등록 된 FAQ가 없습니다</a></td>
+                                     </tr>
+                       </c:if>
                      	<c:forEach var="list" items="${list}">
                          <tr>
                              <td><a href="Faq">Q ${list.subject}</a></td>
@@ -84,17 +89,17 @@
           <div class="faq_category">
               <div class="faq_menu">                 
                 <div class="faq_menu_1" style="display: flex; border-bottom: 1px solid #e5e5e5;">
-                  <a href="faq.html" style="border-right: 1px solid #e5e5e5;"><span class="menu_in_top">영화예매<br>문의</span></a>
-                  <a href="faq.html"><span class="menu_in_top">예매권/할인권<br>문의</span></a>
+                  <a href="../../ticket/TicketInformation" style="border-right: 1px solid #e5e5e5;"><span class="menu_in_top">예매안내<br>페이지</span></a>
+                  <a href="../../event/continue_Event"><span class="menu_in_top">이벤트<br>페이지</span></a>
                 </div>
                 <div class="faq_menu_1"  style="display: flex;">
-                  <a href="faq.html" style="border-right: 1px solid #e5e5e5;"><span class="menu_in_top">이벤트<br>문의</span></a>
-                  <a href="faq.html"><span class="menu_in_top">결제/취소<br>문의</span></a>
+                  <a href="BoardList" style="border-right: 1px solid #e5e5e5;"><span class="menu_in_top">공지사항<br>페이지</span></a>
+                  <a href="../../movie_info/NowPlayRank"><span class="menu_in_top">영화소개<br>페이지</span></a>
                 </div>
               </div>
               <div class="faq_center">
                   
-                  <a href="#" target="_blank" class="inquiry">질문게시판</a>
+                  <a href="WebAdmin" target="_blank" class="inquiry">관리자신청</a>
                   
               </div>
           </div>
@@ -106,6 +111,11 @@
                             <div class="">
                               <table class="faq_table">
                                 <thead>
+                                	<c:if test="${item.size() eq 0}">
+                                	<tr>
+                                        <td><a href="BoardList">등록 된 공지사항이 없습니다</a></td>
+                                     </tr>
+                                	</c:if>
                                 	<c:forEach items="${item}" var="item">
                                      <tr>
                                         <td><a href="BoardList">${item.subject}</a></td>
@@ -120,7 +130,7 @@
 
     </div>
     <div class="sub_box_menu">
-      <a href="NoticeList" class="service_img"><img alt="고객센터" src="/img/center_service/plannings.png" class="sub_box" style="display:block;">공지사항</a>
+      <a href="BoardList" class="service_img"><img alt="고객센터" src="/img/center_service/plannings.png" class="sub_box" style="display:block;">공지사항</a>
       <a href="Faq" class="faq_img"><img alt="자주묻는질문" src="/img/center_service/faq.png" class="sub_box1" style="display:block;">자주묻는질문</a>      
    </div>
    

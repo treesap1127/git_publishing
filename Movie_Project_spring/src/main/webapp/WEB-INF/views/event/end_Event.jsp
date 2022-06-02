@@ -12,7 +12,7 @@
 <script>
 $(function(){
 	if(${sessionScope.member.grade}<10){
-	$(".adminbttons").css("display","none");	
+	$(".adminbtn").css("display","none");	
 	}
 });
 

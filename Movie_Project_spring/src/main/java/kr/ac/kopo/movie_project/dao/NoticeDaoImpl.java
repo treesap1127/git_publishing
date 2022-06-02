@@ -60,5 +60,10 @@ SqlSession sql;
 		return sql.selectList("Notice.faq");
 	}
 
+	@Override
+	public void viewCount(int articleId) {
+		sql.update("Notice.viewCount", articleId);
+	}
+
 
 }

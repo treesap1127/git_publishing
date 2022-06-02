@@ -9,6 +9,14 @@
 <link href="../css/serviceCenter/notice_view.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
+<script>
+$(function(){
+	if(${sessionScope.member.grade}<10){
+	$(".adminbtn").css("display","none");	
+	}
+});
+
+</script>
 </head>
 <body>
 	<div class="box_case">
@@ -105,7 +113,7 @@
 						<th>작성자</th>
 						<th>등록일</th>
 						<th>조회수</th>
-						<th>관리</th>
+						 <th class="adminbtn">관리</th>     
 
 					</tr>
 				</thead>
@@ -117,7 +125,7 @@
 							<td>${item.id}</td>
 							<td>${item.regDate}</td>
 							<td>${item.viewCount}</td>
-							<td><a href="BoardUpdate/${item.articleId}"><button
+							<td class="adminbtn"><a href="BoardUpdate/${item.articleId}"><button
 										class="btn btn-outline-success">수정</button></a> <a href="delete/${item.articleId}"><button
 										class="btn btn-outline-danger">삭제</button></a></td>
 						</tr>
@@ -132,7 +140,7 @@
 			</table>
 		</div>
 		<div class="add_keyword">
-			<a href="BoardAdd"><button class="btn btn-outline-primary">등록</button></a>
+			<a href="BoardAdd"><button class="btn btn-outline-primary adminbtn">등록</button></a>
 		</div>
 		<!-- 페이징디자인 -->
       <div class="pager ">  

@@ -28,7 +28,7 @@ $(function(){
                      success: result2=>{
                         $(`#movie_data_${result.rank}>div>div>img`).attr("src",`${result2.image}`);
                         $(`#movie_data_${result.rank}>div>div>img`).attr("alt",`${result.movieNm}`);
-                        $(`.movie_info`).attr("href",`${result2.link}`);
+                       $(`#movie_data_${result.rank}>div>div>div>div>.movie_info`).attr("href",`${result2.link}`);
                         
                      },
                       error: (xhr, result2) => console.log(`[실패] such`)

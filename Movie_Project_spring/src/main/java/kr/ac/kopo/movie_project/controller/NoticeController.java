@@ -35,7 +35,6 @@ public class NoticeController {
 			model.addAttribute("item", item);
 			List<Faq> list=service.faq();
 			model.addAttribute("list", list);
-			
 			return path+"CenterService";
 		}
 		
@@ -44,7 +43,6 @@ public class NoticeController {
 			List<Notice> list = service.list(pager);
 			model.addAttribute("list",list);
 			model.addAttribute("pager",pager);
-			
 			return path+"BoardList";
 		}
 		
@@ -64,6 +62,7 @@ public class NoticeController {
 		
 		@GetMapping("/BoardView/{articleId}")
 		public String BoardView(@PathVariable int articleId,Model model) {
+			service.viewCount(articleId);
 			Notice item = service.item(articleId);
 			model.addAttribute("item",item);
 			return path+"BoardView";

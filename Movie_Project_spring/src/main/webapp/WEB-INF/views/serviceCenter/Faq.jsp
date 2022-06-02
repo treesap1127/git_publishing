@@ -128,6 +128,13 @@ $(function(){
           
             <table class="faq_table">                                 
               <thead>  
+              <c:if test="${list.size() eq 0}">
+               <tr>    
+               	<td style="text-align: center">
+               		아직 FAQ가 등록 되지 않았습니다.
+               	</td>
+               </tr>     
+              </c:if>
                <c:forEach items="${list}" var="item">
                 <tr>           
                     <td><details>
@@ -136,7 +143,6 @@ $(function(){
                       ${item.contents}
                     </details></td>  
                 </tr>     
-                 
             </c:forEach>         
               </thead>                              
           </table>        
@@ -178,8 +184,14 @@ $(function(){
                       ${item.contents}
                     </details></td>  
                 </tr>     
-                 
-            </c:forEach>         
+            </c:forEach>        
+           <c:if test="${list1.size() eq 0}">
+               <tr>    
+               	<td style="text-align: center">
+               		아직 영화예매 관련 FAQ가 등록 되지 않았습니다.
+               	</td>
+               </tr>     
+              </c:if> 
               </thead>                              
           </table>        
         </div>
@@ -220,8 +232,14 @@ $(function(){
                       ${item.contents}
                     </details></td>  
                 </tr>     
-                 
-            </c:forEach>         
+            </c:forEach>     
+                       <c:if test="${list2.size() eq 0}">
+               <tr>    
+               	<td style="text-align: center">
+               		아직 영화예매 관련 FAQ가 등록 되지 않았습니다.
+               	</td>
+               </tr>     
+              </c:if>     
               </thead>                              
           </table>        
         </div>
@@ -263,8 +281,14 @@ $(function(){
                       ${item.contents}
                     </details></td>  
                 </tr>     
-                 
-            </c:forEach>         
+            </c:forEach>    
+           <c:if test="${list3.size() eq 0}">
+               <tr>    
+               	<td style="text-align: center"> 
+               		아직 결제취소 관련 FAQ가 등록 되지 않았습니다.
+               	</td>
+               </tr>     
+              </c:if>       
               </thead>                              
           </table>        
         </div>
