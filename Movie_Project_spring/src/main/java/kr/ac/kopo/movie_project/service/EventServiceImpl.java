@@ -7,18 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.ac.kopo.movie_project.dao.EventDao;
-import kr.ac.kopo.movie_project.dao.EventImageDao;
 import kr.ac.kopo.movie_project.model.Event;
-import kr.ac.kopo.movie_project.model.EventImage;
 import kr.ac.kopo.movie_project.util.Pager;
 @Service
 public class EventServiceImpl implements EventService {
 
 	@Autowired
 	EventDao dao;
-	
-	@Autowired
-	EventImageDao eventImageDao; 
 	
 	@Override
 	public List<Event> continue_Event(Pager pager) {
@@ -35,43 +30,22 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	@Transactional
-	public void NoticeEventAdd(Event item) {
-		
-		dao.NoticeEventAdd(item);
+	public String NoticeEventAdd(Event item) {
 		item.setEventId(dao.eventItem());
+		return dao.NoticeEventAdd(item);
+	}
+	@Override
+	public String NoticeEventUpdate(Event item) {
 		
-		if(item.getImages() != null) {
-			for(EventImage image : item.getImages()) {
-				image.setEventId(item.getEventId());
-				
-				eventImageDao.add(image);
-			}
-		}	
+		item.setEventId(dao.eventItem());		
+		return dao.NoticeEventUpdate(item);
 		
 	}
-
 	@Override
 	public void delete(int eventId) {
 		dao.delete(eventId);
 		
 	}
-
-	@Override
-	@Transactional
-	public void NoticeEventUpdate(Event item) {
-		dao.NoticeEventUpdate(item);
-		item.setEventId(dao.eventItem());		
-		
-		if(item.getImages() != null) {
-			for(EventImage image : item.getImages()) {
-				image.setEventId(item.getEventId());
-				
-				eventImageDao.add(image);
-			}
-		}
-		
-	}
-
 	@Override
 	public Event item(int eventId) {
 		
@@ -83,21 +57,6 @@ public class EventServiceImpl implements EventService {
 		dao.viewcnt(item);
 		
 	}
-	
-	
-	@Transactional
-	@Override
-	public void deleteList(List<Integer> list) {
-		for(Integer code : list) 
-			dao.delete(code);		
-	}
 
-	@Override
-	public boolean deleteImage(int code) {		
-		return eventImageDao.delete(code);
-	}
-
-	
-	
 
 }

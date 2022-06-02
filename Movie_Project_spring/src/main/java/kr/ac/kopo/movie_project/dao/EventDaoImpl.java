@@ -24,9 +24,14 @@ public class EventDaoImpl implements EventDao {
 	}
 	
 	@Override
-	public void NoticeEventAdd(Event item) {
-		sql.insert("Event.add", item);
-		
+	public String NoticeEventAdd(Event item) {
+		try {
+			sql.insert("Event.add", item);
+		} 
+		catch (Exception e) {
+			return "false";
+		}
+		return "true";
 	}
 	@Override
 	public void delete(int eventId) {
@@ -34,9 +39,14 @@ public class EventDaoImpl implements EventDao {
 		
 	}
 	@Override
-	public void NoticeEventUpdate(Event item) {
-		sql.insert("Event.update", item);
-		
+	public String NoticeEventUpdate(Event item) {
+		try {
+			sql.update("Event.update", item);
+		} 
+		catch (Exception e) {
+			return "false";
+		}
+		return "true";
 	}
 	@Override
 	public Event item(int eventId) {		

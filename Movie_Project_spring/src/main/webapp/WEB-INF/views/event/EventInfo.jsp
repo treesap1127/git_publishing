@@ -76,14 +76,7 @@ $(function(){
       </div>
 
       <div class="whitebox2">
-       
-        	<ul>
-<!-- 			<c:if test="${item.images == null || item.images.size() < 1}">
-				</c:if> -->
-				<c:forEach var="image" items="${item.images}" >
-					<li><img src="/upload/${image.uuid}_${image.filename}"/></li>
-				</c:forEach>				
-			</ul>        
+      
         </div>
         <div class="whitebox2_info">
          <div style="text-align: center">

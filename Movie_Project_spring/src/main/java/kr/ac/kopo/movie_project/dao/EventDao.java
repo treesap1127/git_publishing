@@ -11,11 +11,11 @@ public interface EventDao {
 
 	List<Event> end_Event(Pager pager);
 
-	void NoticeEventAdd(Event item);
+	String NoticeEventAdd(Event item);
 
 	void delete(int eventId);
 
-	void NoticeEventUpdate(Event item);
+	String NoticeEventUpdate(Event item);
 
 	Event item(int eventId);
 

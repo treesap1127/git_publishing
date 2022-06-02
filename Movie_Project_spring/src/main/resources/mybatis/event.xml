@@ -7,7 +7,7 @@
 	<select id="continue_Event" resultType="Event">
 		select *
 		from event
-		where STR_TO_DATE(start_date, '%Y-%m-%d')<![CDATA[ >= ]]>now()
+		where STR_TO_DATE(end_date, '%Y-%m-%d')<![CDATA[ >= ]]>now()
 		<include refid="search"></include>
 	</select>
 		<select id="end_Event" resultType="Event">
@@ -23,14 +23,9 @@
 	</insert>
 	
 	<select id="item" resultType="Event">
-			SELECT event.*, 
-			eventimage.code image_code, 
-			eventimage.file_name file_name, 
-			eventimage.uuid uuid, 
-			eventimage.event_id event_id
+			SELECT *
 		FROM event
-		LEFT JOIN eventimage ON event.event_id=eventimage.event_id
-		WHERE event.event_id=#{eventId}
+		WHERE event_id=#{eventId}
 	</select>
 	
 	<update id="update">
@@ -61,8 +56,6 @@
 		SELECT COUNT(*) FROM event
 		<include refid="search"></include>
 	</select>
-	
-	
 	<!-- 조회수 올리기 -->
 	<update id="viewcnt">
 		update event 

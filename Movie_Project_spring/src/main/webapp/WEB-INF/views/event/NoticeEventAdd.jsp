@@ -12,39 +12,34 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/lang/summernote-ko-KR.js"></script>
+<script
+   src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
-$(document).ready(function() {
-   //여기 아래 부분
-   $('#summernote').summernote({
-        height: 500,                 // 에디터 높이
-        minHeight: null,             // 최소 높이
-        maxHeight: null,             // 최대 높이
-        focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-        lang: "ko-KR",               // 한글 설정
-        placeholder: '최대 2048자까지 쓸 수 있습니다'   //placeholder 설정
-        
-   });
-});
-</script>
-
-<script>
- $(function(){
-  $("#mform").submit(function(){
-         var startDate = $('#startDate').val();
-         var endDate = $('#endDate').val();
-         //-을 구분자로 연,월,일로 잘라내어 배열로 반환
-         var startArray = startDate.split('-');
-         var endArray = endDate.split('-');   
-         //배열에 담겨있는 연,월,일을 사용해서 Date 객체 생성
-         var start_date = new Date(startArray[0], startArray[1], startArray[2]);
-         var end_date = new Date(endArray[0], endArray[1], endArray[2]);
-              //날짜를 숫자형태의 날짜 정보로 변환하여 비교한다.
-         if(start_date.getTime() > end_date.getTime()) {
-             alert("종료날짜보다 시작날짜가 작아야합니다.");
-             return false;
-         }
-      });
+$(function() {
+	   $('#summernote').summernote();
+	   
+	   
  });
+window.onload = function(){
+	   const msg = '${msg}';
+	   if(msg) alert('모든 항목을 입력해주세요!');
+	};
+function chageLangSelect(){
+    var startDate = $('#startDate').val();
+    var endDate = $('#endDate').val();
+    //-을 구분자로 연,월,일로 잘라내어 배열로 반환
+    var startArray = startDate.split('-');
+    var endArray = endDate.split('-');   
+    //배열에 담겨있는 연,월,일을 사용해서 Date 객체 생성
+    var start_date = new Date(startArray[0], startArray[1], startArray[2]);
+    var end_date = new Date(endArray[0], endArray[1], endArray[2]);
+         //날짜를 숫자형태의 날짜 정보로 변환하여 비교한다.
+    if(start_date.getTime() > end_date.getTime()) {
+        alert("종료날짜보다 시작날짜가 작아야합니다.");
+        $('#startDate').val('');
+        $('#endDate').val('');
+    }
+ };
 </script>
 
 </head>
@@ -95,51 +90,40 @@ $(document).ready(function() {
               </li>
             </ul>
   </div>
-  <!--여기까지 기본 위 배너 입니다!-->
-     <div class="center_box">
-      <div class="add_box">이벤트 등록</div>
-      <form method="post" class="mt-4" id="mform" enctype="multipart/form-data">
-        <div class="form-floating mt-2">
-          <label>제목</label>	
-          <div>				
-          <input type="text" name="eventName" class="form-control" placeholder="제목">
-          </div>        		
-          <div style="display: none;">					
-          <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" placeholder="작성자" >		
-       		</div>
-          <br>   
-          <div class="file-upload" style="text-align: right;">            
-                <input class="form-control" type="file" name="eventImage" > 
-                <br>
-            이벤트 시작일<input type="date" name="startDate">
-			이벤트 종료일<input type="date" name="endDate">
-       	 </div>        
-        </div>	
-        	
-        <label>내용</label>			
-        <div class="mt-2">
-          <textarea id="summernote" name="eventInfo" rows="25" cols="123"></textarea>    
-        </div>
-        <div>        	
-          <div class="add_setbutton">
-          <input type="submit" class="btn btn-outline-primary" value="등록하기" style="margin-right:40px;">
-          <a href="continue_Event" class="btn btn-outline-primary">목록가기</a></div>						
-        </div>       
-      	
-      	
-      		
-      </form>
-    </div>
-
-
-
-
-
-
-
+  
      
-
-
+       	 
+       	 
+  <!--여기까지 기본 위 배너 입니다!-->
+  
+  		<div class="inner_case" style="padding-bottom: 10rem;">
+		<form method="post" enctype="multipart/form-data">
+			<div class="form-floating" style="margin-top: 40px;margin-bottom: 40px;">
+				<div class="formName">이벤트 제목</div>
+				<input type="text" id="noticeName" name="eventName" style="padding-top: 5px;"
+					class="form-control">
+			</div>
+			<input type="text" name="id" value="${sessionScope.member.id}" style="display: none"/>
+			
+ 		 <div class="file-upload" style="text-align: right;">
+            이벤트 시작일<input type="date" name="startDate"id="startDate" oninput="chageLangSelect()"onchange="chageLangSelect()">
+			이벤트 종료일<input type="date" name="endDate"id="endDate" onchange="chageLangSelect()"oninput="chageLangSelect()">
+       	 </div>   
+			<div class="add_info">
+				<label class="noticeInfo">이벤트 내용</label>
+				<textarea rows="20" cols="113" name="eventInfo" id="summernote"></textarea>
+				<!-- <input type="text" name="noticeInfo" /> -->
+			</div>
+			
+			<div class="add_button" style="margin-top:50px;">
+				<button class="end_button btn btn-primary"id="mform">등록</button>
+				<a href="/event/continue_Event" class="back_button btn btn-danger">뒤로가기</a>
+			</div>
+		</form>
+	</div>
+	
+	
+  	
           <!-- 제일 최하단 -->
 
 <div class="bottom">

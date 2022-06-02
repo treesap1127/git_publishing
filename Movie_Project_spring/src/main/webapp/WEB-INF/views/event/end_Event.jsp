@@ -119,7 +119,7 @@ $(function(){
 							<td>${item.startDate}~${item.endDate}</td>
 							<td>${item.eventViewcnt}</td>
 							<td>${item.id}</td>																										
-							<td class="adminbtn"><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbtn">수정</button></a> <a href="delete/${item.eventId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a></td>							
+							<td class="adminbtn"><a href="NoticeEventUpdate/${item.eventId}"><button class="btn btn-outline-success adminbtn">수정</button></a> <a href="end_delete/${item.eventId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a></td>							
 						</tr>	
 										 
 					</c:forEach> 					    					
@@ -128,7 +128,6 @@ $(function(){
       </div>     
       
       <div class="pager ">  
-            <a href="NoticeEventAdd"><button class="btn btn-outline-primary adminbtn">등록</button></a>
         <div class="page_wrap">
           <div class="page_nation">
              <a class="arrow pprev" href="?page=1"></a>

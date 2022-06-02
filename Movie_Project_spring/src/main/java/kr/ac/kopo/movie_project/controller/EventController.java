@@ -5,8 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,15 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.kopo.movie_project.model.Event;
-import kr.ac.kopo.movie_project.model.EventImage;
 import kr.ac.kopo.movie_project.service.EventService;
 import kr.ac.kopo.movie_project.util.Pager;
-import kr.ac.kopo.movie_project.util.Uploader;
 
 @Controller
 @RequestMapping("/event")
@@ -31,31 +25,13 @@ public class EventController {
 	final String path = "event/";
 	
 	@Autowired
-	EventService service;	
-	
-	@RequestMapping("/delete_list")
-	public String deleteList(@RequestParam("code") List<Integer> list) { 
-		service.deleteList(list);
-		
-		return "redirect:list";
-	}
-
-	@ResponseBody
-	@GetMapping("/image/delete/{code}") 
-	public boolean deleteImage(@PathVariable int code)
-	{
-		return service.deleteImage(code);
-	}
-	
+	EventService service;
 	
 	@GetMapping("/continue_Event")
 	public String continue_Event(Model model,Pager pager,Event item){
 		List<Event> list = service.continue_Event(pager);
-		
 		service.viewcnt(item);
-		
 		model.addAttribute("list",list);		
-		
 		
 		return path+"continue_Event";
 	}	
@@ -86,22 +62,15 @@ public class EventController {
 	public String NoticeEventAdd() {
 		return path+"NoticeEventAdd";
 	}
-	
 	@PostMapping("/NoticeEventAdd")
-	public String NoticeEventAdd(Event item,HttpSession session,@RequestParam("eventImage") List<MultipartFile> eventImage) {
-		try {
-			Uploader<EventImage> uploader = new Uploader<>();
-			
-			List<EventImage> images = uploader.makeList(eventImage, EventImage.class);
-			
-			item.setImages(images);
-	
-		service.NoticeEventAdd(item);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "redirect:continue_Event";		
-	}	
+	public String NoticeEventAdd(Event item,RedirectAttributes ra) {
+			String bool=service.NoticeEventAdd(item);
+			if(bool=="false") {
+				ra.addFlashAttribute("msg", "false");
+				return "redirect:NoticeEventAdd";
+			}
+		return "redirect:continue_Event";
+	}
 	
 	@GetMapping("/NoticeEventUpdate/{eventId}")
 	public String NoticeEventUpdate(@PathVariable int eventId, Model model) {
@@ -112,20 +81,13 @@ public class EventController {
 	}
 	
 	@PostMapping("/NoticeEventUpdate/{eventId}")
-	public String NoticeEventUpdate(@PathVariable int eventId, Event item,@RequestParam("eventImage") List<MultipartFile> eventImage) {
-		try {
-			Uploader<EventImage> uploader = new Uploader<>();
-			
-			List<EventImage> images = uploader.makeList(eventImage, EventImage.class);
-			
-			item.setImages(images);
+	public String NoticeEventUpdate(@PathVariable int eventId, Event item ,RedirectAttributes ra) {
 			item.setEventId(eventId);
-		
-		service.NoticeEventUpdate(item);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+			String bool=service.NoticeEventUpdate(item);
+			if(bool=="false") {
+				ra.addFlashAttribute("msg", "false");
+				return "redirect:NoticeEventUpdate/"+eventId;
+			}
 		return "redirect:../continue_Event";
 	}
 	
@@ -135,5 +97,10 @@ public class EventController {
 		
 		return "redirect:../continue_Event";
 	}
-	
+	@GetMapping("/end_delete/{eventId}")
+	public String end_delete(@PathVariable int eventId) {
+		service.delete(eventId);
+		
+		return "redirect:../end_Event";
+	}
 }

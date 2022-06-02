@@ -11,19 +11,14 @@ public interface EventService {
 
 	List<Event> end_Event(Pager pager);
 
-	void NoticeEventAdd(Event item);
+	String NoticeEventAdd(Event item);
 
 	void delete(int eventId);	
 
 	Event item(int eventId);
 
-	void NoticeEventUpdate(Event item);
+	String NoticeEventUpdate(Event item);
 
 	void viewcnt(Event item);	
 
-	void deleteList(List<Integer> list);
-
-	boolean deleteImage(int code);	
-
-	
 }
