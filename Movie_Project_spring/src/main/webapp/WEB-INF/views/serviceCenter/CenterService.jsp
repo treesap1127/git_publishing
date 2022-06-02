@@ -60,26 +60,26 @@
       <div class="center_seq">고객 센터</div>     
         <div class="fqa_top_area">
           <div class="fqa_top_cont">
-              <p class="p_title"><a href="F&Q" class="btn_more">FAQ TOP 5(바로 가기)</a></p>
+              <p class="p_title"><a href="Faq" class="btn_more">FAQ TOP 5(바로 가기)</a></p>
               <div class="faq_box">
                               <div class="">
                                 <table class="faq_table">
                      
                                   <thead>
                                       <tr>
-                                          <td><a href="F&Q">Q 네이버 페이로 결제할수 있나용?</a></td>
+                                          <td><a href="Faq">Q 네이버 페이로 결제할수 있나용?</a></td>
                                        </tr>
                                        <tr>
-                                        <td><a href="F&Q">Q 한번에 몇 매까지 예매가 가능한가요?</a></td>
+                                        <td><a href="Faq">Q 한번에 몇 매까지 예매가 가능한가요?</a></td>
                                      </tr>
                                      <tr>
-                                      <td><a href="F&Q">Q 네이버 페이로 결제할수 있나용?</a></td>
+                                      <td><a href="Faq">Q 네이버 페이로 결제할수 있나용?</a></td>
                                    </tr>
                                    <tr>
-                                    <td><a href="F&Q">Q 예매후 극장 예매표는 어떻게 받나요?</a></td>
+                                    <td><a href="Faq">Q 예매후 극장 예매표는 어떻게 받나요?</a></td>
                                  </tr>
                                  <tr>
-                                  <td><a href="F&Q">Q 예매 취소내역은 어디서 확인하나요?</a></td>
+                                  <td><a href="Faq">Q 예매 취소내역은 어디서 확인하나요?</a></td>
                                </tr>
                               
                                       </thead>
@@ -144,7 +144,7 @@
     </div>
     <div class="sub_box_menu">
       <a href="NoticeList" class="service_img"><img alt="고객센터" src="/img/center_service/plannings.png" class="sub_box" style="display:block;">공지사항</a>
-      <a href="F&Q" class="faq_img"><img alt="자주묻는질문" src="/img/center_service/faq.png" class="sub_box1" style="display:block;">자주묻는질문</a>      
+      <a href="Faq" class="faq_img"><img alt="자주묻는질문" src="/img/center_service/faq.png" class="sub_box1" style="display:block;">자주묻는질문</a>      
    </div>
    
     </div>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Faq">
+	<select id="list" resultType="Faq">
+		select * from faq		
+	</select>
+	
+	<insert id="add">
+		INSERT INTO faq
+		VALUES (NULL,#{subject},#{id},#{contents})
+	</insert>
+	
+	<select id="item" resultType="Faq">
+		SELECT * FROM faq
+		WHERE faq_id=#{faqId}
+	</select>
+	
+	<update id="update">
+		UPDATE faq
+		SET subject=#{subject}, contents=#{contents}
+		WHERE faq_id=#{faqId}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM faq
+		WHERE faq_id=#{faqId}
+	</delete>
+	
+</mapper>

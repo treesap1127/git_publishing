@@ -46,6 +46,13 @@
     });
     
 </script>
+<script>
+$(function(){
+	if(${sessionScope.member.grade}<10){
+	$(".adminbtn").css("display","none");		
+	}
+});
+</script>
 </head>
 <body>
   <div class="box_case">
@@ -119,35 +126,24 @@
           
           <div class="faq_area">
           
-            <table class="faq_table">                     
+            <table class="faq_table">                                 
               <thead>  
+               <c:forEach items="${list}" var="item">
                 <tr>           
                     <td><details>
-                      <summary>Q 네이버 페이로 결제할수 있나용?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-                      결제창 정보에 따라서 진행 하거나 진행이 어려울 경우 질문게시판에 올리시면 됩니다.
-                    </details></td>   
-                </tr>              
-                <tr>           
-                  <td><details>
-                    <summary>Q 예매는 어떻게 하냐요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-                  </details></td>   
-              </tr>              
-              <tr>           
-                <td><details>
-                  <summary>Q 예매후 극장 예매표는 어떻게 받나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-                </details></td>   
-            </tr> 
-               <tr>           
-                <td><details>
-                  <summary>Q 예매하는법?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-                </details></td>   
-            </tr>             
-              </thead>
-                                  
-          </table>
+                      <summary>Q ${item.subject}<a href="FaqUpdate/${item.faqId}"><button class="btn btn-outline-success adminbtn">변경</button></a> <a href="delete/${item.faqId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a>
+                      <img src="/img/center_service/down_faq.png" class="down_img"></summary>
+                      ${item.contents}
+                    </details></td>  
+                </tr>     
+                 
+            </c:forEach>         
+              </thead>                              
+          </table>        
         </div>
-        
-   
+         <div class="adminbtn">
+    		  <a href="FaqAdd"><button class="btn btn-outline-primary adminbtn">등록</button></a>
+  		 </div>   
       </div>
 
   
@@ -170,30 +166,26 @@
       <div class="area_index" >결제/취소</div>
     </div>            
   
-    <div class="faq_area">
+      <div class="faq_area">
           
-      <table class="faq_table">
-               
-        <thead>
-          <tr>           
-            <td><details>
-              <summary>Q 한번에 몇 매까지 예매가 가능한가요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-            </details></td>   
-        </tr>              
-        <tr>           
-          <td><details>
-            <summary>Q 예매는 어떻게 하냐요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-          </details></td>   
-      </tr>              
-      <tr>           
-        <td><details>
-          <summary>Q 예매 취소내역은 어디서 확인하나요?<img src="/img/center_service/down_faq.png" class="down_img"></summary>
-        </details></td>   
-    </tr>              
-        </thead>
-                            
-    </table>
-  </div>
+            <table class="faq_table">                                 
+              <thead>  
+               <c:forEach items="${list}" var="item">
+                <tr>           
+                    <td><details>
+                      <summary>Q ${item.subject}
+                      <img src="/img/center_service/down_faq.png" class="down_img"></summary>
+                      ${item.contents}
+                    </details><a href="FaqUpdate/${item.faqId}"><button class="btn btn-outline-success adminbtn">변경</button></a> <a href="delete/${item.faqId}"><button class="btn btn-outline-danger adminbtn">삭제</button></a></td>  
+                </tr>     
+                 
+            </c:forEach>         
+              </thead>                              
+          </table>        
+        </div>
+         <div class="adminbtn">
+    		  <a href="FaqAdd"><button class="btn btn-outline-primary adminbtn">등록</button></a>
+  		 </div> 
 
 </div>
 

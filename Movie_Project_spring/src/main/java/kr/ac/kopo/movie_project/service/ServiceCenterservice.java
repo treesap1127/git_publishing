@@ -3,6 +3,7 @@ package kr.ac.kopo.movie_project.service;
 import java.util.List;
 
 import kr.ac.kopo.movie_project.model.Board;
+import kr.ac.kopo.movie_project.model.Faq;
 import kr.ac.kopo.movie_project.util.PagerBoardId;
 
 public interface ServiceCenterservice {
@@ -17,6 +18,16 @@ public interface ServiceCenterservice {
 
 	void delete(Long boardId, Long articleId);
 
-	boolean deleteImage(int code);
+	boolean deleteImage(int code);	
+
+	void FaqAdd(Faq item);
+
+	Faq item(int faqId);
+
+	void faqupdate(Faq item);
+
+	List<Faq> list();
+
+	void delete(int faqId);
 
 }

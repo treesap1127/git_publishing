@@ -10,6 +10,7 @@ import kr.ac.kopo.movie_project.dao.ServiceCenterDao;
 import kr.ac.kopo.movie_project.dao.boardImageDao;
 import kr.ac.kopo.movie_project.model.Board;
 import kr.ac.kopo.movie_project.model.BoardImage;
+import kr.ac.kopo.movie_project.model.Faq;
 import kr.ac.kopo.movie_project.util.PagerBoardId;
 @Service
 public class ServiceCenterserviceImpl implements ServiceCenterservice {
@@ -72,6 +73,41 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	public boolean deleteImage(int code) {
 		
 		return boardImageDao.delete(code);
+	}
+
+
+	@Override
+	public List<Faq> list() {
+		
+		return dao.list();
+	}
+
+
+	@Override
+	public void FaqAdd(Faq item) {
+		dao.FaqAdd(item);
+		
+	}
+
+
+	@Override
+	public Faq item(int faqId) {
+		
+		return dao.item(faqId);
+	}
+
+
+	@Override
+	public void faqupdate(Faq item) {
+		dao.update(item);
+		
+	}
+
+
+	@Override
+	public void delete(int faqId) {
+		dao.delete(faqId);
+		
 	}
 
 
