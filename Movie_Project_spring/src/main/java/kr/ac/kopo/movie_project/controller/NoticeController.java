@@ -20,6 +20,7 @@ import kr.ac.kopo.movie_project.service.NoticeService;
 @Controller
 @RequestMapping("/serviceCenter")
 public class NoticeController {
+	//tset
 	String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 	final String path = "serviceCenter/";
 	
