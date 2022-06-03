@@ -1,4 +1,27 @@
 @charset "UTF-8";
+.mylink{
+position: relative;
+top: 3px;
+    color: white;
+    /* left: 1%; */
+    width: 134px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    float: right;
+    right: 3%;
+}
+.title_plus_text{
+    position: relative;
+    right: 14.36%;
+    top: 16%;
+    width: 220px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    float: right;
+}
+
 *{
   font-family: 'Noto Sans KR', sans-serif;
   list-style: none;
@@ -54,19 +77,21 @@
 }
 .title_right{
     font-size: 14px;
-    text-align: left;
+    text-align: right;
     font-style: normal;
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: 600;
     position: absolute;
     display: flex;
     color: white;
-    top: 50%;
-    left: 80%;
-    width: 200px;
+    top: 65%;
+    float: right;
+    right: 14.4%;
+    width: 150px;
     transform: translateY(-50%);
     letter-spacing: 1px;
 }
+
 .login_link{
     position: relative;
     left: 4%;
@@ -151,8 +176,6 @@ a:hover {
 a{
     color: white;
 }
-
-
 /*여기까지 기본 위 배너 css입니다!*/
 .top_photo{
   height: 700px;

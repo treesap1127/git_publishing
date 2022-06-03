@@ -23,7 +23,10 @@
     </script>
     <style>
        .title_plus_text{
-       color:white}
+       right: 14.9%;
+    color: white;
+    top: 14.5%;
+    line-height: 23px;}
     </style>
 </head>
 
@@ -38,20 +41,19 @@
             </div>
 
                <div class="title_right">
-                   <a href="such"><img src="img/root/돋보기블랙.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
                    <div class="login_link"><a href="serviceCenter/CenterService" >고객센터</a></div>
                     <c:if test="${sessionScope.member.grade==0}">   <div class="login_link"><a href="login">로그인</a></div></c:if>
                     <c:if test="${sessionScope.member.grade>0}">   <div class="login_link"><a href="logout">로그아웃</a></div></c:if>
                </div>
-               <c:if test="${sessionScope.member.grade==1}">
-                <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage/myPage">마이페이지</a></div>
-                </c:if>
-                <c:if test="${sessionScope.member.grade==2}">
-                <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage/myCinema">영화관 관리</a></div>
-                </c:if>
-                <c:if test="${sessionScope.member.grade>=10}">
-                <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="webadmin/admin">웹 관리</a></div>
-                </c:if>
+	            <c:if test="${sessionScope.member.grade==1}">
+	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요<br> <a href="../../../../../../../../myPage/myPage">마이페이지</a></div>
+	             </c:if>
+	             <c:if test="${sessionScope.member.grade==2}">
+	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요<br><a href="../../../../../../../../myPage/myCinema">영화관 관리 페이지</a></div>
+	             </c:if>
+	             <c:if test="${sessionScope.member.grade>=10}">
+	             <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요<br><a href="../../../../../../../../webadmin/admin">웹 관리 페이지</a></div>
+	             </c:if>
         </div>
         
             <div class="black_box">

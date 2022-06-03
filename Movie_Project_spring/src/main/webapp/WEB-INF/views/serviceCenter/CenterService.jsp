@@ -7,50 +7,64 @@
  <jsp:include page="../include/header.jsp"></jsp:include>
 <link href="../css/serviceCenter/center_service.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
+<style>
+.title_plus_text{
+	position: relative;
+    right: 21.36%;
+    top: 16%;
+    width: 400px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    float: right;
+        line-height: 22px;
+}
+.title_right{
+	top: 65%;
+    right: 18%;
+    left: auto;
+}
+</style>
 </head>
+
 <body>
   <div class="box_case">
     <!--좌우크기조절-->
     <div class="title">
-      <a href="../../../../" class="main_back">
-        <img src="../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
-        <div class="title_name">Miner Cinema</div>
+      <a href="../../../../../../../../" class="main_back">
+        <img src="../../../../../../../../img/root/메인아이콘_흰.jpg" alt="메인아이콘" />
+        <div class="title_name">Minor Cinema</div>
       </a>
     </div>
 <div class="title_right">
-	                <a href="such"><img src="../img/root/돋보기화이트.jpg" alt="돋보기아이콘" style="height: 22px; width: 25px;" /></a>
-	                <div class="login_link"><a href="../../serviceCenter/CenterService" >고객센터</a></div>
-	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="/login">로그인</a></div></c:if>
-	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="logout">로그아웃</a></div></c:if>
+	                <div class="login_link"><a href="../../../../../../../../../../serviceCenter/CenterService" >고객센터</a></div>
+	              	<c:if test="${sessionScope.member.grade==0}">	<div class="login_link"><a href="../../../../../../../../login">로그인</a></div></c:if>
+	              	<c:if test="${sessionScope.member.grade>0}">	<div class="login_link"><a href="../../../../../../../../logout">로그아웃</a></div></c:if>
 	            </div>
 	            <c:if test="${sessionScope.member.grade==1}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="myPage">마이페이지</a></div>
+	             <div class="title_plus_text">${sessionScope.member.userName} 사용자님 안녕하세요<br> <a href="../../../../../../../../myPage/myPage">마이페이지</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade==2}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="">영화관 관리</a></div>
+	             <div class="title_plus_text">${sessionScope.member.userName} 영화 관리자님 안녕하세요<br><a href="../../../../../../../../myPage/myCinema">영화관 관리 페이지</a></div>
 	             </c:if>
 	             <c:if test="${sessionScope.member.grade>=10}">
-	             <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="webadmin/admin">웹 관리</a></div>
+	             <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요<br><a href="../../../../../../../../webadmin/admin">웹 관리 페이지</a></div>
 	             </c:if>
         </div>
   <div class="black_box">
             <ul id="main-menu">
-            <li><a href="../../../../ticket/Ticketing">예매</a>
+            <li><a href="../../../../../../../../ticket/Ticketing">예매</a>
                 <ul id="sub-menu">
-                  <li><a href="../../../../ticket/Ticketing" aria-label="subemnu">예매하기</a></li>
-                  <li><a href="../../../../ticket/TicketInformation" aria-label="subemnu">예매안내</a></li>
+                  <li><a href="../../../../../../../../ticket/Ticketing" aria-label="subemnu">예매하기</a></li>
+                  <li><a href="../../../../../../../../ticket/TicketInformation" aria-label="subemnu">예매안내</a></li>
                 </ul>
               </li>
-              <li><a href="../../../../movie_info/NowPlayRank">영화</a>
-                <ul id="sub-menu">
-                  <li><a href="../../movie_info/NowPlayRank" aria-label="subemnu">현재 상영작</a></li>
-                  <li><a href="../../movie_info/Expected" aria-label="subemnu">상영예정작</a></li>
-                </ul>
+              <li><a href="../../../../../../../../movie_info/NowPlayRank">영화 정보</a>
               </li>
-              <li><a href="../../../../event/continue_Event">이벤트</a>
+              <li><a href="../../../../../../../../event/continue_Event">이벤트</a>
                 <ul id="sub-menu">
-                  <li><a href="../../../../event/continue_Event" aria-label="subemnu">진행중인 이벤트</a></li>
-                  <li><a href="../../../../event/end_Event" aria-label="subemnu">종료된 이벤트</a></li>
+                  <li><a href="../../../../../../../../event/continue_Event" aria-label="subemnu">진행중인 이벤트</a></li>
+                  <li><a href="../../../../../../../../event/end_Event" aria-label="subemnu">종료된 이벤트</a></li>
                 </ul>
               </li>
             </ul>
@@ -99,7 +113,7 @@
               </div>
               <div class="faq_center">
                   
-                  <a href="WebAdmin" target="_blank" class="inquiry">관리자신청</a>
+                  <a href="../webadmin/admin" target="_blank" class="inquiry">관리자신청</a>
                   
               </div>
           </div>

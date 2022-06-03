@@ -137,12 +137,11 @@ opacity: 1;
 visibility: visible;
 z-index: 9;
 }
-
-
 section {
 column-width: 15em;
 padding: 2em 12em;
 }
+
 /*여기까지 기본 위 배너 css입니다!*/
 /* bottom */
 /* 최하단 css */
