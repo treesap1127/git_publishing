@@ -26,7 +26,9 @@
        right: 14.9%;
     color: white;
     top: 14.5%;
-    line-height: 23px;}
+    line-height: 23px;
+   }
+   
     </style>
 </head>
 

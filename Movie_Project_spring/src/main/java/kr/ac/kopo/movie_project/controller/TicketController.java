@@ -77,7 +77,7 @@ public class TicketController {
 			String subString = data.substring(0,data.length()-1);
 			return subString;
 		}
-		return "";
+		return "LPO";
 	}
 	@GetMapping("/payment")
 	public String pay() {
@@ -89,6 +89,7 @@ public class TicketController {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");         
 		String formatedNow = formatter.format(now);
 		item.setPayTime(formatedNow);
+		
 			String bool=service.ticketcomplete(item);
 			if(bool=="false") {
 				ra.addFlashAttribute("msg", "false");

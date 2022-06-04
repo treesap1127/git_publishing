@@ -58,7 +58,7 @@
 	</select>
 	<insert id="sit_tic_add">
 		insert into sit_select
-		VALUES (#{movieCode},#{cinemaCode},#{theaterName},#{id},#{selectSit}) 
+		VALUES (#{movieCode},#{cinemaCode},#{theaterName},#{id},#{selectSit})
 	</insert>
 	<select id="paymentItem" resultType="Movie">
 		select *

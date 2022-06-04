@@ -48,7 +48,9 @@ $(function(){
 	cinemacode_=$(".cinemaCode").val();
 	theatername_=$(".theaterName").val();
 	console.log("무비코드ㅡㅡㅡ"+moviecode_)
-	data={movieCode:moviecode_,cinemaCode:cinemacode_,theaterName:theatername_}
+	id=$(".title_plus_text").attr("id");
+		console.log("idㅡㅡㅡ"+id);
+	data={movieCode:moviecode_,cinemaCode:cinemacode_,theaterName:theatername_,id:id}
 	$.ajax({
 		  url:"/ticket/sitset",
           method:"POST",
@@ -61,7 +63,7 @@ $(function(){
 							console.log(bottle[i]);
 							$(`.${bottle[i]}`).removeClass("sit_b");
 							$(`.${bottle[i]}`).addClass("sit_c");
-							$(".sit_c").text("");		
+							$(".sit_c").text("");
 							$(".sit_c").off("click");
 						}
 						

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
 	<select id="list" resultType="Notice">
 		SELECT * FROM notice
 	</select>
-	
+
 	<select id="notice" resultType="Notice">
 		SELECT * FROM notice
 		limit 0, 5
@@ -30,6 +29,7 @@
 		SET subject=#{subject}, contents=#{contents}
 		WHERE article_id=#{articleId}
 	</update>
+	
 	<update id="viewCount">
 		UPDATE notice
 		SET view_count=view_count+1

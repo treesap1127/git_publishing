@@ -360,3 +360,6 @@ a{
   overflow: hidden;
   white-space: inherit;
 }
+body{
+	 background-color: #f5f5f5;
+}
