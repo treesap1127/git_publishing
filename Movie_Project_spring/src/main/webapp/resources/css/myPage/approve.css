@@ -1,0 +1,524 @@
+@charset "UTF-8";
+.mylink{
+position: relative;
+top: 3px;
+    color: white;
+    /* left: 1%; */
+    width: 134px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    float: right;
+    right: 3%;
+}
+.title_plus_text{
+    position: relative;
+    right: 14.36%;
+    top: 16%;
+    width: 220px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    float: right;
+}
+*{
+  font-family: 'Noto Sans KR', sans-serif;
+  list-style: none;
+  text-decoration: none;
+  border-collapse: collapse;
+  margin:0px;
+  padding: 0px;
+  color: #000;
+}
+#main-menu{
+    list-style: none;
+    padding-left: 0px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+body{
+	 background-color: #f5f5f5;
+}
+.main_back{
+  display: flex;
+}
+.title_hr{
+    background-color: white;
+    opacity: 30%;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 119px;
+}
+.box_case{
+    position: relative;
+    height: 125px;
+    width: 100%;
+    background-color: black;
+    
+}
+.title{
+    font-size: 2rem;
+    text-align: left;
+    font-style: normal;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 600;
+    position: absolute;
+    display: flex;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.title_name{
+    position: relative;
+    left: 10px;
+    top: 4px;
+    color: white;
+}
+.title_right{
+    font-size: 14px;
+    text-align: right;
+    font-style: normal;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 600;
+    position: absolute;
+    display: flex;
+    color: white;
+    top: 65%;
+    float: right;
+    right: 14.4%;
+    width: 150px;
+    transform: translateY(-50%);
+    letter-spacing: 1px;
+}
+
+.login_link{
+    position: relative;
+    left: 4%;
+    width: 70px;
+}
+.drop_down_maincase{
+    position: relative;
+    display: flex;
+    padding: 5px;
+    font-style: normal;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+        text-align: center;
+}
+.black_box{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    z-index: 9;
+    position: relative;
+}
+#main-menu > li {
+  
+  float: left;
+  position: relative;
+  margin-left: 49px;
+  margin-right: 49px;
+}
+
+#main-menu > li > a {
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  display: block;
+  padding: 14px 36px;
+  border-right: 1px solid rgba(0,0,0,0.15);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+#main-menu > li:nth-child(1) > a {
+  border-left: 1px solid rgba(0,0,0,0.15);
+}
+
+#sub-menu {
+  position: absolute;
+  background: #000000;
+  width: 200%;
+  visibility: hidden;
+  transition: all 0.15s ease-in;
+  list-style: none;
+
+  list-style: none;
+  padding-left: 0px;
+
+}
+
+#sub-menu > li {
+  padding: 16px 28px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  z-index: 9;
+
+}
+#sub-menu > li >  a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  z-index: 9;
+}
+
+#main-menu > li:hover #sub-menu {
+
+  visibility: visible;
+  z-index: 9;
+}
+a:hover {
+    color: white;
+  }
+a{
+    color: white;
+}
+/*여기까지 기본 위 배너 css입니다!*/
+/* 바텀주석 */
+.bottom_text_1 {
+    position: relative;
+    color: white;
+    font-size: 1.92rem;
+    text-align: left;
+    font-style: normal;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 800;
+    top: px;
+    left: 45px;
+  }
+  
+  .bottom_text_2 {
+    position: relative;
+    color: #a0a0a0;
+    font-size: 0.72rem;
+    text-align: left;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    top: 10px;
+    left: 45px;
+  }
+  
+  .bottom_text_3 {
+    position: relative;
+    color: #a0a0a0;
+    font-size: 0.72rem;
+    text-align: left;
+    font-style: normal;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 500;
+    top: 6.3rem;
+    left: 45px;
+  }
+  
+  .bottom_text_4 {
+    position: relative;
+    color: #a6a6a6;
+    font-size: 0.96rem;
+    text-align: left;
+    font-style: normal;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 500;
+    top: 9rem;
+    left: 45px;
+  }
+  .lhr5 {
+    position: relative;
+    background-color: #6c6c6c;
+    border: 0;
+    opacity: 100;
+    top: 150px;
+  }
+  .inner_case_bottom {
+    position: absolute;
+    height: 85%;
+    width: 62.5rem;
+    left: 50%;
+    top: 35px;
+    transform: translateX(-50%);
+  }
+  .bottom {
+    position: relative;
+    background-color: #333333;
+  
+    width: 100%;
+    height: 25rem;
+  }
+  /* 바텀주석 */
+  /*마이페이지 시작*/
+.top_box{
+  width: 100%;
+  height: 200px;
+  background-color: #ddd;
+}
+.top_box_name{
+  top: 45%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 30px;
+  width: 458px;
+  text-align: center;
+}
+.top_box_info{
+  font-size: 13px;
+  opacity: 0.5;
+  width: 362px;
+  position: relative;
+  top: 53%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mypage{
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 3040px;
+  
+}
+
+.mypage_inline{
+  width: 1080px;
+  height: 100%;
+  position:relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.my_page{
+  width: 100%;
+  height: 380px;
+  justify-content: space-between;
+}
+.my_top{
+  width: 100%;
+  height: 100%;
+}
+.my_bank_name{
+  width: 100%;
+  height: 20%;
+}
+.my_bank_title{
+ color: black;
+ position: relative;
+ top: 50px;
+
+}
+.my_back_box{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    position: relative;
+    top: 80px;
+}
+
+.my_back_box_href{
+    font-size: 18px;
+    text-align: center;
+    line-height: 58px;
+    width: 540px;
+}
+.my_back_box_>img{
+	width:70px;
+
+}
+
+.ticket_check_cancle{
+  width: 100%;
+  height: 1300px;
+
+}
+.ticket_cancle{
+  width: 100%;
+  height: 1300px;
+}
+.ticket_sale{
+  width: 100%;
+  height: 1300px;
+}
+.ticket_sale_{
+  width: 100%;
+  height: 1300px;
+}
+.menu{
+  width: 100%;
+  height: 100px;  
+}
+.menu>div{
+  width: 50%;
+  text-align: center;
+  padding: 40px;
+  border-bottom: 1px solid lightgray;
+}
+.menu>div.menu1{
+  font-weight: 700;
+  border-bottom: 2px solid black;
+}
+.Cbutton{
+  width: 100%;
+  height: 100px;
+  justify-content: space-evenly;
+}
+.Cbutton>button{
+  outline: 0;
+  border: 0;
+  background-color: #f5f5f5;
+
+  height: 63px;
+  width: 120px;
+  position: relative;
+  top: 36px;
+}
+
+.fail_info{
+position: relative;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    height: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #dddddd;
+}
+.complete_img{
+	    width: 172px;
+}
+.cancel{
+	margin-left: 620px;
+    position: relative;
+    bottom: 12px;
+}
+.drag_css{
+	overflow-y: scroll;
+    height: 665px;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+.drag_css::-webkit-scrollbar{
+	display: none;
+}
+.complete_text{
+  padding: 30px;
+      width: 84%;
+    line-height: 26px;
+}
+.com_tic_name{
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+#check_menu{
+  font-weight: 700;
+  border-bottom: 1px solid black;
+}
+.lhr6{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.c_info{
+  width: 100%;
+  height: 270px;
+}
+.c_info_name{
+  font-size: 21px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.c_info_text{
+  line-height: 30px;
+  opacity: 0.7;
+}
+.c_info_text2{
+  line-height: 25px;
+  margin-top: 29px;
+  font-size: 15px;
+}
+.c_info_b{
+  font-weight: 600;
+}
+.red_txt_box{
+  width: 100%;
+  height: 100px;
+  background-color: #ec6159;
+  margin-bottom: 40px;
+}
+.red_txt{
+  width: 87%;
+  height: 96px;
+  margin: 2px;
+  text-align: center;
+}
+.red_button{
+ margin: 2px;
+ list-style: 0;
+ border: 0;
+  text-align: center;
+  width: 12%;
+  height: 96px;
+  color: white;
+  font-size: 17px;
+  background-color: #ec6159;
+
+}
+.flex{
+  display: flex;
+}
+.such_text{
+  line-height: 20px;
+  font-size: 14px;
+}
+.sale_box{
+  width: 100%;
+  height: 800px;
+  margin-top: 80px;
+}
+
+.sale_box_double{
+  height: 47%;
+}
+.sale_box_double_bottom{
+  height: 50%;
+  position: relative;
+  top: 3%;
+}
+
+.table_name{
+  font-size: 20px;
+  position: relative;
+  bottom: 10px;
+}
+.such_text_box{
+  position: relative;
+  top: 25px;
+}
+.c_info_box{
+  width: 100%;
+  height: 1100px;
+}
+
+.theater_top{
+    left: 50%;
+    transform: tranlateX(-50%);
+    margin: 41px;
+    text-align: center;
+    font-size: 20px;
+}
+.theater_table{
+margin-bottom: 60px;
+    margin-top: 47px;
+}
+.theater_table>table{
+	text-align: center;
+}
+.drag_css{
+	overflow-y: scroll;
+    height: 536px;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+.drag_css::-webkit-scrollbar{
+	display: none;
+}

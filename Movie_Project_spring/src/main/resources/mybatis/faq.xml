@@ -12,6 +12,11 @@
 		VALUES (NULL,#{category},#{subject},#{id},#{contents})
 	</insert>
 	
+	<insert id="adminAdd">
+		INSERT INTO movie_admin
+		VALUES (#{cinemaCode},#{id},#{bigCity},#{tel},#{movieAreaName},0)
+	</insert>
+	
 	<select id="item" resultType="Faq">
 		SELECT * FROM faq
 		WHERE faq_id=#{faqId}

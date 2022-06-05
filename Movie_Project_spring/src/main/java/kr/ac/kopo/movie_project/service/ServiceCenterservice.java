@@ -3,6 +3,7 @@ package kr.ac.kopo.movie_project.service;
 import java.util.List;
 
 import kr.ac.kopo.movie_project.model.Faq;
+import kr.ac.kopo.movie_project.model.MovieAdmin;
 
 public interface ServiceCenterservice {
 
@@ -21,5 +22,7 @@ public interface ServiceCenterservice {
 	List<Faq> list2();
 
 	List<Faq> list3();
+
+	String adminAdd(MovieAdmin item);
 
 }

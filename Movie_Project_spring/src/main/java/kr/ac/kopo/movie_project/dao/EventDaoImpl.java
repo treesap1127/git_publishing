@@ -65,7 +65,11 @@ public class EventDaoImpl implements EventDao {
 	}
 	@Override
 	public int eventItem() {
-		return sql.selectOne("Event.eventItem");
+		try {
+			return sql.selectOne("Event.eventItem");
+		} catch (NullPointerException e) {
+			return 0;
+		}
 	}	
 
 	

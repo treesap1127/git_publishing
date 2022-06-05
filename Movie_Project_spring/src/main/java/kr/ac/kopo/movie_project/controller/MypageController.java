@@ -59,6 +59,19 @@ public class MypageController {
 		model.addAttribute("list", list);
 		return path+"myCinema";
 	}
+	@GetMapping("cinemaUpdate/{cinemaCode}")
+	public String cinemaUpdate(@PathVariable String cinemaCode,Model model) {
+		MovieAdmin item=service.cinemaItem(cinemaCode);
+		model.addAttribute("item", item);
+		return path+"cinemaUpdate";
+	}
+	@PostMapping("cinemaUpdate/{cinemaCode}")
+	public String cinemaUpdate(MovieAdmin item) {
+		service.cinemaUpdate(item);
+		
+		return "redirect:../myCinema";
+	}
+	
 	@GetMapping("theater/{cinemaCode}")//마이페이지(영화관)
 	public String theater(@PathVariable String cinemaCode,Model model,MovieAdmin item) {
 		item.setCinemaCode(cinemaCode);

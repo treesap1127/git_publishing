@@ -3,6 +3,7 @@ package kr.ac.kopo.movie_project.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.kopo.movie_project.model.Faq;
+import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.service.ServiceCenterservice;
 @Controller
 @RequestMapping("/serviceCenter")
@@ -69,7 +72,28 @@ public class ServiceCenterController {
     	  service.delete(faqId);
     	  return "redirect:../Faq";
       }
-      
+      @GetMapping("/adminAdd")
+      public String adminAdd() {
+    	  return path+"adminAdd";
+      }
+      @PostMapping("/adminAdd")
+      public String adminAdd(MovieAdmin item,RedirectAttributes ra) {
+    	  int wordLength=8;
+    	  Random r = new Random();	StringBuilder sb = new StringBuilder(wordLength);		
+    	  for(int i = 0; i < wordLength; i++) {		
+    		  char tmp = (char) ('a' + r.nextInt('z' - 'a'));				
+    		  sb.append(tmp);	}		
+			
+    	  String cinemacode=sb.toString();
+    	  item.setCinemaCode(cinemacode);
+    	  String bool=service.adminAdd(item);
+    	  if(bool=="false") {
+    		  ra.addFlashAttribute("msg", "false");
+    		  return "redirect:adminAdd";
+    	  }
+    	  ra.addFlashAttribute("msg", "true");
+    	  return "redirect:CenterService";
+      }
       
    }
 

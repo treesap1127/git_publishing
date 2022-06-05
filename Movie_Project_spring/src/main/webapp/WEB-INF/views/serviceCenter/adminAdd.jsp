@@ -5,8 +5,30 @@
 <html>
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-<link href="../css/serviceCenter/center_service.css" rel="stylesheet" type="text/css">
+<link href="../css/serviceCenter/adminAdd.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/style/style.css">
+
+<!-- 서머노트를 위해 추가해야할 부분 -->
+<link
+   href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+   rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+window.onload = function(){
+	   const msg = '${msg}';
+	   if(msg) alert('모든 항목을 입력해주세요!');
+	};
+function joinform_check() {
+	
+	phoneNumber=$("#tel").val();
+	if (!/^[0-9]{3}-[0-9]{3,4}-[0-9]{4}/.test(phoneNumber)){
+	    alert("숫자, -을 포함해 휴대전화 형식에 맞게 입력해주세요.");
+	    return false;
+	  }
+	form.submit();
+}
+</script>
+<!--  -->
 <style>
 .title_plus_text{
 	position: relative;
@@ -25,13 +47,6 @@
     left: auto;
 }
 </style>
-
-<script>
-window.onload = function(){
-	   const msg = '${msg}';
-	   if(msg) alert("신청이 완료 되었습니다 \n 신청 후 2~3일 내로 승인이 완료 됩니다. ");
-	};
-</script>
 </head>
 
 <body>
@@ -78,88 +93,44 @@ window.onload = function(){
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
-      <div class="center_seq">고객 센터</div>     
-        <div class="fqa_top_area">
-          <div class="fqa_top_cont">
-              <p class="p_title"><a href="Faq" class="btn_more">FAQ TOP 5(바로 가기)</a></p>
-              <div class="faq_box">
-                 <div class="">
-                   <table class="faq_table">
-        
-                     <thead>
-                     <c:if test="${list.size() eq 0}">
-                                	<tr>
-                                        <td><a href="BoardList">등록 된 FAQ가 없습니다</a></td>
-                                     </tr>
-                       </c:if>
-                     	<c:forEach var="list" items="${list}">
-                         <tr>
-                             <td><a href="Faq">Q ${list.subject}</a></td>
-                          </tr>
-                         </c:forEach>
-                     </thead>
-                                         
-                 </table>
-                 </div>
-                          
-                  
-
-
-              </div>
+      <div class="add_box">관리자 신청</div>
+      <form method="post" class="mt-4">
+          <label>id</label>	
+          <div>
+          <input type="text" name="id" class="form-control" value="${sessionScope.member.id}" readonly>
+          </div>      
+          <br>   
+          <label>시/도</label>	
+          <div>
+         	 <select name="bigCity" class="form-control" style="padding-top:0;padding-bottom:0;">
+       			<option value="서울">서울</option>
+       			<option value="경기">경기/인천</option>
+       			<option value="대전">충청/대전</option>
+       			<option value="전라">전라/광주</option>
+       			<option value="경상">경상/대구</option>
+       			<option value="강원">강원도</option>
+       			<option value="제주">제주특별자치도</option>
+       		</select>
+          </div>      
+          <br>   
+          <label>전화번호</label>	
+          <div>
+          <input type="tel" name="tel" id="tel" class="form-control" value="" placeholder="010-0000-0000">
           </div>
-          <div class="faq_category">
-              <div class="faq_menu">                 
-                <div class="faq_menu_1" style="display: flex; border-bottom: 1px solid #e5e5e5;">
-                  <a href="../../ticket/TicketInformation" style="border-right: 1px solid #e5e5e5;"><span class="menu_in_top">예매안내<br>페이지</span></a>
-                  <a href="../../event/continue_Event"><span class="menu_in_top">이벤트<br>페이지</span></a>
-                </div>
-                <div class="faq_menu_1"  style="display: flex;">
-                  <a href="BoardList" style="border-right: 1px solid #e5e5e5;"><span class="menu_in_top">공지사항<br>페이지</span></a>
-                  <a href="../../movie_info/NowPlayRank"><span class="menu_in_top">영화소개<br>페이지</span></a>
-                </div>
-              </div>
-              <div class="faq_center">
-                  
-                  <a href="adminAdd"  class="inquiry">관리자신청</a>
-                  
-              </div>
-          </div>
-      </div>
-      <div class="faq_notice_area">
-          <div class="notice_board">
-            <p class="p_title2"><a href="BoardList" class="btn_more">공지사항(바로 가기)</a></p>
-            <div class="faq_box">
-                            <div class="">
-                              <table class="faq_table">
-                                <thead>
-                                	<c:if test="${item.size() eq 0}">
-                                	<tr>
-                                        <td><a href="BoardList">등록 된 공지사항이 없습니다</a></td>
-                                     </tr>
-                                	</c:if>
-                                	<c:forEach items="${item}" var="item">
-                                     <tr>
-                                        <td><a href="BoardList">${item.subject}</a></td>
-                                     </tr>
-                                     </c:forEach>
-                                    </thead>
-                            </table>
-                            </div>
-      </div>
-   
-  </div>
+          <br>   
+          <label>영화관명</label>	
+          <div>
+          <input type="text" name="movieAreaName" class="form-control" value="" placeholder="달빛 충무로점">
+          </div>      
+        <div>        	
+          <div class="add_setbutton">
+          <input type="submit" onclick="joinform_check();" class="btn btn-outline-primary"  value="등록하기" style="margin-right:40px;">
+          <a href="../../serviceCenter/BoardList" class="btn btn-outline-primary">목록가기</a></div>						
+        </div>     
+      </form>
+    </div>
 
-    </div>
-    <div class="sub_box_menu">
-      <a href="BoardList" class="service_img"><img alt="고객센터" src="/img/center_service/plannings.png" class="sub_box" style="display:block;">공지사항</a>
-      <a href="Faq" class="faq_img"><img alt="자주묻는질문" src="/img/center_service/faq.png" class="sub_box1" style="display:block;">자주묻는질문</a>      
-   </div>
-   
-    </div>
-  
-  
-  
-     <!-- 제일 최하단 -->
+          <!-- 제일 최하단 -->
 
 <div class="bottom">
     <!--고객센터-->

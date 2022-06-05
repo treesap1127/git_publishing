@@ -3,6 +3,7 @@ package kr.ac.kopo.movie_project.dao;
 import java.util.List;
 
 import kr.ac.kopo.movie_project.model.Faq;
+import kr.ac.kopo.movie_project.model.MovieAdmin;
 
 public interface ServiceCenterDao {
 
@@ -21,6 +22,8 @@ public interface ServiceCenterDao {
 	List<Faq> list2();
 
 	List<Faq> list3();
+
+	String adminAdd(MovieAdmin item);
 
 	
 

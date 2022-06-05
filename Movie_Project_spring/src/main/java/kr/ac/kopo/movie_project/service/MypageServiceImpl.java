@@ -83,6 +83,14 @@ public class MypageServiceImpl implements MypageService {
 	public List<TicketItem> myDateTicket(String id) {
 		return dao.myDateTicket(id);
 	}
+	@Override
+	public MovieAdmin cinemaItem(String cinemaCode) {
+		return dao.cinemaItem(cinemaCode);
+	}
+	@Override
+	public void cinemaUpdate(MovieAdmin item) {
+		dao.cinemaUpdate(item);
+	}
 
 
 }

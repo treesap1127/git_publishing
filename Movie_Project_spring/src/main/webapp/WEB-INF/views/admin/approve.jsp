@@ -5,8 +5,8 @@
 <html lang="en">
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-    <link rel="stylesheet" href="../css/myPage/admin.css">
-    <link rel="stylesheet" href="../css/style/style.css">
+    <link rel="stylesheet" href="../../css/myPage/approve.css">
+    <link rel="stylesheet" href="../../css/style/style.css">
     <script>
       $(function(){
         $(".check").click(function(){
@@ -25,30 +25,6 @@
           $(".ticket_check_cancle").css('display','none');
           $(".ticket_sale").css('display','none');
         });
-        $(".cancel").click(function(){
-        	ticket_code=$(this).attr("id");
-        	ticketCode={ticketCode:ticket_code}
-        	  if(confirm("예매를 취소하시겠습니까?. \n 환불은 3~5일내로 될 예정입니다.")){
-            		$.ajax({
-            		  url:"/myPage/cancel",
-           		      method: "POST",
-           		      contentType: "application/json",
-           		      dataType: "text",
-           		      data: JSON.stringify(ticketCode),
-           		      success: code => {
-           		    	  		if(code="true"){
-           		    	  			alert("예매 취소가 완료 되었습니다.");
-           		    	  		location.reload();
-           		    	  		}
-           		    	  		else{
-           		    	  			alert("취소가 되지 않는 경우 관리자에게 문의 하세요.");
-           		    	  		}
-	           		      },
-	       		       error: (xhr, result2) => console.log(`[실패] print`)
-	        			});
-            		}
-        		 	
-            	  })
         });
     </script>
     <style>
@@ -81,7 +57,7 @@
                 <c:if test="${sessionScope.member.grade>=10}">
                 <div class="title_plus_text">${sessionScope.member.userName} 웹 관리자님 안녕하세요&nbsp;&nbsp;&nbsp; <a href="../../../../../../../../webadmin/admin" class="mylink">웹 관리 페이지</a></div>
                 </c:if>
-        </div>
+        	</div>
         
             <div class="black_box">
             <ul id="main-menu">
@@ -101,6 +77,7 @@
               </li>
             </ul>
     </div>
+    
      <!--여기까지 기본 위 배너 입니다!-->
     <div class="top_box">
       <div class="top_box_name">${sessionScope.member.userName}님은 <span style="color: brown;">관리자 회원</span>입니다</div>
@@ -108,13 +85,13 @@
     </div>
     <!-- 관리자 문장 끝 아래 시작 -->
 	<!--승인 설정과 (승인 된 테이블 상영관 리스트 볼 수 있게->삭제까지 가능!)-->
-<div class="mypage" style="height: 500px;">
+<div class="mypage" style="height: 1300px;">
   <div class="mypage_inline">
     <div class="my_page" style="display: flex;">
       <div class="my_top">
         <div class="my_bank_name"><span class="my_bank_title">관리자 승인</span></div>
         <div class="my_back_box" style="border-right: 1px solid #dddddd">
-          <a href="mymovie"class="my_back_box_href">
+          <a href="../../webadmin/admin"class="my_back_box_href">
 	          <div class="my_back_box_">
 	            <img src="../../img/admin/check.png" alt="" style="margin:25px;">
 	            <div style="color: black;">영화 관리자 승인</div>
@@ -125,7 +102,7 @@
       <div class="my_top">
         <div class="my_bank_name"><span class="my_bank_title">영화관 관리</span></div>
         <div class="my_back_box">
-          <a href="mymovie"class="my_back_box_href">
+          <a href="../../webadmin/myCinema"class="my_back_box_href">
 	          <div class="my_back_box_">
 	            <img src="../../img/admin/folder.png" alt="" style="width:200px">
 	            <div style="color: black;">영화 관리자 표</div>
@@ -133,13 +110,47 @@
           </a>
         </div>
       </div>
-      
   	  </div>
 
-	
-	<div></div>
+ <div class="theater_top">영화관 승인 관리 페이지<br><span style="font-size: 12px">(스크롤로 모든 목록을 확인 할 수 있습니다.)</span></div>
 
-      
+	<div class="theater_table drag_css">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>영화관 코드</th>
+					<th>아이디</th>
+					<th>영화관이름</th>
+					<th>시/도</th>
+					<th>전화번호</th>
+					<th>승인</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<c:if test="${list.size() < 1}">
+						<tr>
+							<th colspan="7">등록 된 영화관이 없습니다</th>
+						</tr>
+					</c:if>
+				<c:forEach items="${list}" var="item">
+						<tr>
+							<th>${item.cinemaCode}</th>
+							<th>${item.id}</th>
+							<th>${item.movieAreaName}</th>
+							<th>${item.bigCity}</th>
+							<th>${item.tel}</th>
+							<th>
+								<a href="approve/${item.cinemaCode}/${item.id}" class="btn btn-outline-primary" style="margin-right: 10px;">영화관 승인</a>
+								<a href="reject/${item.cinemaCode}" class="btn btn-outline-danger" style="margin-right: 10px;">영화관 반려</a>
+							</th>
+						</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>    
+  	  
+  	  
  	</div>
 </div>     
     <!-- 제일 최하단 -->

@@ -37,4 +37,8 @@ public interface MypageService {
 
 	List<TicketItem> myDateTicket(String id);
 
+	MovieAdmin cinemaItem(String cinemaCode);
+
+	void cinemaUpdate(MovieAdmin item);
+
 }

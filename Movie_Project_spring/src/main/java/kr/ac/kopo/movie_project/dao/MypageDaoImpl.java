@@ -96,4 +96,12 @@ public class MypageDaoImpl implements MypageDao {
 	public List<TicketItem> myDateTicket(String id) {
 		return sql.selectList("theater.myDateTicket", id);
 	}
+	@Override
+	public MovieAdmin cinemaItem(String cinemaCode) {
+		return sql.selectOne("theater.cinemaItem",cinemaCode);
+	}
+	@Override
+	public void cinemaUpdate(MovieAdmin item) {
+		sql.update("theater.cinemaUpdate", item);
+	}
 }

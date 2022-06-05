@@ -14,6 +14,9 @@ $(function(){
 	if(${sessionScope.member.grade}<10){
 	$(".adminbtn").css("display","none");	
 	}
+	if(${sessionScope.member.grade}==10){
+		$(".adminnobtn").css("display","none");	
+		}
 });
 
 </script>
@@ -109,7 +112,8 @@ $(function(){
 						<th>작성자</th>
 						<th>등록일</th>
 						<th>조회수</th>
-						 <th class="adminbtn">관리</th>     
+						<th class="adminbtn">관리</th>     
+						<th class="adminnobtn"></th>     
 
 					</tr>
 				</thead>

@@ -105,7 +105,7 @@
             <button id="경기" class="movie_place_">경기/인천</button>
             <button id="대전" class="movie_place_">충청/대전</button>
             <button id="전라" class="movie_place_">전라/광주</button>
-            <button id="경북" class="movie_place_">경북/대구</button>
+            <button id="경상" class="movie_place_">경상/대구</button>
             <button id="강원" class="movie_place_">강원</button>
             <button id="제주" class="movie_place_">제주</button>
           </div>

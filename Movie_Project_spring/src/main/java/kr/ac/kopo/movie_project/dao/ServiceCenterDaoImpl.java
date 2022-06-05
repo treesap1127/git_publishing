@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.movie_project.model.Faq;
+import kr.ac.kopo.movie_project.model.MovieAdmin;
 @Repository
 public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	@Autowired
@@ -53,6 +54,16 @@ public class ServiceCenterDaoImpl implements ServiceCenterDao {
 	@Override
 	public List<Faq> list3() {
 		return sql.selectList("Faq.list3");
+	}
+
+	@Override
+	public String adminAdd(MovieAdmin item) {
+		try {
+			sql.insert("Faq.adminAdd",item);
+		} catch (Exception e) {
+			return "false";
+		} 
+		return "true";
 	}
 
 }

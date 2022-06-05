@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.movie_project.dao.ServiceCenterDao;
 import kr.ac.kopo.movie_project.model.Faq;
+import kr.ac.kopo.movie_project.model.MovieAdmin;
 @Service
 public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	@Autowired
@@ -60,6 +61,16 @@ public class ServiceCenterserviceImpl implements ServiceCenterservice {
 	@Override
 	public List<Faq> list3() {
 		return dao.list3();
+	}
+
+
+	@Override
+	public String adminAdd(MovieAdmin item) {
+		String bool=dao.adminAdd(item);
+		if(bool=="true") {
+			return "true";
+		}
+		return "false";
 	}
 
 }
