@@ -255,6 +255,7 @@ padding: 2em 12em;
 
 .movie_poster>img{
 	    position: relative;
+	    width: 110px;
     top: 9px;
 }
 .check_com{

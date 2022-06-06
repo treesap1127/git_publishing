@@ -2,12 +2,12 @@
 $(function(){
    for(i=1;i<11;i++){
    var rank={rank:10,rnum:i};//10개중 //2번
-
+	$("tbody").append(`<tr></tr>`);
    $.ajax({
           url:"/koficmovie",
           method: "POST",
           contentType: "application/json",
- //         async:false,
+          async:false,
           //json으로 받은데이터
           dataType: "json",
           data: JSON.stringify(rank),
@@ -31,9 +31,7 @@ $(function(){
 					          contentType: "application/json",
 					          //json으로 받은데이터
 					          dataType: "json",
-					          async:false,
 					          data: JSON.stringify(result),
-
 					                 //서버로 보내는 데이터 타입
 					          success: result3 => {
 									console.log("사용중.."+result.rank);

@@ -107,10 +107,11 @@
 	  	<div style="display:flex; margin-left: 22px;">
 	  		<button class="btn btn-primary btnadd buttonadd">등록하기</button>
 			<a href="../${item.theaterName}/movie" class="btn btn-danger btnadd">뒤로가기</a>
+			<div style="transform: translate(92px,22px);">(실시간 박스오피스가 아닌 새로운 영화를 등록하려면 우측 버튼을 클릭하시오.)</div><a href="" class="btn btn-primary btnadd" style="transform: translateX(94px);">Minor 영화 등록</a>
 		</div>
 
    <!-- 아래부터 테이블 -->
-    <div class="theater_top">${item.theaterName} 영화 관리</div>
+    <div class="theater_top">박스오피스 표</div>
 	<div class="theater_table">
 		<table class="table table-striped">
 			<thead>

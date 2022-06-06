@@ -93,7 +93,7 @@ function joinform_check() {
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
       <div class="add_box">관리자 변경</div>
-      <form method="post" class="mt-4">
+      <form method="post" class="mt-4" style="width: 500px;position: relative;left: 50%;transform: translateX(-50%);">
       	  <input type="text" name="cinemaCode" class="form-control" value="${item.cinemaCode}" style="display:none" readonly>
           <label>id</label>	
           <div>
