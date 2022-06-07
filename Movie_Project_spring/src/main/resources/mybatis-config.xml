@@ -17,6 +17,7 @@
 		<mapper resource="mybatis/notice.xml"/>
 		<mapper resource="mybatis/faq.xml"/>
 		<mapper resource="mybatis/admin.xml"/>
+		<mapper resource="mybatis/movie_image.xml"/>
    </mappers>
 
 </configuration>

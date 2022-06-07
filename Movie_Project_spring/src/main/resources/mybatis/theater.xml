@@ -5,7 +5,7 @@
 
 	<select id="list" resultType="MovieAdmin">
       SELECT * FROM movie_admin
-      WHERE id=#{id} and admin=1;
+      WHERE id=#{id} and admin=1
    </select>
    
    <insert id="sit_add">

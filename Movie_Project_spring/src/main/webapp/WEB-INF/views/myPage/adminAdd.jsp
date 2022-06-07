@@ -91,9 +91,9 @@ function joinform_check() {
               </li>
             </ul>
   </div>
-   <!--여기까지 기본 위 배너 입니다!-->
+  <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
-      <div class="add_box">관리자 신청</div>
+      <div class="add_box">영화관 변경</div>
       <form method="post" class="mt-4" style="width: 500px;position: relative;left: 50%;transform: translateX(-50%);">
       	  <input type="text" name="cinemaCode" class="form-control"  style="display:none" >
           <label>id</label>	
@@ -131,6 +131,7 @@ function joinform_check() {
       </form>
     </div>
 
+          <!-- 제일 최하단 -->
 
 <div class="bottom">
     <!--고객센터-->

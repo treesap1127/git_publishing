@@ -6,8 +6,7 @@
 <html lang="en">
 <head>
  <jsp:include page="../include/header.jsp"></jsp:include>
-    <link rel="stylesheet" href="../../../../../css/myPage/mycinema.css">
-    <link rel="stylesheet" href="../../../../../css/myPage/sit.css">
+    <link rel="stylesheet" href="../../../../../css/myPage/Minoradd.css">
     <link rel="stylesheet" href="../../../../../css/style/style.css">
     <script>
       $(function(){
@@ -29,10 +28,20 @@
           $(".ticket_sale").css('display','none');
           $(".ticket_sale_").css('display','block');
         });
-        
       });
+      function readURL(input) {
+    	  if (input.files && input.files[0]) {
+    	    var reader = new FileReader();
+    	    reader.onload = function(e) {
+    	      document.getElementById('preview').src = e.target.result;
+    	    };
+    	    reader.readAsDataURL(input.files[0]);
+    	  } else {
+    	    document.getElementById('preview').src = "";
+    	  }
+    	}
     </script>
-    <script src="../../../../../../js/movie_add.js"></script>
+    <script src="../../../../../../js/minoradd.js"></script>
     <style>
     	.title_plus_text{
     	color:white}
@@ -96,37 +105,33 @@
 	   		<input name="theaterName" value="${item.theaterName}"style="display:none;">
 	   		<input name="cinemaCode" value="${item.cinemaCode}"style="display:none;">
 		    <label>영화명:</label> 
-			<div class="movieNm namebox"></div>
+			<input type="text" name="movieName">
 		  	<label>날짜:</label>
 			<input type="date" name="movieDate">
 		  	<label>시간:</label>
 			<input type="time" name="movieTime">
-			<input type="text" class="imagebox" name="image" style="display:none;">
+			 <select name="movieRating" id="selectBox" class="form-control" style="padding-top:0;padding-bottom:0;">
+       			<option value="전체">전체 이용가</option>
+       			<option value="12">12세 이용가</option>
+       			<option value="15">15세 이용가</option>
+       			<option value="19">19세 이용가</option>
+       		</select>
 			<input type="text" class="movie_rating" name="movieRating" style="display:none;">
+            <div class="image-container">
+            	<label>영화포스터 (1:1.3의 비율로 된 이미지를 삽입하시길 권고 합니다.)</label> 
+			    <input type="file" onchange="readURL(this);"> 
+				<img id="preview" />
+			</div>
+ <!--            <label>영화포스터 (1:1.3의 비율로 된 이미지를 삽입하시길 권고 합니다.)</label> 
+               <input type="file" name="movieImage" class="form-control"> -->
 		</div>
 	  	<div style="display:flex; margin-left: 22px;">
 	  		<button class="btn btn-primary btnadd buttonadd">등록하기</button>
 			<a href="../${item.theaterName}/movie" class="btn btn-danger btnadd">뒤로가기</a>
-			<div style="transform: translate(92px,22px);">(실시간 박스오피스가 아닌 새로운 영화를 등록하려면 우측 버튼을 클릭하시오.)</div><a href="Minoradd" class="btn btn-primary btnadd" style="transform: translateX(94px);">Minor 영화 등록</a>
 		</div>
 
-   <!-- 아래부터 테이블 -->
-    <div class="theater_top">박스오피스 표</div>
-	<div class="theater_table">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>영화 포스터</th>
-					<th>영화관 이름</th>
-					<th>영화관 심의 등급</th>
-					<th>영화 선택</th>
-				</tr>
-			</thead>
-			<tbody>
-					
-			</tbody>
-		</table>
-	</div>   
+   <!-- 아래 어찌 나오는지 확인 시켜줌 -->
+   
 		
 	</div>
 </div>

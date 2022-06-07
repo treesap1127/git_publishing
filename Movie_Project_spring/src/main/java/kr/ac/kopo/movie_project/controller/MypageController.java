@@ -2,6 +2,7 @@ package kr.ac.kopo.movie_project.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,12 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.kopo.movie_project.model.Member;
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.model.Theater;
 import kr.ac.kopo.movie_project.service.MypageService;
+import kr.ac.kopo.movie_project.service.ServiceCenterservice;
 import kr.ac.kopo.movie_project.model.TicketItem;
 import kr.ac.kopo.movie_project.model.Ticketing;
 
@@ -28,6 +31,9 @@ import kr.ac.kopo.movie_project.model.Ticketing;
 public class MypageController {
 	@Autowired
 	MypageService service;
+	@Autowired
+	ServiceCenterservice Centerservice;
+
 	final String path="myPage/";
 	
 	@GetMapping("myPage")//마이페이지메인
@@ -137,6 +143,17 @@ public class MypageController {
 		model.addAttribute("item", item);
 		return path+"theaterMovieAdd";
 	}
+	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/Minoradd")
+	public String Minoradd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item,Model model) {
+		item.setCinemaCode(cinemaCode);
+		item.setTheaterName(theaterName);
+		model.addAttribute("item", item);
+		return path+"Minoradd";
+	}
+	@PostMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/Minoradd")
+	public String Minoradd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item,RedirectAttributes ra) {
+		return "redirect:movie";
+	}
 	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/delete/{movieName}/{movieDate}/{movieTime}")
 	public String moviedelete(@PathVariable String cinemaCode,@PathVariable String theaterName,@PathVariable String movieName,@PathVariable String movieDate,@PathVariable String movieTime) {
 		Movie item =new Movie();
@@ -160,5 +177,27 @@ public class MypageController {
 		String bool=service.cancel(item);
 		return bool;
 	}
+	@GetMapping("/theateradd")
+    public String theateradd() {
+  	  return path+"adminAdd";
+    }
+    @PostMapping("/theateradd")
+    public String theateradd(MovieAdmin item,RedirectAttributes ra) {
+  	  int wordLength=8;
+  	  Random r = new Random();	StringBuilder sb = new StringBuilder(wordLength);		
+  	  for(int i = 0; i < wordLength; i++) {		
+  		  char tmp = (char) ('a' + r.nextInt('z' - 'a'));				
+  		  sb.append(tmp);	}		
+			
+  	  String cinemacode=sb.toString();
+  	  item.setCinemaCode(cinemacode);
+  	  String bool=Centerservice.adminAdd(item);
+  	  if(bool=="false") {
+  		  ra.addFlashAttribute("msg", "false");
+  		  return "redirect:theateradd";
+  	  }
+  	  ra.addFlashAttribute("msg", "true");
+  	  return "redirect:myCinema";
+    }
 }
 
