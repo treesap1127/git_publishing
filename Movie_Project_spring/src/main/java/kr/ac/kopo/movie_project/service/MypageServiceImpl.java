@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.ac.kopo.movie_project.dao.ImageDao;
 import kr.ac.kopo.movie_project.dao.MypageDao;
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.MovieImage;
 import kr.ac.kopo.movie_project.model.Theater;
 import kr.ac.kopo.movie_project.model.TicketItem;
 import kr.ac.kopo.movie_project.model.Ticketing;
@@ -17,6 +19,8 @@ import kr.ac.kopo.movie_project.model.Ticketing;
 public class MypageServiceImpl implements MypageService {
 	@Autowired
 	MypageDao dao;
+	@Autowired
+	ImageDao imagedao;
 	@Override
 	public List<MovieAdmin> list(String id) {
 		return dao.list(id);
@@ -91,6 +95,15 @@ public class MypageServiceImpl implements MypageService {
 	public void cinemaUpdate(MovieAdmin item) {
 		dao.cinemaUpdate(item);
 	}
-
-
+	@Override
+	@Transactional
+	public void Minoradd(Movie item) {
+		dao.movieadd(item);
+		MovieImage movieimage = new MovieImage();
+		movieimage=item.getMovieImage();
+		movieimage.setCinemaCode(item.getCinemaCode());
+		movieimage.setMovieCode(item.getMovieCode());
+		movieimage.setTheaterName(item.getTheaterName());
+		imagedao.imageadd(movieimage);
+	}
 }

@@ -9,26 +9,6 @@
     <link rel="stylesheet" href="../../../../../css/myPage/Minoradd.css">
     <link rel="stylesheet" href="../../../../../css/style/style.css">
     <script>
-      $(function(){
-        $(".check").click(function(){
-          $(".ticket_check_cancle").css('display','block');
-          $(".ticket_sale").css('display','none');
-        });
-        $(".cancle").click(function(){
-          $(".ticket_check_cancle").css('display','none');
-          $(".ticket_sale").css('display','block');
-        });
-        $(".menu_cancel").click(function(){
-          $(".ticket_check_cancle").css('display','block');
-          $(".ticket_sale").css('display','none');
-          $(".ticket_sale_").css('display','none');
-        });
-        $(".menu_add").click(function(){
-          $(".ticket_check_cancle").css('display','none');
-          $(".ticket_sale").css('display','none');
-          $(".ticket_sale_").css('display','block');
-        });
-      });
       function readURL(input) {
     	  if (input.files && input.files[0]) {
     	    var reader = new FileReader();
@@ -40,8 +20,12 @@
     	    document.getElementById('preview').src = "";
     	  }
     	}
+
+       window.onload = function(){
+    	   const msg = '${msg}';
+    	   if(msg) alert('모든 항목을 입력하여 주세요.');
+   		};
     </script>
-    <script src="../../../../../../js/minoradd.js"></script>
     <style>
     	.title_plus_text{
     	color:white}
@@ -101,35 +85,35 @@
   <div class="mypage_inline">
 
     <!-- 아래부터 입력 폼 -->
+    <form method="post" enctype="multipart/form-data">
 	   <div class="add_box">
-	   		<input name="theaterName" value="${item.theaterName}"style="display:none;">
-	   		<input name="cinemaCode" value="${item.cinemaCode}"style="display:none;">
-		    <label>영화명:</label> 
-			<input type="text" name="movieName">
-		  	<label>날짜:</label>
-			<input type="date" name="movieDate">
-		  	<label>시간:</label>
-			<input type="time" name="movieTime">
-			 <select name="movieRating" id="selectBox" class="form-control" style="padding-top:0;padding-bottom:0;">
+ 	   		<input name="theaterName" value="${item.theaterName}"style="display:none;">
+	   		<input name="cinemaCode" value="${item.cinemaCode}"style="position: relative;top: 30px;display:none;">
+	   		
+		    	<label style="position: relative;top:30px;">영화명:</label> 
+			<input type="text" name="movieName" class="form-control" style="position: relative;left: 55px;">
+		  		<label style="position: relative;top: 30px;">날짜:</label>
+			<input type="date" name="movieDate"class="form-control" style="width:13%;position: relative;left: 55px;">
+		  		<label style="position: relative;top: 30px;">시간:</label>
+			<input type="time" name="movieTime"class="form-control" style="width:13%;position: relative;left: 55px;">
+				<label style="position: relative;top: 25px;">연령 선택:</label>
+			 <select name="movieRating" id="selectBox" class="form-control" style="padding-top:0;padding-bottom:0; width:13%;position: relative;left: 80px;">
        			<option value="전체">전체 이용가</option>
        			<option value="12">12세 이용가</option>
        			<option value="15">15세 이용가</option>
        			<option value="19">19세 이용가</option>
        		</select>
-			<input type="text" class="movie_rating" name="movieRating" style="display:none;">
             <div class="image-container">
-            	<label>영화포스터 (1:1.3의 비율로 된 이미지를 삽입하시길 권고 합니다.)</label> 
-			    <input type="file" onchange="readURL(this);"> 
+            	<label class="poster_name" style="position: relative;top: 30px;">영화포스터 (1:1.3의 비율로 된 이미지를 삽입하시길 권고 합니다.)</label> 
+			    <input type="file" name="movieImage" class="file_input form-control" onchange="readURL(this);"> 
 				<img id="preview" />
 			</div>
- <!--            <label>영화포스터 (1:1.3의 비율로 된 이미지를 삽입하시길 권고 합니다.)</label> 
-               <input type="file" name="movieImage" class="form-control"> -->
 		</div>
 	  	<div style="display:flex; margin-left: 22px;">
-	  		<button class="btn btn-primary btnadd buttonadd">등록하기</button>
+	  		<button class="btn btn-primary btnadd buttonadd" style="margin-right:20px;">등록하기</button>
 			<a href="../${item.theaterName}/movie" class="btn btn-danger btnadd">뒤로가기</a>
 		</div>
-
+	</form>
    <!-- 아래 어찌 나오는지 확인 시켜줌 -->
    
 		

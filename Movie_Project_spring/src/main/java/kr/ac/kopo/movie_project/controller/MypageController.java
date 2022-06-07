@@ -14,15 +14,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.kopo.movie_project.model.Member;
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.MovieImage;
 import kr.ac.kopo.movie_project.model.Theater;
 import kr.ac.kopo.movie_project.service.MypageService;
 import kr.ac.kopo.movie_project.service.ServiceCenterservice;
+import kr.ac.kopo.movie_project.util.Uploader;
 import kr.ac.kopo.movie_project.model.TicketItem;
 import kr.ac.kopo.movie_project.model.Ticketing;
 
@@ -39,7 +43,6 @@ public class MypageController {
 	@GetMapping("myPage")//마이페이지메인
 	public String mypage(HttpSession session,Model model) {
 		String id=(String) session.getAttribute("id");
-		System.out.println(id+"id값!");
 		List<TicketItem> TicketItem =service.myticket(id);//ticket 담아옴
 		//ticketitem에 다 넣어서 보냅시다.
 		model.addAttribute("TicketItem", TicketItem);
@@ -48,7 +51,6 @@ public class MypageController {
 	@GetMapping("mymovie")//나의 영화목록
 	public String mymovie(HttpSession session,Model model) {
 		String id=(String) session.getAttribute("id");
-		System.out.println(id+"id값!");
 		List<TicketItem> TicketItem =service.myDateTicket(id);//시간 지난 영화상영 ㅇㅇ
 		model.addAttribute("TicketItem", TicketItem);
 		return path+"myMovie";
@@ -151,9 +153,26 @@ public class MypageController {
 		return path+"Minoradd";
 	}
 	@PostMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/Minoradd")
-	public String Minoradd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item,RedirectAttributes ra) {
+	public String Minoradd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item,@RequestParam("movieImage") MultipartFile movieImage,RedirectAttributes ra) {
+		System.out.println("안옵니다..");
+		try {
+			Uploader<MovieImage> uploader=new Uploader<>();
+			MovieImage image=uploader.makeList(movieImage,MovieImage.class);
+			item.setMovieImage(image);
+			if(image==null) {
+				ra.addAttribute("msg", "false");
+				return "redirect:Minoradd";
+			}
+			service.Minoradd(item);
+		}
+		 catch (Exception e) {
+			 ra.addAttribute("msg", "false");
+			 return "redirect:Minoradd";
+			}
+		ra.addAttribute("msg", "true");
 		return "redirect:movie";
 	}
+		
 	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/delete/{movieName}/{movieDate}/{movieTime}")
 	public String moviedelete(@PathVariable String cinemaCode,@PathVariable String theaterName,@PathVariable String movieName,@PathVariable String movieDate,@PathVariable String movieTime) {
 		Movie item =new Movie();

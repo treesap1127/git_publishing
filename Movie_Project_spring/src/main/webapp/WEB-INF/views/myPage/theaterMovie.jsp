@@ -31,6 +31,10 @@
         });
         
       });
+       window.onload = function(){
+    	   const msg = '${msg}';
+    	   if(msg) alert('영화 등록이 완료 되었습니다.');
+   		};
     </script>
     <style>
     	.title_plus_text{

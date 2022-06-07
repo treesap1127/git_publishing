@@ -1,6 +1,8 @@
 package kr.ac.kopo.movie_project.model;
 
-public class MovieImage {
+import kr.ac.kopo.movie_project.util.UploadFile;
+
+public class MovieImage implements UploadFile{
 	private int code;
 	private int movieCode;
 	private String cinemaCode;

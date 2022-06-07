@@ -1,6 +1,5 @@
 package kr.ac.kopo.movie_project.model;
 
-
 public class Movie {
 	private int movieCode;
 	private String movieName;
@@ -10,6 +9,7 @@ public class Movie {
 	private String movieTime;
 	private String image;
 	private String movieRating;
+	private MovieImage movieImage;
 	
 	public String getMovieName() {
 		return movieName;
@@ -59,6 +59,13 @@ public class Movie {
 	public void setMovieCode(int movieCode) {
 		this.movieCode = movieCode;
 	}
+	public MovieImage getMovieImage() {
+		return movieImage;
+	}
+	public void setMovieImage(MovieImage movieImage) {
+		this.movieImage = movieImage;
+	}
+
 
 	
 

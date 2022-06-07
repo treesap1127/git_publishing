@@ -41,4 +41,6 @@ public interface MypageService {
 
 	void cinemaUpdate(MovieAdmin item);
 
+	void Minoradd(Movie item);
+
 }
