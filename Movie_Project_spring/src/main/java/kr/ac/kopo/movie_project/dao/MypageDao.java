@@ -47,5 +47,7 @@ public interface MypageDao {
 
 	void cinemaUpdate(MovieAdmin item);
 
+	int moviecode(Movie item);
+
 
 }

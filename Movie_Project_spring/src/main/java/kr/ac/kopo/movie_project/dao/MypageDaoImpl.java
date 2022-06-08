@@ -103,4 +103,8 @@ public class MypageDaoImpl implements MypageDao {
 	public void cinemaUpdate(MovieAdmin item) {
 		sql.update("theater.cinemaUpdate", item);
 	}
+	@Override
+	public int moviecode(Movie item) {
+		return sql.selectOne("theater.moviecode", item);
+	}
 }

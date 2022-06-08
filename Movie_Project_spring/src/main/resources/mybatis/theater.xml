@@ -93,5 +93,10 @@
 	   set cancel=1
 	   where ticket_code=#{ticketCode}
    </update>
+   <select id="moviecode" resultType="Integer">
+   	select movie_code
+   	from movie
+   	where cinema_code=#{cinemaCode} and movie_date=#{movieDate} and movie_time=#{movieTime} and movie_name=#{movieName}
+   </select>
 
 </mapper>
