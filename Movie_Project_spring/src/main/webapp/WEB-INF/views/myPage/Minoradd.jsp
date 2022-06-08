@@ -105,7 +105,7 @@
        		</select>
             <div class="image-container">
             	<label class="poster_name" style="position: relative;top: 30px;">영화포스터 (1:1.3의 비율로 된 이미지를 삽입하시길 권고 합니다.)</label> 
-			    <input type="file" name="movieImage" class="file_input form-control" onchange="readURL(this);"> 
+			    <input type="file" name="movieImag" class="file_input form-control" onchange="readURL(this);"> 
 				<img id="preview" />
 			</div>
 		</div>

@@ -7,7 +7,7 @@
 	VALUES(NULL,#{movieCode},#{cinemaCode},#{theaterName}, #{filename},#{UUID})
 	</insert>
 
-		<delete id="delete">
+	<delete id="delete">
 		DELETE FROM movie_image
 		WHERE movie_code=#{movieCode}
 	</delete>

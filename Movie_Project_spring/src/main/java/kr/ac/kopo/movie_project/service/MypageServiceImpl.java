@@ -96,11 +96,11 @@ public class MypageServiceImpl implements MypageService {
 		dao.cinemaUpdate(item);
 	}
 	@Override
-	@Transactional
 	public void Minoradd(Movie item) {
 		dao.movieadd(item);
 		MovieImage movieimage = new MovieImage();
 		movieimage=item.getMovieImage();
+		movieimage.getUUID();
 		movieimage.setCinemaCode(item.getCinemaCode());
 		movieimage.setMovieCode(item.getMovieCode());
 		movieimage.setTheaterName(item.getTheaterName());

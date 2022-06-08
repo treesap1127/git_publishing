@@ -61,7 +61,6 @@ public class MypageDaoImpl implements MypageDao {
 	@Override
 	public void movieadd(Movie item) {
 		sql.insert("theater.movieadd", item);
-		
 	}
 	@Override
 	public void moviedelete(Movie item) {

@@ -153,22 +153,29 @@ public class MypageController {
 		return path+"Minoradd";
 	}
 	@PostMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/Minoradd")
-	public String Minoradd(@PathVariable String cinemaCode,@PathVariable String theaterName,Movie item,@RequestParam("movieImage") MultipartFile movieImage,RedirectAttributes ra) {
-		System.out.println("안옵니다..");
-		try {
+	public String Minoradd(Movie item,@RequestParam("movieImag") MultipartFile movieImage,RedirectAttributes ra) {
+		System.out.println(item.getCinemaCode()+item.getMovieName());
+//		try {
 			Uploader<MovieImage> uploader=new Uploader<>();
-			MovieImage image=uploader.makeList(movieImage,MovieImage.class);
+			MovieImage image = null;
+			try {
+				image = uploader.makeList(movieImage,MovieImage.class);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			item.setMovieImage(image);
-			if(image==null) {
+			if(image==null) {//이미지 확인완료
 				ra.addAttribute("msg", "false");
 				return "redirect:Minoradd";
-			}
-			service.Minoradd(item);
+//			}
+			
 		}
-		 catch (Exception e) {
-			 ra.addAttribute("msg", "false");
-			 return "redirect:Minoradd";
-			}
+//		 catch (Exception e) {
+//			 ra.addAttribute("msg", "false");
+//			 return "redirect:Minoradd";
+			 System.out.println("캐치에 걸렸는데 씨발;");
+//			}
+		service.Minoradd(item);
 		ra.addAttribute("msg", "true");
 		return "redirect:movie";
 	}

@@ -16,7 +16,6 @@ public class Uploader<T extends UploadFile> {
 				
 				String filename = movieImage.getOriginalFilename();
 				String uuid =UUID.randomUUID().toString();
-				System.out.println(filename);
 			
 				movieImage.transferTo(new File(uploadPath+uuid+"_"+filename));
 				
