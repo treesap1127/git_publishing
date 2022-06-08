@@ -88,7 +88,21 @@ $(`.movie_`).click(function(){//영화명을 누른..5003
 		       success: date => {
 				
 				for(j=0;j<date.length;j++){
+				console.log(`${date[j].image}++`);
+				console.log(`${date[j].movieImage.filename}++`);
+				
+				
+				filename=date[j].movieImage.filename;
+				uuid=date[j].movieImage.uuid;
+				url="/upload/"+uuid+"_"+filename;
+				console.log(`${url}+ 제발`)
+				if(`${date[j].image}`=='null'){
+					$(".movie_poster img").attr("src",`${url}`);
+				}
+				else{
 					$(".movie_poster img").attr(`src`,`${date[j].image}`);
+				}
+				
 				var	stringdate =date[j].movieDate;
 				mon=stringdate.substring(5, 7);
 				day_=stringdate.substring(8, 10);

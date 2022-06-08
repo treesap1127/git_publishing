@@ -80,7 +80,8 @@ public class MypageDaoImpl implements MypageDao {
 	}
 	@Override
 	public List<TicketItem> myticket(String id) {
-		return sql.selectList("theater.myticket", id);
+		List<TicketItem> item =sql.selectList("theater.myticket", id);
+		return item;
 	}
 	@Override
 	public String cancel(Ticketing item) {

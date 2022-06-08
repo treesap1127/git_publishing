@@ -14,8 +14,17 @@ $(function(){
                      dataType:"json",
                      data:JSON.stringify(data),
                      success: complete =>{
+						if(`${complete.image}`!='null'){
+						$(".movie_poster").children("img").attr(`src`,`${complete.image}`);
+						}
+						filename=complete.movieImage.filename;
+						uuid=complete.movieImage.uuid;
+						url="/upload/"+uuid+"_"+filename;
+						console.log(`${url}+ 제발`)
+						if(`${complete.movieImage.filename}`!='null'){
+							$(".movie_poster").children("img").attr(`src`,url);
+						}
 						
-						$(".movie_poster").children("img").attr("src",`${complete.image}`);
 						$(".movieName").text(`${complete.movieName}`);
 						$(".movieName").attr("id",`${complete.movieName}`);
  						$(".theaterName").text(`상영관 :${complete.theaterName}`);
@@ -87,15 +96,16 @@ $(function(){
 	ticket_code=ticket_code.substr(0,9)+"0";
 	//
 	$(".ticketCode_post").attr("value",`${ticket_code}`)
+	
 	$(".Bank").click(function(){
 		ticketCode=$(".Bank").attr('id');
 		$(".payTool_post").attr("value",`${ticketCode}`);
 		$(".credit_box_top>button").css("color","black");
-		$(".sit_che_btn").attr("onclick");
+		$(".sit_che_btn").removeAttr("onclick");
 		$(".sit_che_btn").removeAttr("type");
 	});
 	$(".Phone").click(function(){
-		ticketCode=$(".Phone").removeAttr('id');
+		ticketCode=$(".Phone").attr('id');
 		$(".payTool_post").attr("value",`${ticketCode}`);
 		$(".credit_box_top>button").css("color","black");
 		$(".sit_che_btn").removeAttr("onclick");

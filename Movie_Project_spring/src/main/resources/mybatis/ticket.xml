@@ -26,11 +26,35 @@
 		from movie
 		where movie_name=#{movieName} and cinema_code=#{cinemaCode} and movie_date=#{movieDate}
 	</select>
-	<select id="cinemaDate" resultType="Movie">
-		select *
-		from movie
-		where movie_name=#{movieName} and cinema_code=#{cinemaCode}
+	
+	<resultMap type="Movie" id="MovieMap">
+	<id column="movie_code" property="movieCode"/><!-- column=DB property=java-->
+	<result column="movie_name" property="movieName"/>
+	<result column="cinema_code" property="cinemaCode"/>
+	<result column="theater_name" property="theaterName"/>
+	<result column="movie_date" property="movieDate"/>
+	<result column="movie_time" property="movieTime"/>
+	<result column="image" property="image"/>
+	<result column="movie_rating" property="movieRating"/>
+	<collection column="movie_code" property="movieImage" ofType="MovieImage" javaType="MovieImage">
+		<id column="code" property="code"/>
+		<result column="movie_code" property="movieCode"/>
+		<result column="cinema_code" property="cinemaCode"/>
+		<result column="theater_name" property="theaterName"/>
+		<result column="filename" property="filename"/>
+		<result column="UUID" property="UUID"/>
+	</collection>
+</resultMap>
+	
+	<select id="cinemaDate" resultMap="MovieMap">
+		select movie.*,movie_image.*
+		from movie left JOIN movie_image ON movie.movie_code=movie_image.movie_code
+		where movie.movie_name=#{movieName} and movie.cinema_code=#{cinemaCode}
 	</select>
+
+
+	
+	
 	<select id="ticketsit" resultType="Theater">
 		select *
 		from theater
@@ -41,11 +65,14 @@
 		from movie
 		where movie_name=#{movieName} and cinema_code=#{cinemaCode} and movie_date=#{movieDate} and movie_time=#{movieTime}
 	</select>
-	<select id="movieimage" resultType="Movie">
-		select image
-		from movie
-		where movie_code=#{movieCode}
+	
+	<select id="movieimage" resultMap="MovieMap">
+		select movie.*,movie_image.*
+		from movie left JOIN movie_image ON movie.movie_code=movie_image.movie_code
+		where movie.movie_code=#{movieCode}
 	</select>
+	
+	
 	<select id="socTicdata" resultType="Movie">
 		select *
 		from movie
@@ -60,11 +87,7 @@
 		insert into sit_select
 		VALUES (#{movieCode},#{cinemaCode},#{theaterName},#{id},#{selectSit})
 	</insert>
-	<select id="paymentItem" resultType="Movie">
-		select *
-		from Movie
-		where movie_code=#{movieCode}
-	</select>
+	
 		<insert id="ticketcomplete">
 		insert into ticketing
 		VALUES (#{ticketCode},#{id},#{cinemaCode},#{theaterName},#{sitCode},#{movieCode},#{teenager},#{adult},#{payTool},#{payTime},'0') 

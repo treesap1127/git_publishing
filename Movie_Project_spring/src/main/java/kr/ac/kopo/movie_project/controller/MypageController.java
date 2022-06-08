@@ -45,6 +45,8 @@ public class MypageController {
 		String id=(String) session.getAttribute("id");
 		List<TicketItem> TicketItem =service.myticket(id);//ticket 담아옴
 		//ticketitem에 다 넣어서 보냅시다.
+		System.out.println(TicketItem.size());
+		
 		model.addAttribute("TicketItem", TicketItem);
 		return path+"myPage";
 	}
@@ -154,23 +156,21 @@ public class MypageController {
 	}
 	@PostMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/Minoradd")
 	public String Minoradd(Movie item,@RequestParam("movieImag") MultipartFile movieImage,RedirectAttributes ra) {
-		System.out.println(item.getCinemaCode()+item.getMovieName());
 		try {
+			ra.addFlashAttribute("msg", "true");
 			Uploader<MovieImage> uploader=new Uploader<>();
-			MovieImage image = null;
-				image = uploader.makeList(movieImage,MovieImage.class);
-			item.setMovieImage(image);
-			if(image==null) {//이미지 확인완료
-				ra.addAttribute("msg", "false");
+			MovieImage image;
+			image = uploader.makeList(movieImage,MovieImage.class);
+			if(image.getFilename()==null) {
 				return "redirect:Minoradd";
 			}
+			item.setMovieImage(image);
 		}
 		 catch (Exception e) {
-			 ra.addAttribute("msg", "false");
+			 
 			 return "redirect:Minoradd";
 			}
 		service.Minoradd(item);
-		ra.addAttribute("msg", "true");
 		return "redirect:movie";
 	}
 		

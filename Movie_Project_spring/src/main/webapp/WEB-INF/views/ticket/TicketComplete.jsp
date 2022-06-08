@@ -74,7 +74,12 @@
      <div class="gray_box">
       <div class="fail_name">${sessionScope.member.userName}님의 예매가 완료 되었습니다.</div>
       <div class="fail_info">
-        <img src="${list.image}" alt="영화 사진"class="complete_img">
+      	         <c:if test="${list.image ne null}">
+          <img src="${list.image}" class="complete_img" alt="">
+        	</c:if>
+        	<c:if test="${list.movieImage.filename ne null}">
+          	<img src="/upload/${list.movieImage.UUID}_${list.movieImage.filename}"class="complete_img" alt="">
+        	</c:if>
         <div class="complete_text">
           <div>예매번호: <span style="color: red;">${item.ticketCode}</span></div>
           <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>

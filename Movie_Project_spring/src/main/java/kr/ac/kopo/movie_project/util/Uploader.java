@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.ac.kopo.movie_project.model.MovieImage;
 
 public class Uploader<T extends UploadFile> {
-	final String uploadPath = "E:/upload/";
+	final String uploadPath = "D:/upload/";
 	
 	public MovieImage makeList(MultipartFile movieImage,Class<T> type) throws Exception {
 		MovieImage item =new MovieImage();

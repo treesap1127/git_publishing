@@ -67,7 +67,7 @@ public class TicketDaoImpl implements TicketDao {
 	}
 	@Override
 	public Movie paymentItem(SitSelect item) {
-		return sql.selectOne("ticket.paymentItem", item);
+		return sql.selectOne("ticket.movieimage", item);
 	}
 	@Override
 	public void ticketcomplete(Ticketing item) {

@@ -32,19 +32,19 @@
       WHERE cinema_code=#{cinemaCode}
    </select>
    
-	<select id="myticket" resultType="TicketItem">
-		SELECT *
-		FROM ticketing,movie
-		WHERE ticketing.movie_code=movie.movie_code AND ticketing.cinema_code=movie.cinema_code AND ticketing.theater_name=movie.theater_name and id=#{id}
-		order by movie.movie_date desc,movie.movie_time desc
-	</select>
-	
-	<select id="myDateTicket" resultType="TicketItem">
-		SELECT *
-		FROM ticketing,movie
-		WHERE ticketing.movie_code=movie.movie_code AND ticketing.cinema_code=movie.cinema_code AND ticketing.theater_name=movie.theater_name and id=#{id} and STR_TO_DATE(movie_date, '%Y-%m-%d')<![CDATA[ < ]]>now() and cancel=0
-		order by movie.movie_date,movie.movie_time
-	</select>
+<select id="myticket" resultType="TicketItem">
+      SELECT *
+      FROM ticketing,movie
+      WHERE ticketing.movie_code=movie.movie_code AND ticketing.cinema_code=movie.cinema_code AND ticketing.theater_name=movie.theater_name and id=#{id}
+      order by movie.movie_date desc,movie.movie_time desc
+   </select>
+   
+   <select id="myDateTicket" resultType="TicketItem">
+      SELECT *
+      FROM ticketing,movie
+      WHERE ticketing.movie_code=movie.movie_code AND ticketing.cinema_code=movie.cinema_code AND ticketing.theater_name=movie.theater_name and id=#{id} and STR_TO_DATE(movie_date, '%Y-%m-%d')<![CDATA[ < ]]>now() and cancel=0
+      order by movie.movie_date,movie.movie_time
+   </select>
 	
    <select id="theaterlistmap" resultType="Theater">
       SELECT * FROM theater

@@ -142,7 +142,14 @@
 		<c:forEach var="TicketItem" items="${TicketItem}">
 		<c:if test="${TicketItem.cancel==0}">
           <div class="fail_info">
-            <img src="${TicketItem.image}" alt="영화 사진"class="complete_img">
+          
+	            <c:if test="${TicketItem.image ne null}">
+	          		<img src="${TicketItem.image}" class="complete_img" alt="">
+	        	</c:if>
+	        	<c:if test="${TicketItem.image eq null}">
+	          		<img src="../../../../img/ticketing/영화.png"class="complete_img" alt="">
+	        	</c:if>
+	        	
             <div class="complete_text">
               <div>예매번호: <span style="color: red;">${TicketItem.ticketCode}</span></div>
               <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>
@@ -209,7 +216,12 @@
 		<c:forEach var="TicketItem" items="${TicketItem}">
 		<c:if test="${TicketItem.cancel eq '1'}">
           <div class="fail_info">
-            <img src="${TicketItem.image}" alt="영화 사진"class="complete_img">
+            <c:if test="${TicketItem.image ne null}">
+	          		<img src="${TicketItem.image}" class="complete_img" alt="">
+	        	</c:if>
+	        	<c:if test="${TicketItem.image eq null}">
+	          		<img src="../../../../img/ticketing/영화.png"class="complete_img" alt="">
+	        	</c:if>
             <div class="complete_text">
               <div>예매번호: <span style="text-decoration: line-through;">${TicketItem.ticketCode}</span></div>
               <div>※ 위 예매번호로 해당극장의 무인발권기/매표소에서 티켓을 찾으세요</div>

@@ -154,7 +154,12 @@
 
       <div class="ticket_check_box">
         <div class="movie_poster">
+          <c:if test="${item.image ne null}">
           <img src="${item.image}" alt="">
+        	</c:if>
+        	<c:if test="${item.movieImage.filename ne null}">
+          	<img src="/upload/${item.movieImage.UUID}_${item.movieImage.filename}" alt="">
+        	</c:if>
         </div>
         <div class="check_com">
         <div class="check_com_box">

@@ -21,10 +21,10 @@
     	  }
     	}
 
-       window.onload = function(){
-    	   const msg = '${msg}';
-    	   if(msg) alert('모든 항목을 입력하여 주세요.');
-   		};
+      $(function(){
+    	  const msg = '${msg}';
+     	   if(msg) alert("모든 항목을 입력하여 주세요.");
+      })
     </script>
     <style>
     	.title_plus_text{

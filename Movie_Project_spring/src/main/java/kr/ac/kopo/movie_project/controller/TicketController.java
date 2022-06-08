@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.kopo.movie_project.model.Movie;
 import kr.ac.kopo.movie_project.model.MovieAdmin;
+import kr.ac.kopo.movie_project.model.MovieImage;
 import kr.ac.kopo.movie_project.model.SitSelect;
 import kr.ac.kopo.movie_project.model.Theater;
 import kr.ac.kopo.movie_project.model.Ticketing;

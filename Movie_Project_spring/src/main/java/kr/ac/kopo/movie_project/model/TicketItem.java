@@ -3,51 +3,22 @@ package kr.ac.kopo.movie_project.model;
 public class TicketItem {
 	private String ticketCode;
 	private String id;
-	private String cinemaCode;
-	private String theaterName;
 	private String sitCode;
-	private int movieCode;
 	private int teenager;
 	private int adult;
 	private String payTool;
 	private String payTime;
 	private int cancel;
+	
+	private int movieCode;
+	private String cinemaCode;
+	private String theaterName;
 	private String movieName;
 	private String movieDate;
 	private String movieTime;
 	private String image;
 	private String movieRating;
-	
-	public String getMovieName() {
-		return movieName;
-	}
-	public void setMovieName(String movieName) {
-		this.movieName = movieName;
-	}
-	public String getMovieDate() {
-		return movieDate;
-	}
-	public void setMovieDate(String movieDate) {
-		this.movieDate = movieDate;
-	}
-	public String getMovieTime() {
-		return movieTime;
-	}
-	public void setMovieTime(String movieTime) {
-		this.movieTime = movieTime;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-	public String getMovieRating() {
-		return movieRating;
-	}
-	public void setMovieRating(String movieRating) {
-		this.movieRating = movieRating;
-	}
+	private MovieImage movieImage;
 	public String getTicketCode() {
 		return ticketCode;
 	}
@@ -114,4 +85,41 @@ public class TicketItem {
 	public void setCancel(int cancel) {
 		this.cancel = cancel;
 	}
+	public String getMovieName() {
+		return movieName;
+	}
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+	public String getMovieDate() {
+		return movieDate;
+	}
+	public void setMovieDate(String movieDate) {
+		this.movieDate = movieDate;
+	}
+	public String getMovieTime() {
+		return movieTime;
+	}
+	public void setMovieTime(String movieTime) {
+		this.movieTime = movieTime;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getMovieRating() {
+		return movieRating;
+	}
+	public void setMovieRating(String movieRating) {
+		this.movieRating = movieRating;
+	}
+	public MovieImage getMovieImage() {
+		return movieImage;
+	}
+	public void setMovieImage(MovieImage movieImage) {
+		this.movieImage = movieImage;
+	}
+
 }

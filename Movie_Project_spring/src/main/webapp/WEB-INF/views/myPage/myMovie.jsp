@@ -75,10 +75,15 @@ body{
        </c:if>
 
 <!--1번 박스 -->
-		<c:forEach var="ticket" items="${TicketItem}">
+<c:forEach var="ticket" items="${TicketItem}">
   <div class="grade_info_box" style="display: flex;">
     <div class="movie_box_left">
-      <img src="${ticket.image}" alt="" class="">
+      			<c:if test="${ticket.image ne null}">
+	          		<img src="${ticket.image}" class="complete_img" alt="">
+	        	</c:if>
+	        	<c:if test="${ticket.image eq null}">
+	          		<img src="../../../../img/mypage/영화_small.png"class="complete_img" alt="">
+	        	</c:if>
     </div>
 
     <div class="movie_box_center">
