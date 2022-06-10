@@ -65,5 +65,10 @@ SqlSession sql;
 		sql.update("Notice.viewCount", articleId);
 	}
 
+	@Override
+	public int total(Pager pager) {
+		return sql.selectOne("Notice.total", pager);
+	}
+
 
 }

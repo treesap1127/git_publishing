@@ -117,6 +117,11 @@ $(function(){
 		$(".sit_che_btn").removeAttr("onclick");
 		$(".sit_che_btn").removeAttr("type");
 	});
+	 $(".credit").click(function(){
+		$(".sit_che_btn").attr("onclick","warning()");
+		$(".payTool_post").attr("value",``);
+		$(".sit_che_btn").attr("type",`button`);
+	});
 	// 그리고 ticketsit에서 스케줄러 등록하고 여기서 삭제 등록 트렌젝션 해도 될듯 실패시 좌석고르는거부터 다시하라하고 ㅇㅇ
 	//좌석을 만들때 Movie 테이블에 있는 예매좌석 가져와서 디자인 해주기
 	// 그리구 인터셉터로 막아버리자 시발 ㅎㅎ

@@ -108,4 +108,50 @@ public class MypageDaoImpl implements MypageDao {
 	public int moviecode(Movie item) {
 		return sql.selectOne("theater.moviecode", item);
 	}
+	@Override
+	public void sitdelete(Movie item) {
+		sql.delete("theater.sitdelete", item);
+	}
+	@Override
+	public void ticketdelete(Movie item) {
+		sql.delete("theater.ticketdelete", item);
+		
+	}
+	
+	@Override
+	public void th_sitdelete(String theaterName) {
+		sql.delete("theater.th_sitdelete", theaterName);
+		
+	}
+	@Override
+	public void th_ticketdelete(String theaterName) {
+		sql.delete("theater.th_ticketdelete", theaterName);
+		
+	}
+	@Override
+	public int admincheck(String id) {
+		return sql.selectOne("theater.admincheck", id);
+	}
+	@Override
+	public void adminUpdate(String id) {
+		sql.update("theater.adminUpdate", id);
+	}
+	@Override
+	public void ci_sitdelete(String cinemaCode) {
+		sql.delete("theater.ci_sitdelete", cinemaCode);
+		
+	}
+	@Override
+	public void ci_ticketdelete(String cinemaCode) {
+		sql.delete("theater.ci_ticketdelete", cinemaCode);
+		
+	}
+	@Override
+	public Ticketing ticketitem(Ticketing item) {
+		return sql.selectOne("theater.ticketitem",item);
+	}
+	@Override
+	public void sitdelete(Ticketing list) {
+		sql.delete("theater.sitofdelete", list);
+	}
 }

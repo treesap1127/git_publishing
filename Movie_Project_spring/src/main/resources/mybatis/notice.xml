@@ -5,11 +5,13 @@
 <mapper namespace="Notice">
 	<select id="list" resultType="Notice">
 		SELECT * FROM notice
+		<include refid="search"></include>
 	</select>
 	
 	<select id="notice" resultType="Notice">
 		SELECT * FROM notice
 		limit 0, 5
+		<include refid="search"></include>
 	</select>
 		<select id="faq" resultType="Faq">
 		SELECT * FROM faq
@@ -19,6 +21,12 @@
 		INSERT INTO notice
 		VALUES (null,#{subject},#{id},DATE_FORMAT(NOW(),'%Y-%m-%d'), #{contents}, #{viewCount})
 	</insert>
+	
+	<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM notice
+		<include refid="search"></include>
+	</select>
+	
 	
 	<select id="item" resultType="Notice">
 		SELECT * FROM notice
@@ -40,4 +48,19 @@
 		DELETE FROM notice
 		WHERE article_id=#{articleId}
 	</delete>
+	
+	
+	<sql id="search">
+		<where>
+			<if test="search==1">
+				notice.subject LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>
+			<if test="search==3">
+				notice.reg_date LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>			
+			<if test="search==2">
+				notice.id=#{keyword}
+			</if>
+		</where>
+	</sql>
 </mapper>

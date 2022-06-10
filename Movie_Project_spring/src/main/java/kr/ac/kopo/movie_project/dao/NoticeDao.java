@@ -24,4 +24,6 @@ public interface NoticeDao {
 
 	void viewCount(int articleId);
 
+	int total(Pager pager);
+
 }

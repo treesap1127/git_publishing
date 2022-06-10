@@ -45,15 +45,28 @@ public class MypageServiceImpl implements MypageService {
 	@Transactional
 	@Override
 	public void theater_delete(String cinemaCode, String theaterName) {
-		dao.movie_delete(cinemaCode,theaterName);
-		dao.theater_delete(cinemaCode,theaterName);
+		imagedao.th_delete(theaterName);
+		dao.th_sitdelete(theaterName);
+		dao.th_ticketdelete(theaterName);
+		
+		dao.movie_delete(cinemaCode,theaterName);//movie하나
+		dao.theater_delete(cinemaCode,theaterName);//theater하나
+		
 	}
 	@Transactional
 	@Override
-	public void delete(String cinemaCode) {
-		dao.movie_all_delete(cinemaCode);
-		dao.deleteTheater(cinemaCode);
-		dao.deleteCinema(cinemaCode);
+	public void delete(String cinemaCode,String id) {
+		imagedao.ci_delete(cinemaCode);//image
+		dao.ci_sitdelete(cinemaCode);//sit
+		dao.ci_ticketdelete(cinemaCode);//ticket
+		
+		dao.movie_all_delete(cinemaCode);// movie
+		dao.deleteTheater(cinemaCode);// theater
+		dao.deleteCinema(cinemaCode);// movie_admin
+		int check =dao.admincheck(id);
+		if(check==0) {
+			dao.adminUpdate(id);
+		}
 	}
 	@Override
 	public List<Movie> movielist(HashMap<String, Object> map) {
@@ -70,17 +83,23 @@ public class MypageServiceImpl implements MypageService {
 		
 	}
 	@Override
+	@Transactional
 	public void moviedelete(Movie item) {
-		dao.moviedelete(item);
-		
+		dao.sitdelete(item);
+		dao.ticketdelete(item);
+		imagedao.delete(item);
+		dao.moviedelete(item);//영화삭제
 	}
 	@Override
 	public List<TicketItem> myticket(String id) {
 		return dao.myticket(id);
 	}
 	@Override
+	@Transactional
 	public String cancel(Ticketing item) {
 		String test=dao.cancel(item);
+		Ticketing list = dao.ticketitem(item);
+		dao.sitdelete(list);
 		return test;
 	}
 	@Override

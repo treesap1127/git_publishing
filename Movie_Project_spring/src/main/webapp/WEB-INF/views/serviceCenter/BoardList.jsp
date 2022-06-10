@@ -87,14 +87,15 @@ $(function(){
 	<div class="notice_box">
 		<div class="notice_seq">공지사항</div>
 		<div class="notice_keyword">
-
+		<form>
 			<select name="search" class="option_select">
 				<option value="0">전체</option>
 				<option value="1">제목</option>
 				<option value="2">작성자</option>
 				<option value="3">등록일</option>
-			</select> <input type="text" name="keyoword">
+			</select> <input type="text" name="keyword">
 			<button class="btn btn-dark btn-sm">검색</button>
+			</form>
 		</div>
 
 		<div class="notice_area">
@@ -113,7 +114,6 @@ $(function(){
 						<th>등록일</th>
 						<th>조회수</th>
 						<th class="adminbtn">관리</th>     
-						<th class="adminnobtn"></th>     
 
 					</tr>
 				</thead>

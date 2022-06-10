@@ -19,6 +19,9 @@ public class TicketItem {
 	private String image;
 	private String movieRating;
 	private MovieImage movieImage;
+	
+	private int rnum;
+	
 	public String getTicketCode() {
 		return ticketCode;
 	}
@@ -120,6 +123,12 @@ public class TicketItem {
 	}
 	public void setMovieImage(MovieImage movieImage) {
 		this.movieImage = movieImage;
+	}
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
 
 }

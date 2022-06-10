@@ -24,6 +24,8 @@
       $(function(){
     	  const msg = '${msg}';
      	   if(msg) alert("모든 항목을 입력하여 주세요.");
+     	  document.getElementById('movieDate').value = new Date().toISOString().substring(0, 10);
+          document.getElementById('movieTime').value = new Date().toISOString().slice(11, 16);
       })
     </script>
     <style>
@@ -93,9 +95,9 @@
 		    	<label style="position: relative;top:30px;">영화명:</label> 
 			<input type="text" name="movieName" class="form-control" style="position: relative;left: 55px;">
 		  		<label style="position: relative;top: 30px;">날짜:</label>
-			<input type="date" name="movieDate"class="form-control" style="width:13%;position: relative;left: 55px;">
+			<input type="date" name="movieDate" id="movieDate" class="form-control" style="width:13%;position: relative;left: 55px;">
 		  		<label style="position: relative;top: 30px;">시간:</label>
-			<input type="time" name="movieTime"class="form-control" style="width:13%;position: relative;left: 55px;">
+			<input type="time" name="movieTime" id="movieTime" class="form-control" style="width:13%;position: relative;left: 55px;">
 				<label style="position: relative;top: 25px;">연령 선택:</label>
 			 <select name="movieRating" id="selectBox" class="form-control" style="padding-top:0;padding-bottom:0; width:13%;position: relative;left: 80px;">
        			<option value="전체">전체 이용가</option>

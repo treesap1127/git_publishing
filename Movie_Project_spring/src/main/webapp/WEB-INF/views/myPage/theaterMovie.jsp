@@ -122,7 +122,7 @@
 							<th>${item.theaterName}</th>
 							<th>${item.movieDate}</th>
 							<th>${item.movieTime}</th>
-							<th><a href="delete/${item.movieName}/${item.movieDate}/${item.movieTime}"><button class="btn btn-danger" >상영영화 삭제</button></a>
+							<th><a href="delete/${item.movieCode}"><button class="btn btn-danger" >상영영화 삭제</button></a>
 							</th>
 						</tr>
 				</c:forEach>

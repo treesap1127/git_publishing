@@ -132,8 +132,7 @@
           
           <div style="display:flex; width:100%;height:17%">
 			<div class="backbutton"><a href="../${data.cinemaCode}"><button class="btn btn-danger">뒤로 가기</button></a></div>
-			<div class="addbutton"><button onclick="theater_add()" class="btn btn-dark">상영관 등록하기</button></div>
-			
+			<div class="addbutton"><button onclick="warning()" class="btn btn-dark addth">상영관 등록하기</button></div>
 		<div class="sit_aph_num"></div>
         <!-- 숫자 생성 -->
           </div>

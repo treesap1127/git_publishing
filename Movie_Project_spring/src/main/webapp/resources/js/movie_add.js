@@ -93,7 +93,7 @@ $(function(){
                      success: ()=>{
 							alert(`${movieNm}영화 등록이 ${movieDate} ${movieTime}로 등록 되었습니다.`)
                      },
-                      error: (xhr, result) => console.log(`[실패]`)
+                      error: (xhr, result) => alert("모든 항목을 올바르게 입력해주세요")
                   });
 	})
 })

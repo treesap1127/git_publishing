@@ -1,4 +1,11 @@
-
+function warning(){
+	alert("좌석을 만들고 등록해주세요.");
+}
+$(function(){
+	$(".create_button").click(function(){
+		$(".addth").attr("onclick","theater_add()");
+	});
+})
 function sit_creat(){
 	line=$(".teenager_button>input").val();
 	row=$(".adult_button>input").val();
@@ -124,7 +131,7 @@ function theater_add(){
 				alert('상영관이 등록 되었습니다');
 				location.reload(true);
 			},
-           error: (xhr, result) => console.log(`[실패] print`)
+           error: (xhr, result) => alert("상영관 이름이 중복되었습니다")
        });
 }
 

@@ -117,7 +117,7 @@
       <div class="sit_check">
         	<div class="sit_text">제목 작성</div>
         	
-          	<div class="nametext"><input type="text" name="theaterName" value="${item.theaterName}" class="form-control nametext_val"></div>
+          	<div class="nametext"><input type="text" name="theaterName" value="${item.theaterName}" class="form-control nametext_val" readonly></div>
         </div>
       </div>
       

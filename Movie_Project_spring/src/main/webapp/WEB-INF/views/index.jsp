@@ -20,6 +20,10 @@
     	function user(){
     		alert("유저로 로그인하여 접속 해주세요.")
     	}
+    	window.onload = function(){
+    		   const msg = '${msg}';
+    		   if(msg) alert('회원가입이 완료 되었습니다!');
+    		};
     </script>
     <style>
        .title_plus_text{

@@ -14,8 +14,14 @@
 	window.onload = function(){
 		alert("${msg}");
 	}
+	
 </script>
 </c:if>
+<script>
+function findpw(){
+	alert("비밀번호를 찾으려면 관리자에게 문의 하세요");
+}
+</script>
 <style>
 .title_plus_text{
 	position: relative;
@@ -100,7 +106,7 @@
       </form>
 
         <div class="signup_link">
-          	<a href="/signup">회원가입</a>  <a href="/findid">아이디찾기</a>  <a href="/login" onclick="findpw()">비밀번호찾기(문의)</a>
+          	<a href="/signup">회원가입</a> <button onclick="findpw()"style="border:0;outline: 0">비밀번호찾기(문의)</button>
         </div>
       </div>
 		  

@@ -93,7 +93,7 @@ function joinform_check() {
   </div>
   <!--여기까지 기본 위 배너 입니다!-->
      <div class="center_box">
-      <div class="add_box">영화관 변경</div>
+      <div class="add_box">영화관 추가 신청</div>
       <form method="post" class="mt-4" style="width: 500px;position: relative;left: 50%;transform: translateX(-50%);">
       	  <input type="text" name="cinemaCode" class="form-control"  style="display:none" >
           <label>id</label>	
@@ -125,7 +125,7 @@ function joinform_check() {
           </div>      
         <div>        	
           <div class="add_setbutton">
-          <input type="submit" onclick="joinform_check();" class="btn btn-outline-primary"  value="수정하기" style="margin-right:40px;">
+          <input type="submit" onclick="joinform_check();" class="btn btn-outline-primary"  value="등록하기" style="margin-right:40px;">
           <a href="../../myPage/myCinema" class="btn btn-outline-primary">목록가기</a></div>						
         </div>     
       </form>

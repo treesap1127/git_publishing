@@ -42,7 +42,6 @@ public class NoticeController {
 		public String BoardList(Model model,Pager pager) {
 			List<Notice> list = service.list(pager);
 			model.addAttribute("list",list);
-			model.addAttribute("pager",pager);
 			return path+"BoardList";
 		}
 		

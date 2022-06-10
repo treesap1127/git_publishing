@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.kopo.movie_project.model.MovieAdmin;
 import kr.ac.kopo.movie_project.service.AdminService;
+import kr.ac.kopo.movie_project.service.MypageService;
 
 @Controller
 @RequestMapping("/webadmin")
@@ -53,5 +54,4 @@ public class WebAdminController {
 		service.cinemaUpdate(item);
 		return "redirect:../myCinema";
 	}
-	
 }

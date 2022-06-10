@@ -6,14 +6,13 @@
 
 	<select id="continue_Event" resultType="Event">
 		select *
-		from event
-		where STR_TO_DATE(end_date, '%Y-%m-%d')<![CDATA[ >= ]]>now()
+		from (select * from event where STR_TO_DATE(end_date, '%Y-%m-%d')<![CDATA[ >= ]]>now()) event
 		<include refid="search"></include>
+		
 	</select>
 		<select id="end_Event" resultType="Event">
 		select *
-		from event
-		where STR_TO_DATE(end_date, '%Y-%m-%d')<![CDATA[ < ]]>now()
+		from (select * from event where STR_TO_DATE(end_date, '%Y-%m-%d')<![CDATA[ < ]]>now()) event
 		<include refid="search"></include>
 	</select>
 	
@@ -41,13 +40,13 @@
 	<sql id="search">		
 		<where>
 			<if test="search==1">
-				event.eventId=#{keyword}
+				event.event_id LIKE CONCAT(CONCAT('%',#{keyword}),'%')
 			</if>
 			<if test="search==2">
-				event.eventName LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+				event.event_name LIKE CONCAT(CONCAT('%',#{keyword}),'%')
 			</if>			
 			<if test="search==3">
-				member.memberId=${keyword}
+				event.id=#{keyword}
 			</if>
 		</where>
 	</sql>

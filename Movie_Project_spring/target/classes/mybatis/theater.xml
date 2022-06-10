@@ -86,7 +86,7 @@
    </delete>
    <delete id="moviedelete"> 
    		DELETE FROM movie
-   		where cinema_code=#{cinemaCode} and movie_date=#{movieDate} and movie_name=#{movieName} and movie_time=#{movieTime} and theater_name=#{theaterName}
+   		where movie_code=#{movieCode}
    </delete>
  <update id="cancel"> 
  	update ticketing
@@ -99,4 +99,53 @@
    	where cinema_code=#{cinemaCode} and movie_date=#{movieDate} and movie_time=#{movieTime} and movie_name=#{movieName}
    </select>
 
+	<delete id="sitdelete"> 
+   		DELETE FROM sit_select
+   		where movie_code=#{movieCode}
+   </delete>
+
+	<delete id="ticketdelete"> 
+   		DELETE FROM ticketing
+   		where movie_code=#{movieCode}
+   </delete>
+   
+   <delete id="th_sitdelete"> 
+   		DELETE FROM sit_select
+   		where theater_name=#{theaterName}
+   </delete>
+
+	<delete id="th_ticketdelete"> 
+   		DELETE FROM ticketing
+   		where theater_name=#{theaterName}
+   </delete>
+   
+   <delete id="ci_sitdelete"> 
+   		DELETE FROM ticketing
+   		where cinema_code=#{cinemaCode}
+   </delete>
+   
+   <delete id="ci_ticketdelete"> 
+   		DELETE FROM ticketing
+   		where cinema_code=#{cinemaCode}
+   </delete>
+   
+   <select id="admincheck" resultType="Integer">
+   	select count(cinema_code)
+   	from movie_admin
+   	where id=#{id}
+   </select>
+	<update id="adminUpdate">
+		update member
+		set grade=1
+		where id=#{id}
+	</update>
+	<select id="ticketitem" resultType="Ticketing">
+		select *
+		from ticketing
+		where ticket_code=#{ticketCode}
+	</select>
+	<delete id="sitofdelete">
+		delete from sit_select
+		where movie_code=#{movieCode} and cinema_code=#{cinemaCode} and theater_name=#{theaterName} and id=#{id} and select_sit=#{sitCode}
+	</delete>
 </mapper>

@@ -31,17 +31,32 @@
 	
 		<interceptors>
 		<interceptor>
-			<mapping path="/board/*/article/**"/>
-			
-			<exclude-mapping path="/board/*/article/list"/>
+			<mapping path="/ticket/**"/>
+			<mapping path="/myPage/myPage/**"/>
+			<mapping path="/myPage/mymovie/**"/>
+			<mapping path="/serviceCenter/adminAdd/**"/>
 			<beans:bean class="kr.ac.kopo.movie_project.util.UserInterseptor"></beans:bean>
 		</interceptor>
 		<interceptor>
-			<mapping path="/board/*/article/**"/>
+			<mapping path="/webadmin/**"/>
+			<mapping path="/serviceCenter/FaqUpdate/**"/>
+			<mapping path="/serviceCenter/Faqdelete/**"/>
+			<mapping path="/serviceCenter/FaqAdd/**"/>
+			<mapping path="/serviceCenter/BoardUpdate/**"/>
+			<mapping path="/serviceCenter/BoardAdd/**"/>
+			<mapping path="/serviceCenter/delete/**"/>
+			<mapping path="/event/NoticeEventUpdate/**"/>
+			<mapping path="/event/NoticeEventUpdate/**"/>
+			<mapping path="/event/NoticeEventAdd/**"/>
+			<mapping path="/event/end_delete/**"/>
+			<mapping path="/event/delete/**"/>
 			<beans:bean class="kr.ac.kopo.movie_project.util.AdminInterceptor"></beans:bean>
 		</interceptor>
 		<interceptor>
-			<mapping path="/board/*/article/**"/>
+			<mapping path="/myPage/myCinema/**"/>
+			<mapping path="/myPage/cinemaUpdate/**"/>
+			<mapping path="/myPage/theateradd/**"/>
+			<mapping path="/myPage/theater/**"/>
 			<beans:bean class="kr.ac.kopo.movie_project.util.MovieInterceptor"></beans:bean>
 		</interceptor>
 	</interceptors>

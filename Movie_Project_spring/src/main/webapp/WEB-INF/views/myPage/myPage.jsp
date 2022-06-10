@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+   <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +28,7 @@
         });
         $(".cancel").click(function(){
         	ticket_code=$(this).attr("id");
+        	
         	ticketCode={ticketCode:ticket_code}
         	  if(confirm("예매를 취소하시겠습니까?. \n 환불은 3~5일내로 될 예정입니다.")){
             		$.ajax({
@@ -159,7 +161,14 @@
               <div>인원: <c:if test="${TicketItem.teenager ne 0}">청소년 ${TicketItem.teenager}&nbsp;</c:if> <c:if test="${TicketItem.adult ne 0}">성인 ${TicketItem.adult}&nbsp;</c:if></div>
               <div style="display: flex;justify-content: space-between;">
 	              <div>좌석: ${TicketItem.sitCode}</div>
-	              <button id="${TicketItem.ticketCode}"class="btn btn-danger cancel">예매 취소</button>
+	              
+	              <jsp:useBean id="today" class="java.util.Date" />
+					<fmt:formatDate value="${today}" pattern="yyyy-MM-dd" var="nowDate" />    
+					<fmt:parseDate var="bdate" value="${TicketItem.movieDate}" pattern="yyyy-MM-dd" />
+					<fmt:formatDate var="bdate" value="${bdate}" pattern="yyyy-MM-dd" />
+	              <c:if test="${nowDate lt bdate}">
+	              <button id="${TicketItem.ticketCode}"class="btn btn-danger cancel" style="margin-left: 250px">예매 취소</button>
+              	  </c:if>
               </div>
             </div>
           </div>
@@ -215,8 +224,8 @@
 		</c:if>
 		<c:forEach var="TicketItem" items="${TicketItem}">
 		<c:if test="${TicketItem.cancel eq '1'}">
-          <div class="fail_info">
-            <c:if test="${TicketItem.image ne null}">
+            <div class="fail_info ">
+            	<c:if test="${TicketItem.image ne null}">
 	          		<img src="${TicketItem.image}" class="complete_img" alt="">
 	        	</c:if>
 	        	<c:if test="${TicketItem.image eq null}">

@@ -40,7 +40,6 @@
 	}
 	function signup() {
 		const form = document.getElementById("signup_form");
-		const regx = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=()]).*$/;
 
 		if (form.checkId.value != form.id.value) { //여기서 값이 같은거 확인
 			alert("아이디 중복검사를 해 주세요");
@@ -58,25 +57,12 @@
 			form.passwd.focus();
 			return;
 		}
-		if (!regx.test(form.passwd.value)) {
-			alert("특수문자,문자,숫자 포함 형태의 8~15자리 이내로 쓰시오");
-			form.passwd.focus();
-			return;
-		}
+		  if(!regx.test(form.passwd.value)){
+   		   alert("특수문자,문자,숫자 포함 형태의 8~15자리 이내로 쓰시오");
+   		   form.passwd.focus();
+   		   return;
+   	   }
 
-		if (form.passwd_confirm.value == "") {
-			alert("비밀번호 확인를 입력 해 주세요");
-			form.passwd_confirm.focus();
-			return;
-		}
-
-		if (form.passwd.value != form.passwd_confirm.value) {
-			alert("비밀번호와 비밀번호 확인이 일치하지 않습니다");
-			form.passwd.value == "";
-			form.passwd_confirm.value == "";
-			form.passwd.focus();
-			return;
-		}
 		if (form.userName.value == "") {
 			alert("사용자 이름을 입력 해 주세요");
 			form.userName.focus();
@@ -175,34 +161,28 @@
        <form id="signup_form" method="post">
          <input type="hidden" name="checkId">
          <div class="txt_field">								
-           <input type="text" name="id" required>							
+           <input type="text" name="id" required >							
            <label>아이디:</label>		
            <span><button type="button" class="btn btn-light" onclick="check_id_Async()">중복확인</button></span>			
          </div>
          <div class="txt_field">
-           <input type="password" name="passwd" required>
-           <p>*(특수문자, 문자, 숫자 포함 형태의 8~15자리 이내)</p>
+           <input type="password" name="passwd" required >
            <span></span>							
            <label>비밀번호:</label>
-         </div>						
+         </div>	
          
          <div class="txt_field">				
-           <input type="password" name="passwd_confirm" required>
-           <span class="fore"></span>
-           <label>비밀번호 확인:</label>
-         </div>
-         <div class="txt_field">				
-           <input type="text" name="userName" required>
+           <input type="text" name="userName" required >
            <span></span>
            <label>사용자 이름:</label>
          </div>		
          <div class="txt_field">				
-           <input type="text" name="tel" required>
+           <input type="text" name="tel"  required>
            <span></span>
            <label>전화번호:</label>
          </div>  
          <div class="txt_field">				
-           <input type="text" name="email" required>
+           <input type="text" name="email" required >
            <span></span>
            <label>이메일:</label>
          </div>

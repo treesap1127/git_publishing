@@ -19,13 +19,9 @@ public class MovieInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 		System.out.println("MovieInterseptor : False");
-		if(member.getGrade()<2)
-			response.sendRedirect("/");
-		else {
 			String query=request.getQueryString();
 			session.setAttribute("target", request.getRequestURI()+(query != null ? "?" + query:"" ));
 			response.sendRedirect("/login");
-		}
 		return false;
 	}
 }

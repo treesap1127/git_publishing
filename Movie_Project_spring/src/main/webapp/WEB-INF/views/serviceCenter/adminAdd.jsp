@@ -18,15 +18,6 @@ window.onload = function(){
 	   const msg = '${msg}';
 	   if(msg) alert('모든 항목을 입력해주세요!');
 	};
-function joinform_check() {
-	
-	phoneNumber=$("#tel").val();
-	if (!/^[0-9]{3}-[0-9]{3,4}-[0-9]{4}/.test(phoneNumber)){
-	    alert("숫자, -을 포함해 휴대전화 형식에 맞게 입력해주세요.");
-	    return false;
-	  }
-	form.submit();
-}
 </script>
 <!--  -->
 <style>
@@ -125,7 +116,7 @@ function joinform_check() {
           </div>      
         <div>        	
           <div class="add_setbutton">
-          <input type="submit" onclick="joinform_check();" class="btn btn-outline-primary"  value="수정하기" style="margin-right:40px;">
+          <input type="submit" onclick="joinform_check();" class="btn btn-outline-primary"  value="등록하기" style="margin-right:40px;">
           <a href="../../myPage/myCinema" class="btn btn-outline-primary">목록가기</a></div>						
         </div>     
       </form>

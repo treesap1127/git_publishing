@@ -49,5 +49,25 @@ public interface MypageDao {
 
 	int moviecode(Movie item);
 
+	void sitdelete(Movie item);
+
+	void ticketdelete(Movie item);
+
+	void th_sitdelete(String theaterName);
+
+	void th_ticketdelete(String theaterName);
+
+	int admincheck(String id);
+
+	void adminUpdate(String id);
+
+	void ci_sitdelete(String cinemaCode);
+
+	void ci_ticketdelete(String cinemaCode);
+
+	Ticketing ticketitem(Ticketing item);
+
+	void sitdelete(Ticketing list);
+
 
 }

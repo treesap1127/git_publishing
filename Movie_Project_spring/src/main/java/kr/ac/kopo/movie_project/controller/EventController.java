@@ -32,14 +32,12 @@ public class EventController {
 		List<Event> list = service.continue_Event(pager);
 		service.viewcnt(item);
 		model.addAttribute("list",list);		
-		
 		return path+"continue_Event";
 	}	
 	
 	@GetMapping("/end_Event")
 	public String end_Event(Model model,Pager pager) {
 		List<Event> list = service.end_Event(pager);		
-		
 		model.addAttribute("list",list);		
 		
 		return path+"end_Event";

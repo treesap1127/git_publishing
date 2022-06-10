@@ -46,7 +46,6 @@ public class MypageController {
 		List<TicketItem> TicketItem =service.myticket(id);//ticket 담아옴
 		//ticketitem에 다 넣어서 보냅시다.
 		System.out.println(TicketItem.size());
-		
 		model.addAttribute("TicketItem", TicketItem);
 		return path+"myPage";
 	}
@@ -61,7 +60,7 @@ public class MypageController {
 	public String mygrade() {
 		return path+"myGrade";
 	}
-	@GetMapping("myCinema")//마이페이지(고객)
+	@GetMapping("myCinema")//마이페이지(영화관리자)
 	public String myCinema(Model model,HttpSession session,Member member) {
 		member=(Member) session.getAttribute("member");
 		String id=member.getId();
@@ -82,7 +81,7 @@ public class MypageController {
 		return "redirect:../myCinema";
 	}
 	
-	@GetMapping("theater/{cinemaCode}")//마이페이지(영화관)
+	@GetMapping("theater/{cinemaCode}")//마이페이지(상영관)
 	public String theater(@PathVariable String cinemaCode,Model model,MovieAdmin item) {
 		item.setCinemaCode(cinemaCode);
 		model.addAttribute("data",item);
@@ -124,8 +123,9 @@ public class MypageController {
 		return "redirect:../../{cinemaCode}";
 	}
 	@GetMapping("delete/{cinemaCode}")
-	public String delete(@PathVariable String cinemaCode) {
-		service.delete(cinemaCode);
+	public String delete(@PathVariable String cinemaCode,HttpSession session) {
+		String id=(String) session.getAttribute("id");
+		service.delete(cinemaCode,id);
 		return "redirect:../myCinema";
 	}
 	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/movie")
@@ -167,34 +167,42 @@ public class MypageController {
 			item.setMovieImage(image);
 		}
 		 catch (Exception e) {
-			 
 			 return "redirect:Minoradd";
 			}
-		service.Minoradd(item);
+		System.out.println(item.getMovieDate()+"++++"+item.getMovieTime());
+		if(item.getMovieDate()==""&& item.getMovieTime()=="") {
+			return "redirect:Minoradd";
+		}
+			service.movieadd(item);
+			
 		return "redirect:movie";
 	}
 		
-	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/delete/{movieName}/{movieDate}/{movieTime}")
-	public String moviedelete(@PathVariable String cinemaCode,@PathVariable String theaterName,@PathVariable String movieName,@PathVariable String movieDate,@PathVariable String movieTime) {
+	@GetMapping("theater/cinemaMovie/{cinemaCode}/{theaterName}/delete/{movieCode}")
+	public String moviedelete(@PathVariable String cinemaCode,@PathVariable String theaterName,@PathVariable int movieCode) {
 		Movie item =new Movie();
 		item.setCinemaCode(cinemaCode);
-		item.setMovieDate(movieDate);
-		item.setMovieName(movieName);
-		item.setMovieTime(movieTime);
 		item.setTheaterName(theaterName);
+		item.setMovieCode(movieCode);
 		service.moviedelete(item);
-		return "redirect:../../../movie";
+		return "redirect:../movie";
 	}
 	@ResponseBody
 	@PostMapping("theater/cinemaMovie/movieadd")
-	public Object movieadd(@RequestBody Movie item) {
-		service.movieadd(item);
+	public Movie movieadd(@RequestBody Movie item) throws Exception {
+		try {
+			service.movieadd(item);
+		} catch (Exception e) {
+			Exception e1 = new Exception("고의로 발생시켰음");
+			 throw  e1;
+		}
 		return item;
 	}
 	@ResponseBody
 	@PostMapping("cancel")
 	public String cancel(@RequestBody Ticketing item) {
 		String bool=service.cancel(item);
+		
 		return bool;
 	}
 	@GetMapping("/theateradd")

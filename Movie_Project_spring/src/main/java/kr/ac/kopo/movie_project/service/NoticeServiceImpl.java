@@ -15,6 +15,8 @@ public class NoticeServiceImpl implements NoticeService {
 	NoticeDao dao;
 	@Override
 	public List<Notice> list(Pager pager) {
+		int total = dao.total(pager);
+		pager.setTotal(total);
 		return dao.list(pager);
 	}
 

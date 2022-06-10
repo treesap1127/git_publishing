@@ -49,8 +49,11 @@
 <script>
 $(function(){
 	if(${sessionScope.member.grade}<10){
-	$(".adminbtn").css("display","none");		
+	$(".adminbtn").css("display","none");
 	}
+	if(${sessionScope.member.grade}>=10){
+		$(".down_img").css("left","50px");
+		}
 });
 </script>
 <style>

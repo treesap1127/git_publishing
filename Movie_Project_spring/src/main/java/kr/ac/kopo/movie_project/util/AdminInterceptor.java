@@ -19,13 +19,9 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 		System.out.println("AdminInterseptor : False");
-		if(member.getGrade()<10)
-			response.sendRedirect("/");
-		else {
 			String query=request.getQueryString();
 			session.setAttribute("target", request.getRequestURI()+(query != null ? "?" + query:"" ));
 			response.sendRedirect("/login");
-		}
 		return false;
 	}
 }

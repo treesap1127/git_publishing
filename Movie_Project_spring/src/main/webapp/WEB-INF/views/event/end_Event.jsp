@@ -90,7 +90,7 @@ $(function(){
       <div class="event_list_box">
       <div>
 		<form>		
-			<select id="search">
+			<select name="search">
 				<option value="0">전체</option>
 				<option value="1">이벤트번호</option>
 				<option value="2">이벤트제목</option>

@@ -23,7 +23,7 @@ public interface MypageService {
 
 	void theater_delete(String cinemaCode, String theaterName);
 
-	void delete(String cinemaCode);
+	void delete(String cinemaCode, String id);
 
 	List<Movie> movielist(HashMap<String, Object> map);
 

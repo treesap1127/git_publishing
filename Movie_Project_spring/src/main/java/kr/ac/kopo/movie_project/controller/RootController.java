@@ -76,7 +76,7 @@ public class RootController {
 	@PostMapping("/signup")
 	public String signup(Member member,RedirectAttributes ra) {
 		memberservice.add(member);
-		ra.addFlashAttribute("msg", "회원가입이 완료되었습니다");
+		ra.addFlashAttribute("msg", "true");
 		return "redirect:.";
 	}
 	@ResponseBody
@@ -94,10 +94,6 @@ public class RootController {
 		return "redirect:.";
 	}
 	
-	@GetMapping("/findid")
-	public String findid() {
-		return path+"findid";
-	}
 	@GetMapping("/movie_info/NowPlayRank")
 	public String NowPlayRank() {
 		return "movie_info/NowPlayRank";

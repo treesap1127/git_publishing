@@ -10,7 +10,7 @@
    
    <insert id="add">
       INSERT INTO member
-      VALUES(#{id}, PASSWORD(#{passwd}),#{userName},#{tel},#{email},1,NULL)
+      VALUES(#{id}, PASSWORD(#{passwd}),#{userName},#{tel},#{email},1)
    </insert>
 <select id="check_id" resultType="Integer">
    select count(*)

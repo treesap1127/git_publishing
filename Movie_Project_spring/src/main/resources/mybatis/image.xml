@@ -11,5 +11,15 @@
 		DELETE FROM movie_image
 		WHERE movie_code=#{movieCode}
 	</delete>
+	
+	<delete id="th_delete">
+		DELETE FROM movie_image
+		WHERE theater_name=#{theaterName}
+	</delete>
+	
+	<delete id="ci_delete">
+		DELETE FROM movie_image
+		WHERE cinema_code=#{cinemaCode}
+	</delete>
 </mapper>
 

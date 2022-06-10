@@ -142,7 +142,6 @@
 							<th>${item.tel}</th>
 							<th>
 								<a href="cinemaUpdate/${item.cinemaCode}" class="btn btn-outline-primary" style="margin-right: 10px;">영화관 권한 편집</a>
-								<a href="여기에 영화관 삭제 ㄱ" class="btn btn-outline-danger" style="margin-right: 10px;">영화관 관리 권한 삭제</a>
 							</th>
 						</tr>
 				</c:forEach>

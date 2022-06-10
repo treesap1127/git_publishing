@@ -29,8 +29,10 @@
           $(".ticket_sale").css('display','none');
           $(".ticket_sale_").css('display','block');
         });
-        
+        document.getElementById('movieDate').value = new Date().toISOString().substring(0, 10);
+        document.getElementById('movieTime').value = new Date().toISOString().slice(11, 16);
       });
+      
     </script>
     <script src="../../../../../../js/movie_add.js"></script>
     <style>
@@ -98,9 +100,9 @@
 		    <label>영화명:</label> 
 			<div class="movieNm namebox"></div>
 		  	<label>날짜:</label>
-			<input type="date" name="movieDate">
+			<input type="date" name="movieDate" id="movieDate">
 		  	<label>시간:</label>
-			<input type="time" name="movieTime">
+			<input type="time" name="movieTime" id="movieTime">
 			<input type="text" class="imagebox" name="image" style="display:none;">
 			<input type="text" class="movie_rating" name="movieRating" style="display:none;">
 		</div>
