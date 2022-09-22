@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="image">
+	<insert id="add">
+	INSERT INTO movie_image
+	VALUES(NULL,#{movieCode},#{cinemaCode},#{theaterName}, #{filename},#{UUID})
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM movie_image
+		WHERE movie_code=#{movieCode}
+	</delete>
+	
+	<delete id="th_delete">
+		DELETE FROM movie_image
+		WHERE theater_name=#{theaterName}
+	</delete>
+	
+	<delete id="ci_delete">
+		DELETE FROM movie_image
+		WHERE cinema_code=#{cinemaCode}
+	</delete>
+</mapper>
+

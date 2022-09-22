@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Notice">
+	<select id="list" resultType="Notice">
+		SELECT * FROM notice
+		<include refid="search"></include>
+	</select>
+	
+	<select id="notice" resultType="Notice">
+		SELECT * FROM notice
+		limit 0, 5
+		<include refid="search"></include>
+	</select>
+		<select id="faq" resultType="Faq">
+		SELECT * FROM faq
+		limit 0, 5
+	</select>
+	<insert id="add">
+		INSERT INTO notice
+		VALUES (null,#{subject},#{id},DATE_FORMAT(NOW(),'%Y-%m-%d'), #{contents}, #{viewCount})
+	</insert>
+	
+	<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM notice
+		<include refid="search"></include>
+	</select>
+	
+	
+	<select id="item" resultType="Notice">
+		SELECT * FROM notice
+		WHERE article_id=#{articleId}
+	</select>
+	
+	<update id="update">
+		UPDATE notice
+		SET subject=#{subject}, contents=#{contents}
+		WHERE article_id=#{articleId}
+	</update>
+	<update id="viewCount">
+		UPDATE notice
+		SET view_count=view_count+1
+		WHERE article_id=#{articleId}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM notice
+		WHERE article_id=#{articleId}
+	</delete>
+	
+	
+	<sql id="search">
+		<where>
+			<if test="search==1">
+				notice.subject LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>
+			<if test="search==3">
+				notice.reg_date LIKE CONCAT(CONCAT('%',#{keyword}),'%')
+			</if>			
+			<if test="search==2">
+				notice.id=#{keyword}
+			</if>
+		</where>
+	</sql>
+</mapper>
